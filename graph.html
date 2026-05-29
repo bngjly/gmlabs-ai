@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>AI 产业链全景图谱 · 可扩展版</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif; margin: 0; background: #0f1419; color: #e6e6e6; line-height: 1.5; }
+header { padding: 14px 24px; background: linear-gradient(180deg,#1a2230,#151c28); border-bottom: 1px solid #2a3548; position: sticky; top: 0; z-index: 50; }
+.head-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+header h1 { margin: 0; font-size: 20px; color: #4fc3f7; }
+.controls { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+.controls input, .controls button { background: #222e3e; color: #e6e6e6; border: 1px solid #3a4860; padding: 6px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; outline: none; }
+.controls button:hover { background: #2d3b50; border-color: #4fc3f7; }
+.controls input { width: 220px; cursor: text; }
+.legend { font-size: 12px; color: #9aa5b1; display: flex; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; }
+.t-core { background: #d32f2f; color: #fff; }
+.t-watch { background: #f59e0b; color: #000; }
+.t-comp { background: #455a75; color: #cde; }
+.t-cn { background: #166534; color: #fff; }
+main { padding: 20px; max-width: 1500px; margin: 0 auto; }
+.node { margin: 8px 0; }
+.node-header { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #1c2632; border: 1px solid #2a3548; border-radius: 8px; cursor: pointer; transition: .15s; user-select: none; }
+.node-header:hover { background: #243245; border-color: #4fc3f7; }
+.layer-1 { border-left: 5px solid #ef4444; }
+.layer-2 { border-left: 5px solid #f59e0b; }
+.layer-3 { border-left: 5px solid #eab308; }
+.layer-4 { border-left: 5px solid #22c55e; }
+.layer-5 { border-left: 5px solid #06b6d4; }
+.layer-6 { border-left: 5px solid #3b82f6; }
+.layer-7 { border-left: 5px solid #8b5cf6; }
+.layer-8 { border-left: 5px solid #ec4899; }
+.layer-9 { border-left: 5px solid #94a3b8; }
+.layer-10 { border-left: 5px solid #14b8a6; }
+.layer-99 { border-left: 5px solid #64748b; }
+.toggle { width: 16px; text-align: center; color: #4fc3f7; font-weight: bold; font-size: 12px; }
+.node-title { font-weight: 600; font-size: 15px; }
+.node-desc { color: #9aa5b1; font-size: 12px; margin-left: auto; font-weight: 400; }
+.node-body { padding: 12px 14px 14px 34px; border-left: 2px dashed #2a3548; margin-left: 18px; }
+.sub-section-title { font-size: 12px; color: #9aa5b1; margin: 10px 0 6px; text-transform: uppercase; letter-spacing: 1px; }
+.companies { display: flex; flex-wrap: wrap; gap: 8px; }
+.company { position: relative; background: #222e3e; border: 1px solid #3a4860; padding: 6px 10px; border-radius: 6px; font-size: 13px; min-width: 90px; transition: .15s; }
+.company:hover { background: #2d3b50; border-color: #4fc3f7; }
+.company.core { border-color: #ef4444; background: #3a1f24; }
+.company.watch { border-color: #f59e0b; background: #3a2f1a; }
+.company .ticker { font-weight: 700; color: #4fc3f7; font-size: 13px; }
+.company .cn-name { color: #ddd; font-size: 12px; margin-left: 4px; }
+.company .role { color: #9aa5b1; font-size: 11px; display: block; margin-top: 2px; }
+.company .del { position: absolute; top: 2px; right: 4px; color: #ef4444; font-size: 12px; cursor: pointer; opacity: 0; }
+.company:hover .del { opacity: 1; }
+.actions { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.btn-sm { background: #1c2632; color: #4fc3f7; border: 1px dashed #4fc3f7; padding: 4px 10px; border-radius: 5px; font-size: 12px; cursor: pointer; }
+.btn-sm:hover { background: #243245; }
+.btn-del { color: #ef4444; border-color: #ef4444; }
+.collapsed > .node-body { display: none; }
+.collapsed > .node-header .toggle::before { content: '▶'; }
+.expanded > .node-header .toggle::before { content: '▼'; }
+.modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,.7); display: none; align-items: center; justify-content: center; z-index: 100; }
+.modal-bg.show { display: flex; }
+.modal { background: #1c2632; padding: 24px; border-radius: 10px; min-width: 380px; max-width: 520px; border: 1px solid #3a4860; }
+.modal h3 { margin: 0 0 16px; color: #4fc3f7; }
+.modal input, .modal textarea, .modal select { width: 100%; background: #0f1419; color: #e6e6e6; border: 1px solid #3a4860; padding: 8px 10px; border-radius: 6px; margin-bottom: 10px; font-size: 13px; font-family: inherit; }
+.modal label { font-size: 12px; color: #9aa5b1; display: block; margin: 6px 0 4px; }
+.modal-row { display: flex; gap: 10px; }
+.modal-row > div { flex: 1; }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 12px; }
+.modal button { background: #4fc3f7; color: #000; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.modal button.secondary { background: #455a75; color: #fff; }
+.hint { font-size: 11px; color: #6b7785; margin-top: 8px; padding: 8px; background: #0f1419; border-radius: 4px; border-left: 2px solid #4fc3f7; }
+.hidden { display: none !important; }
+.stat-bar { font-size: 11px; color: #9aa5b1; padding: 6px 0; }
+</style>
+</head>
+<body>
+<header>
+  <div class="head-row">
+    <h1>🧠 AI 产业链全景图谱</h1>
+    <div class="controls">
+      <input id="search" placeholder="🔍 搜索公司代码 / 中文名 / 技术..." oninput="applySearch()" />
+      <button onclick="expandAll()">全部展开</button>
+      <button onclick="collapseAll()">全部折叠</button>
+      <button onclick="exportData()">导出 JSON</button>
+      <button onclick="document.getElementById('importFile').click()">导入 JSON</button>
+      <input id="importFile" type="file" accept=".json" style="display:none" onchange="importData(event)" />
+      <button onclick="resetData()" style="border-color:#ef4444;color:#ef4444">重置默认</button>
+    </div>
+  </div>
+  <div class="legend">
+    <span><span class="tag t-core">核心</span> 卡脖子龙头</span>
+    <span><span class="tag t-watch">自选</span> 你已关注</span>
+    <span><span class="tag t-comp">相关</span> 主供/竞争者</span>
+    <span><span class="tag t-cn">中国</span> A 股 / 港股</span>
+    <span class="stat-bar" id="stat"></span>
+  </div>
+</header>
+<main id="tree"></main>
+
+<div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modalInner"></div>
+</div>
+
+<script>
+// ============= 默认数据：AI 产业链 10 层 =============
+const DEFAULT_DATA = {
+  id: 'root', name: 'AI 产业链全景', layer: 0, expanded: true, children: [
+    {
+      id: 'L1', name: '① 算力芯片 GPU / XPU', layer: 1, expanded: true,
+      desc: '大脑：执行矩阵乘法 / 张量运算',
+      companies: [
+        { t: 'NVDA', cn: '英伟达', role: 'GPU 绝对霸主 Blackwell/Rubin', flag: 'core' },
+        { t: 'AMD', cn: 'AMD', role: 'MI300/MI400 唯一挑战者', flag: 'comp' },
+        { t: 'AVGO', cn: '博通', role: 'Google TPU / Meta MTIA 代工', flag: 'core' },
+        { t: 'MRVL', cn: '迈威尔', role: 'AWS Trainium 合作 / 定制 ASIC', flag: 'watch' },
+        { t: 'INTC', cn: '英特尔', role: 'Gaudi 边缘玩家', flag: 'comp' },
+      ],
+      children: [
+        { id:'L1a', name:'GPU 双雄（训练算力主战场）', layer:1, expanded:true,
+          desc:'Blackwell vs MI300/400，2026 才是 MI 真正放量年',
+          companies:[
+            { t:'NVDA', cn:'英伟达', role:'Blackwell B200/GB300 + Rubin', flag:'core' },
+            { t:'AMD', cn:'AMD', role:'MI300X/MI355X/MI400 唯一对手', flag:'core' },
+            { t:'INTC', cn:'Intel Gaudi', role:'Gaudi3 边缘，份额微弱', flag:'comp' },
+          ]
+        },
+        { id:'L1b', name:'定制 ASIC（云厂自研 + 设计代工）', layer:1, expanded:true,
+          desc:'Hyperscaler 都要自研，AVGO/MRVL/Alchip 是真正赢家',
+          companies:[
+            { t:'AVGO', cn:'博通', role:'Google TPU + Meta MTIA + OpenAI ASIC', flag:'core' },
+            { t:'MRVL', cn:'迈威尔', role:'AWS Trainium + 微软 Maia 合作', flag:'core watch' },
+            { t:'6533.TW', cn:'Alchip 世芯', role:'ASIC 代设计纯标的', flag:'core' },
+            { t:'3661.TW', cn:'Socionext / 創意 GUC', role:'TSM 系 ASIC 设计', flag:'comp' },
+            { t:'GOOGL', cn:'TPU v6/v7', role:'自研 v6/v7', flag:'comp' },
+            { t:'AMZN', cn:'Trainium2/3', role:'AWS 自研', flag:'comp' },
+            { t:'META', cn:'MTIA v2', role:'AVGO 代工', flag:'comp' },
+            { t:'MSFT', cn:'Maia 100/200', role:'微软自研', flag:'comp' },
+            { t:'OpenAI', cn:'OpenAI ASIC', role:'AVGO 合作，2026 流片', flag:'comp' },
+          ]
+        },
+        { id:'L1c', name:'🆕 CPU（数据中心通用算力）', layer:1, expanded:true,
+          desc:'Arm 服务器份额从 10% → 30% 是确定趋势',
+          companies:[
+            { t:'INTC', cn:'Intel Xeon', role:'传统霸主，市场份额流失', flag:'comp' },
+            { t:'AMD', cn:'AMD EPYC', role:'数据中心 CPU 份额 50%+', flag:'core' },
+            { t:'ARM', cn:'Arm Holdings', role:'IP 授权 + Neoverse 服务器架构', flag:'core' },
+            { t:'NVDA', cn:'Grace CPU', role:'GH200/GB200 配套', flag:'core' },
+            { t:'AMPRE', cn:'Ampere (未上市)', role:'Arm 服务器 CPU', flag:'comp' },
+            { t:'AAPL', cn:'Apple Silicon', role:'M 系列自研', flag:'comp' },
+          ]
+        },
+        { id:'L1d', name:'🆕 边缘 NPU / AI PC / 端侧推理', layer:1, expanded:true,
+          desc:'端侧推理 2025+ 二次革命，AI PC 渗透率 25%→70%',
+          companies:[
+            { t:'QCOM', cn:'高通', role:'Snapdragon X Elite NPU 龙头', flag:'core' },
+            { t:'AAPL', cn:'苹果 A/M 系列', role:'端侧 AI 最强 NPU', flag:'core' },
+            { t:'INTC', cn:'Core Ultra', role:'Lunar Lake NPU', flag:'comp' },
+            { t:'AMD', cn:'Ryzen AI', role:'AI PC NPU', flag:'comp' },
+            { t:'MTK', cn:'联发科', role:'手机端 + 智驾', flag:'comp' },
+          ]
+        },
+        { id:'L1e', name:'🆕 光子 AI 芯片（颠覆性新势力）', layer:1, expanded:true,
+          desc:'用光子代替电子做矩阵乘法，功耗降 100 倍，2027+ 可能颠覆',
+          companies:[
+            { t:'Lightmatter', cn:'Lightmatter (未上市)', role:'硅光 AI 计算独角兽', flag:'core' },
+            { t:'Lightelligence', cn:'曦智科技 (未上市)', role:'光电混合 AI', flag:'comp' },
+            { t:'Celestial', cn:'Celestial AI (未上市)', role:'光互联 + 计算', flag:'comp' },
+            { t:'POET', cn:'POET Technologies', role:'已上市光引擎玩家', flag:'comp' },
+            { t:'Ayar', cn:'Ayar Labs (未上市)', role:'Intel 投资光互联', flag:'comp' },
+          ]
+        },
+        { id:'L1f', name:'🆕 量子 / 类脑 / 神经形态（远期布局）', layer:1, expanded:true,
+          desc:'2030+ 的故事，目前主题股属性强',
+          companies:[
+            { t:'IBM', cn:'IBM Quantum', role:'量子领跑者', flag:'comp' },
+            { t:'IONQ', cn:'IonQ', role:'离子阱量子', flag:'comp' },
+            { t:'RGTI', cn:'Rigetti', role:'超导量子', flag:'comp' },
+            { t:'QBTS', cn:'D-Wave', role:'量子退火', flag:'comp' },
+            { t:'QUBT', cn:'Quantum Computing', role:'光量子', flag:'comp' },
+            { t:'BBAI', cn:'BigBear AI', role:'决策 AI', flag:'comp' },
+          ]
+        },
+        { id:'L1g', name:'🆕 中国 AI 芯片（国产替代核心）', layer:1, expanded:true,
+          desc:'禁运下国产 GPU/NPU 估值不锚美股逻辑',
+          companies:[
+            { t:'688256.SS', cn:'寒武纪', role:'A 股 AI 芯片旗手', flag:'cn core' },
+            { t:'688041.SS', cn:'海光信息', role:'GPGPU + CPU 双轮', flag:'cn core' },
+            { t:'Huawei', cn:'华为昇腾 (未上市)', role:'国产算力旗舰 910B/910C', flag:'cn' },
+            { t:'摩尔线程', cn:'摩尔线程 (待上市)', role:'国产 GPU', flag:'cn' },
+            { t:'壁仞', cn:'壁仞 (未上市)', role:'国产高端 GPU', flag:'cn' },
+            { t:'9660.HK', cn:'地平线机器人', role:'智驾 NPU', flag:'cn' },
+            { t:'688798.SS', cn:'艾为电子 等', role:'端侧 AI', flag:'cn' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L2', name: '② HBM / 存储', layer: 2, expanded: true,
+      desc: '记忆：贴在 GPU 旁的高带宽内存',
+      companies: [
+        { t: 'MU', cn: '美光', role: 'HBM3E 12-Hi 已进 NVDA 供应链', flag: 'core watch' },
+        { t: '000660.KS', cn: 'SK Hynix', role: 'HBM 份额第一 ~50%', flag: 'core' },
+        { t: '005930.KS', cn: '三星电子', role: 'HBM3E 良率追赶中', flag: 'comp' },
+      ],
+      children: [
+        { id:'L2a', name:'HBM 三巨头（HBM3E / HBM4 主战场）', layer:2, expanded:true,
+          desc:'HBM4 进入 hybrid bonding 时代，台积电做 Base Die',
+          companies:[
+            { t:'MU', cn:'美光', role:'HBM3E 12-Hi 进 NVDA，HBM4 追赶', flag:'core watch' },
+            { t:'000660.KS', cn:'SK Hynix', role:'HBM4 已样片，份额 ~50%', flag:'core' },
+            { t:'005930.KS', cn:'三星电子', role:'HBM3E 良率痛苦追赶', flag:'comp' },
+            { t:'TSM', cn:'台积电', role:'HBM4 Base Die 代工方', flag:'core' },
+          ]
+        },
+        { id:'L2b', name:'🆕 HBM 键合设备 / 先进封装设备', layer:2, expanded:true,
+          desc:'HBM4 16-Hi 必须用混合键合 (Hybrid Bonding)，BESI 几乎垄断',
+          companies:[
+            { t:'BESI.AS', cn:'BE Semiconductor', role:'混合键合机全球独家', flag:'core' },
+            { t:'ASM.AS', cn:'ASM International', role:'ALD 原子层沉积 + 键合', flag:'core' },
+            { t:'AMAT', cn:'应用材料', role:'HBM 沉积工艺', flag:'core' },
+            { t:'KLAC', cn:'KLA 科磊', role:'HBM 缺陷量测', flag:'core' },
+            { t:'6857.T', cn:'Advantest', role:'HBM 测试机独家', flag:'core' },
+            { t:'TER', cn:'Teradyne', role:'测试机第二供应商', flag:'comp' },
+            { t:'6920.T', cn:'Lasertec', role:'EUV 光罩检测', flag:'comp' },
+          ]
+        },
+        { id:'L2c', name:'🆕 内存接口 IC / CXL 控制器', layer:2, expanded:true,
+          desc:'DDR5 必装 RCD/DB；CXL 把内存变成"池子"共享',
+          companies:[
+            { t:'688008.SS', cn:'澜起科技 Montage', role:'DDR5 RCD 全球三巨头之一', flag:'cn core' },
+            { t:'RMBX.OB', cn:'Rambus', role:'内存接口 IP + RCD', flag:'core' },
+            { t:'ALAB', cn:'Astera Labs', role:'Leo CXL 内存控制器', flag:'core watch' },
+            { t:'MRVL', cn:'迈威尔', role:'CXL 切入者', flag:'watch' },
+            { t:'MU', cn:'美光', role:'CXL 内存模组', flag:'watch' },
+          ]
+        },
+        { id:'L2d', name:'企业级 SSD / NAND（QLC 革命）', layer:2, expanded:true,
+          desc:'QLC 60TB SSD 单价跌破 HDD，替代节奏加速',
+          companies:[
+            { t:'SNDK', cn:'闪迪 SanDisk', role:'WDC 分拆，QLC AI 推理盘', flag:'watch' },
+            { t:'285A.T', cn:'Kioxia 铠侠', role:'NAND 全球前三，刚 IPO', flag:'comp' },
+            { t:'PSTG', cn:'Pure Storage', role:'DFM 替代 HDD 路线', flag:'core' },
+            { t:'NTAP', cn:'NetApp', role:'企业全闪存', flag:'comp' },
+            { t:'VRT', cn:'(部分)', role:'存储基础设施', flag:'comp' },
+          ]
+        },
+        { id:'L2e', name:'HDD 冷存储 / 数据湖（HAMR 新故事）', layer:2, expanded:true,
+          desc:'AI 训练数据爆炸，30TB+ HAMR 盘单位 GB 成本依然最低',
+          companies:[
+            { t:'STX', cn:'希捷', role:'HAMR 36TB 已量产，独家技术', flag:'core watch' },
+            { t:'WDC', cn:'西部数据', role:'分拆后纯 HDD，估值修复', flag:'core' },
+            { t:'TDK.T', cn:'TDK', role:'HDD 磁头核心供应商', flag:'comp' },
+          ]
+        },
+        { id:'L2f', name:'存储控制器 / 主控 IC', layer:2, expanded:true,
+          desc:'SSD 灵魂——控制器决定耐久度和性能',
+          companies:[
+            { t:'8299.TWO', cn:'Phison 群联', role:'SSD 主控份额第一', flag:'core' },
+            { t:'SIMO', cn:'慧荣科技 Silicon Motion', role:'SSD 主控第二', flag:'comp' },
+            { t:'MRVL', cn:'迈威尔', role:'Bravera 企业级主控', flag:'watch' },
+            { t:'003220.KS', cn:'Solidigm (SK)', role:'SK Hynix 旗下，企业级 SSD', flag:'comp' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L3', name: '③ 先进封装 / 中介层', layer: 3, expanded: true,
+      desc: '胶水：把 GPU 和 HBM 焊在同一块硅片上',
+      companies: [
+        { t: 'TSM', cn: '台积电', role: 'CoWoS / SoIC 独家产能', flag: 'core' },
+        { t: '2454.TW', cn: '联发科', role: 'ASIC 设计协同', flag: 'comp' },
+      ],
+      children: [
+        { id:'L3a', name:'OSAT 后段封测', layer:3, expanded:true,
+          desc:'CoWoS 之外的全球封测产能',
+          companies:[
+            { t:'ASX', cn:'日月光', role:'OSAT 全球第一，CoWoS 二供候选', flag:'core watch' },
+            { t:'AMKR', cn:'Amkor', role:'美国本土 CoWoS 候选（TSM 亚利桑那合作）', flag:'core' },
+            { t:'JCET', cn:'长电科技', role:'A 股封测龙头', flag:'cn' },
+            { t:'TFME', cn:'通富微电', role:'AMD 主供封测', flag:'cn' },
+            { t:'002185.SZ', cn:'华天科技', role:'A 股封测三剑客', flag:'cn' },
+          ]
+        },
+        { id:'L3b', name:'中介层 / TSV 硅穿孔', layer:3, expanded:true,
+          desc:'GPU 和 HBM 之间的"高速公路"',
+          companies:[
+            { t:'UMC', cn:'联电', role:'硅中介层代工', flag:'comp' },
+            { t:'GFS', cn:'GlobalFoundries', role:'特殊工艺中介层', flag:'comp' },
+            { t:'TSM', cn:'台积电', role:'CoWoS-S 中介层独家', flag:'core' },
+          ]
+        },
+        { id:'L3c', name:'🆕 CoWoS / SoIC 三代路线', layer:3, expanded:true,
+          desc:'CoWoS-S (硅中介层) → CoWoS-L (LSI 桥) → CoWoS-R (RDL 再分布层)',
+          companies:[
+            { t:'TSM', cn:'CoWoS-S/L/R', role:'B200=CoWoS-L，R 给低成本路线', flag:'core' },
+            { t:'INTC', cn:'EMIB + Foveros', role:'Intel 自有 2.5D/3D 路线', flag:'comp' },
+            { t:'TSM', cn:'SoIC 3D 堆叠', role:'下一代直接芯片对芯片堆叠', flag:'core' },
+            { t:'SMCI/HPE', cn:'(系统集成)', role:'用 CoWoS 模组组装', flag:'comp' },
+          ]
+        },
+        { id:'L3d', name:'🆕 ABF 载板（封装最硬瓶颈之一）', layer:3, expanded:true,
+          desc:'每颗 GPU 都要一片高层 ABF 载板，全球只有 4 家能做',
+          companies:[
+            { t:'4062.T', cn:'Ibiden 揖斐电', role:'ABF 载板全球第一', flag:'core' },
+            { t:'3037.TW', cn:'欣興 Unimicron', role:'AMD/NVDA 主供', flag:'core' },
+            { t:'6789.TW', cn:'南電 Nan Ya PCB', role:'高阶 ABF 三巨头', flag:'core' },
+            { t:'5803.T', cn:'Shinko 新光电气', role:'日系第二供', flag:'comp' },
+            { t:'AT&S.VI', cn:'奥地利 AT&S', role:'欧系 ABF', flag:'comp' },
+          ]
+        },
+        { id:'L3e', name:'🆕 玻璃基板（下一代颠覆性技术）', layer:3, expanded:true,
+          desc:'Intel + Samsung 力推，2027+ 量产，替代 ABF',
+          companies:[
+            { t:'INTC', cn:'英特尔', role:'玻璃基板首发，2027 量产', flag:'core' },
+            { t:'005930.KS', cn:'三星电子', role:'三星机电跟进', flag:'comp' },
+            { t:'GLW', cn:'Corning 康宁', role:'玻璃材料供应', flag:'core' },
+            { t:'AGC.T', cn:'AGC 旭硝子', role:'TGV 玻璃通孔', flag:'comp' },
+            { t:'002273.SZ', cn:'水晶光电', role:'A 股玻璃概念', flag:'cn' },
+          ]
+        },
+        { id:'L3f', name:'🆕 临时键合 / 永久键合设备', layer:3, expanded:true,
+          desc:'2.5D/3D 封装必须的精密设备',
+          companies:[
+            { t:'BESI.AS', cn:'BE Semiconductor', role:'混合键合机独家', flag:'core' },
+            { t:'ASM.AS', cn:'ASMI', role:'ALD + 键合', flag:'core' },
+            { t:'EVG', cn:'EV Group (未上市)', role:'晶圆键合', flag:'comp' },
+            { t:'SUSS.DE', cn:'Süss MicroTec', role:'临时键合机', flag:'comp' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L4', name: '④ 机柜内互联 Retimer / AEC', layer: 4, expanded: true,
+      desc: '信号放大器：铜缆走 PCIe 6.0 必须有它',
+      companies: [
+        { t: 'ALAB', cn: 'Astera Labs', role: 'PCIe/CXL Retimer + Smart Cable', flag: 'core watch' },
+        { t: 'CRDO', cn: 'Credo', role: 'AEC 有源铜缆龙头', flag: 'core watch' },
+        { t: 'MRVL', cn: '迈威尔', role: 'Retimer 切入者', flag: 'watch' },
+      ],
+      children: [
+        { id:'L4a', name:'Retimer 信号放大（PCIe 6.0 必装）', layer:4, expanded:true,
+          desc:'PCIe 6.0 单台 AI 服务器用量从 8 颗→20+ 颗',
+          companies:[
+            { t:'ALAB', cn:'Astera Labs', role:'Retimer 龙头，NVDA/AMD/AVGO 全平台', flag:'core watch' },
+            { t:'MRVL', cn:'迈威尔', role:'Retimer 切入者', flag:'watch' },
+            { t:'Parade', cn:'Parade Tech', role:'PHY 黑马', flag:'comp' },
+            { t:'MTSI', cn:'MACOM', role:'PHY 玩家', flag:'comp' },
+          ]
+        },
+        { id:'L4b', name:'AEC 有源铜缆（短距互联替代光）', layer:4, expanded:true,
+          desc:'<7m 距离用 AEC 替代光模块，功耗低 30%',
+          companies:[
+            { t:'CRDO', cn:'Credo', role:'AEC 全球第一', flag:'core watch' },
+            { t:'AVGO', cn:'博通', role:'AEC 切入', flag:'comp' },
+            { t:'MRVL', cn:'迈威尔', role:'AEC 跟进', flag:'watch' },
+            { t:'002463.SZ', cn:'沪电股份', role:'A 股 AEC PCB 配套', flag:'cn' },
+          ]
+        },
+        { id:'L4c', name:'🆕 NVLink Scale-up（NVDA 私有生态）', layer:4, expanded:true,
+          desc:'GB200 NVL72 = 72 颗 GPU 用 NVLink 连成"一台超级 GPU"',
+          companies:[
+            { t:'NVDA', cn:'NVLink 5.0 + Switch', role:'闭源独家护城河', flag:'core' },
+            { t:'NVDA', cn:'NVLink Fusion', role:'2025+ 开放给第三方', flag:'core' },
+            { t:'TSM', cn:'代工配套', role:'CoWoS 集成', flag:'core' },
+          ]
+        },
+        { id:'L4d', name:'🆕 UALink / Ultra Ethernet（反 NVDA 联盟）', layer:4, expanded:true,
+          desc:'AMD + AVGO + INTC + Hyperscaler 联手开源对抗',
+          companies:[
+            { t:'AMD', cn:'AMD', role:'UALink 联盟创始', flag:'core' },
+            { t:'AVGO', cn:'博通', role:'UALink + UEC 双联盟', flag:'core' },
+            { t:'INTC', cn:'Intel', role:'UALink 成员', flag:'comp' },
+            { t:'MRVL', cn:'迈威尔', role:'Ultra Ethernet 核心', flag:'watch' },
+            { t:'CSCO', cn:'思科', role:'Ultra Ethernet Consortium', flag:'comp' },
+            { t:'ANET', cn:'Arista', role:'UEC 路线主推', flag:'core' },
+          ]
+        },
+        { id:'L4e', name:'🆕 CXL 1.x → 3.x 内存池化', layer:4, expanded:true,
+          desc:'CPU/GPU 共享内存池，Type 1/2/3 设备分层',
+          companies:[
+            { t:'ALAB', cn:'Astera Labs', role:'Leo CXL 控制器全球第一', flag:'core watch' },
+            { t:'688008.SS', cn:'澜起科技', role:'CXL 内存扩展控制器', flag:'cn core' },
+            { t:'MU', cn:'美光', role:'CXL 内存模组', flag:'watch' },
+            { t:'SMCI', cn:'Supermicro', role:'CXL 服务器主供', flag:'comp' },
+            { t:'RMBX', cn:'Rambus', role:'CXL IP', flag:'core' },
+          ]
+        },
+        { id:'L4f', name:'🆕 CPO / OIO 共封装互联', layer:4, expanded:true,
+          desc:'GPU 直接出光信号，绕过传统 PCIe 路径',
+          companies:[
+            { t:'AVGO', cn:'博通', role:'CPO 交换机 + OIO', flag:'core' },
+            { t:'NVDA', cn:'+ TSM', role:'Quantum-X CPO', flag:'core' },
+            { t:'Ayar', cn:'Ayar Labs (未上市)', role:'OIO 光 I/O 引擎', flag:'comp' },
+            { t:'Lightmatter', cn:'Lightmatter', role:'Passage 光互联底板', flag:'comp' },
+            { t:'POET', cn:'POET Tech', role:'光引擎集成', flag:'comp' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L5', name: '⑤ 网络交换芯片 / DPU', layer: 5, expanded: true,
+      desc: '数据红绿灯：万卡集群的路由器',
+      companies: [
+        { t: 'AVGO', cn: '博通', role: 'Tomahawk 5/6 交换芯片霸主', flag: 'core' },
+        { t: 'NVDA', cn: 'Spectrum-X', role: '以太网替代 IB', flag: 'core' },
+        { t: 'MRVL', cn: '迈威尔', role: 'Teralynx 7 / 光 DSP', flag: 'core watch' },
+        { t: 'CSCO', cn: '思科', role: 'Silicon One', flag: 'comp' },
+      ],
+      children: [
+        { id:'L5a', name:'商用交换芯片 Merchant Silicon', layer:5, expanded:true,
+          desc:'Tomahawk 6 (102.4T) vs Spectrum-X vs Teralynx 三国杀',
+          companies:[
+            { t:'AVGO', cn:'博通 Tomahawk', role:'TH5/TH6 数据中心交换霸主', flag:'core' },
+            { t:'AVGO', cn:'Jericho', role:'大缓冲 AI Fabric', flag:'core' },
+            { t:'NVDA', cn:'Spectrum-X', role:'以太网替代 IB，绑 GPU 销售', flag:'core' },
+            { t:'MRVL', cn:'Teralynx 7', role:'AVGO 主要对手', flag:'core watch' },
+            { t:'CSCO', cn:'Silicon One', role:'思科自研', flag:'comp' },
+          ]
+        },
+        { id:'L5b', name:'🆕 协议战：InfiniBand vs Ultra Ethernet', layer:5, expanded:true,
+          desc:'NVDA IB 闭源 vs 全球联盟 UEC 开源',
+          companies:[
+            { t:'NVDA', cn:'InfiniBand (Mellanox)', role:'闭源高性能', flag:'core' },
+            { t:'ANET', cn:'Arista', role:'UEC 主推交换机龙头', flag:'core' },
+            { t:'AVGO', cn:'博通', role:'UEC 创始成员', flag:'core' },
+            { t:'AMD', cn:'AMD', role:'UEC 推动者', flag:'core' },
+            { t:'MRVL', cn:'迈威尔', role:'UEC 核心', flag:'watch' },
+            { t:'JNPR', cn:'Juniper', role:'被 HPE 收购', flag:'comp' },
+          ]
+        },
+        { id:'L5c', name:'DPU / SmartNIC（卸载主 CPU）', layer:5, expanded:true,
+          desc:'每台 AI 服务器 1-2 颗 DPU 处理网络/存储/安全',
+          companies:[
+            { t:'NVDA', cn:'BlueField-3/4', role:'DPU 主流 90%+', flag:'core' },
+            { t:'AMD', cn:'Pensando', role:'AMD 收购，第二供', flag:'core' },
+            { t:'MRVL', cn:'OCTEON', role:'DPU 第三', flag:'watch' },
+            { t:'INTC', cn:'IPU', role:'Intel IPU', flag:'comp' },
+          ]
+        },
+        { id:'L5d', name:'SerDes IP / 224G PHY', layer:5, expanded:true,
+          desc:'交换芯片的"门"，112G→224G 是最大物理瓶颈',
+          companies:[
+            { t:'AVGO', cn:'博通', role:'112G/224G SerDes 自有', flag:'core' },
+            { t:'SNPS', cn:'Synopsys', role:'IP 授权龙头', flag:'core' },
+            { t:'CDNS', cn:'Cadence', role:'IP 授权第二', flag:'core' },
+            { t:'AWE.L', cn:'Alphawave', role:'224G IP 黑马', flag:'comp' },
+            { t:'CRDO', cn:'Credo', role:'SerDes IP', flag:'watch' },
+            { t:'CEVA', cn:'CEVA', role:'通信 IP', flag:'comp' },
+          ]
+        },
+        { id:'L5e', name:'🆕 White-box / ODM 整机厂', layer:5, expanded:true,
+          desc:'卖完整交换机/服务器整机给 Hyperscaler',
+          companies:[
+            { t:'SMCI', cn:'Supermicro', role:'AI 服务器 ODM 龙头', flag:'core' },
+            { t:'DELL', cn:'戴尔', role:'AI 服务器 OEM', flag:'core' },
+            { t:'HPE', cn:'HPE', role:'AI 服务器', flag:'comp' },
+            { t:'CLS', cn:'Celestica', role:'White-box 交换机黑马', flag:'core' },
+            { t:'6669.TW', cn:'緯穎 Wiwynn', role:'Meta/微软 ODM', flag:'core' },
+            { t:'2382.TW', cn:'廣達 Quanta', role:'AI 服务器代工龙头', flag:'core' },
+            { t:'3231.TW', cn:'緯創 Wistron', role:'NVDA 服务器代工', flag:'core' },
+            { t:'2317.TW', cn:'鴻海 Foxconn', role:'AI 服务器组装', flag:'core' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L6', name: '⑥ 光通信 / 光模块', layer: 6, expanded: true,
+      desc: '出了机柜必须换光：800G → 1.6T → 3.2T',
+      companies: [
+        { t: 'LITE', cn: 'Lumentum', role: 'EML 激光芯片 ~60% 份额', flag: 'core' },
+        { t: 'COHR', cn: 'Coherent', role: 'EML 双寡头', flag: 'core watch' },
+        { t: 'ANET', cn: 'Arista', role: '数据中心交换机龙头', flag: 'core' },
+      ],
+      children: [
+        { id:'L6a', name:'光模块组装厂', layer:6, companies:[
+          { t:'300308.SZ', cn:'中际旭创 Innolight', role:'全球 800G 出货第一', flag:'cn core' },
+          { t:'300502.SZ', cn:'新易盛 Eoptolink', role:'1.6T 量产', flag:'cn' },
+          { t:'CIEN', cn:'Ciena', role:'相干光通信', flag:'comp' },
+          { t:'INFN', cn:'Infinera', role:'被 NOK 收购', flag:'comp' },
+        ]},
+        { id:'L6b', name:'硅光 SiPh / CPO 共封装', layer:6, companies:[
+          { t:'AVGO', cn:'博通', role:'CPO 5.0 路线图', flag:'core' },
+          { t:'NVDA', cn:'+ TSM', role:'CPO Quantum-X', flag:'core' },
+          { t:'POET', cn:'POET Tech', role:'光引擎小盘股', flag:'comp' },
+          { t:'AYAR', cn:'Ayar Labs', role:'未上市，Intel 投资', flag:'comp' },
+        ]},
+        { id:'L6c', name:'光纤 / 连接器', layer:6, companies:[
+          { t:'GLW', cn:'Corning 康宁', role:'光纤龙头', flag:'core' },
+          { t:'601869.SS', cn:'长飞光纤', role:'A 股光纤', flag:'cn' },
+        ]},
+        { id:'L6d', name:'CW 激光器（DFB / EML 光源芯片）', layer:6, expanded:true,
+          desc:'CPO 时代每台交换机要 ~500 颗 CW 激光器，是下一代最硬瓶颈',
+          companies:[
+            { t:'LITE', cn:'Lumentum', role:'CW DFB 主力，NVDA CPO 首选', flag:'core' },
+            { t:'COHR', cn:'Coherent', role:'EML + CW 双线，与 LITE 双寡头', flag:'core watch' },
+            { t:'IPGP', cn:'IPG Photonics', role:'工业激光为主，部分通信切入', flag:'comp' },
+            { t:'688498.SS', cn:'源杰科技', role:'A 股 DFB/EML 国产替代龙头', flag:'cn' },
+            { t:'688048.SS', cn:'长光华芯', role:'A 股激光芯片', flag:'cn' },
+            { t:'688313.SS', cn:'仕佳光子', role:'A 股 AWG + DFB', flag:'cn' },
+            { t:'6902.T', cn:'Sumitomo Electric 住友', role:'日系激光芯片', flag:'comp' },
+          ]
+        },
+        { id:'L6e', name:'光 DSP（数字信号处理芯片）', layer:6, expanded:true,
+          desc:'光模块的"大脑"，单价 $200-500，800G→1.6T 量价齐升',
+          companies:[
+            { t:'MRVL', cn:'迈威尔', role:'800G/1.6T DSP 全球龙头（含 Inphi）', flag:'core watch' },
+            { t:'AVGO', cn:'博通', role:'自用 + 外供 DSP', flag:'core' },
+            { t:'CRDO', cn:'Credo', role:'LPO 线性 DSP 替代路线', flag:'core watch' },
+            { t:'SMTC', cn:'Semtech', role:'LPO / PMD DSP', flag:'comp' },
+            { t:'MTSI', cn:'MACOM', role:'光通信全栈玩家', flag:'comp' },
+            { t:'AWE.L', cn:'Alphawave', role:'SerDes IP + DSP', flag:'comp' },
+          ]
+        },
+        { id:'L6f', name:'TIA 跨阻放大器（接收端模拟芯片）', layer:6, expanded:true,
+          desc:'把光电二极管的微弱电流放大成可读信号，模拟工艺壁垒极高',
+          companies:[
+            { t:'MTSI', cn:'MACOM', role:'TIA 全球份额第一', flag:'core' },
+            { t:'MRVL', cn:'迈威尔', role:'Inphi 收购带来 TIA', flag:'watch' },
+            { t:'SMTC', cn:'Semtech', role:'TIA + CDR', flag:'comp' },
+            { t:'ADI', cn:'Analog Devices', role:'模拟巨头，部分 TIA 产品', flag:'comp' },
+            { t:'6902.T', cn:'Sumitomo', role:'日系 TIA / PD', flag:'comp' },
+            { t:'300602.SZ', cn:'飞荣达 (部分)', role:'A 股相关', flag:'cn' },
+          ]
+        },
+        { id:'L6g', name:'Driver IC 调制器驱动（发送端）', layer:6, expanded:true,
+          desc:'驱动激光器/MZM 调制器开关，1.6T 用 200G/lane 难度激增',
+          companies:[
+            { t:'MTSI', cn:'MACOM', role:'高速 Driver IC 龙头', flag:'core' },
+            { t:'MRVL', cn:'迈威尔', role:'Inphi 系 Driver', flag:'watch' },
+            { t:'SMTC', cn:'Semtech', role:'PAM4 Driver', flag:'comp' },
+            { t:'AVGO', cn:'博通', role:'自用 Driver', flag:'comp' },
+            { t:'POET', cn:'POET Tech', role:'光引擎集成 Driver', flag:'comp' },
+            { t:'688368.SS', cn:'晶丰明源 等', role:'A 股模拟链条', flag:'cn' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L7', name: '⑦ 电力 / 配电', layer: 7, expanded: true,
+      desc: '每个 GB200 机柜 130kW，电网是新瓶颈',
+      companies: [
+        { t: 'VRT', cn: 'Vertiv', role: 'AI 配电 + 液冷一体化', flag: 'core' },
+        { t: 'ETN', cn: 'Eaton', role: '配电系统', flag: 'core' },
+        { t: 'GEV', cn: 'GE Vernova', role: '燃气轮机', flag: 'core' },
+      ],
+      children: [
+        { id:'L7a', name:'电源 IC / SiC GaN', layer:7, companies:[
+          { t:'MPWR', cn:'Monolithic Power', role:'GPU 板载电源 IC', flag:'core' },
+          { t:'NVT', cn:'Navitas', role:'GaN 800V 直流', flag:'comp' },
+          { t:'WOLF', cn:'Wolfspeed', role:'SiC 衬底', flag:'comp' },
+          { t:'ON', cn:'安森美', role:'SiC + 功率', flag:'comp' },
+        ]},
+        { id:'L7b', name:'SMR 小型模块化核反应堆', layer:7, expanded:true,
+          desc:'Sam Altman / MSFT / GOOG 已签 PPA，2028+ 落地',
+          companies:[
+            { t:'OKLO', cn:'Oklo', role:'Altman 背书，快堆路线', flag:'core' },
+            { t:'SMR', cn:'NuScale Power', role:'NRC 唯一获批 SMR', flag:'core' },
+            { t:'NNE', cn:'Nano Nuclear', role:'微反应堆小盘高弹性', flag:'comp' },
+            { t:'BWXT', cn:'BWX Technologies', role:'海军反应堆 + SMR 燃料', flag:'core' },
+            { t:'LEU', cn:'Centrus Energy', role:'HALEU 高浓铀独家', flag:'core' },
+            { t:'CCJ', cn:'Cameco 卡梅科', role:'全球铀矿龙头', flag:'core' },
+            { t:'UEC', cn:'Uranium Energy', role:'美国本土铀矿', flag:'comp' },
+            { t:'CEG', cn:'Constellation', role:'三里岛重启 → MSFT 供电', flag:'core' },
+            { t:'VST', cn:'Vistra', role:'核+气双发', flag:'core' },
+            { t:'TLN', cn:'Talen Energy', role:'AMZN 数据中心独家供电', flag:'comp' },
+          ]
+        },
+        { id:'L7c', name:'燃气轮机 / 联合循环（过渡能源王者）', layer:7, expanded:true,
+          desc:'核电要 5 年才能上，缺口先用气填——GEV 订单已排到 2028',
+          companies:[
+            { t:'GEV', cn:'GE Vernova', role:'重型燃机全球第一，AI 电力最大赢家', flag:'core' },
+            { t:'SIEGY', cn:'Siemens Energy', role:'西门子能源，欧洲龙头', flag:'core' },
+            { t:'7011.T', cn:'三菱重工 MHI', role:'日系重燃机', flag:'comp' },
+            { t:'PWR', cn:'Quanta Services', role:'电力工程承包龙头', flag:'core' },
+            { t:'MYRG', cn:'MYR Group', role:'输配电施工', flag:'comp' },
+            { t:'PRIM', cn:'Primoris', role:'能源基建', flag:'comp' },
+          ]
+        },
+        { id:'L7d', name:'HVDC 高压直流 / 输配电（电网瓶颈）', layer:7, expanded:true,
+          desc:'数据中心要 100MW+，传统中压配电不够用，转 800V 直流',
+          companies:[
+            { t:'ETN', cn:'Eaton 伊顿', role:'配电系统 + UPS 组合拳', flag:'core' },
+            { t:'HUBB', cn:'Hubbell', role:'电气连接器/变压器', flag:'core' },
+            { t:'ABBNY', cn:'ABB', role:'瑞典电网巨头', flag:'core' },
+            { t:'SU.PA', cn:'Schneider 施耐德', role:'数据中心配电', flag:'core' },
+            { t:'PNR', cn:'nVent / Pentair', role:'电气外壳/接线', flag:'comp' },
+            { t:'600406.SS', cn:'国电南瑞', role:'A 股电网龙头', flag:'cn' },
+            { t:'601727.SS', cn:'上海电气', role:'A 股输配电', flag:'cn' },
+            { t:'002028.SZ', cn:'思源电气', role:'A 股 GIS / HVDC', flag:'cn' },
+          ]
+        },
+        { id:'L7e', name:'储能 BESS（削峰填谷，平滑 AI 负载尖峰）', layer:7, expanded:true,
+          desc:'AI 训练负载瞬间波动 30%+，电网需要储能缓冲',
+          companies:[
+            { t:'TSLA', cn:'Tesla Megapack', role:'公用储能销冠', flag:'core' },
+            { t:'FLNC', cn:'Fluence Energy', role:'AES+SIE 合资，纯储能股', flag:'core' },
+            { t:'STEM', cn:'Stem Inc', role:'AI 储能软件', flag:'comp' },
+            { t:'ENPH', cn:'Enphase', role:'户用微逆变器', flag:'comp' },
+            { t:'300750.SZ', cn:'宁德时代 CATL', role:'全球电池龙头', flag:'cn core' },
+            { t:'373220.KS', cn:'LG Energy Solution', role:'韩系电池龙头', flag:'comp' },
+            { t:'002460.SZ', cn:'赣锋锂业', role:'锂矿龙头', flag:'cn' },
+            { t:'002594.SZ', cn:'比亚迪 BYD', role:'刀片电池', flag:'cn' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L8', name: '⑧ 液冷 / 散热', layer: 8, expanded: true,
+      desc: '风冷已死，液冷是 B200 之后唯一选择',
+      companies: [
+        { t: 'VRT', cn: 'Vertiv', role: '液冷 CDU 龙头', flag: 'core' },
+        { t: 'MOD', cn: 'Modine', role: '数据中心散热', flag: 'core' },
+      ],
+      children: [
+        { id:'L8a', name:'冷板 D2C（B200 主流路线）', layer:8, expanded:true,
+          desc:'GB200 NVL72 必须用冷板液冷，台厂主供',
+          companies:[
+            { t:'3017.TW', cn:'奇鋐 Auras', role:'NVDA 冷板主供', flag:'core' },
+            { t:'3324.TW', cn:'雙鴻 Auras Tech', role:'NVDA 散热主供', flag:'core' },
+            { t:'002837.SZ', cn:'英维克', role:'A 股液冷龙头', flag:'cn core' },
+            { t:'603596.SS', cn:'伯特利', role:'(冷板加工)', flag:'cn' },
+            { t:'4540.T', cn:'TSMC 配套散热', role:'日台合作', flag:'comp' },
+          ]
+        },
+        { id:'L8b', name:'🆕 浸没式液冷（单相 / 两相）', layer:8, expanded:true,
+          desc:'下一代极致散热，把服务器泡在液体里',
+          companies:[
+            { t:'VRT', cn:'Vertiv', role:'浸没式整柜方案', flag:'core' },
+            { t:'GRC', cn:'GRC (未上市)', role:'美系浸没纯标的', flag:'comp' },
+            { t:'Submer', cn:'Submer (未上市)', role:'欧系浸没', flag:'comp' },
+            { t:'002747.SZ', cn:'埃斯顿', role:'A 股浸没概念', flag:'cn' },
+          ]
+        },
+        { id:'L8c', name:'🆕 CDU 冷却液分配单元', layer:8, expanded:true,
+          desc:'机柜级 CDU 是液冷"心脏"，单价 $5 万-$20 万',
+          companies:[
+            { t:'VRT', cn:'Vertiv', role:'CDU 全球第一', flag:'core' },
+            { t:'MOD', cn:'Modine', role:'CDU 美系第二', flag:'core' },
+            { t:'BDC', cn:'Boyd Corp (未上市)', role:'CDU 美系玩家', flag:'comp' },
+            { t:'600406.SS', cn:'国电南瑞 等', role:'A 股配套', flag:'cn' },
+          ]
+        },
+        { id:'L8d', name:'🆕 冷却液 / 工质材料', layer:8, expanded:true,
+          desc:'3M Novec 退出 → 全球供应缺口',
+          companies:[
+            { t:'MMM', cn:'3M Novec', role:'退出业务但库存仍主导', flag:'comp' },
+            { t:'CC', cn:'Chemours', role:'氟化液替代供应商', flag:'core' },
+            { t:'SHW', cn:'Solvay', role:'欧洲氟化工', flag:'comp' },
+            { t:'600160.SS', cn:'巨化股份', role:'A 股氟化工 + 冷媒', flag:'cn' },
+            { t:'002407.SZ', cn:'多氟多', role:'A 股氟化工', flag:'cn' },
+          ]
+        },
+        { id:'L8e', name:'🆕 快接头 / 阀门 / Manifold', layer:8, expanded:true,
+          desc:'每台 GB200 机柜 100+ 个快接头，单价 $50-$200',
+          companies:[
+            { t:'CPC', cn:'CPC (Dover 子公司 DOV)', role:'快接头全球第一', flag:'core' },
+            { t:'DOV', cn:'Dover 多佛', role:'CPC 母公司，上市', flag:'core' },
+            { t:'PH', cn:'Parker Hannifin 派克', role:'流体接头', flag:'core' },
+            { t:'STBN.SW', cn:'Stäubli 史陶比尔', role:'瑞士精密接头', flag:'comp' },
+            { t:'SWK', cn:'Stanley Works', role:'工业流体', flag:'comp' },
+          ]
+        },
+        { id:'L8f', name:'风冷 / Chiller（残余市场）', layer:8, expanded:true,
+          desc:'风冷退出主战场但仍占存量 DC 大头',
+          companies:[
+            { t:'CARR', cn:'Carrier 开利', role:'空调 + Chiller', flag:'comp' },
+            { t:'JCI', cn:'Johnson Controls 江森', role:'楼宇 HVAC', flag:'comp' },
+            { t:'TT', cn:'Trane Technologies', role:'Chiller 龙头', flag:'comp' },
+            { t:'LII', cn:'Lennox', role:'空调 OEM', flag:'comp' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L9', name: '⑨ 上游设备 / 材料', layer: 9, expanded: false,
+      desc: '挖矿不如卖铲，卖铲不如卖矿镐',
+      companies: [
+        { t: 'ASML', cn: '阿斯麦', role: 'EUV / High-NA 独家', flag: 'core' },
+        { t: 'AMAT', cn: '应用材料', role: '沉积/刻蚀', flag: 'core' },
+        { t: 'LRCX', cn: '泛林', role: '刻蚀龙头', flag: 'core' },
+        { t: 'KLAC', cn: 'KLA 科磊', role: '量测霸主', flag: 'core' },
+      ],
+      children: [
+        { id:'L9a', name:'🆕 光刻设备（EUV / High-NA / DUV）', layer:9, expanded:true,
+          desc:'ASML 一家独大，High-NA 单台 $4 亿美元',
+          companies:[
+            { t:'ASML', cn:'阿斯麦', role:'EUV 100% 垄断 + High-NA 独家', flag:'core' },
+            { t:'7731.T', cn:'尼康 Nikon', role:'DUV i-line 二供', flag:'comp' },
+            { t:'7741.T', cn:'佳能 Canon', role:'纳米压印 NIL 颠覆路线', flag:'comp' },
+            { t:'688699.SS', cn:'上海微电子 SMEE', role:'A 股 DUV 国产替代', flag:'cn' },
+          ]
+        },
+        { id:'L9b', name:'🆕 沉积设备（CVD / PVD / ALD）', layer:9, expanded:true,
+          desc:'每片晶圆要走 100+ 道沉积，工艺缩小消耗指数增长',
+          companies:[
+            { t:'AMAT', cn:'Applied Materials', role:'沉积全能王', flag:'core' },
+            { t:'ASM.AS', cn:'ASM International', role:'ALD 原子层沉积龙头', flag:'core' },
+            { t:'TOELY', cn:'东京电子 TEL', role:'涂胶显影 + 沉积', flag:'core' },
+            { t:'8035.T', cn:'TEL 东京威力', role:'(同上日股代码)', flag:'comp' },
+            { t:'688012.SS', cn:'中微公司 AMEC', role:'A 股沉积/刻蚀', flag:'cn' },
+            { t:'688082.SS', cn:'盛美上海 ACMR', role:'A 股清洗设备', flag:'cn' },
+          ]
+        },
+        { id:'L9c', name:'🆕 刻蚀设备', layer:9, expanded:true,
+          desc:'3D NAND 200+ 层 + GAA 工艺，刻蚀难度爆炸',
+          companies:[
+            { t:'LRCX', cn:'Lam Research', role:'刻蚀龙头 + 3D NAND 独门', flag:'core' },
+            { t:'AMAT', cn:'Applied Materials', role:'刻蚀第二', flag:'core' },
+            { t:'TOELY', cn:'东京电子', role:'介质刻蚀', flag:'core' },
+            { t:'688200.SS', cn:'华峰测控', role:'A 股测试设备', flag:'cn' },
+          ]
+        },
+        { id:'L9d', name:'🆕 量测 / 检测 / 测试设备', layer:9, expanded:true,
+          desc:'良率 = 钱，HBM/CoWoS 时代量测设备爆发',
+          companies:[
+            { t:'KLAC', cn:'KLA 科磊', role:'量测+检测霸主', flag:'core' },
+            { t:'ONTO', cn:'Onto Innovation', role:'先进封装量测', flag:'core' },
+            { t:'CAMT', cn:'Camtek', role:'HBM/CoWoS 检测黑马', flag:'core' },
+            { t:'6857.T', cn:'Advantest', role:'HBM/SoC 测试机', flag:'core' },
+            { t:'TER', cn:'Teradyne', role:'测试机第二', flag:'comp' },
+            { t:'NTES.OB', cn:'Nordson', role:'封装检测', flag:'comp' },
+          ]
+        },
+        { id:'L9e', name:'🆕 光罩 / 掩膜', layer:9, expanded:true,
+          desc:'EUV 光罩单片 $30 万，下一代瓶颈',
+          companies:[
+            { t:'6920.T', cn:'Lasertec', role:'EUV 光罩检测独家', flag:'core' },
+            { t:'TOPN.T', cn:'Toppan 凸版印刷', role:'光罩制造', flag:'comp' },
+            { t:'DNPLY', cn:'Dai Nippon Printing', role:'光罩双寡头', flag:'comp' },
+            { t:'PKG', cn:'Photronics', role:'美系光罩', flag:'comp' },
+          ]
+        },
+        { id:'L9f', name:'EDA 软件 / IP 授权', layer:9, expanded:true,
+          desc:'设计芯片必须租软件用，毛利率 80%+',
+          companies:[
+            { t:'SNPS', cn:'Synopsys', role:'EDA 双雄，AI 设计加持', flag:'core' },
+            { t:'CDNS', cn:'Cadence', role:'EDA 双雄，AI 工具领先', flag:'core' },
+            { t:'SIE.DE', cn:'Siemens EDA', role:'EDA 第三家', flag:'comp' },
+            { t:'ARM', cn:'Arm Holdings', role:'IP 收税', flag:'core' },
+            { t:'688521.SS', cn:'芯原股份 VeriSilicon', role:'A 股 IP', flag:'cn' },
+            { t:'688206.SS', cn:'概伦电子', role:'A 股 EDA', flag:'cn' },
+          ]
+        },
+        { id:'L9g', name:'🆕 硅片 / 衬底', layer:9, expanded:true,
+          desc:'12 寸硅片日本三巨头垄断',
+          companies:[
+            { t:'3436.T', cn:'SUMCO', role:'12 寸硅片', flag:'core' },
+            { t:'4063.T', cn:'信越化学 Shin-Etsu', role:'硅片+光刻胶双霸', flag:'core' },
+            { t:'GWC.TW', cn:'GlobalWafers 環球晶圆', role:'台系硅片', flag:'comp' },
+            { t:'SK Siltron', cn:'SK Siltron', role:'韩系硅片（未上市）', flag:'comp' },
+            { t:'688126.SS', cn:'沪硅产业', role:'A 股硅片国产替代', flag:'cn' },
+          ]
+        },
+        { id:'L9h', name:'🆕 光刻胶 / 特种气体 / CMP slurry', layer:9, expanded:true,
+          desc:'消耗品类，工艺越先进单位用量越大',
+          companies:[
+            { t:'4185.T', cn:'JSR 光刻胶', role:'EUV 胶寡头之一', flag:'core' },
+            { t:'4186.T', cn:'TOK 东京应化', role:'光刻胶四巨头', flag:'core' },
+            { t:'4188.T', cn:'三菱化学', role:'EUV 胶', flag:'comp' },
+            { t:'CCMP', cn:'Entegris', role:'CMP 浆料 + 特气', flag:'core' },
+            { t:'LIN', cn:'Linde 林德', role:'特气龙头', flag:'core' },
+            { t:'APD', cn:'Air Products', role:'特气 + 工业气体', flag:'comp' },
+            { t:'4091.T', cn:'大阳日酸', role:'日系特气', flag:'comp' },
+            { t:'688268.SS', cn:'华特气体', role:'A 股特气国产化', flag:'cn' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L10', name: '⑩ 数据中心 / 云客户', layer: 10, expanded: false,
+      desc: '产业链的"水龙头"——他们花钱，全产业链吃饭',
+      companies: [
+        { t: 'MSFT', cn: '微软', role: 'Azure + OpenAI', flag: 'core' },
+        { t: 'META', cn: 'Meta', role: '自建 H100 集群最大买家之一', flag: 'core' },
+        { t: 'GOOGL', cn: '谷歌', role: 'TPU + GCP', flag: 'core' },
+        { t: 'AMZN', cn: '亚马逊', role: 'AWS + Trainium', flag: 'core' },
+        { t: 'ORCL', cn: '甲骨文', role: 'OCI 黑马', flag: 'comp' },
+      ],
+      children: [
+        { id:'L10a', name:'Hyperscaler 超大规模云（CapEx 主力）', layer:10, expanded:true,
+          desc:'2025 四家合计 CapEx >$3500 亿美元，全产业链发动机',
+          companies:[
+            { t:'MSFT', cn:'微软 Azure', role:'OpenAI 独家算力 + Stargate', flag:'core' },
+            { t:'META', cn:'Meta', role:'2025 CapEx $650 亿，H100 最大单买家', flag:'core' },
+            { t:'GOOGL', cn:'Google', role:'TPU 自研 + GCP', flag:'core' },
+            { t:'AMZN', cn:'AWS', role:'Trainium + Anthropic 投资', flag:'core' },
+            { t:'ORCL', cn:'Oracle Cloud', role:'Stargate 数据中心建设方', flag:'core' },
+            { t:'BABA', cn:'阿里云', role:'中国 Hyperscaler 龙头', flag:'cn' },
+            { t:'9988.HK', cn:'阿里巴巴港股', role:'同上港股', flag:'cn' },
+          ]
+        },
+        { id:'L10b', name:'🆕 Neocloud 纯 GPU 云（次世代）', layer:10, expanded:true,
+          desc:'专攻 AI 训练租赁，毛利率高但客户集中度风险',
+          companies:[
+            { t:'CRWV', cn:'CoreWeave', role:'纯 GPU 云第一股，MSFT 大客户', flag:'core' },
+            { t:'NBIS', cn:'Nebius', role:'欧洲 GPU 云，Yandex 分拆', flag:'core' },
+            { t:'APLD', cn:'Applied Digital', role:'AI 数据中心 + HPC', flag:'comp' },
+            { t:'IREN', cn:'Iris Energy', role:'矿转 AI 转型代表', flag:'comp' },
+            { t:'CIFR', cn:'Cipher Mining', role:'矿企转 AI 算力', flag:'comp' },
+            { t:'WULF', cn:'TeraWulf', role:'核电 + AI 双概念', flag:'comp' },
+            { t:'HUT', cn:'Hut 8', role:'矿+AI 混合', flag:'comp' },
+            { t:'LMB.L', cn:'Lambda Labs', role:'未上市，GPU 云独角兽', flag:'comp' },
+          ]
+        },
+        { id:'L10c', name:'🆕 主权 AI / 国家级算力', layer:10, expanded:true,
+          desc:'2025+ 最大增量市场，每个国家都要自己的 AI 算力主权',
+          companies:[
+            { t:'G42 (未上市)', cn:'阿联酋 G42', role:'中东主权 AI 领头，与 MSFT/NVDA 深度合作', flag:'comp' },
+            { t:'Humain', cn:'沙特 Humain', role:'PIF 主权基金 AI 旗舰', flag:'comp' },
+            { t:'NBIS', cn:'Nebius', role:'欧洲主权 AI 候选', flag:'core' },
+            { t:'TATA.NS', cn:'印度 Tata', role:'印度主权 AI 基建', flag:'comp' },
+            { t:'9984.T', cn:'软银 SoftBank', role:'日本主权 AI + Stargate 出资方', flag:'core' },
+            { t:'OTE.AT', cn:'欧洲电信', role:'欧洲 GPU 主权', flag:'comp' },
+          ]
+        },
+        { id:'L10d', name:'🆕 数据中心建设承包商（EPC）', layer:10, expanded:true,
+          desc:'数据中心建设潮直接受益方，订单能见度最高',
+          companies:[
+            { t:'PWR', cn:'Quanta Services', role:'电网+DC 双驱动施工龙头', flag:'core' },
+            { t:'MTZ', cn:'MasTec', role:'能源+通信基建', flag:'core' },
+            { t:'MYRG', cn:'MYR Group', role:'输配电承包', flag:'comp' },
+            { t:'PRIM', cn:'Primoris', role:'能源基建多元化', flag:'comp' },
+            { t:'STRL', cn:'Sterling Infrastructure', role:'DC 土建', flag:'comp' },
+            { t:'IESC', cn:'IES Holdings', role:'DC 电气施工小盘黑马', flag:'core' },
+            { t:'POWL', cn:'Powell Industries', role:'DC 高压配电柜', flag:'core' },
+            { t:'CECE.O', cn:'CECO Environmental', role:'空气/水处理', flag:'comp' },
+          ]
+        },
+        { id:'L10e', name:'🆕 边缘 DC / 推理基础设施', layer:10, expanded:true,
+          desc:'推理算力分散化部署，时延敏感场景',
+          companies:[
+            { t:'NET', cn:'Cloudflare', role:'全球边缘推理网络', flag:'core' },
+            { t:'FSLY', cn:'Fastly', role:'CDN + 边缘计算', flag:'comp' },
+            { t:'AKAM', cn:'Akamai', role:'传统 CDN 转型', flag:'comp' },
+            { t:'CIEN', cn:'Ciena', role:'城域光网络', flag:'comp' },
+            { t:'CSCO', cn:'Cisco', role:'企业网络', flag:'comp' },
+          ]
+        },
+        { id:'L10f', name:'数据中心 REIT', layer:10, expanded:true,
+          desc:'卖地皮+卖电力的"包租公"',
+          companies:[
+            { t:'EQIX', cn:'Equinix', role:'互联型 DC 龙头', flag:'core' },
+            { t:'DLR', cn:'Digital Realty', role:'超大规模 DC 第二', flag:'core' },
+            { t:'IRM', cn:'Iron Mountain', role:'转型 AI DC', flag:'comp' },
+            { t:'AMT', cn:'American Tower', role:'通信塔 + 边缘 DC', flag:'comp' },
+          ]
+        },
+        { id:'L10g', name:'🆕 AI 模型 / 应用层（终端需求）', layer:10, expanded:true,
+          desc:'GPU 的最终客户——他们烧钱越凶，产业链越受益',
+          companies:[
+            { t:'OpenAI (未上市)', cn:'OpenAI', role:'估值 $5000 亿，烧钱第一', flag:'core' },
+            { t:'Anthropic (未上市)', cn:'Anthropic', role:'AMZN 投资，Claude', flag:'core' },
+            { t:'xAI (未上市)', cn:'xAI', role:'Grok + Colossus 集群', flag:'comp' },
+            { t:'PLTR', cn:'Palantir', role:'政企 AI 决策', flag:'core' },
+            { t:'CRM', cn:'Salesforce', role:'Agentforce', flag:'comp' },
+            { t:'ADBE', cn:'Adobe', role:'AI 创意工具', flag:'comp' },
+            { t:'NOW', cn:'ServiceNow', role:'企业 AI 工作流', flag:'comp' },
+            { t:'AI', cn:'C3.ai', role:'纯 AI 应用股', flag:'comp' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L11', name: '⑪ 机器人 / 具身智能（AI 下半场最大蛋糕）', layer: 1, expanded: true,
+      desc: 'GPT 是大脑，机器人是身体——TSLA Optimus 2026 量产是临界点',
+      companies: [
+        { t:'TSLA', cn:'特斯拉 Optimus', role:'人形机器人量产排头兵', flag:'core' },
+        { t:'NVDA', cn:'Isaac + GR00T', role:'机器人 VLA 基础模型 + 仿真平台', flag:'core' },
+        { t:'PHYS', cn:'Physical Intelligence (未上市)', role:'VLA 模型独角兽', flag:'core' },
+      ],
+      children: [
+        { id:'L11a', name:'人形机器人本体厂商', layer:1, expanded:true,
+          desc:'2026 是从 demo 到量产的临界年',
+          companies:[
+            { t:'TSLA', cn:'Tesla Optimus', role:'2026 万台目标', flag:'core' },
+            { t:'Figure', cn:'Figure AI (未上市)', role:'OpenAI + MSFT 投资', flag:'core' },
+            { t:'Apptronik', cn:'Apptronik (未上市)', role:'NASA + 谷歌投资', flag:'comp' },
+            { t:'1X', cn:'1X Technologies (未上市)', role:'OpenAI 投资', flag:'comp' },
+            { t:'BostonD', cn:'Boston Dynamics (未上市)', role:'现代汽车旗下', flag:'comp' },
+            { t:'9606.HK', cn:'优必选 UBTech', role:'港股人形龙头', flag:'cn core' },
+            { t:'宇树', cn:'宇树科技 (未上市)', role:'四足/人形国产黑马', flag:'cn' },
+            { t:'智元', cn:'智元机器人 (未上市)', role:'稚晖君创业', flag:'cn' },
+            { t:'XPEV', cn:'小鹏 IronAI', role:'港 A 双上市', flag:'cn' },
+          ]
+        },
+        { id:'L11b', name:'伺服电机 / 无框力矩电机', layer:1, expanded:true,
+          desc:'人形 40+ 关节，每关节 1 颗电机，是最大 BOM',
+          companies:[
+            { t:'6981.T', cn:'村田 Murata', role:'微型电机', flag:'comp' },
+            { t:'6594.T', cn:'日本电产 Nidec', role:'电机龙头', flag:'core' },
+            { t:'002747.SZ', cn:'埃斯顿', role:'A 股伺服', flag:'cn' },
+            { t:'300124.SZ', cn:'汇川技术', role:'A 股伺服龙头', flag:'cn core' },
+            { t:'603728.SS', cn:'鸣志电器', role:'空心杯 + 步进', flag:'cn' },
+            { t:'688165.SS', cn:'埃华路 等', role:'微型电机', flag:'cn' },
+          ]
+        },
+        { id:'L11c', name:'谐波 / 行星减速器', layer:1, expanded:true,
+          desc:'高精度减速器是关节核心，Harmonic Drive 全球垄断',
+          companies:[
+            { t:'6324.T', cn:'Harmonic Drive 日本', role:'谐波减速器全球第一', flag:'core' },
+            { t:'603810.SS', cn:'绿的谐波', role:'A 股谐波国产替代龙头', flag:'cn core' },
+            { t:'688046.SS', cn:'美迪凯 等', role:'A 股精密部件', flag:'cn' },
+            { t:'002527.SZ', cn:'新时达', role:'A 股机器人 + RV 减速器', flag:'cn' },
+            { t:'002472.SZ', cn:'双环传动', role:'RV 减速器齿轮', flag:'cn' },
+            { t:'2042.TW', cn:'中鋼結構', role:'(配套)', flag:'comp' },
+          ]
+        },
+        { id:'L11d', name:'力 / 触觉 / IMU 传感器', layer:1, expanded:true,
+          desc:'六维力矩传感器是机器人灵巧操作的关键',
+          companies:[
+            { t:'ATI', cn:'ATI Industrial (未上市)', role:'六维力传感器龙头', flag:'comp' },
+            { t:'STM', cn:'意法半导体', role:'MEMS IMU 龙头', flag:'core' },
+            { t:'BOSCH', cn:'博世 (未上市)', role:'MEMS 传感器', flag:'comp' },
+            { t:'300100.SZ', cn:'双林股份 等', role:'A 股力传感器', flag:'cn' },
+            { t:'688208.SS', cn:'道通科技', role:'(传感器配套)', flag:'cn' },
+            { t:'300124.SZ', cn:'汇川', role:'多模传感器集成', flag:'cn' },
+          ]
+        },
+        { id:'L11e', name:'视觉 / 激光雷达 / 深度感知', layer:1, expanded:true,
+          desc:'机器人的"眼睛"——纯视觉 vs LiDAR 路线之争',
+          companies:[
+            { t:'MBLY', cn:'Mobileye', role:'视觉算法龙头', flag:'comp' },
+            { t:'AMBA', cn:'Ambarella', role:'AI 视觉 SoC', flag:'comp' },
+            { t:'LAZR', cn:'Luminar', role:'激光雷达', flag:'comp' },
+            { t:'AEVA', cn:'Aeva', role:'FMCW LiDAR', flag:'comp' },
+            { t:'HSAI', cn:'禾赛科技', role:'中国 LiDAR 龙头', flag:'cn core' },
+            { t:'1810.HK', cn:'小米 + RoboSense', role:'激光雷达港股', flag:'cn' },
+            { t:'002465.SZ', cn:'海格通信 等', role:'A 股视觉/感知', flag:'cn' },
+          ]
+        },
+        { id:'L11f', name:'VLA 模型 / 软件栈 / 仿真', layer:1, expanded:true,
+          desc:'Vision-Language-Action 大模型是具身智能"大脑"',
+          companies:[
+            { t:'NVDA', cn:'Isaac Sim + GR00T', role:'仿真+VLA 双护城河', flag:'core' },
+            { t:'Physical Intelligence', cn:'PI (π0/π0.5)', role:'通用 VLA 独角兽', flag:'core' },
+            { t:'Skild', cn:'Skild AI (未上市)', role:'通用机器人大脑', flag:'comp' },
+            { t:'GOOGL', cn:'Google DeepMind RT-2', role:'VLA 学术领先', flag:'core' },
+            { t:'BABA', cn:'阿里通义具身', role:'国内 VLA', flag:'cn' },
+            { t:'BIDU', cn:'百度 Apollo', role:'机器人 + 自驾', flag:'cn' },
+          ]
+        },
+        { id:'L11g', name:'丝杠 / 轴承 / 精密机械件', layer:1, expanded:true,
+          desc:'人形机器人单台用 30+ 颗丝杠，国产替代弹性最大',
+          companies:[
+            { t:'002527.SZ', cn:'新时达', role:'A 股丝杠', flag:'cn' },
+            { t:'002584.SZ', cn:'西陇科学 等', role:'A 股精密件', flag:'cn' },
+            { t:'002762.SZ', cn:'金发拉比 (主题股)', role:'A 股相关', flag:'cn' },
+            { t:'002747.SZ', cn:'埃斯顿', role:'机器人系统集成', flag:'cn' },
+            { t:'NSK', cn:'NSK 日本精工', role:'丝杠/轴承全球第一', flag:'comp' },
+            { t:'THK', cn:'THK', role:'直线导轨龙头', flag:'comp' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L99', name: '🛸 旁支：国防 AI / 无人机蜂群', layer: 99, expanded: false,
+      desc: '不在主链，但与你自选相关',
+      companies: [
+        { t: 'RCAT', cn: 'Red Cat', role: '小型军用无人机', flag: 'watch' },
+        { t: 'SWARM', cn: 'Swarmer', role: 'AI 蜂群控制', flag: 'watch' },
+        { t: 'AVAV', cn: 'AeroVironment', role: '军用 UAV 龙头', flag: 'comp' },
+        { t: 'KTOS', cn: 'Kratos', role: '无人战机', flag: 'comp' },
+        { t: 'PLTR', cn: 'Palantir', role: 'AI 决策平台', flag: 'core' },
+      ]
+    }
+  ]
+};
+
+// ============ 状态 ============
+let data = loadData();
+let editTarget = null;
+
+function loadData() {
+  try {
+    const stored = localStorage.getItem('aiChain_v1');
+    if (stored) return JSON.parse(stored);
+  } catch(e) {}
+  return structuredClone(DEFAULT_DATA);
+}
+function save() { localStorage.setItem('aiChain_v1', JSON.stringify(data)); updateStat(); }
+
+// ============ 渲染 ============
+function render() {
+  document.getElementById('tree').innerHTML = renderNode(data, '');
+  applySearch();
+  updateStat();
+}
+
+function renderNode(node, path) {
+  if (node.id === 'root') {
+    return (node.children || []).map((c, i) => renderNode(c, `children.${i}`)).join('');
+  }
+  const expanded = node.expanded !== false;
+  const cls = `node ${expanded ? 'expanded' : 'collapsed'} layer-${node.layer || 99}`;
+  const childHTML = (node.children || []).map((c, i) => renderNode(c, `${path}.children.${i}`)).join('');
+  const companyHTML = renderCompanies(node.companies || [], path);
+  return `
+    <div class="${cls}" data-path="${path}">
+      <div class="node-header" onclick="toggleNode('${path}', event)">
+        <span class="toggle"></span>
+        <span class="node-title">${escapeHtml(node.name)}</span>
+        ${node.desc ? `<span class="node-desc">${escapeHtml(node.desc)}</span>` : ''}
+      </div>
+      <div class="node-body">
+        ${(node.companies && node.companies.length) ? `<div class="sub-section-title">公司</div><div class="companies">${companyHTML}</div>` : ''}
+        ${childHTML ? `<div class="sub-section-title" style="margin-top:14px">细分子赛道</div>${childHTML}` : ''}
+        <div class="actions">
+          <button class="btn-sm" onclick="openAddCompany('${path}')">+ 添加公司</button>
+          <button class="btn-sm" onclick="openAddChild('${path}')">+ 添加子赛道</button>
+          <button class="btn-sm" onclick="openEditNode('${path}')">✎ 编辑此层</button>
+          <button class="btn-sm btn-del" onclick="deleteNode('${path}')">✕ 删除此层</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderCompanies(arr, path) {
+  return arr.map((c, i) => {
+    const flags = (c.flag || '').split(/\s+/);
+    const isCore = flags.includes('core');
+    const isWatch = flags.includes('watch');
+    const isCn = flags.includes('cn');
+    let cls = 'company';
+    if (isCore) cls += ' core';
+    if (isWatch) cls += ' watch';
+    const tags = [];
+    if (isCore) tags.push('<span class="tag t-core">核心</span>');
+    if (isWatch) tags.push('<span class="tag t-watch">自选</span>');
+    if (isCn) tags.push('<span class="tag t-cn">中国</span>');
+    if (!isCore && !isWatch && !isCn) tags.push('<span class="tag t-comp">相关</span>');
+    return `<div class="${cls}" onclick="openEditCompany('${path}', ${i})">
+      <span class="del" onclick="deleteCompany('${path}', ${i}, event)">✕</span>
+      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span></div>
+      <span class="role">${escapeHtml(c.role || '')} ${tags.join('')}</span>
+    </div>`;
+  }).join('');
+}
+
+function escapeHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ============ 路径取节点 ============
+function getNode(path) {
+  if (!path) return data;
+  return path.split('.').reduce((o, k) => o[k], data);
+}
+function setNode(path, value) {
+  const parts = path.split('.');
+  const last = parts.pop();
+  const parent = parts.reduce((o, k) => o[k], data);
+  parent[last] = value;
+}
+
+// ============ 交互 ============
+function toggleNode(path, e) {
+  e.stopPropagation();
+  const n = getNode(path);
+  n.expanded = n.expanded === false ? true : false;
+  save(); render();
+}
+function expandAll() { walk(data, n => n.expanded = true); save(); render(); }
+function collapseAll() { walk(data, n => { if (n.id !== 'root') n.expanded = false; }); save(); render(); }
+function walk(n, fn) { fn(n); (n.children || []).forEach(c => walk(c, fn)); }
+
+// ============ 模态框 ============
+function openModal(html) { document.getElementById('modalInner').innerHTML = html; document.getElementById('modal').classList.add('show'); }
+function closeModal() { document.getElementById('modal').classList.remove('show'); }
+
+function openAddCompany(path) {
+  openModal(`
+    <h3>添加公司到「${escapeHtml(getNode(path).name)}」</h3>
+    <label>股票代码 (Ticker)</label><input id="m_t" placeholder="如 NVDA / 300308.SZ" />
+    <label>中文名 / 公司名</label><input id="m_cn" placeholder="如 英伟达" />
+    <label>角色 / 描述</label><input id="m_role" placeholder="如 GPU 龙头 Blackwell" />
+    <label>标签（空格分隔）</label>
+    <select id="m_flag">
+      <option value="">普通（相关）</option>
+      <option value="core">核心 core</option>
+      <option value="watch">自选 watch</option>
+      <option value="core watch">核心+自选</option>
+      <option value="cn">中国 cn</option>
+      <option value="cn core">中国+核心</option>
+    </select>
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeModal()">取消</button>
+      <button onclick="doAddCompany('${path}')">添加</button>
+    </div>`);
+}
+function doAddCompany(path) {
+  const n = getNode(path);
+  n.companies = n.companies || [];
+  n.companies.push({
+    t: document.getElementById('m_t').value.trim(),
+    cn: document.getElementById('m_cn').value.trim(),
+    role: document.getElementById('m_role').value.trim(),
+    flag: document.getElementById('m_flag').value,
+  });
+  save(); closeModal(); render();
+}
+
+function openEditCompany(path, idx) {
+  const c = getNode(path).companies[idx];
+  openModal(`
+    <h3>编辑公司</h3>
+    <label>股票代码</label><input id="m_t" value="${escapeHtml(c.t)}" />
+    <label>中文名</label><input id="m_cn" value="${escapeHtml(c.cn||'')}" />
+    <label>角色</label><input id="m_role" value="${escapeHtml(c.role||'')}" />
+    <label>标签</label>
+    <select id="m_flag">
+      <option value="" ${!c.flag?'selected':''}>普通</option>
+      <option value="core" ${c.flag==='core'?'selected':''}>核心</option>
+      <option value="watch" ${c.flag==='watch'?'selected':''}>自选</option>
+      <option value="core watch" ${c.flag==='core watch'?'selected':''}>核心+自选</option>
+      <option value="cn" ${c.flag==='cn'?'selected':''}>中国</option>
+      <option value="cn core" ${c.flag==='cn core'?'selected':''}>中国+核心</option>
+    </select>
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeModal()">取消</button>
+      <button onclick="doEditCompany('${path}', ${idx})">保存</button>
+    </div>`);
+}
+function doEditCompany(path, idx) {
+  const c = getNode(path).companies[idx];
+  c.t = document.getElementById('m_t').value.trim();
+  c.cn = document.getElementById('m_cn').value.trim();
+  c.role = document.getElementById('m_role').value.trim();
+  c.flag = document.getElementById('m_flag').value;
+  save(); closeModal(); render();
+}
+function deleteCompany(path, idx, e) {
+  e.stopPropagation();
+  if (!confirm('删除该公司？')) return;
+  getNode(path).companies.splice(idx, 1);
+  save(); render();
+}
+
+function openAddChild(path) {
+  openModal(`
+    <h3>在「${escapeHtml(getNode(path).name)}」下添加子赛道</h3>
+    <label>子赛道名称</label><input id="m_name" placeholder="如 光纤连接器" />
+    <label>说明（可选）</label><input id="m_desc" placeholder="一句话描述" />
+    <label>所属层级颜色</label>
+    <select id="m_layer">
+      ${[1,2,3,4,5,6,7,8,9,10,99].map(i => `<option value="${i}" ${i==(getNode(path).layer||1)?'selected':''}>Layer ${i}</option>`).join('')}
+    </select>
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeModal()">取消</button>
+      <button onclick="doAddChild('${path}')">添加</button>
+    </div>`);
+}
+function doAddChild(path) {
+  const n = getNode(path);
+  n.children = n.children || [];
+  n.children.push({
+    id: 'n' + Date.now(),
+    name: document.getElementById('m_name').value.trim() || '新子赛道',
+    desc: document.getElementById('m_desc').value.trim(),
+    layer: parseInt(document.getElementById('m_layer').value),
+    expanded: true,
+    companies: [],
+    children: [],
+  });
+  n.expanded = true;
+  save(); closeModal(); render();
+}
+
+function openEditNode(path) {
+  const n = getNode(path);
+  openModal(`
+    <h3>编辑「${escapeHtml(n.name)}」</h3>
+    <label>名称</label><input id="m_name" value="${escapeHtml(n.name)}" />
+    <label>说明</label><input id="m_desc" value="${escapeHtml(n.desc||'')}" />
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeModal()">取消</button>
+      <button onclick="doEditNode('${path}')">保存</button>
+    </div>`);
+}
+function doEditNode(path) {
+  const n = getNode(path);
+  n.name = document.getElementById('m_name').value.trim();
+  n.desc = document.getElementById('m_desc').value.trim();
+  save(); closeModal(); render();
+}
+function deleteNode(path) {
+  if (!confirm('删除该层及其所有子节点？此操作不可撤销。')) return;
+  const parts = path.split('.');
+  const idx = parseInt(parts.pop());
+  parts.pop(); // remove "children"
+  const parent = parts.length ? parts.reduce((o,k)=>o[k], data) : data;
+  parent.children.splice(idx, 1);
+  save(); render();
+}
+
+// ============ 搜索 ============
+function applySearch() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  if (!q) {
+    document.querySelectorAll('.node, .company').forEach(el => el.classList.remove('hidden'));
+    return;
+  }
+  document.querySelectorAll('.company').forEach(el => {
+    el.classList.toggle('hidden', !el.textContent.toLowerCase().includes(q));
+  });
+  document.querySelectorAll('.node').forEach(el => {
+    const txt = el.querySelector('.node-header').textContent.toLowerCase();
+    const hasVisibleCompany = Array.from(el.querySelectorAll(':scope > .node-body > .companies > .company')).some(c => !c.classList.contains('hidden'));
+    const hasVisibleChild = Array.from(el.querySelectorAll(':scope > .node-body > .node')).some(c => !c.classList.contains('hidden'));
+    el.classList.toggle('hidden', !(txt.includes(q) || hasVisibleCompany || hasVisibleChild));
+  });
+}
+
+// ============ 导入导出 ============
+function exportData() {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `ai_supply_chain_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+}
+function importData(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = ev => {
+    try { data = JSON.parse(ev.target.result); save(); render(); alert('导入成功'); }
+    catch(err) { alert('JSON 解析失败: ' + err.message); }
+  };
+  r.readAsText(f);
+}
+function resetData() {
+  if (!confirm('恢复默认数据？你的自定义修改会丢失（建议先导出备份）')) return;
+  data = structuredClone(DEFAULT_DATA);
+  save(); render();
+}
+
+// ============ 统计 ============
+function updateStat() {
+  let layers = 0, total = 0, watch = 0, core = 0;
+  walk(data, n => {
+    if (n.id && n.id !== 'root') layers++;
+    (n.companies || []).forEach(c => {
+      total++;
+      const f = c.flag || '';
+      if (f.includes('watch')) watch++;
+      if (f.includes('core')) core++;
+    });
+  });
+  document.getElementById('stat').textContent = `· ${layers} 层赛道 / ${total} 家公司 / 核心 ${core} / 自选 ${watch}`;
+}
+
+render();
+</script>
+</body>
+</html>
