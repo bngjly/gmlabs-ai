@@ -1,0 +1,8179 @@
+{
+  "NVDA": {
+    "ticker": "NVDA",
+    "status": "ok",
+    "name": "NVIDIA Corporation",
+    "grade": "S",
+    "grade_label": "S 极致",
+    "score": 85.3,
+    "tier": "mega",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 5434.2,
+    "dims": {
+      "G1": 15.0,
+      "G2": 20.2,
+      "G3": 12.0,
+      "G4": 19.8,
+      "G5": 10.8,
+      "G6": 7.5
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "AMD": {
+    "ticker": "AMD",
+    "status": "ok",
+    "name": "Advanced Micro Devices, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 66.1,
+    "tier": "mega",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 831.8,
+    "dims": {
+      "G1": 13.8,
+      "G2": 14.1,
+      "G3": 12.0,
+      "G4": 16.5,
+      "G5": 6.0,
+      "G6": 3.7
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "AVGO": {
+    "ticker": "AVGO",
+    "status": "ok",
+    "name": "Broadcom Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 72.1,
+    "tier": "mega",
+    "sector": "networking",
+    "currency": "USD",
+    "market_cap_usd_b": 2177.8,
+    "dims": {
+      "G1": 10.8,
+      "G2": 22.0,
+      "G3": 5.0,
+      "G4": 19.8,
+      "G5": 10.8,
+      "G6": 3.7
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "MRVL": {
+    "ticker": "MRVL",
+    "status": "ok",
+    "name": "Marvell Technology, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 59.6,
+    "tier": "large",
+    "sector": "networking",
+    "currency": "USD",
+    "market_cap_usd_b": 192.1,
+    "dims": {
+      "G1": 5.0,
+      "G2": 17.6,
+      "G3": 10.0,
+      "G4": 14.0,
+      "G5": 9.0,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "INTC": {
+    "ticker": "INTC",
+    "status": "ok",
+    "name": "Intel Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 44.1,
+    "tier": "mega",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 549.5,
+    "dims": {
+      "G1": 3.6,
+      "G2": 5.3,
+      "G3": 9.0,
+      "G4": 16.5,
+      "G5": 6.0,
+      "G6": 3.7
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "6533.TW": {
+    "ticker": "6533.TW",
+    "status": "ok",
+    "name": "Andes Technology Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 42.3,
+    "tier": "micro",
+    "sector": "semiconductor",
+    "currency": "TWD",
+    "market_cap_usd_b": 0.4,
+    "dims": {
+      "G1": 9.0,
+      "G2": 5.8,
+      "G3": 7.8,
+      "G4": 17.6,
+      "G5": 0.0,
+      "G6": 2.1
+    },
+    "dim_max": {
+      "G1": 25,
+      "G2": 18,
+      "G3": 13,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "3661.TW": {
+    "ticker": "3661.TW",
+    "status": "ok",
+    "name": "Alchip Technologies, Limited",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 41.2,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "TWD",
+    "market_cap_usd_b": 12.1,
+    "dims": {
+      "G1": 0.0,
+      "G2": 9.6,
+      "G3": 15.0,
+      "G4": 11.0,
+      "G5": 5.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "GOOGL": {
+    "ticker": "GOOGL",
+    "status": "ok",
+    "name": "Alphabet Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 73.7,
+    "tier": "mega",
+    "sector": "cloud",
+    "currency": "USD",
+    "market_cap_usd_b": 4559.9,
+    "dims": {
+      "G1": 12.0,
+      "G2": 16.7,
+      "G3": 11.0,
+      "G4": 17.6,
+      "G5": 10.8,
+      "G6": 5.6
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "AMZN": {
+    "ticker": "AMZN",
+    "status": "ok",
+    "name": "Amazon.com, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 60.6,
+    "tier": "mega",
+    "sector": "cloud",
+    "currency": "USD",
+    "market_cap_usd_b": 2810.4,
+    "dims": {
+      "G1": 12.0,
+      "G2": 13.2,
+      "G3": 7.0,
+      "G4": 18.7,
+      "G5": 6.0,
+      "G6": 3.7
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "META": {
+    "ticker": "META",
+    "status": "ok",
+    "name": "Meta Platforms, Inc.",
+    "grade": "A",
+    "grade_label": "A 强力",
+    "score": 80.9,
+    "tier": "mega",
+    "sector": "cloud",
+    "currency": "USD",
+    "market_cap_usd_b": 1524.2,
+    "dims": {
+      "G1": 13.8,
+      "G2": 20.2,
+      "G3": 9.0,
+      "G4": 18.7,
+      "G5": 10.8,
+      "G6": 8.4
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "MSFT": {
+    "ticker": "MSFT",
+    "status": "ok",
+    "name": "Microsoft Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 72.9,
+    "tier": "mega",
+    "sector": "cloud",
+    "currency": "USD",
+    "market_cap_usd_b": 3420.9,
+    "dims": {
+      "G1": 9.6,
+      "G2": 20.2,
+      "G3": 8.0,
+      "G4": 18.7,
+      "G5": 10.8,
+      "G6": 5.6
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "OpenAI": {
+    "ticker": "OpenAI",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "ARM": {
+    "ticker": "ARM",
+    "status": "ok",
+    "name": "Arm Holdings plc",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 67.0,
+    "tier": "mega",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 436.7,
+    "dims": {
+      "G1": 10.8,
+      "G2": 17.6,
+      "G3": 15.0,
+      "G4": 17.6,
+      "G5": 6.0,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "AMPRE": {
+    "ticker": "AMPRE",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "AAPL": {
+    "ticker": "AAPL",
+    "status": "ok",
+    "name": "Apple Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 66.7,
+    "tier": "mega",
+    "sector": "consumer",
+    "currency": "USD",
+    "market_cap_usd_b": 4498.9,
+    "dims": {
+      "G1": 9.6,
+      "G2": 20.2,
+      "G3": 7.0,
+      "G4": 15.4,
+      "G5": 10.8,
+      "G6": 3.7
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "QCOM": {
+    "ticker": "QCOM",
+    "status": "ok",
+    "name": "QUALCOMM Incorporated",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 70.8,
+    "tier": "mega",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 241.4,
+    "dims": {
+      "G1": 7.8,
+      "G2": 18.5,
+      "G3": 9.0,
+      "G4": 15.4,
+      "G5": 10.8,
+      "G6": 9.3
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "MTK": {
+    "ticker": "MTK",
+    "status": "ok",
+    "name": "SPDR Morgan Stanley Technology ETF",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 16.0,
+    "tier": "unknown",
+    "sector": "other",
+    "currency": "USD",
+    "market_cap_usd_b": null,
+    "dims": {
+      "G1": 3.2,
+      "G2": 0.8,
+      "G3": 4.0,
+      "G4": 5.0,
+      "G5": 0.0,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 20,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "Lightmatter": {
+    "ticker": "Lightmatter",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "Lightelligence": {
+    "ticker": "Lightelligence",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "Celestial": {
+    "ticker": "Celestial",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "POET": {
+    "ticker": "POET",
+    "status": "error",
+    "error": "'>' not supported between instances of 'str' and 'int'"
+  },
+  "Ayar": {
+    "ticker": "Ayar",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "IBM": {
+    "ticker": "IBM",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "IONQ": {
+    "ticker": "IONQ",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "RGTI": {
+    "ticker": "RGTI",
+    "status": "ok",
+    "name": "Rigetti Computing, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 44.1,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 8.5,
+    "dims": {
+      "G1": 12.3,
+      "G2": 3.2,
+      "G3": 15.0,
+      "G4": 9.0,
+      "G5": 1.6,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "QBTS": {
+    "ticker": "QBTS",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "QUBT": {
+    "ticker": "QUBT",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "BBAI": {
+    "ticker": "BBAI",
+    "status": "ok",
+    "name": "BigBear.ai Holdings, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 29.7,
+    "tier": "small",
+    "sector": "other",
+    "currency": "USD",
+    "market_cap_usd_b": 2.6,
+    "dims": {
+      "G1": 1.9,
+      "G2": 2.9,
+      "G3": 14.0,
+      "G4": 7.7,
+      "G5": 0.0,
+      "G6": 3.2
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "Huawei": {
+    "ticker": "Huawei",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "9660.HK": {
+    "ticker": "9660.HK",
+    "status": "ok",
+    "name": "Horizon Robotics",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 49.7,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "HKD",
+    "market_cap_usd_b": 10.3,
+    "dims": {
+      "G1": 12.3,
+      "G2": 4.8,
+      "G3": 12.0,
+      "G4": 16.0,
+      "G5": 1.6,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "MU": {
+    "ticker": "MU",
+    "status": "ok",
+    "name": "Micron Technology, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 74.9,
+    "tier": "mega",
+    "sector": "memory_cyclical",
+    "currency": "USD",
+    "market_cap_usd_b": 1167.8,
+    "dims": {
+      "G1": 12.0,
+      "G2": 18.0,
+      "G3": 12.0,
+      "G4": 16.5,
+      "G5": 10.8,
+      "G6": 5.6
+    },
+    "dim_max": {
+      "G1": 12,
+      "G2": 25,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🌪️",
+        "name": "周期向下风险"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "000660.KS": {
+    "ticker": "000660.KS",
+    "status": "ok",
+    "name": "SK hynix Inc.",
+    "grade": "A",
+    "grade_label": "A 强力",
+    "score": 84.5,
+    "tier": "mega",
+    "sector": "memory_cyclical",
+    "currency": "KRW",
+    "market_cap_usd_b": 1240.9,
+    "dims": {
+      "G1": 12.0,
+      "G2": 23.0,
+      "G3": 12.0,
+      "G4": 22.0,
+      "G5": 10.8,
+      "G6": 4.7
+    },
+    "dim_max": {
+      "G1": 12,
+      "G2": 25,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "005930.KS": {
+    "ticker": "005930.KS",
+    "status": "ok",
+    "name": "Samsung Electronics Co., Ltd.",
+    "grade": "A",
+    "grade_label": "A 强力",
+    "score": 84.6,
+    "tier": "mega",
+    "sector": "memory_cyclical",
+    "currency": "KRW",
+    "market_cap_usd_b": 1753.5,
+    "dims": {
+      "G1": 12.0,
+      "G2": 20.0,
+      "G3": 15.0,
+      "G4": 16.5,
+      "G5": 10.8,
+      "G6": 10.3
+    },
+    "dim_max": {
+      "G1": 12,
+      "G2": 25,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "TSM": {
+    "ticker": "TSM",
+    "status": "ok",
+    "name": "Taiwan Semiconductor Manufacturing Company Limited",
+    "grade": "A",
+    "grade_label": "A 强力",
+    "score": 83.9,
+    "tier": "mega",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 2259.4,
+    "dims": {
+      "G1": 13.8,
+      "G2": 18.5,
+      "G3": 15.0,
+      "G4": 16.5,
+      "G5": 10.8,
+      "G6": 9.3
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "BESI.AS": {
+    "ticker": "BESI.AS",
+    "status": "ok",
+    "name": "BE Semiconductor Industries N.V.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 68.6,
+    "tier": "mid",
+    "sector": "semi_equipment",
+    "currency": "EUR",
+    "market_cap_usd_b": 22.0,
+    "dims": {
+      "G1": 17.6,
+      "G2": 18.4,
+      "G3": 10.0,
+      "G4": 15.0,
+      "G5": 5.6,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "ASM.AS": {
+    "ticker": "ASM.AS",
+    "status": "ok",
+    "name": "ASM International NV",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 51.7,
+    "tier": "mid",
+    "sector": "semi_equipment",
+    "currency": "EUR",
+    "market_cap_usd_b": 42.2,
+    "dims": {
+      "G1": 3.5,
+      "G2": 13.6,
+      "G3": 12.0,
+      "G4": 14.0,
+      "G5": 5.6,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "AMAT": {
+    "ticker": "AMAT",
+    "status": "ok",
+    "name": "Applied Materials, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 66.5,
+    "tier": "mega",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 363.8,
+    "dims": {
+      "G1": 10.2,
+      "G2": 18.5,
+      "G3": 11.0,
+      "G4": 13.2,
+      "G5": 10.8,
+      "G6": 2.8
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "KLAC": {
+    "ticker": "KLAC",
+    "status": "ok",
+    "name": "KLA Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 65.0,
+    "tier": "mega",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 253.4,
+    "dims": {
+      "G1": 7.8,
+      "G2": 20.2,
+      "G3": 8.0,
+      "G4": 15.4,
+      "G5": 10.8,
+      "G6": 2.8
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "6857.T": {
+    "ticker": "6857.T",
+    "status": "ok",
+    "name": "Advantest Corporation",
+    "grade": "A",
+    "grade_label": "A 强力",
+    "score": 75.8,
+    "tier": "large",
+    "sector": "semi_equipment",
+    "currency": "JPY",
+    "market_cap_usd_b": 127.3,
+    "dims": {
+      "G1": 16.6,
+      "G2": 20.2,
+      "G3": 12.0,
+      "G4": 15.0,
+      "G5": 9.0,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "TER": {
+    "ticker": "TER",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "6920.T": {
+    "ticker": "6920.T",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "RMBX.OB": {
+    "ticker": "RMBX.OB",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "ALAB": {
+    "ticker": "ALAB",
+    "status": "ok",
+    "name": "Astera Labs, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 74.4,
+    "tier": "large",
+    "sector": "networking",
+    "currency": "USD",
+    "market_cap_usd_b": 54.9,
+    "dims": {
+      "G1": 18.0,
+      "G2": 19.4,
+      "G3": 15.0,
+      "G4": 17.0,
+      "G5": 5.0,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "🏆",
+        "name": "细分龙头"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "SNDK": {
+    "ticker": "SNDK",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "285A.T": {
+    "ticker": "285A.T",
+    "status": "ok",
+    "name": "KIOXIA HOLDINGS CORPORATION",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 65.9,
+    "tier": "mega",
+    "sector": "semiconductor",
+    "currency": "JPY",
+    "market_cap_usd_b": 282.3,
+    "dims": {
+      "G1": 15.0,
+      "G2": 16.7,
+      "G3": 5.0,
+      "G4": 17.6,
+      "G5": 6.0,
+      "G6": 5.6
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "PSTG": {
+    "ticker": "PSTG",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "NTAP": {
+    "ticker": "NTAP",
+    "status": "ok",
+    "name": "NetApp, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 68.8,
+    "tier": "mid",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 35.6,
+    "dims": {
+      "G1": 13.0,
+      "G2": 18.0,
+      "G3": 8.0,
+      "G4": 15.0,
+      "G5": 3.5,
+      "G6": 11.3
+    },
+    "dim_max": {
+      "G1": 25,
+      "G2": 18,
+      "G3": 15,
+      "G4": 20,
+      "G5": 5,
+      "G6": 17
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "VRT": {
+    "ticker": "VRT",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "STX": {
+    "ticker": "STX",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "WDC": {
+    "ticker": "WDC",
+    "status": "ok",
+    "name": "Western Digital Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 72.8,
+    "tier": "large",
+    "sector": "memory_cyclical",
+    "currency": "USD",
+    "market_cap_usd_b": 188.3,
+    "dims": {
+      "G1": 13.8,
+      "G2": 21.0,
+      "G3": 11.0,
+      "G4": 12.0,
+      "G5": 9.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 25,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "📊",
+        "name": "周期顶位"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "TDK.T": {
+    "ticker": "TDK.T",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "8299.TWO": {
+    "ticker": "8299.TWO",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "SIMO": {
+    "ticker": "SIMO",
+    "status": "ok",
+    "name": "Silicon Motion Technology Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 67.8,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 9.1,
+    "dims": {
+      "G1": 22.0,
+      "G2": 11.2,
+      "G3": 12.0,
+      "G4": 10.0,
+      "G5": 5.6,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "003220.KS": {
+    "ticker": "003220.KS",
+    "status": "ok",
+    "name": "Daewon Pharmaceutical Co., Ltd.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 37.7,
+    "tier": "micro",
+    "sector": "biotech",
+    "currency": "KRW",
+    "market_cap_usd_b": 0.1,
+    "dims": {
+      "G1": 2.4,
+      "G2": 4.2,
+      "G3": 6.1,
+      "G4": 18.8,
+      "G5": 1.5,
+      "G6": 4.7
+    },
+    "dim_max": {
+      "G1": 30,
+      "G2": 15,
+      "G3": 13,
+      "G4": 25,
+      "G5": 3,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "2454.TW": {
+    "ticker": "2454.TW",
+    "status": "ok",
+    "name": "MediaTek Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 56.9,
+    "tier": "mega",
+    "sector": "semiconductor",
+    "currency": "TWD",
+    "market_cap_usd_b": 233.0,
+    "dims": {
+      "G1": 0.0,
+      "G2": 16.7,
+      "G3": 11.0,
+      "G4": 16.5,
+      "G5": 10.8,
+      "G6": 1.9
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "ASX": {
+    "ticker": "ASX",
+    "status": "ok",
+    "name": "ASE Technology Holding Co., Ltd.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 43.7,
+    "tier": "large",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 83.7,
+    "dims": {
+      "G1": 14.4,
+      "G2": 5.3,
+      "G3": 7.0,
+      "G4": 7.0,
+      "G5": 9.0,
+      "G6": 1.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "AMKR": {
+    "ticker": "AMKR",
+    "status": "ok",
+    "name": "Amkor Technology, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 55.0,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 18.0,
+    "dims": {
+      "G1": 17.6,
+      "G2": 4.8,
+      "G3": 11.0,
+      "G4": 9.0,
+      "G5": 5.6,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "JCET": {
+    "ticker": "JCET",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "TFME": {
+    "ticker": "TFME",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "UMC": {
+    "ticker": "UMC",
+    "status": "ok",
+    "name": "United Microelectronics Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 62.5,
+    "tier": "large",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 57.4,
+    "dims": {
+      "G1": 12.2,
+      "G2": 12.3,
+      "G3": 12.0,
+      "G4": 9.0,
+      "G5": 9.0,
+      "G6": 8.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "GFS": {
+    "ticker": "GFS",
+    "status": "ok",
+    "name": "GLOBALFOUNDRIES Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 42.2,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 43.8,
+    "dims": {
+      "G1": 1.8,
+      "G2": 8.8,
+      "G3": 12.0,
+      "G4": 9.0,
+      "G5": 5.6,
+      "G6": 5.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "SMCI/HPE": {
+    "ticker": "SMCI/HPE",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "4062.T": {
+    "ticker": "4062.T",
+    "status": "ok",
+    "name": "Ibiden Co.,Ltd.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 61.2,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "JPY",
+    "market_cap_usd_b": 39.3,
+    "dims": {
+      "G1": 17.6,
+      "G2": 8.0,
+      "G3": 11.0,
+      "G4": 13.0,
+      "G5": 5.6,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "3037.TW": {
+    "ticker": "3037.TW",
+    "status": "ok",
+    "name": "Unimicron Technology Corp.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 54.0,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "TWD",
+    "market_cap_usd_b": 49.5,
+    "dims": {
+      "G1": 17.6,
+      "G2": 4.8,
+      "G3": 10.0,
+      "G4": 12.0,
+      "G5": 5.6,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "6789.TW": {
+    "ticker": "6789.TW",
+    "status": "ok",
+    "name": "VisEra Technologies Company Ltd.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 60.6,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "TWD",
+    "market_cap_usd_b": 5.4,
+    "dims": {
+      "G1": 15.0,
+      "G2": 12.0,
+      "G3": 15.0,
+      "G4": 13.0,
+      "G5": 5.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "5803.T": {
+    "ticker": "5803.T",
+    "status": "ok",
+    "name": "Fujikura Ltd.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 62.3,
+    "tier": "large",
+    "sector": "capital_goods",
+    "currency": "JPY",
+    "market_cap_usd_b": 50.5,
+    "dims": {
+      "G1": 13.0,
+      "G2": 12.3,
+      "G3": 12.0,
+      "G4": 11.0,
+      "G5": 9.0,
+      "G6": 5.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "AT&S.VI": {
+    "ticker": "AT&S.VI",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "GLW": {
+    "ticker": "GLW",
+    "status": "ok",
+    "name": "Corning Incorporated",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 57.8,
+    "tier": "large",
+    "sector": "optical",
+    "currency": "USD",
+    "market_cap_usd_b": 152.1,
+    "dims": {
+      "G1": 14.4,
+      "G2": 11.4,
+      "G3": 5.0,
+      "G4": 14.0,
+      "G5": 9.0,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "AGC.T": {
+    "ticker": "AGC.T",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "EVG": {
+    "ticker": "EVG",
+    "status": "ok",
+    "name": "Eaton Vance Short Duration Diversified Income Fund",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 47.4,
+    "tier": "micro",
+    "sector": "financial_bank",
+    "currency": "USD",
+    "market_cap_usd_b": 0.1,
+    "dims": {
+      "G1": 7.9,
+      "G2": 9.4,
+      "G3": 4.3,
+      "G4": 14.3,
+      "G5": 3.0,
+      "G6": 8.5
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 18,
+      "G3": 16,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "SUSS.DE": {
+    "ticker": "SUSS.DE",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "CRDO": {
+    "ticker": "CRDO",
+    "status": "ok",
+    "name": "Credo Technology Group Holding Ltd",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 74.0,
+    "tier": "mid",
+    "sector": "networking",
+    "currency": "USD",
+    "market_cap_usd_b": 41.7,
+    "dims": {
+      "G1": 22.0,
+      "G2": 18.4,
+      "G3": 15.0,
+      "G4": 17.0,
+      "G5": 1.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚠️",
+        "name": "客户集中"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "Parade": {
+    "ticker": "Parade",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "MTSI": {
+    "ticker": "MTSI",
+    "status": "ok",
+    "name": "MACOM Technology Solutions Holdings, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 57.6,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 27.0,
+    "dims": {
+      "G1": 15.8,
+      "G2": 11.2,
+      "G3": 12.0,
+      "G4": 15.0,
+      "G5": 1.6,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "CSCO": {
+    "ticker": "CSCO",
+    "status": "ok",
+    "name": "Cisco Systems, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 64.8,
+    "tier": "mega",
+    "sector": "networking",
+    "currency": "USD",
+    "market_cap_usd_b": 478.2,
+    "dims": {
+      "G1": 10.2,
+      "G2": 16.7,
+      "G3": 7.0,
+      "G4": 15.4,
+      "G5": 10.8,
+      "G6": 4.7
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "ANET": {
+    "ticker": "ANET",
+    "status": "ok",
+    "name": "Arista Networks, Inc.",
+    "grade": "A",
+    "grade_label": "A 强力",
+    "score": 77.2,
+    "tier": "mega",
+    "sector": "networking",
+    "currency": "USD",
+    "market_cap_usd_b": 214.9,
+    "dims": {
+      "G1": 12.6,
+      "G2": 20.2,
+      "G3": 15.0,
+      "G4": 18.7,
+      "G5": 6.0,
+      "G6": 4.7
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "SMCI": {
+    "ticker": "SMCI",
+    "status": "ok",
+    "name": "Super Micro Computer, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 52.4,
+    "tier": "mid",
+    "sector": "industrial",
+    "currency": "USD",
+    "market_cap_usd_b": 28.2,
+    "dims": {
+      "G1": 22.0,
+      "G2": 4.8,
+      "G3": 8.0,
+      "G4": 9.0,
+      "G5": 1.6,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "RMBX": {
+    "ticker": "RMBX",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "JNPR": {
+    "ticker": "JNPR",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "SNPS": {
+    "ticker": "SNPS",
+    "status": "ok",
+    "name": "Synopsys, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 54.3,
+    "tier": "large",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 94.3,
+    "dims": {
+      "G1": 8.4,
+      "G2": 13.6,
+      "G3": 6.0,
+      "G4": 16.0,
+      "G5": 3.5,
+      "G6": 6.8
+    },
+    "dim_max": {
+      "G1": 21,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 7,
+      "G6": 17
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "☁️",
+        "name": "SaaS 高毛利"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CDNS": {
+    "ticker": "CDNS",
+    "status": "ok",
+    "name": "Cadence Design Systems, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 61.2,
+    "tier": "large",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 114.2,
+    "dims": {
+      "G1": 13.4,
+      "G2": 19.2,
+      "G3": 8.0,
+      "G4": 16.0,
+      "G5": 3.5,
+      "G6": 1.1
+    },
+    "dim_max": {
+      "G1": 21,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 7,
+      "G6": 17
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "☁️",
+        "name": "SaaS 高毛利"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "AWE.L": {
+    "ticker": "AWE.L",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "CEVA": {
+    "ticker": "CEVA",
+    "status": "ok",
+    "name": "CEVA, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 42.8,
+    "tier": "small",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 1.2,
+    "dims": {
+      "G1": 5.8,
+      "G2": 6.5,
+      "G3": 14.0,
+      "G4": 15.4,
+      "G5": 0.0,
+      "G6": 1.1
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "DELL": {
+    "ticker": "DELL",
+    "status": "ok",
+    "name": "Dell Technologies Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 52.0,
+    "tier": "mega",
+    "sector": "industrial",
+    "currency": "USD",
+    "market_cap_usd_b": 302.7,
+    "dims": {
+      "G1": 15.0,
+      "G2": 4.4,
+      "G3": 8.0,
+      "G4": 11.0,
+      "G5": 10.8,
+      "G6": 2.8
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "HPE": {
+    "ticker": "HPE",
+    "status": "ok",
+    "name": "Hewlett Packard Enterprise Company",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 42.0,
+    "tier": "large",
+    "sector": "industrial",
+    "currency": "USD",
+    "market_cap_usd_b": 62.4,
+    "dims": {
+      "G1": 5.0,
+      "G2": 7.0,
+      "G3": 4.0,
+      "G4": 9.0,
+      "G5": 9.0,
+      "G6": 8.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "CLS": {
+    "ticker": "CLS",
+    "status": "ok",
+    "name": "Celestica Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 52.6,
+    "tier": "mid",
+    "sector": "industrial",
+    "currency": "USD",
+    "market_cap_usd_b": 49.0,
+    "dims": {
+      "G1": 22.0,
+      "G2": 8.0,
+      "G3": 8.0,
+      "G4": 8.0,
+      "G5": 1.6,
+      "G6": 5.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "6669.TW": {
+    "ticker": "6669.TW",
+    "status": "ok",
+    "name": "Wiwynn Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 54.4,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "TWD",
+    "market_cap_usd_b": 32.8,
+    "dims": {
+      "G1": 20.2,
+      "G2": 5.6,
+      "G3": 8.0,
+      "G4": 12.0,
+      "G5": 5.6,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "2382.TW": {
+    "ticker": "2382.TW",
+    "status": "ok",
+    "name": "Quanta Computer Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 49.4,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "TWD",
+    "market_cap_usd_b": 49.8,
+    "dims": {
+      "G1": 15.0,
+      "G2": 4.8,
+      "G3": 5.0,
+      "G4": 12.0,
+      "G5": 5.6,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "3231.TW": {
+    "ticker": "3231.TW",
+    "status": "ok",
+    "name": "Wistron Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 56.4,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "TWD",
+    "market_cap_usd_b": 19.6,
+    "dims": {
+      "G1": 22.0,
+      "G2": 4.8,
+      "G3": 6.0,
+      "G4": 11.0,
+      "G5": 5.6,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      },
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "2317.TW": {
+    "ticker": "2317.TW",
+    "status": "ok",
+    "name": "Hon Hai Precision Industry Co., Ltd.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 52.0,
+    "tier": "large",
+    "sector": "other",
+    "currency": "TWD",
+    "market_cap_usd_b": 136.2,
+    "dims": {
+      "G1": 11.5,
+      "G2": 3.5,
+      "G3": 10.0,
+      "G4": 11.0,
+      "G5": 9.0,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "LITE": {
+    "ticker": "LITE",
+    "status": "ok",
+    "name": "Lumentum Holdings Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 51.3,
+    "tier": "large",
+    "sector": "optical",
+    "currency": "USD",
+    "market_cap_usd_b": 70.4,
+    "dims": {
+      "G1": 10.1,
+      "G2": 13.2,
+      "G3": 6.0,
+      "G4": 11.0,
+      "G5": 5.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "COHR": {
+    "ticker": "COHR",
+    "status": "ok",
+    "name": "Coherent Corp.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 48.0,
+    "tier": "large",
+    "sector": "optical",
+    "currency": "USD",
+    "market_cap_usd_b": 71.0,
+    "dims": {
+      "G1": 10.1,
+      "G2": 7.9,
+      "G3": 9.0,
+      "G4": 12.0,
+      "G5": 5.0,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CIEN": {
+    "ticker": "CIEN",
+    "status": "ok",
+    "name": "Ciena Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 57.7,
+    "tier": "large",
+    "sector": "networking",
+    "currency": "USD",
+    "market_cap_usd_b": 80.5,
+    "dims": {
+      "G1": 16.6,
+      "G2": 14.1,
+      "G3": 9.0,
+      "G4": 11.0,
+      "G5": 5.0,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "INFN": {
+    "ticker": "INFN",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "AYAR": {
+    "ticker": "AYAR",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "IPGP": {
+    "ticker": "IPGP",
+    "status": "ok",
+    "name": "IPG Photonics Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 41.0,
+    "tier": "small",
+    "sector": "optical",
+    "currency": "USD",
+    "market_cap_usd_b": 4.9,
+    "dims": {
+      "G1": 6.7,
+      "G2": 5.0,
+      "G3": 14.0,
+      "G4": 13.2,
+      "G5": 0.0,
+      "G6": 2.1
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      },
+      {
+        "emoji": "⚠️",
+        "name": "客户集中"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "6902.T": {
+    "ticker": "6902.T",
+    "status": "ok",
+    "name": "DENSO Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 59.2,
+    "tier": "mid",
+    "sector": "consumer",
+    "currency": "JPY",
+    "market_cap_usd_b": 33.5,
+    "dims": {
+      "G1": 15.0,
+      "G2": 5.6,
+      "G3": 12.0,
+      "G4": 12.0,
+      "G5": 5.6,
+      "G6": 9.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "SMTC": {
+    "ticker": "SMTC",
+    "status": "ok",
+    "name": "Semtech Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 49.3,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 13.9,
+    "dims": {
+      "G1": 14.1,
+      "G2": 9.6,
+      "G3": 6.0,
+      "G4": 12.0,
+      "G5": 1.6,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "ADI": {
+    "ticker": "ADI",
+    "status": "ok",
+    "name": "Analog Devices, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 71.2,
+    "tier": "large",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 196.1,
+    "dims": {
+      "G1": 16.6,
+      "G2": 17.6,
+      "G3": 7.0,
+      "G4": 14.0,
+      "G5": 9.0,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "ETN": {
+    "ticker": "ETN",
+    "status": "ok",
+    "name": "Eaton Corporation plc",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 46.3,
+    "tier": "large",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 155.4,
+    "dims": {
+      "G1": 5.0,
+      "G2": 12.3,
+      "G3": 4.0,
+      "G4": 12.0,
+      "G5": 9.0,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "GEV": {
+    "ticker": "GEV",
+    "status": "ok",
+    "name": "GE Vernova Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 63.5,
+    "tier": "mega",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 255.4,
+    "dims": {
+      "G1": 12.0,
+      "G2": 13.2,
+      "G3": 10.0,
+      "G4": 11.0,
+      "G5": 10.8,
+      "G6": 6.5
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "MPWR": {
+    "ticker": "MPWR",
+    "status": "ok",
+    "name": "Monolithic Power Systems, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 70.6,
+    "tier": "large",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 75.8,
+    "dims": {
+      "G1": 13.0,
+      "G2": 17.6,
+      "G3": 15.0,
+      "G4": 14.0,
+      "G5": 9.0,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "NVT": {
+    "ticker": "NVT",
+    "status": "ok",
+    "name": "nVent Electric plc",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 45.0,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 27.7,
+    "dims": {
+      "G1": 10.6,
+      "G2": 8.8,
+      "G3": 6.0,
+      "G4": 11.0,
+      "G5": 5.6,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "WOLF": {
+    "ticker": "WOLF",
+    "status": "ok",
+    "name": "Wolfspeed, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 20.3,
+    "tier": "small",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 2.6,
+    "dims": {
+      "G1": 1.9,
+      "G2": 2.9,
+      "G3": 4.7,
+      "G4": 5.5,
+      "G5": 0.0,
+      "G6": 5.3
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      },
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "ON": {
+    "ticker": "ON",
+    "status": "ok",
+    "name": "ON Semiconductor Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 46.7,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 47.0,
+    "dims": {
+      "G1": 3.5,
+      "G2": 13.6,
+      "G3": 9.0,
+      "G4": 11.0,
+      "G5": 1.6,
+      "G6": 8.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "OKLO": {
+    "ticker": "OKLO",
+    "status": "ok",
+    "name": "Oklo Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 24.3,
+    "tier": "mid",
+    "sector": "utility_power",
+    "currency": "USD",
+    "market_cap_usd_b": 11.6,
+    "dims": {
+      "G1": 2.7,
+      "G2": 0.0,
+      "G3": 7.0,
+      "G4": 9.0,
+      "G5": 2.6,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 17,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 13,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      },
+      {
+        "emoji": "🏦",
+        "name": "公用现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "SMR": {
+    "ticker": "SMR",
+    "status": "ok",
+    "name": "NuScale Power Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 28.9,
+    "tier": "small",
+    "sector": "utility_power",
+    "currency": "USD",
+    "market_cap_usd_b": 4.5,
+    "dims": {
+      "G1": 1.5,
+      "G2": 1.4,
+      "G3": 14.0,
+      "G4": 8.8,
+      "G5": 0.0,
+      "G6": 3.2
+    },
+    "dim_max": {
+      "G1": 19,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 11,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "🏦",
+        "name": "公用现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "NNE": {
+    "ticker": "NNE",
+    "status": "ok",
+    "name": "NANO Nuclear Energy Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 21.5,
+    "tier": "small",
+    "sector": "utility_power",
+    "currency": "USD",
+    "market_cap_usd_b": 1.5,
+    "dims": {
+      "G1": 3.0,
+      "G2": 0.0,
+      "G3": 6.5,
+      "G4": 8.8,
+      "G5": 0.0,
+      "G6": 3.2
+    },
+    "dim_max": {
+      "G1": 19,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 11,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      },
+      {
+        "emoji": "🏦",
+        "name": "公用现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "BWXT": {
+    "ticker": "BWXT",
+    "status": "ok",
+    "name": "BWX Technologies, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 43.0,
+    "tier": "mid",
+    "sector": "utility_power",
+    "currency": "USD",
+    "market_cap_usd_b": 17.3,
+    "dims": {
+      "G1": 10.9,
+      "G2": 8.0,
+      "G3": 5.0,
+      "G4": 8.0,
+      "G5": 9.1,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 17,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 13,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "LEU": {
+    "ticker": "LEU",
+    "status": "ok",
+    "name": "Centrus Energy Corp.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 25.8,
+    "tier": "small",
+    "sector": "utility_power",
+    "currency": "USD",
+    "market_cap_usd_b": 3.7,
+    "dims": {
+      "G1": 1.5,
+      "G2": 4.3,
+      "G3": 11.2,
+      "G4": 8.8,
+      "G5": 0.0,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 19,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 11,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "🏦",
+        "name": "公用现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CCJ": {
+    "ticker": "CCJ",
+    "status": "ok",
+    "name": "Cameco Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 56.5,
+    "tier": "mid",
+    "sector": "energy_oil",
+    "currency": "USD",
+    "market_cap_usd_b": 49.0,
+    "dims": {
+      "G1": 11.6,
+      "G2": 12.9,
+      "G3": 12.0,
+      "G4": 11.0,
+      "G5": 7.0,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 17,
+      "G2": 23,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "UEC": {
+    "ticker": "UEC",
+    "status": "ok",
+    "name": "Uranium Energy Corp.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 32.4,
+    "tier": "mid",
+    "sector": "energy_oil",
+    "currency": "USD",
+    "market_cap_usd_b": 6.7,
+    "dims": {
+      "G1": 1.4,
+      "G2": 0.0,
+      "G3": 15.0,
+      "G4": 7.0,
+      "G5": 2.0,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 17,
+      "G2": 23,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CEG": {
+    "ticker": "CEG",
+    "status": "ok",
+    "name": "Constellation Energy Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 53.3,
+    "tier": "large",
+    "sector": "utility_power",
+    "currency": "USD",
+    "market_cap_usd_b": 96.0,
+    "dims": {
+      "G1": 13.0,
+      "G2": 8.8,
+      "G3": 6.0,
+      "G4": 9.0,
+      "G5": 13.5,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 13,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 15,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "VST": {
+    "ticker": "VST",
+    "status": "ok",
+    "name": "Vistra Corp.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 57.8,
+    "tier": "large",
+    "sector": "utility_power",
+    "currency": "USD",
+    "market_cap_usd_b": 52.2,
+    "dims": {
+      "G1": 6.2,
+      "G2": 14.1,
+      "G3": 2.0,
+      "G4": 11.0,
+      "G5": 13.5,
+      "G6": 11.0
+    },
+    "dim_max": {
+      "G1": 13,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 15,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "TLN": {
+    "ticker": "TLN",
+    "status": "ok",
+    "name": "Talen Energy Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 41.9,
+    "tier": "mid",
+    "sector": "utility_power",
+    "currency": "USD",
+    "market_cap_usd_b": 17.2,
+    "dims": {
+      "G1": 9.5,
+      "G2": 12.8,
+      "G3": 2.0,
+      "G4": 11.0,
+      "G5": 2.6,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 17,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 13,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "🏦",
+        "name": "公用现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "SIEGY": {
+    "ticker": "SIEGY",
+    "status": "ok",
+    "name": "Siemens Aktiengesellschaft",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 41.9,
+    "tier": "mega",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 244.3,
+    "dims": {
+      "G1": 1.2,
+      "G2": 8.8,
+      "G3": 6.0,
+      "G4": 13.2,
+      "G5": 10.8,
+      "G6": 1.9
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "7011.T": {
+    "ticker": "7011.T",
+    "status": "ok",
+    "name": "Mitsubishi Heavy Industries, Ltd.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 62.0,
+    "tier": "large",
+    "sector": "semi_equipment",
+    "currency": "JPY",
+    "market_cap_usd_b": 78.8,
+    "dims": {
+      "G1": 12.2,
+      "G2": 8.8,
+      "G3": 11.0,
+      "G4": 12.0,
+      "G5": 9.0,
+      "G6": 9.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "PWR": {
+    "ticker": "PWR",
+    "status": "ok",
+    "name": "Quanta Services, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 45.7,
+    "tier": "large",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 103.2,
+    "dims": {
+      "G1": 14.4,
+      "G2": 5.3,
+      "G3": 7.0,
+      "G4": 8.0,
+      "G5": 9.0,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "MYRG": {
+    "ticker": "MYRG",
+    "status": "ok",
+    "name": "MYR Group Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 49.2,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 7.0,
+    "dims": {
+      "G1": 17.6,
+      "G2": 8.0,
+      "G3": 11.0,
+      "G4": 7.0,
+      "G5": 1.6,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "PRIM": {
+    "ticker": "PRIM",
+    "status": "ok",
+    "name": "Primoris Services Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 35.0,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 6.6,
+    "dims": {
+      "G1": 0.0,
+      "G2": 6.4,
+      "G3": 8.0,
+      "G4": 7.0,
+      "G5": 5.6,
+      "G6": 8.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "HUBB": {
+    "ticker": "HUBB",
+    "status": "ok",
+    "name": "Hubbell Incorporated",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 50.3,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 24.5,
+    "dims": {
+      "G1": 9.7,
+      "G2": 12.0,
+      "G3": 6.0,
+      "G4": 11.0,
+      "G5": 5.6,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "ABBNY": {
+    "ticker": "ABBNY",
+    "status": "ok",
+    "name": "ABB Ltd",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 55.6,
+    "tier": "large",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 194.0,
+    "dims": {
+      "G1": 11.5,
+      "G2": 14.1,
+      "G3": 8.0,
+      "G4": 12.0,
+      "G5": 9.0,
+      "G6": 1.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "SU.PA": {
+    "ticker": "SU.PA",
+    "status": "ok",
+    "name": "Schneider Electric S.E.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 47.5,
+    "tier": "large",
+    "sector": "semi_equipment",
+    "currency": "EUR",
+    "market_cap_usd_b": 158.9,
+    "dims": {
+      "G1": 1.4,
+      "G2": 14.1,
+      "G3": 4.0,
+      "G4": 13.0,
+      "G5": 9.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "PNR": {
+    "ticker": "PNR",
+    "status": "ok",
+    "name": "Pentair plc",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 53.9,
+    "tier": "mid",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 11.4,
+    "dims": {
+      "G1": 7.9,
+      "G2": 14.4,
+      "G3": 6.0,
+      "G4": 10.0,
+      "G5": 5.6,
+      "G6": 10.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "TSLA": {
+    "ticker": "TSLA",
+    "status": "ok",
+    "name": "Tesla, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 43.8,
+    "tier": "mega",
+    "sector": "auto_ev",
+    "currency": "USD",
+    "market_cap_usd_b": 1561.9,
+    "dims": {
+      "G1": 8.4,
+      "G2": 5.3,
+      "G3": 12.0,
+      "G4": 12.1,
+      "G5": 6.0,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "FLNC": {
+    "ticker": "FLNC",
+    "status": "ok",
+    "name": "Fluence Energy, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 23.5,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 5.0,
+    "dims": {
+      "G1": 5.3,
+      "G2": 1.6,
+      "G3": 7.0,
+      "G4": 8.0,
+      "G5": 1.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "STEM": {
+    "ticker": "STEM",
+    "status": "ok",
+    "name": "Stem, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 28.6,
+    "tier": "micro",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 0.1,
+    "dims": {
+      "G1": 2.2,
+      "G2": 5.1,
+      "G3": 4.3,
+      "G4": 11.0,
+      "G5": 0.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 28,
+      "G2": 16,
+      "G3": 13,
+      "G4": 22,
+      "G5": 3,
+      "G6": 18
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "ENPH": {
+    "ticker": "ENPH",
+    "status": "ok",
+    "name": "Enphase Energy, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 31.8,
+    "tier": "mid",
+    "sector": "industrial",
+    "currency": "USD",
+    "market_cap_usd_b": 8.4,
+    "dims": {
+      "G1": 1.8,
+      "G2": 6.4,
+      "G3": 11.0,
+      "G4": 9.0,
+      "G5": 1.6,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "373220.KS": {
+    "ticker": "373220.KS",
+    "status": "ok",
+    "name": "LG Energy Solution, Ltd.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 25.2,
+    "tier": "large",
+    "sector": "capital_goods",
+    "currency": "KRW",
+    "market_cap_usd_b": 76.7,
+    "dims": {
+      "G1": 1.4,
+      "G2": 1.8,
+      "G3": 4.0,
+      "G4": 12.0,
+      "G5": 5.0,
+      "G6": 1.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "MOD": {
+    "ticker": "MOD",
+    "status": "ok",
+    "name": "Modine Manufacturing Company",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 45.9,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 15.2,
+    "dims": {
+      "G1": 18.5,
+      "G2": 4.8,
+      "G3": 8.0,
+      "G4": 9.0,
+      "G5": 1.6,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "3017.TW": {
+    "ticker": "3017.TW",
+    "status": "ok",
+    "name": "Asia Vital Components Co., Ltd.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 70.8,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "TWD",
+    "market_cap_usd_b": 34.2,
+    "dims": {
+      "G1": 22.0,
+      "G2": 15.2,
+      "G3": 10.0,
+      "G4": 14.0,
+      "G5": 5.6,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "3324.TW": {
+    "ticker": "3324.TW",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "4540.T": {
+    "ticker": "4540.T",
+    "status": "ok",
+    "name": "Tsumura & Co.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 47.6,
+    "tier": "small",
+    "sector": "biotech",
+    "currency": "JPY",
+    "market_cap_usd_b": 1.8,
+    "dims": {
+      "G1": 4.6,
+      "G2": 7.2,
+      "G3": 8.4,
+      "G4": 17.5,
+      "G5": 1.5,
+      "G6": 8.4
+    },
+    "dim_max": {
+      "G1": 29,
+      "G2": 15,
+      "G3": 14,
+      "G4": 25,
+      "G5": 3,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "GRC": {
+    "ticker": "GRC",
+    "status": "ok",
+    "name": "The Gorman-Rupp Company",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 49.1,
+    "tier": "small",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 1.9,
+    "dims": {
+      "G1": 12.5,
+      "G2": 8.6,
+      "G3": 6.5,
+      "G4": 11.0,
+      "G5": 3.0,
+      "G6": 7.5
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "Submer": {
+    "ticker": "Submer",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "BDC": {
+    "ticker": "BDC",
+    "status": "ok",
+    "name": "Belden Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 42.9,
+    "tier": "small",
+    "sector": "networking",
+    "currency": "USD",
+    "market_cap_usd_b": 4.0,
+    "dims": {
+      "G1": 5.8,
+      "G2": 7.9,
+      "G3": 5.6,
+      "G4": 11.0,
+      "G5": 3.0,
+      "G6": 9.6
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      },
+      {
+        "emoji": "⚠️",
+        "name": "客户集中"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "MMM": {
+    "ticker": "MMM",
+    "status": "ok",
+    "name": "3M Company",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 45.6,
+    "tier": "large",
+    "sector": "materials",
+    "currency": "USD",
+    "market_cap_usd_b": 78.7,
+    "dims": {
+      "G1": 1.4,
+      "G2": 13.2,
+      "G3": 5.0,
+      "G4": 11.0,
+      "G5": 9.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CC": {
+    "ticker": "CC",
+    "status": "ok",
+    "name": "The Chemours Company",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 29.7,
+    "tier": "small",
+    "sector": "materials",
+    "currency": "USD",
+    "market_cap_usd_b": 3.4,
+    "dims": {
+      "G1": 3.8,
+      "G2": 2.9,
+      "G3": 2.8,
+      "G4": 5.5,
+      "G5": 3.0,
+      "G6": 11.7
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "SHW": {
+    "ticker": "SHW",
+    "status": "ok",
+    "name": "The Sherwin-Williams Company",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 51.5,
+    "tier": "large",
+    "sector": "materials",
+    "currency": "USD",
+    "market_cap_usd_b": 72.7,
+    "dims": {
+      "G1": 6.5,
+      "G2": 15.0,
+      "G3": 2.0,
+      "G4": 13.0,
+      "G5": 9.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CPC": {
+    "ticker": "CPC",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "DOV": {
+    "ticker": "DOV",
+    "status": "ok",
+    "name": "Dover Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 51.6,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 27.9,
+    "dims": {
+      "G1": 6.2,
+      "G2": 12.8,
+      "G3": 8.0,
+      "G4": 12.0,
+      "G5": 5.6,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "PH": {
+    "ticker": "PH",
+    "status": "ok",
+    "name": "Parker-Hannifin Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 47.0,
+    "tier": "large",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 103.8,
+    "dims": {
+      "G1": 2.9,
+      "G2": 14.1,
+      "G3": 5.0,
+      "G4": 12.0,
+      "G5": 9.0,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "STBN.SW": {
+    "ticker": "STBN.SW",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "SWK": {
+    "ticker": "SWK",
+    "status": "ok",
+    "name": "Stanley Black & Decker, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 37.6,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 12.2,
+    "dims": {
+      "G1": 1.8,
+      "G2": 7.2,
+      "G3": 5.0,
+      "G4": 8.0,
+      "G5": 5.6,
+      "G6": 10.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CARR": {
+    "ticker": "CARR",
+    "status": "ok",
+    "name": "Carrier Global Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 37.3,
+    "tier": "large",
+    "sector": "industrial",
+    "currency": "USD",
+    "market_cap_usd_b": 54.1,
+    "dims": {
+      "G1": 1.4,
+      "G2": 7.9,
+      "G3": 4.0,
+      "G4": 10.0,
+      "G5": 9.0,
+      "G6": 5.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "JCI": {
+    "ticker": "JCI",
+    "status": "ok",
+    "name": "Johnson Controls International plc",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 54.1,
+    "tier": "large",
+    "sector": "industrial",
+    "currency": "USD",
+    "market_cap_usd_b": 81.7,
+    "dims": {
+      "G1": 10.8,
+      "G2": 12.3,
+      "G3": 5.0,
+      "G4": 11.0,
+      "G5": 9.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "TT": {
+    "ticker": "TT",
+    "status": "ok",
+    "name": "Trane Technologies plc",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 50.9,
+    "tier": "large",
+    "sector": "industrial",
+    "currency": "USD",
+    "market_cap_usd_b": 99.1,
+    "dims": {
+      "G1": 2.9,
+      "G2": 15.0,
+      "G3": 7.0,
+      "G4": 11.0,
+      "G5": 9.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "LII": {
+    "ticker": "LII",
+    "status": "ok",
+    "name": "Lennox International Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 41.3,
+    "tier": "mid",
+    "sector": "industrial",
+    "currency": "USD",
+    "market_cap_usd_b": 17.3,
+    "dims": {
+      "G1": 3.5,
+      "G2": 11.2,
+      "G3": 4.0,
+      "G4": 10.0,
+      "G5": 5.6,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "ASML": {
+    "ticker": "ASML",
+    "status": "ok",
+    "name": "ASML Holding N.V.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 70.3,
+    "tier": "mega",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 627.7,
+    "dims": {
+      "G1": 9.0,
+      "G2": 20.2,
+      "G3": 11.0,
+      "G4": 16.5,
+      "G5": 10.8,
+      "G6": 2.8
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "LRCX": {
+    "ticker": "LRCX",
+    "status": "ok",
+    "name": "Lam Research Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 68.8,
+    "tier": "mega",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 396.6,
+    "dims": {
+      "G1": 10.8,
+      "G2": 20.2,
+      "G3": 11.0,
+      "G4": 13.2,
+      "G5": 10.8,
+      "G6": 2.8
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "7731.T": {
+    "ticker": "7731.T",
+    "status": "ok",
+    "name": "Nikon Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 41.8,
+    "tier": "small",
+    "sector": "consumer",
+    "currency": "JPY",
+    "market_cap_usd_b": 4.0,
+    "dims": {
+      "G1": 1.9,
+      "G2": 4.3,
+      "G3": 7.5,
+      "G4": 17.6,
+      "G5": 3.0,
+      "G6": 7.5
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "7741.T": {
+    "ticker": "7741.T",
+    "status": "ok",
+    "name": "HOYA Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 66.3,
+    "tier": "large",
+    "sector": "biotech",
+    "currency": "JPY",
+    "market_cap_usd_b": 58.7,
+    "dims": {
+      "G1": 8.3,
+      "G2": 16.0,
+      "G3": 15.0,
+      "G4": 17.2,
+      "G5": 6.3,
+      "G6": 3.5
+    },
+    "dim_max": {
+      "G1": 23,
+      "G2": 19,
+      "G3": 15,
+      "G4": 23,
+      "G5": 7,
+      "G6": 13
+    },
+    "features": [
+      {
+        "emoji": "🏆",
+        "name": "细分龙头"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "TOELY": {
+    "ticker": "TOELY",
+    "status": "ok",
+    "name": "Tokyo Electron Limited",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 68.9,
+    "tier": "large",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 154.9,
+    "dims": {
+      "G1": 12.2,
+      "G2": 16.7,
+      "G3": 12.0,
+      "G4": 12.0,
+      "G5": 9.0,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "8035.T": {
+    "ticker": "8035.T",
+    "status": "ok",
+    "name": "Tokyo Electron Limited",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 66.9,
+    "tier": "large",
+    "sector": "semi_equipment",
+    "currency": "JPY",
+    "market_cap_usd_b": 163.6,
+    "dims": {
+      "G1": 12.2,
+      "G2": 16.7,
+      "G3": 12.0,
+      "G4": 14.0,
+      "G5": 9.0,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "ONTO": {
+    "ticker": "ONTO",
+    "status": "ok",
+    "name": "Onto Innovation Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 50.1,
+    "tier": "mid",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 12.7,
+    "dims": {
+      "G1": 3.5,
+      "G2": 12.0,
+      "G3": 15.0,
+      "G4": 12.0,
+      "G5": 1.6,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CAMT": {
+    "ticker": "CAMT",
+    "status": "ok",
+    "name": "Camtek Ltd.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 41.2,
+    "tier": "mid",
+    "sector": "semi_equipment",
+    "currency": "USD",
+    "market_cap_usd_b": 7.5,
+    "dims": {
+      "G1": 1.8,
+      "G2": 8.8,
+      "G3": 14.0,
+      "G4": 15.0,
+      "G5": 1.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "NTES.OB": {
+    "ticker": "NTES.OB",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "TOPN.T": {
+    "ticker": "TOPN.T",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "DNPLY": {
+    "ticker": "DNPLY",
+    "status": "ok",
+    "name": "Dai Nippon Printing Co., Ltd.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 42.9,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 7.4,
+    "dims": {
+      "G1": 3.5,
+      "G2": 4.8,
+      "G3": 12.0,
+      "G4": 8.0,
+      "G5": 5.6,
+      "G6": 9.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "PKG": {
+    "ticker": "PKG",
+    "status": "ok",
+    "name": "Packaging Corporation of America",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 38.9,
+    "tier": "mid",
+    "sector": "consumer",
+    "currency": "USD",
+    "market_cap_usd_b": 19.8,
+    "dims": {
+      "G1": 3.5,
+      "G2": 8.8,
+      "G3": 6.0,
+      "G4": 9.0,
+      "G5": 5.6,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "SIE.DE": {
+    "ticker": "SIE.DE",
+    "status": "ok",
+    "name": "Siemens Aktiengesellschaft",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 44.1,
+    "tier": "mega",
+    "sector": "semi_equipment",
+    "currency": "EUR",
+    "market_cap_usd_b": 212.6,
+    "dims": {
+      "G1": 1.2,
+      "G2": 8.8,
+      "G3": 6.0,
+      "G4": 15.4,
+      "G5": 10.8,
+      "G6": 1.9
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "3436.T": {
+    "ticker": "3436.T",
+    "status": "ok",
+    "name": "Sumco Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 26.0,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "JPY",
+    "market_cap_usd_b": 10.0,
+    "dims": {
+      "G1": 1.8,
+      "G2": 1.6,
+      "G3": 7.0,
+      "G4": 10.0,
+      "G5": 5.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "4063.T": {
+    "ticker": "4063.T",
+    "status": "ok",
+    "name": "Shin-Etsu Chemical Co., Ltd.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 53.0,
+    "tier": "large",
+    "sector": "materials",
+    "currency": "JPY",
+    "market_cap_usd_b": 92.5,
+    "dims": {
+      "G1": 1.4,
+      "G2": 10.6,
+      "G3": 15.0,
+      "G4": 11.0,
+      "G5": 9.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "GWC.TW": {
+    "ticker": "GWC.TW",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "SK Siltron": {
+    "ticker": "SK Siltron",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "4185.T": {
+    "ticker": "4185.T",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "4186.T": {
+    "ticker": "4186.T",
+    "status": "ok",
+    "name": "Tokyo Ohka Kogyo Co., Ltd.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 56.2,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "JPY",
+    "market_cap_usd_b": 8.2,
+    "dims": {
+      "G1": 15.0,
+      "G2": 5.6,
+      "G3": 15.0,
+      "G4": 13.0,
+      "G5": 5.6,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "4188.T": {
+    "ticker": "4188.T",
+    "status": "ok",
+    "name": "Mitsubishi Chemical Group Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 38.4,
+    "tier": "mid",
+    "sector": "materials",
+    "currency": "JPY",
+    "market_cap_usd_b": 9.8,
+    "dims": {
+      "G1": 1.8,
+      "G2": 4.0,
+      "G3": 6.0,
+      "G4": 12.0,
+      "G5": 5.6,
+      "G6": 9.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CCMP": {
+    "ticker": "CCMP",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "LIN": {
+    "ticker": "LIN",
+    "status": "ok",
+    "name": "Linde plc",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 58.8,
+    "tier": "mega",
+    "sector": "materials",
+    "currency": "USD",
+    "market_cap_usd_b": 230.0,
+    "dims": {
+      "G1": 6.6,
+      "G2": 17.6,
+      "G3": 5.0,
+      "G4": 13.2,
+      "G5": 10.8,
+      "G6": 5.6
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "APD": {
+    "ticker": "APD",
+    "status": "ok",
+    "name": "Air Products and Chemicals, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 40.1,
+    "tier": "large",
+    "sector": "materials",
+    "currency": "USD",
+    "market_cap_usd_b": 62.1,
+    "dims": {
+      "G1": 4.3,
+      "G2": 8.8,
+      "G3": 4.0,
+      "G4": 10.0,
+      "G5": 9.0,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "4091.T": {
+    "ticker": "4091.T",
+    "status": "ok",
+    "name": "Nippon Sanso Holdings Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 63.6,
+    "tier": "mid",
+    "sector": "materials",
+    "currency": "JPY",
+    "market_cap_usd_b": 16.5,
+    "dims": {
+      "G1": 13.2,
+      "G2": 12.8,
+      "G3": 6.0,
+      "G4": 16.0,
+      "G5": 5.6,
+      "G6": 10.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "ORCL": {
+    "ticker": "ORCL",
+    "status": "ok",
+    "name": "Oracle Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 63.9,
+    "tier": "mega",
+    "sector": "cloud",
+    "currency": "USD",
+    "market_cap_usd_b": 713.7,
+    "dims": {
+      "G1": 9.6,
+      "G2": 16.7,
+      "G3": 2.0,
+      "G4": 22.0,
+      "G5": 10.8,
+      "G6": 2.8
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "BABA": {
+    "ticker": "BABA",
+    "status": "ok",
+    "name": "Alibaba Group Holding Limited",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 59.7,
+    "tier": "mega",
+    "sector": "cloud",
+    "currency": "USD",
+    "market_cap_usd_b": 300.9,
+    "dims": {
+      "G1": 9.0,
+      "G2": 6.2,
+      "G3": 11.0,
+      "G4": 14.3,
+      "G5": 10.8,
+      "G6": 8.4
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "9988.HK": {
+    "ticker": "9988.HK",
+    "status": "ok",
+    "name": "Alibaba Group Holding Limited",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 60.8,
+    "tier": "mega",
+    "sector": "cloud",
+    "currency": "HKD",
+    "market_cap_usd_b": 322.1,
+    "dims": {
+      "G1": 9.0,
+      "G2": 6.2,
+      "G3": 11.0,
+      "G4": 15.4,
+      "G5": 10.8,
+      "G6": 8.4
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CRWV": {
+    "ticker": "CRWV",
+    "status": "ok",
+    "name": "CoreWeave, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 43.1,
+    "tier": "large",
+    "sector": "other",
+    "currency": "USD",
+    "market_cap_usd_b": 68.1,
+    "dims": {
+      "G1": 10.1,
+      "G2": 7.0,
+      "G3": 0.0,
+      "G4": 18.0,
+      "G5": 5.0,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🏆",
+        "name": "细分龙头"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "NBIS": {
+    "ticker": "NBIS",
+    "status": "ok",
+    "name": "Nebius Group N.V.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 53.9,
+    "tier": "large",
+    "sector": "cloud",
+    "currency": "USD",
+    "market_cap_usd_b": 67.2,
+    "dims": {
+      "G1": 10.1,
+      "G2": 8.8,
+      "G3": 8.0,
+      "G4": 16.0,
+      "G5": 5.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "APLD": {
+    "ticker": "APLD",
+    "status": "ok",
+    "name": "Applied Digital Corporation",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 40.7,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "USD",
+    "market_cap_usd_b": 13.7,
+    "dims": {
+      "G1": 12.3,
+      "G2": 4.8,
+      "G3": 5.0,
+      "G4": 12.0,
+      "G5": 1.6,
+      "G6": 5.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "IREN": {
+    "ticker": "IREN",
+    "status": "ok",
+    "name": "IREN Limited",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 33.3,
+    "tier": "mid",
+    "sector": "fintech_payment",
+    "currency": "USD",
+    "market_cap_usd_b": 23.3,
+    "dims": {
+      "G1": 3.5,
+      "G2": 7.2,
+      "G3": 5.0,
+      "G4": 16.0,
+      "G5": 1.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CIFR": {
+    "ticker": "CIFR",
+    "status": "ok",
+    "name": "Cipher Digital Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 17.0,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "USD",
+    "market_cap_usd_b": 9.8,
+    "dims": {
+      "G1": 1.8,
+      "G2": 1.6,
+      "G3": 3.0,
+      "G4": 7.0,
+      "G5": 1.6,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "WULF": {
+    "ticker": "WULF",
+    "status": "ok",
+    "name": "TeraWulf Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 29.2,
+    "tier": "mid",
+    "sector": "fintech_payment",
+    "currency": "USD",
+    "market_cap_usd_b": 12.7,
+    "dims": {
+      "G1": 1.8,
+      "G2": 4.8,
+      "G3": 6.0,
+      "G4": 15.0,
+      "G5": 1.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "HUT": {
+    "ticker": "HUT",
+    "status": "ok",
+    "name": "Hut 8 Corp.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 41.7,
+    "tier": "mid",
+    "sector": "fintech_payment",
+    "currency": "USD",
+    "market_cap_usd_b": 14.9,
+    "dims": {
+      "G1": 12.3,
+      "G2": 4.8,
+      "G3": 6.0,
+      "G4": 14.0,
+      "G5": 1.6,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "LMB.L": {
+    "ticker": "LMB.L",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "Humain": {
+    "ticker": "Humain",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "TATA.NS": {
+    "ticker": "TATA.NS",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "9984.T": {
+    "ticker": "9984.T",
+    "status": "ok",
+    "name": "SoftBank Group Corp.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 57.2,
+    "tier": "mega",
+    "sector": "other",
+    "currency": "JPY",
+    "market_cap_usd_b": 328.0,
+    "dims": {
+      "G1": 10.2,
+      "G2": 9.7,
+      "G3": 2.0,
+      "G4": 19.8,
+      "G5": 10.8,
+      "G6": 4.7
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "👑",
+        "name": "行业龙头"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "OTE.AT": {
+    "ticker": "OTE.AT",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "MTZ": {
+    "ticker": "MTZ",
+    "status": "ok",
+    "name": "MasTec, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 47.2,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 28.6,
+    "dims": {
+      "G1": 20.2,
+      "G2": 6.4,
+      "G3": 7.0,
+      "G4": 10.0,
+      "G5": 1.6,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "STRL": {
+    "ticker": "STRL",
+    "status": "ok",
+    "name": "Sterling Infrastructure, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 59.6,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 25.9,
+    "dims": {
+      "G1": 22.0,
+      "G2": 12.0,
+      "G3": 10.0,
+      "G4": 10.0,
+      "G5": 1.6,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "IESC": {
+    "ticker": "IESC",
+    "status": "ok",
+    "name": "IES Holdings, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 53.6,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 13.5,
+    "dims": {
+      "G1": 17.6,
+      "G2": 10.4,
+      "G3": 11.0,
+      "G4": 9.0,
+      "G5": 1.6,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "POWL": {
+    "ticker": "POWL",
+    "status": "ok",
+    "name": "Powell Industries, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 49.7,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 10.5,
+    "dims": {
+      "G1": 3.5,
+      "G2": 13.6,
+      "G3": 15.0,
+      "G4": 11.0,
+      "G5": 5.6,
+      "G6": 1.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CECE.O": {
+    "ticker": "CECE.O",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "NET": {
+    "ticker": "NET",
+    "status": "ok",
+    "name": "Cloudflare, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 50.1,
+    "tier": "large",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 95.7,
+    "dims": {
+      "G1": 10.1,
+      "G2": 11.2,
+      "G3": 8.0,
+      "G4": 15.0,
+      "G5": 3.5,
+      "G6": 2.3
+    },
+    "dim_max": {
+      "G1": 21,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 7,
+      "G6": 17
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "☁️",
+        "name": "SaaS 高毛利"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "FSLY": {
+    "ticker": "FSLY",
+    "status": "ok",
+    "name": "Fastly, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 45.2,
+    "tier": "small",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 3.0,
+    "dims": {
+      "G1": 7.6,
+      "G2": 6.4,
+      "G3": 8.4,
+      "G4": 13.2,
+      "G5": 0.0,
+      "G6": 9.6
+    },
+    "dim_max": {
+      "G1": 27,
+      "G2": 16,
+      "G3": 14,
+      "G4": 22,
+      "G5": 3,
+      "G6": 18
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "AKAM": {
+    "ticker": "AKAM",
+    "status": "ok",
+    "name": "Akamai Technologies, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 45.4,
+    "tier": "mid",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 22.4,
+    "dims": {
+      "G1": 4.0,
+      "G2": 10.1,
+      "G3": 5.0,
+      "G4": 14.0,
+      "G5": 1.0,
+      "G6": 11.3
+    },
+    "dim_max": {
+      "G1": 25,
+      "G2": 18,
+      "G3": 15,
+      "G4": 20,
+      "G5": 5,
+      "G6": 17
+    },
+    "features": [
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "EQIX": {
+    "ticker": "EQIX",
+    "status": "ok",
+    "name": "Equinix, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 51.9,
+    "tier": "large",
+    "sector": "reit_dc",
+    "currency": "USD",
+    "market_cap_usd_b": 103.6,
+    "dims": {
+      "G1": 6.8,
+      "G2": 15.4,
+      "G3": 2.0,
+      "G4": 14.0,
+      "G5": 11.7,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 13,
+      "G2": 24,
+      "G3": 15,
+      "G4": 20,
+      "G5": 13,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "DLR": {
+    "ticker": "DLR",
+    "status": "ok",
+    "name": "Digital Realty Trust, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 52.7,
+    "tier": "large",
+    "sector": "reit_dc",
+    "currency": "USD",
+    "market_cap_usd_b": 66.2,
+    "dims": {
+      "G1": 10.4,
+      "G2": 9.6,
+      "G3": 5.0,
+      "G4": 13.0,
+      "G5": 11.7,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 13,
+      "G2": 24,
+      "G3": 15,
+      "G4": 20,
+      "G5": 13,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "IRM": {
+    "ticker": "IRM",
+    "status": "ok",
+    "name": "Iron Mountain Incorporated",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 48.1,
+    "tier": "mid",
+    "sector": "reit_dc",
+    "currency": "USD",
+    "market_cap_usd_b": 37.6,
+    "dims": {
+      "G1": 13.6,
+      "G2": 8.8,
+      "G3": 4.0,
+      "G4": 13.0,
+      "G5": 7.7,
+      "G6": 1.0
+    },
+    "dim_max": {
+      "G1": 17,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 11,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🏢",
+        "name": "数据中心 REIT"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "AMT": {
+    "ticker": "AMT",
+    "status": "ok",
+    "name": "American Tower Corporation",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 60.7,
+    "tier": "large",
+    "sector": "reit_dc",
+    "currency": "USD",
+    "market_cap_usd_b": 87.4,
+    "dims": {
+      "G1": 8.8,
+      "G2": 19.2,
+      "G3": 0.0,
+      "G4": 15.0,
+      "G5": 11.7,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 13,
+      "G2": 24,
+      "G3": 15,
+      "G4": 20,
+      "G5": 13,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "PLTR": {
+    "ticker": "PLTR",
+    "status": "ok",
+    "name": "Palantir Technologies Inc.",
+    "grade": "A",
+    "grade_label": "A 强力",
+    "score": 78.6,
+    "tier": "mega",
+    "sector": "aerospace",
+    "currency": "USD",
+    "market_cap_usd_b": 385.1,
+    "dims": {
+      "G1": 15.0,
+      "G2": 22.0,
+      "G3": 15.0,
+      "G4": 18.7,
+      "G5": 6.0,
+      "G6": 1.9
+    },
+    "dim_max": {
+      "G1": 15,
+      "G2": 22,
+      "G3": 15,
+      "G4": 22,
+      "G5": 12,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🚨",
+        "name": "国防政策依赖"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "CRM": {
+    "ticker": "CRM",
+    "status": "ok",
+    "name": "Salesforce, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 72.9,
+    "tier": "large",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 171.7,
+    "dims": {
+      "G1": 14.3,
+      "G2": 17.6,
+      "G3": 3.0,
+      "G4": 17.0,
+      "G5": 6.3,
+      "G6": 14.7
+    },
+    "dim_max": {
+      "G1": 21,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 7,
+      "G6": 17
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "🏆",
+        "name": "细分龙头"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "ADBE": {
+    "ticker": "ADBE",
+    "status": "ok",
+    "name": "Adobe Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 73.1,
+    "tier": "large",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 110.8,
+    "dims": {
+      "G1": 7.6,
+      "G2": 20.0,
+      "G3": 9.0,
+      "G4": 16.0,
+      "G5": 3.5,
+      "G6": 17.0
+    },
+    "dim_max": {
+      "G1": 21,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 7,
+      "G6": 17
+    },
+    "features": [
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "NOW": {
+    "ticker": "NOW",
+    "status": "ok",
+    "name": "ServiceNow, Inc.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 66.8,
+    "tier": "large",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 140.1,
+    "dims": {
+      "G1": 8.4,
+      "G2": 17.6,
+      "G3": 10.0,
+      "G4": 16.0,
+      "G5": 3.5,
+      "G6": 11.3
+    },
+    "dim_max": {
+      "G1": 21,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 7,
+      "G6": 17
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "☁️",
+        "name": "SaaS 高毛利"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-02"
+  },
+  "AI": {
+    "ticker": "AI",
+    "status": "ok",
+    "name": "C3.ai, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 38.8,
+    "tier": "small",
+    "sector": "saas_software",
+    "currency": "USD",
+    "market_cap_usd_b": 1.7,
+    "dims": {
+      "G1": 2.2,
+      "G2": 4.5,
+      "G3": 14.0,
+      "G4": 12.1,
+      "G5": 0.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 27,
+      "G2": 16,
+      "G3": 14,
+      "G4": 22,
+      "G5": 3,
+      "G6": 18
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "PHYS": {
+    "ticker": "PHYS",
+    "status": "ok",
+    "name": "Sprott Physical Gold Trust",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 20.9,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "USD",
+    "market_cap_usd_b": 16.1,
+    "dims": {
+      "G1": 3.5,
+      "G2": 0.8,
+      "G3": 4.0,
+      "G4": 6.0,
+      "G5": 1.6,
+      "G6": 5.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "Figure": {
+    "ticker": "Figure",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "Apptronik": {
+    "ticker": "Apptronik",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "1X": {
+    "ticker": "1X",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "BostonD": {
+    "ticker": "BostonD",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "9606.HK": {
+    "ticker": "9606.HK",
+    "status": "ok",
+    "name": "Duality Biotherapeutics, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 35.3,
+    "tier": "small",
+    "sector": "biotech",
+    "currency": "HKD",
+    "market_cap_usd_b": 2.4,
+    "dims": {
+      "G1": 2.3,
+      "G2": 2.4,
+      "G3": 14.0,
+      "G4": 13.8,
+      "G5": 0.0,
+      "G6": 2.8
+    },
+    "dim_max": {
+      "G1": 29,
+      "G2": 15,
+      "G3": 14,
+      "G4": 25,
+      "G5": 3,
+      "G6": 14
+    },
+    "features": [
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "XPEV": {
+    "ticker": "XPEV",
+    "status": "ok",
+    "name": "XPeng Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 25.0,
+    "tier": "mid",
+    "sector": "consumer",
+    "currency": "USD",
+    "market_cap_usd_b": 16.4,
+    "dims": {
+      "G1": 1.8,
+      "G2": 1.6,
+      "G3": 8.0,
+      "G4": 9.0,
+      "G5": 1.6,
+      "G6": 3.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "6981.T": {
+    "ticker": "6981.T",
+    "status": "ok",
+    "name": "Murata Manufacturing Co., Ltd.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 64.3,
+    "tier": "large",
+    "sector": "other",
+    "currency": "JPY",
+    "market_cap_usd_b": 124.1,
+    "dims": {
+      "G1": 12.2,
+      "G2": 14.1,
+      "G3": 15.0,
+      "G4": 14.0,
+      "G5": 9.0,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "6594.T": {
+    "ticker": "6594.T",
+    "status": "ok",
+    "name": "Nidec Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 50.6,
+    "tier": "mid",
+    "sector": "semi_equipment",
+    "currency": "JPY",
+    "market_cap_usd_b": 21.5,
+    "dims": {
+      "G1": 13.2,
+      "G2": 4.8,
+      "G3": 8.0,
+      "G4": 11.0,
+      "G5": 5.6,
+      "G6": 8.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "6324.T": {
+    "ticker": "6324.T",
+    "status": "ok",
+    "name": "Harmonic Drive Systems Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 39.2,
+    "tier": "small",
+    "sector": "semi_equipment",
+    "currency": "JPY",
+    "market_cap_usd_b": 4.5,
+    "dims": {
+      "G1": 3.8,
+      "G2": 5.8,
+      "G3": 11.2,
+      "G4": 15.4,
+      "G5": 3.0,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "2042.TW": {
+    "ticker": "2042.TW",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "ATI": {
+    "ticker": "ATI",
+    "status": "ok",
+    "name": "ATI Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 43.6,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 24.4,
+    "dims": {
+      "G1": 11.4,
+      "G2": 9.6,
+      "G3": 6.0,
+      "G4": 10.0,
+      "G5": 1.6,
+      "G6": 5.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "STM": {
+    "ticker": "STM",
+    "status": "ok",
+    "name": "STMicroelectronics N.V.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 46.3,
+    "tier": "large",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 61.3,
+    "dims": {
+      "G1": 5.0,
+      "G2": 5.3,
+      "G3": 12.0,
+      "G4": 9.0,
+      "G5": 9.0,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🔁",
+        "name": "积极回购"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "BOSCH": {
+    "ticker": "BOSCH",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "MBLY": {
+    "ticker": "MBLY",
+    "status": "ok",
+    "name": "Mobileye Global Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 59.1,
+    "tier": "mid",
+    "sector": "auto_ev",
+    "currency": "USD",
+    "market_cap_usd_b": 9.0,
+    "dims": {
+      "G1": 7.9,
+      "G2": 9.6,
+      "G3": 15.0,
+      "G4": 13.0,
+      "G5": 1.6,
+      "G6": 12.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "AMBA": {
+    "ticker": "AMBA",
+    "status": "ok",
+    "name": "Ambarella, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 40.3,
+    "tier": "small",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 3.3,
+    "dims": {
+      "G1": 6.7,
+      "G2": 4.3,
+      "G3": 14.0,
+      "G4": 13.2,
+      "G5": 0.0,
+      "G6": 2.1
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "LAZR": {
+    "ticker": "LAZR",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "AEVA": {
+    "ticker": "AEVA",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "HSAI": {
+    "ticker": "HSAI",
+    "status": "ok",
+    "name": "Hesai Group",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 44.2,
+    "tier": "small",
+    "sector": "auto_ev",
+    "currency": "USD",
+    "market_cap_usd_b": 3.1,
+    "dims": {
+      "G1": 6.7,
+      "G2": 5.0,
+      "G3": 14.0,
+      "G4": 11.0,
+      "G5": 0.0,
+      "G6": 7.5
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "📈",
+        "name": "稳健增长"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "1810.HK": {
+    "ticker": "1810.HK",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "Skild": {
+    "ticker": "Skild",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "BIDU": {
+    "ticker": "BIDU",
+    "status": "ok",
+    "name": "Baidu, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 47.4,
+    "tier": "mid",
+    "sector": "cloud",
+    "currency": "USD",
+    "market_cap_usd_b": 45.0,
+    "dims": {
+      "G1": 0.0,
+      "G2": 8.8,
+      "G3": 10.0,
+      "G4": 12.0,
+      "G5": 1.6,
+      "G6": 15.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "✨",
+        "name": "估值合理"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "NSK": {
+    "ticker": "NSK",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "THK": {
+    "ticker": "THK",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "RCAT": {
+    "ticker": "RCAT",
+    "status": "ok",
+    "name": "Red Cat Holdings, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 38.3,
+    "tier": "small",
+    "sector": "aerospace",
+    "currency": "USD",
+    "market_cap_usd_b": 2.3,
+    "dims": {
+      "G1": 13.4,
+      "G2": 0.0,
+      "G3": 14.0,
+      "G4": 7.7,
+      "G5": 0.0,
+      "G6": 3.2
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  },
+  "SWARM": {
+    "ticker": "SWARM",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "AVAV": {
+    "ticker": "AVAV",
+    "status": "no_data",
+    "error": "fetch failed"
+  },
+  "KTOS": {
+    "ticker": "KTOS",
+    "status": "ok",
+    "name": "Kratos Defense & Security Solutions, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 46.4,
+    "tier": "mid",
+    "sector": "aerospace",
+    "currency": "USD",
+    "market_cap_usd_b": 11.9,
+    "dims": {
+      "G1": 17.6,
+      "G2": 3.2,
+      "G3": 15.0,
+      "G4": 9.0,
+      "G5": 1.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "🚨",
+        "name": "国防政策依赖"
+      }
+    ],
+    "evaluated_at": "2026-06-02"
+  }
+}

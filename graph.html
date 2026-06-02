@@ -70,6 +70,53 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .hint { font-size: 11px; color: #6b7785; margin-top: 8px; padding: 8px; background: #0f1419; border-radius: 4px; border-left: 2px solid #4fc3f7; }
 .hidden { display: none !important; }
 .stat-bar { font-size: 11px; color: #9aa5b1; padding: 6px 0; }
+
+/* ===== 评分徽章 ===== */
+.grade-badge { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 700; margin-left: 6px; vertical-align: middle; letter-spacing: 0.3px; cursor: help; }
+.grade-S { background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; }
+.grade-A { background: #22c55e; color: #000; }
+.grade-B { background: #3b82f6; color: #fff; }
+.grade-C { background: #f59e0b; color: #000; }
+.grade-D { background: #6b7785; color: #fff; }
+.grade-NA { background: #2a3548; color: #6b7785; }
+
+.score-tags { display: flex; gap: 3px; margin-top: 4px; flex-wrap: wrap; max-width: 240px; }
+.tag-feat { background: #1a3a2a; border: 1px solid #22552f; padding: 1px 5px; border-radius: 3px; font-size: 10px; color: #86efac; }
+.tag-risk { background: #3a1a1f; border: 1px solid #5a2228; padding: 1px 5px; border-radius: 3px; font-size: 10px; color: #fca5a5; }
+
+/* ===== 详情抽屉 ===== */
+.drawer-bg { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; align-items: stretch; justify-content: flex-end; z-index: 200; }
+.drawer-bg.show { display: flex; }
+.drawer { background: #1a2230; width: 100%; max-width: 480px; height: 100vh; overflow-y: auto; padding: 24px; border-left: 1px solid #2a3548; animation: slideIn .25s ease-out; }
+@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+.drawer-head { display: flex; align-items: flex-start; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid #2a3548; margin-bottom: 18px; }
+.drawer-head .ticker-big { font-size: 22px; font-weight: 700; color: #4fc3f7; }
+.drawer-head .name-cn { font-size: 13px; color: #9aa5b1; margin-top: 2px; }
+.drawer-head .close-x { margin-left: auto; cursor: pointer; color: #9aa5b1; font-size: 24px; line-height: 1; padding: 4px 8px; user-select: none; }
+.drawer-head .close-x:hover { color: #fff; }
+.drawer-score { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.drawer-score .grade-big { font-size: 30px; font-weight: 800; padding: 4px 14px; border-radius: 8px; line-height: 1.1; }
+.drawer-score .total-num { font-size: 28px; font-weight: 700; }
+.drawer-score .total-of { font-size: 13px; color: #9aa5b1; }
+.drawer-tier-sector { font-size: 12px; color: #9aa5b1; margin-bottom: 18px; }
+.drawer-tier-sector .pill { background: #243245; padding: 2px 8px; border-radius: 10px; margin-right: 6px; }
+.drawer-section { margin-bottom: 22px; }
+.drawer-section h4 { font-size: 12px; color: #9aa5b1; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
+.dim-bars { display: flex; flex-direction: column; gap: 8px; }
+.dim-bar { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.dim-bar .lbl { width: 90px; color: #cfd5dc; }
+.dim-bar .track { flex: 1; height: 8px; background: #0f1419; border-radius: 4px; overflow: hidden; position: relative; }
+.dim-bar .fill { height: 100%; background: linear-gradient(90deg, #3b82f6, #4fc3f7); border-radius: 4px; transition: width .4s; }
+.dim-bar .pct { width: 60px; text-align: right; color: #9aa5b1; font-size: 11px; }
+.drawer-tags { display: flex; flex-direction: column; gap: 6px; }
+.drawer-tag-row { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 6px 10px; border-radius: 6px; }
+.drawer-tag-row.feat { background: #1a3a2a; color: #86efac; border-left: 3px solid #22c55e; }
+.drawer-tag-row.risk { background: #3a1a1f; color: #fca5a5; border-left: 3px solid #ef4444; }
+.drawer-tag-row .emj { font-size: 16px; }
+.drawer-actions { display: flex; gap: 8px; margin-top: 24px; padding-top: 16px; border-top: 1px solid #2a3548; }
+.drawer-actions button { flex: 1; padding: 9px; }
+.no-score { background: #0f1419; padding: 14px; border-radius: 8px; border: 1px dashed #3a4860; color: #9aa5b1; font-size: 12px; text-align: center; }
+.score-meta { font-size: 11px; color: #6b7785; margin-top: 16px; text-align: right; }
 </style>
 </head>
 <body>
@@ -95,6 +142,10 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
   </div>
 </header>
 <main id="tree"></main>
+
+<div class="drawer-bg" id="drawer" onclick="if(event.target===this)closeDrawer()">
+  <div class="drawer" id="drawerInner"></div>
+</div>
 
 <div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal" id="modalInner"></div>
@@ -968,6 +1019,7 @@ const DEFAULT_DATA = {
 // ============ 状态 ============
 let data = loadData();
 let editTarget = null;
+let SCORES = {};   // ← 由 fetch scores.json 加载，公司评分数据
 
 function loadData() {
   try {
@@ -977,6 +1029,22 @@ function loadData() {
   return structuredClone(DEFAULT_DATA);
 }
 function save() { localStorage.setItem('aiChain_v1', JSON.stringify(data)); updateStat(); }
+
+// ============ 评分数据加载 (gm_rater 输出) ============
+function loadScores() {
+  fetch('scores.json', { cache: 'no-cache' })
+    .then(r => r.ok ? r.json() : {})
+    .then(s => {
+      SCORES = s || {};
+      const okCount = Object.values(SCORES).filter(v => v && v.status === 'ok').length;
+      console.log(`[scores] loaded ${okCount} graded companies`);
+      render();   // 重新渲染让徽章出现
+    })
+    .catch(err => {
+      console.warn('[scores] failed to load, badges will be hidden:', err);
+      SCORES = {};
+    });
+}
 
 // ============ 渲染 ============
 function render() {
@@ -1027,10 +1095,26 @@ function renderCompanies(arr, path) {
     if (isWatch) tags.push('<span class="tag t-watch">自选</span>');
     if (isCn) tags.push('<span class="tag t-cn">中国</span>');
     if (!isCore && !isWatch && !isCn) tags.push('<span class="tag t-comp">相关</span>');
-    return `<div class="${cls}" onclick="openEditCompany('${path}', ${i})">
+
+    // 评分徽章 + 特点标签（来自 gm_rater）
+    const sc = SCORES[c.t];
+    let gradeBadge = '';
+    let featTags = '';
+    if (sc && sc.status === 'ok') {
+      gradeBadge = `<span class="grade-badge grade-${sc.grade}" title="${sc.tier}/${sc.sector} · 总分 ${sc.score}">${sc.grade} · ${sc.score}</span>`;
+      if (sc.features && sc.features.length) {
+        featTags = `<div class="score-tags">` +
+          sc.features.slice(0,2).map(f => `<span class="tag-feat">${f.emoji}${f.name}</span>`).join('') +
+          (sc.risks||[]).slice(0,1).map(r => `<span class="tag-risk">${r.emoji}${r.name}</span>`).join('') +
+          `</div>`;
+      }
+    }
+
+    return `<div class="${cls}" onclick="openDetail('${path}', ${i})">
       <span class="del" onclick="deleteCompany('${path}', ${i}, event)">✕</span>
-      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span></div>
+      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}</div>
       <span class="role">${escapeHtml(c.role || '')} ${tags.join('')}</span>
+      ${featTags}
     </div>`;
   }).join('');
 }
@@ -1094,6 +1178,99 @@ function doAddCompany(path) {
     flag: document.getElementById('m_flag').value,
   });
   save(); closeModal(); render();
+}
+
+// ============ 详情抽屉（公司点击触发，显示 gm_rater 评分）============
+function openDetail(path, idx) {
+  const c = getNode(path).companies[idx];
+  const sc = SCORES[c.t];
+
+  const sectorMap = {
+    semiconductor:'半导体', semi_equipment:'半导体设备',
+    memory_cyclical:'存储周期', networking:'网络互联',
+    optical:'光通信', capital_goods:'电力/工业',
+    utility_power:'公用/核电', materials:'材料',
+    consumer:'消费', cloud:'云互联网',
+    fintech_payment:'金融科技', biotech:'生科',
+    reit_dc:'数据中心 REIT', energy_oil:'能源',
+    aerospace:'国防航空', auto_ev:'汽车 EV',
+    industrial:'工业', financial_bank:'银行金融',
+    saas_software:'软件 SaaS', other:'其他'
+  };
+  const tierMap = { mega:'超大盘 ≥$200B', large:'大盘 $50-200B', mid:'中盘 $5-50B', small:'小盘 <$5B', micro:'微盘 <$500M', unknown:'未知' };
+
+  let scoreHTML;
+  if (sc && sc.status === 'ok') {
+    const dims = sc.dims, max = sc.dim_max;
+    const dimLabels = { G1:'增长动能', G2:'盈利质量', G3:'财务健康', G4:'护城河', G5:'股东回报', G6:'估值合理' };
+    const bars = ['G1','G2','G3','G4','G5','G6'].map(k => {
+      const v = dims[k] || 0;
+      const m = max[k] || 1;
+      const pct = Math.round(v / m * 100);
+      return `<div class="dim-bar">
+        <span class="lbl">${k} ${dimLabels[k]}</span>
+        <span class="track"><span class="fill" style="width:${pct}%"></span></span>
+        <span class="pct">${v.toFixed(1)} / ${m}</span>
+      </div>`;
+    }).join('');
+
+    const featRows = (sc.features||[]).map(f =>
+      `<div class="drawer-tag-row feat"><span class="emj">${f.emoji}</span>${f.name}</div>`).join('')
+      || '<div class="no-score" style="padding:8px">未触发特点标签</div>';
+    const riskRows = (sc.risks||[]).map(r =>
+      `<div class="drawer-tag-row risk"><span class="emj">${r.emoji}</span>${r.name}</div>`).join('')
+      || '<div class="no-score" style="padding:8px">未触发风险标签</div>';
+
+    scoreHTML = `
+      <div class="drawer-score">
+        <span class="grade-big grade-${sc.grade}">${sc.grade}</span>
+        <span class="total-num">${sc.score}</span><span class="total-of">/ 100</span>
+      </div>
+      <div class="drawer-tier-sector">
+        <span class="pill">${tierMap[sc.tier] || sc.tier}</span>
+        <span class="pill">${sectorMap[sc.sector] || sc.sector}</span>
+        ${sc.market_cap_usd_b ? `<span class="pill">市值 $${sc.market_cap_usd_b}B</span>` : ''}
+      </div>
+      <div class="drawer-section">
+        <h4>六维评分</h4>
+        <div class="dim-bars">${bars}</div>
+      </div>
+      <div class="drawer-section">
+        <h4>特点</h4>
+        <div class="drawer-tags">${featRows}</div>
+      </div>
+      <div class="drawer-section">
+        <h4>风险</h4>
+        <div class="drawer-tags">${riskRows}</div>
+      </div>
+      <div class="score-meta">数据更新 ${sc.evaluated_at} · 引擎 gm_rater v1.0</div>`;
+  } else {
+    scoreHTML = `
+      <div class="no-score">
+        ⏳ 此标的暂无评分数据<br>
+        <span style="font-size:11px">可能是：A 股 / 未上市 / yfinance 暂时无法获取</span>
+      </div>`;
+  }
+
+  document.getElementById('drawerInner').innerHTML = `
+    <div class="drawer-head">
+      <div>
+        <div class="ticker-big">${escapeHtml(c.t)}</div>
+        <div class="name-cn">${escapeHtml(c.cn || '')}</div>
+        <div style="font-size:12px;color:#9aa5b1;margin-top:4px">${escapeHtml(c.role || '')}</div>
+      </div>
+      <span class="close-x" onclick="closeDrawer()">×</span>
+    </div>
+    ${scoreHTML}
+    <div class="drawer-actions">
+      <button class="btn-sm" onclick="closeDrawer(); openEditCompany('${path}', ${idx})">✎ 编辑</button>
+      <button class="btn-sm btn-del" onclick="closeDrawer(); deleteCompany('${path}', ${idx}, event)">✕ 删除</button>
+    </div>`;
+  document.getElementById('drawer').classList.add('show');
+}
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('show');
 }
 
 function openEditCompany(path, idx) {
@@ -1246,6 +1423,7 @@ function updateStat() {
 }
 
 render();
+loadScores();   // 异步加载评分，到了之后会自动 re-render
 </script>
 </body>
 </html>
