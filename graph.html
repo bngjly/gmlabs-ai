@@ -54,18 +54,17 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .node-body { padding: 12px 14px 14px 34px; border-left: 2px dashed #2a3548; margin-left: 18px; }
 .sub-section-title { font-size: 12px; color: #9aa5b1; margin: 10px 0 6px; text-transform: uppercase; letter-spacing: 1px; }
 .companies { display: flex; flex-wrap: wrap; gap: 8px; }
-.company { position: relative; background: #222e3e; border: 1px solid #3a4860; padding: 6px 10px; border-radius: 6px; font-size: 13px; min-width: 90px; transition: .15s; }
+.company { position: relative; background: #222e3e; border: 1px solid #3a4860; padding: 6px 10px; padding-right: 66px; border-radius: 6px; font-size: 13px; min-width: 130px; transition: .15s; }
 .company:hover { background: #2d3b50; border-color: #4fc3f7; }
 .company.core { border-color: #ef4444; background: #3a1f24; }
 .company.watch { border-color: #f59e0b; background: #3a2f1a; }
 .company .ticker { font-weight: 700; color: #4fc3f7; font-size: 13px; }
 .company .cn-name { color: #ddd; font-size: 12px; margin-left: 4px; }
 .company .role { color: #9aa5b1; font-size: 11px; display: block; margin-top: 2px; }
-.company .del { position: absolute; top: 2px; right: 18px; color: #ef4444; font-size: 12px; cursor: pointer; opacity: 0; }
-.company .watch-star { position: absolute; top: 2px; right: 4px; font-size: 14px; cursor: pointer; color: #6b7785; transition: .12s; user-select: none; line-height: 1; }
-.company .watch-star:hover { color: #f59e0b; transform: scale(1.2); }
-.company .watch-star.on { color: #f59e0b; }
-.company:hover .del { opacity: 1; }
+.company .watch-btn { position: absolute; top: 4px; right: 4px; font-size: 10px; padding: 2px 8px; border-radius: 10px; cursor: pointer; color: #9aa5b1; background: #1c2632; border: 1px solid #2a3548; transition: .12s; user-select: none; line-height: 1.5; white-space: nowrap; }
+.company .watch-btn:hover { color: #f59e0b; border-color: #f59e0b; }
+.company .watch-btn.on { color: #fbbf24; background: #3a2f1a; border-color: #f59e0b; font-weight: 600; }
+.company .watch-btn.on:hover { color: #fff; background: #3a1f24; border-color: #ef4444; }
 .actions { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
 .btn-sm { background: #1c2632; color: #4fc3f7; border: 1px dashed #4fc3f7; padding: 4px 10px; border-radius: 5px; font-size: 12px; cursor: pointer; }
 .btn-sm:hover { background: #243245; }
@@ -1337,11 +1336,10 @@ function renderCompanies(arr, path) {
       }
     }
 
-    const starIcon = isWatch ? '★' : '☆';
-    const starTitle = isWatch ? '取消自选' : '加入自选';
+    const watchLabel = isWatch ? '★ 已选' : '☆ 自选';
+    const watchTitle = isWatch ? '点击取消自选' : '点击加入自选';
     return `<div class="${cls}" onclick="openDetail('${path}', ${i})">
-      <span class="watch-star ${isWatch?'on':''}" onclick="toggleWatch('${path}', ${i}, event)" title="${starTitle}">${starIcon}</span>
-      <span class="del" onclick="deleteCompany('${path}', ${i}, event)">✕</span>
+      <span class="watch-btn ${isWatch?'on':''}" onclick="toggleWatch('${path}', ${i}, event)" title="${watchTitle}">${watchLabel}</span>
       <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}</div>
       <span class="role">${escapeHtml(c.role || '')} ${tags.join('')}</span>
       ${featTags}
