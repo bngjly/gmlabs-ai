@@ -1101,18 +1101,32 @@ const DEFAULT_DATA = {
 };
 
 // ============ 状态 ============
+// 改 DEFAULT_DATA 后递增版本号，自动失效用户旧 localStorage
+const DATA_VERSION = '2026-06-03-v2';   // 含 AAOI/Serenity层/电源 IC 大补全
+
 let data = loadData();
 let editTarget = null;
 let SCORES = {};   // ← 由 fetch scores.json 加载，公司评分数据
 
 function loadData() {
   try {
+    const storedVersion = localStorage.getItem('aiChain_version');
     const stored = localStorage.getItem('aiChain_v1');
-    if (stored) return JSON.parse(stored);
+    if (stored && storedVersion === DATA_VERSION) {
+      return JSON.parse(stored);
+    }
+    // 版本不匹配（包括首次访问 / 我升级了 DEFAULT_DATA）→ 用新默认值
+    if (stored && storedVersion !== DATA_VERSION) {
+      console.log(`[ChainGraph] 数据版本升级 ${storedVersion} → ${DATA_VERSION}，自动重置`);
+    }
   } catch(e) {}
   return structuredClone(DEFAULT_DATA);
 }
-function save() { localStorage.setItem('aiChain_v1', JSON.stringify(data)); updateStat(); }
+function save() {
+  localStorage.setItem('aiChain_v1', JSON.stringify(data));
+  localStorage.setItem('aiChain_version', DATA_VERSION);
+  updateStat();
+}
 
 // ============ 评分数据加载 (gm_rater 输出) ============
 function loadScores() {
