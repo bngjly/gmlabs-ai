@@ -557,7 +557,7 @@ async function renderHomeStats() {
     .slice(0, 12);
   const tagsHTML = top.map(v => {
     const color = v.grade === 'S' ? '#ef4444' : '#22c55e';
-    return `<span class="hot-tag" onclick="goto('graph')" title="${escapeAttr(v.name || '')}">
+    return `<span class="hot-tag" onclick="jumpToTickerInGraph('${escapeAttr(v.ticker)}')" title="${escapeAttr(v.name || '')}">
       <span style="color:${color};font-weight:700">${v.grade}</span> ${escapeHtml(v.ticker)}
       <span style="color:#6b7785;font-size:11px;margin-left:3px">${v.score}</span>
     </span>`;
@@ -687,20 +687,33 @@ async function renderProfile() {
   document.getElementById('watchlist-area').innerHTML = `<div class="profile-list">${rowsHTML}</div>`;
 }
 
-// 跳到图谱 + 把 ticker 填入图谱搜索框
+// 跳到图谱 + 把 ticker 填入图谱搜索框（带重试，iframe 慢加载也能成功）
 function jumpToTickerInGraph(ticker) {
   goto('graph');
-  // graph 是 iframe，需要给它传一个 hint
-  setTimeout(() => {
-    const iframe = document.querySelector('.graph-frame');
-    if (!iframe || !iframe.contentDocument) return;
-    const searchInput = iframe.contentDocument.getElementById('search');
-    if (searchInput) {
-      searchInput.value = ticker;
-      searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-      searchInput.focus();
-    }
-  }, 600);
+  let attempts = 0;
+  const tryFill = () => {
+    attempts++;
+    try {
+      const iframe = document.querySelector('.graph-frame');
+      if (iframe && iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+        const searchInput = iframe.contentDocument.getElementById('search');
+        if (searchInput) {
+          searchInput.value = ticker;
+          // 触发 graph.html 自己的 onSearchInput
+          searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+          // 显示清空按钮
+          const wrap = iframe.contentDocument.getElementById('searchWrap');
+          if (wrap) wrap.classList.add('has-value');
+          searchInput.focus();
+          // 滚动到 iframe 顶部
+          iframe.contentWindow.scrollTo(0, 0);
+          return;
+        }
+      }
+    } catch (e) { console.warn('jumpToTicker retry', attempts, e); }
+    if (attempts < 30) setTimeout(tryFill, 200);
+  };
+  setTimeout(tryFill, 100);
 }
 
 // ============ 早鸟邮箱收集 modal ============
