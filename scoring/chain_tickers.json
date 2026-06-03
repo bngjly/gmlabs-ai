@@ -1,0 +1,1331 @@
+{
+  "version": "v1",
+  "supported": [
+    {
+      "ticker": "NVDA",
+      "cn": "英伟达"
+    },
+    {
+      "ticker": "AMD",
+      "cn": "AMD"
+    },
+    {
+      "ticker": "AVGO",
+      "cn": "博通"
+    },
+    {
+      "ticker": "MRVL",
+      "cn": "迈威尔"
+    },
+    {
+      "ticker": "INTC",
+      "cn": "英特尔"
+    },
+    {
+      "ticker": "6533.TW",
+      "cn": "Alchip 世芯"
+    },
+    {
+      "ticker": "3661.TW",
+      "cn": "Socionext / 創意 GUC"
+    },
+    {
+      "ticker": "GOOGL",
+      "cn": "TPU v6/v7"
+    },
+    {
+      "ticker": "AMZN",
+      "cn": "Trainium2/3"
+    },
+    {
+      "ticker": "META",
+      "cn": "MTIA v2"
+    },
+    {
+      "ticker": "MSFT",
+      "cn": "Maia 100/200"
+    },
+    {
+      "ticker": "OpenAI",
+      "cn": "OpenAI ASIC"
+    },
+    {
+      "ticker": "ARM",
+      "cn": "Arm Holdings"
+    },
+    {
+      "ticker": "AAPL",
+      "cn": "Apple Silicon"
+    },
+    {
+      "ticker": "QCOM",
+      "cn": "高通"
+    },
+    {
+      "ticker": "MTK",
+      "cn": "联发科"
+    },
+    {
+      "ticker": "POET",
+      "cn": "POET Technologies"
+    },
+    {
+      "ticker": "IBM",
+      "cn": "IBM Quantum"
+    },
+    {
+      "ticker": "IONQ",
+      "cn": "IonQ"
+    },
+    {
+      "ticker": "RGTI",
+      "cn": "Rigetti"
+    },
+    {
+      "ticker": "QBTS",
+      "cn": "D-Wave"
+    },
+    {
+      "ticker": "QUBT",
+      "cn": "Quantum Computing"
+    },
+    {
+      "ticker": "BBAI",
+      "cn": "BigBear AI"
+    },
+    {
+      "ticker": "9660.HK",
+      "cn": "地平线机器人"
+    },
+    {
+      "ticker": "MU",
+      "cn": "美光"
+    },
+    {
+      "ticker": "000660.KS",
+      "cn": "SK Hynix"
+    },
+    {
+      "ticker": "005930.KS",
+      "cn": "三星电子"
+    },
+    {
+      "ticker": "TSM",
+      "cn": "台积电"
+    },
+    {
+      "ticker": "BESI.AS",
+      "cn": "BE Semiconductor"
+    },
+    {
+      "ticker": "ASM.AS",
+      "cn": "ASM International"
+    },
+    {
+      "ticker": "AMAT",
+      "cn": "应用材料"
+    },
+    {
+      "ticker": "KLAC",
+      "cn": "KLA 科磊"
+    },
+    {
+      "ticker": "6857.T",
+      "cn": "Advantest"
+    },
+    {
+      "ticker": "TER",
+      "cn": "Teradyne"
+    },
+    {
+      "ticker": "6920.T",
+      "cn": "Lasertec"
+    },
+    {
+      "ticker": "RMBX.OB",
+      "cn": "Rambus"
+    },
+    {
+      "ticker": "ALAB",
+      "cn": "Astera Labs"
+    },
+    {
+      "ticker": "SNDK",
+      "cn": "闪迪 SanDisk"
+    },
+    {
+      "ticker": "285A.T",
+      "cn": "Kioxia 铠侠"
+    },
+    {
+      "ticker": "PSTG",
+      "cn": "Pure Storage"
+    },
+    {
+      "ticker": "NTAP",
+      "cn": "NetApp"
+    },
+    {
+      "ticker": "VRT",
+      "cn": "(部分)"
+    },
+    {
+      "ticker": "STX",
+      "cn": "希捷"
+    },
+    {
+      "ticker": "WDC",
+      "cn": "西部数据"
+    },
+    {
+      "ticker": "TDK.T",
+      "cn": "TDK"
+    },
+    {
+      "ticker": "8299.TWO",
+      "cn": "Phison 群联"
+    },
+    {
+      "ticker": "SIMO",
+      "cn": "慧荣科技 Silicon Motion"
+    },
+    {
+      "ticker": "003220.KS",
+      "cn": "Solidigm (SK)"
+    },
+    {
+      "ticker": "2454.TW",
+      "cn": "联发科"
+    },
+    {
+      "ticker": "ASX",
+      "cn": "日月光"
+    },
+    {
+      "ticker": "AMKR",
+      "cn": "Amkor"
+    },
+    {
+      "ticker": "JCET",
+      "cn": "长电科技"
+    },
+    {
+      "ticker": "TFME",
+      "cn": "通富微电"
+    },
+    {
+      "ticker": "UMC",
+      "cn": "联电"
+    },
+    {
+      "ticker": "GFS",
+      "cn": "GlobalFoundries"
+    },
+    {
+      "ticker": "SMCI/HPE",
+      "cn": "(系统集成)"
+    },
+    {
+      "ticker": "4062.T",
+      "cn": "Ibiden 揖斐电"
+    },
+    {
+      "ticker": "3037.TW",
+      "cn": "欣興 Unimicron"
+    },
+    {
+      "ticker": "6789.TW",
+      "cn": "南電 Nan Ya PCB"
+    },
+    {
+      "ticker": "5803.T",
+      "cn": "Shinko 新光电气"
+    },
+    {
+      "ticker": "AT&S.VI",
+      "cn": "奥地利 AT&S"
+    },
+    {
+      "ticker": "TTMI",
+      "cn": "TTM Technologies"
+    },
+    {
+      "ticker": "GLW",
+      "cn": "Corning 康宁"
+    },
+    {
+      "ticker": "AGC.T",
+      "cn": "AGC 旭硝子"
+    },
+    {
+      "ticker": "KLIC",
+      "cn": "Kulicke & Soffa"
+    },
+    {
+      "ticker": "SUSS.DE",
+      "cn": "Süss MicroTec"
+    },
+    {
+      "ticker": "CRDO",
+      "cn": "Credo"
+    },
+    {
+      "ticker": "Parade",
+      "cn": "Parade Tech"
+    },
+    {
+      "ticker": "MTSI",
+      "cn": "MACOM"
+    },
+    {
+      "ticker": "CSCO",
+      "cn": "思科"
+    },
+    {
+      "ticker": "ANET",
+      "cn": "Arista"
+    },
+    {
+      "ticker": "SMCI",
+      "cn": "Supermicro"
+    },
+    {
+      "ticker": "RMBX",
+      "cn": "Rambus"
+    },
+    {
+      "ticker": "Lightmatter",
+      "cn": "Lightmatter"
+    },
+    {
+      "ticker": "APH",
+      "cn": "Amphenol 安费诺"
+    },
+    {
+      "ticker": "TEL",
+      "cn": "TE Connectivity 泰科"
+    },
+    {
+      "ticker": "FLEX",
+      "cn": "Flex Ltd"
+    },
+    {
+      "ticker": "MEI",
+      "cn": "Methode Electronics"
+    },
+    {
+      "ticker": "NVT",
+      "cn": "nVent Electric"
+    },
+    {
+      "ticker": "JNPR",
+      "cn": "Juniper"
+    },
+    {
+      "ticker": "SNPS",
+      "cn": "Synopsys"
+    },
+    {
+      "ticker": "CDNS",
+      "cn": "Cadence"
+    },
+    {
+      "ticker": "AWE.L",
+      "cn": "Alphawave"
+    },
+    {
+      "ticker": "CEVA",
+      "cn": "CEVA"
+    },
+    {
+      "ticker": "DELL",
+      "cn": "戴尔"
+    },
+    {
+      "ticker": "HPE",
+      "cn": "HPE"
+    },
+    {
+      "ticker": "CLS",
+      "cn": "Celestica"
+    },
+    {
+      "ticker": "6669.TW",
+      "cn": "緯穎 Wiwynn"
+    },
+    {
+      "ticker": "2382.TW",
+      "cn": "廣達 Quanta"
+    },
+    {
+      "ticker": "3231.TW",
+      "cn": "緯創 Wistron"
+    },
+    {
+      "ticker": "2317.TW",
+      "cn": "鴻海 Foxconn"
+    },
+    {
+      "ticker": "2376.TW",
+      "cn": "技嘉 GIGABYTE"
+    },
+    {
+      "ticker": "4938.TW",
+      "cn": "和碩 PEGATRON"
+    },
+    {
+      "ticker": "LNVGY",
+      "cn": "Lenovo 联想 ADR"
+    },
+    {
+      "ticker": "ASUUY",
+      "cn": "ASUS 华硕 ADR"
+    },
+    {
+      "ticker": "LITE",
+      "cn": "Lumentum"
+    },
+    {
+      "ticker": "COHR",
+      "cn": "Coherent"
+    },
+    {
+      "ticker": "AAOI",
+      "cn": "Applied Optoelectronics"
+    },
+    {
+      "ticker": "FN",
+      "cn": "Fabrinet"
+    },
+    {
+      "ticker": "NOK",
+      "cn": "Nokia 诺基亚"
+    },
+    {
+      "ticker": "CIEN",
+      "cn": "Ciena"
+    },
+    {
+      "ticker": "INFN",
+      "cn": "Infinera"
+    },
+    {
+      "ticker": "AYAR",
+      "cn": "Ayar Labs"
+    },
+    {
+      "ticker": "IPGP",
+      "cn": "IPG Photonics"
+    },
+    {
+      "ticker": "6902.T",
+      "cn": "Sumitomo Electric 住友"
+    },
+    {
+      "ticker": "SMTC",
+      "cn": "Semtech"
+    },
+    {
+      "ticker": "ADI",
+      "cn": "Analog Devices"
+    },
+    {
+      "ticker": "ETN",
+      "cn": "Eaton"
+    },
+    {
+      "ticker": "GEV",
+      "cn": "GE Vernova"
+    },
+    {
+      "ticker": "MPWR",
+      "cn": "Monolithic Power"
+    },
+    {
+      "ticker": "NVTS",
+      "cn": "Navitas Semi"
+    },
+    {
+      "ticker": "WOLF",
+      "cn": "Wolfspeed"
+    },
+    {
+      "ticker": "ON",
+      "cn": "安森美"
+    },
+    {
+      "ticker": "TXN",
+      "cn": "Texas Instruments"
+    },
+    {
+      "ticker": "MCHP",
+      "cn": "Microchip 微芯"
+    },
+    {
+      "ticker": "POWI",
+      "cn": "Power Integrations"
+    },
+    {
+      "ticker": "VICR",
+      "cn": "Vicor 维克"
+    },
+    {
+      "ticker": "AOSL",
+      "cn": "Alpha & Omega Semi"
+    },
+    {
+      "ticker": "IFNNY",
+      "cn": "Infineon 英飞凌 ADR"
+    },
+    {
+      "ticker": "ACLS",
+      "cn": "Axcelis Technologies"
+    },
+    {
+      "ticker": "STM",
+      "cn": "意法半导体"
+    },
+    {
+      "ticker": "OKLO",
+      "cn": "Oklo"
+    },
+    {
+      "ticker": "SMR",
+      "cn": "NuScale Power"
+    },
+    {
+      "ticker": "NNE",
+      "cn": "Nano Nuclear"
+    },
+    {
+      "ticker": "BWXT",
+      "cn": "BWX Technologies"
+    },
+    {
+      "ticker": "LEU",
+      "cn": "Centrus Energy"
+    },
+    {
+      "ticker": "CCJ",
+      "cn": "Cameco 卡梅科"
+    },
+    {
+      "ticker": "UEC",
+      "cn": "Uranium Energy"
+    },
+    {
+      "ticker": "CEG",
+      "cn": "Constellation"
+    },
+    {
+      "ticker": "VST",
+      "cn": "Vistra"
+    },
+    {
+      "ticker": "TLN",
+      "cn": "Talen Energy"
+    },
+    {
+      "ticker": "SIEGY",
+      "cn": "Siemens Energy"
+    },
+    {
+      "ticker": "7011.T",
+      "cn": "三菱重工 MHI"
+    },
+    {
+      "ticker": "PWR",
+      "cn": "Quanta Services"
+    },
+    {
+      "ticker": "MYRG",
+      "cn": "MYR Group"
+    },
+    {
+      "ticker": "PRIM",
+      "cn": "Primoris"
+    },
+    {
+      "ticker": "CAT",
+      "cn": "Caterpillar 卡特彼勒"
+    },
+    {
+      "ticker": "CMI",
+      "cn": "Cummins 康明斯"
+    },
+    {
+      "ticker": "HUBB",
+      "cn": "Hubbell"
+    },
+    {
+      "ticker": "ABBNY",
+      "cn": "ABB"
+    },
+    {
+      "ticker": "SU.PA",
+      "cn": "Schneider 施耐德"
+    },
+    {
+      "ticker": "PNR",
+      "cn": "nVent / Pentair"
+    },
+    {
+      "ticker": "NGG",
+      "cn": "National Grid 英国国家电网 ADR"
+    },
+    {
+      "ticker": "2308.TW",
+      "cn": "台達電 Delta Electronics"
+    },
+    {
+      "ticker": "TSLA",
+      "cn": "Tesla Megapack"
+    },
+    {
+      "ticker": "FLNC",
+      "cn": "Fluence Energy"
+    },
+    {
+      "ticker": "STEM",
+      "cn": "Stem Inc"
+    },
+    {
+      "ticker": "ENPH",
+      "cn": "Enphase"
+    },
+    {
+      "ticker": "373220.KS",
+      "cn": "LG Energy Solution"
+    },
+    {
+      "ticker": "MOD",
+      "cn": "Modine"
+    },
+    {
+      "ticker": "3017.TW",
+      "cn": "奇鋐 Auras"
+    },
+    {
+      "ticker": "3324.TW",
+      "cn": "雙鴻 Auras Tech"
+    },
+    {
+      "ticker": "4540.T",
+      "cn": "TSMC 配套散热"
+    },
+    {
+      "ticker": "MMM",
+      "cn": "3M Novec"
+    },
+    {
+      "ticker": "CC",
+      "cn": "Chemours"
+    },
+    {
+      "ticker": "SHW",
+      "cn": "Solvay"
+    },
+    {
+      "ticker": "CPC",
+      "cn": "CPC (Dover 子公司 DOV)"
+    },
+    {
+      "ticker": "DOV",
+      "cn": "Dover 多佛"
+    },
+    {
+      "ticker": "PH",
+      "cn": "Parker Hannifin 派克"
+    },
+    {
+      "ticker": "STBN.SW",
+      "cn": "Stäubli 史陶比尔"
+    },
+    {
+      "ticker": "SWK",
+      "cn": "Stanley Works"
+    },
+    {
+      "ticker": "CARR",
+      "cn": "Carrier 开利"
+    },
+    {
+      "ticker": "JCI",
+      "cn": "Johnson Controls 江森"
+    },
+    {
+      "ticker": "TT",
+      "cn": "Trane Technologies"
+    },
+    {
+      "ticker": "LII",
+      "cn": "Lennox"
+    },
+    {
+      "ticker": "ASML",
+      "cn": "阿斯麦"
+    },
+    {
+      "ticker": "LRCX",
+      "cn": "泛林"
+    },
+    {
+      "ticker": "7731.T",
+      "cn": "尼康 Nikon"
+    },
+    {
+      "ticker": "7741.T",
+      "cn": "佳能 Canon"
+    },
+    {
+      "ticker": "TOELY",
+      "cn": "东京电子 TEL"
+    },
+    {
+      "ticker": "8035.T",
+      "cn": "TEL 东京威力"
+    },
+    {
+      "ticker": "ONTO",
+      "cn": "Onto Innovation"
+    },
+    {
+      "ticker": "CAMT",
+      "cn": "Camtek"
+    },
+    {
+      "ticker": "NTES.OB",
+      "cn": "Nordson"
+    },
+    {
+      "ticker": "AEHR",
+      "cn": "Aehr Test Systems"
+    },
+    {
+      "ticker": "FORM",
+      "cn": "FormFactor"
+    },
+    {
+      "ticker": "COHU",
+      "cn": "Cohu"
+    },
+    {
+      "ticker": "TOPN.T",
+      "cn": "Toppan 凸版印刷"
+    },
+    {
+      "ticker": "DNPLY",
+      "cn": "Dai Nippon Printing"
+    },
+    {
+      "ticker": "PKG",
+      "cn": "Photronics"
+    },
+    {
+      "ticker": "SIE.DE",
+      "cn": "Siemens EDA"
+    },
+    {
+      "ticker": "DASTY",
+      "cn": "Dassault Systèmes ADR"
+    },
+    {
+      "ticker": "PTC",
+      "cn": "PTC Inc"
+    },
+    {
+      "ticker": "3436.T",
+      "cn": "SUMCO"
+    },
+    {
+      "ticker": "4063.T",
+      "cn": "信越化学 Shin-Etsu"
+    },
+    {
+      "ticker": "GWC.TW",
+      "cn": "GlobalWafers 環球晶圆"
+    },
+    {
+      "ticker": "SK Siltron",
+      "cn": "SK Siltron"
+    },
+    {
+      "ticker": "4185.T",
+      "cn": "JSR 光刻胶"
+    },
+    {
+      "ticker": "4186.T",
+      "cn": "TOK 东京应化"
+    },
+    {
+      "ticker": "4188.T",
+      "cn": "三菱化学"
+    },
+    {
+      "ticker": "CCMP",
+      "cn": "Entegris"
+    },
+    {
+      "ticker": "LIN",
+      "cn": "Linde 林德"
+    },
+    {
+      "ticker": "APD",
+      "cn": "Air Products"
+    },
+    {
+      "ticker": "4091.T",
+      "cn": "大阳日酸"
+    },
+    {
+      "ticker": "ORCL",
+      "cn": "甲骨文"
+    },
+    {
+      "ticker": "BABA",
+      "cn": "阿里云"
+    },
+    {
+      "ticker": "9988.HK",
+      "cn": "阿里巴巴港股"
+    },
+    {
+      "ticker": "CRWV",
+      "cn": "CoreWeave"
+    },
+    {
+      "ticker": "NBIS",
+      "cn": "Nebius"
+    },
+    {
+      "ticker": "APLD",
+      "cn": "Applied Digital"
+    },
+    {
+      "ticker": "IREN",
+      "cn": "Iris Energy"
+    },
+    {
+      "ticker": "CIFR",
+      "cn": "Cipher Mining"
+    },
+    {
+      "ticker": "WULF",
+      "cn": "TeraWulf"
+    },
+    {
+      "ticker": "HUT",
+      "cn": "Hut 8"
+    },
+    {
+      "ticker": "LMB.L",
+      "cn": "Lambda Labs"
+    },
+    {
+      "ticker": "Humain",
+      "cn": "沙特 Humain"
+    },
+    {
+      "ticker": "TATA.NS",
+      "cn": "印度 Tata"
+    },
+    {
+      "ticker": "9984.T",
+      "cn": "软银 SoftBank"
+    },
+    {
+      "ticker": "OTE.AT",
+      "cn": "欧洲电信"
+    },
+    {
+      "ticker": "MTZ",
+      "cn": "MasTec"
+    },
+    {
+      "ticker": "STRL",
+      "cn": "Sterling Infrastructure"
+    },
+    {
+      "ticker": "IESC",
+      "cn": "IES Holdings"
+    },
+    {
+      "ticker": "POWL",
+      "cn": "Powell Industries"
+    },
+    {
+      "ticker": "CECE.O",
+      "cn": "CECO Environmental"
+    },
+    {
+      "ticker": "NET",
+      "cn": "Cloudflare"
+    },
+    {
+      "ticker": "FSLY",
+      "cn": "Fastly"
+    },
+    {
+      "ticker": "AKAM",
+      "cn": "Akamai"
+    },
+    {
+      "ticker": "EQIX",
+      "cn": "Equinix"
+    },
+    {
+      "ticker": "DLR",
+      "cn": "Digital Realty"
+    },
+    {
+      "ticker": "IRM",
+      "cn": "Iron Mountain"
+    },
+    {
+      "ticker": "AMT",
+      "cn": "American Tower"
+    },
+    {
+      "ticker": "PLTR",
+      "cn": "Palantir"
+    },
+    {
+      "ticker": "CRM",
+      "cn": "Salesforce"
+    },
+    {
+      "ticker": "ADBE",
+      "cn": "Adobe"
+    },
+    {
+      "ticker": "NOW",
+      "cn": "ServiceNow"
+    },
+    {
+      "ticker": "AI",
+      "cn": "C3.ai"
+    },
+    {
+      "ticker": "9606.HK",
+      "cn": "优必选 UBTech"
+    },
+    {
+      "ticker": "XPEV",
+      "cn": "小鹏 IronAI"
+    },
+    {
+      "ticker": "6981.T",
+      "cn": "村田 Murata"
+    },
+    {
+      "ticker": "6594.T",
+      "cn": "日本电产 Nidec"
+    },
+    {
+      "ticker": "6324.T",
+      "cn": "Harmonic Drive 日本"
+    },
+    {
+      "ticker": "2042.TW",
+      "cn": "中鋼結構"
+    },
+    {
+      "ticker": "MBLY",
+      "cn": "Mobileye"
+    },
+    {
+      "ticker": "AMBA",
+      "cn": "Ambarella"
+    },
+    {
+      "ticker": "LAZR",
+      "cn": "Luminar"
+    },
+    {
+      "ticker": "AEVA",
+      "cn": "Aeva"
+    },
+    {
+      "ticker": "HSAI",
+      "cn": "禾赛科技"
+    },
+    {
+      "ticker": "1810.HK",
+      "cn": "小米 + RoboSense"
+    },
+    {
+      "ticker": "BIDU",
+      "cn": "百度 Apollo"
+    },
+    {
+      "ticker": "NSK",
+      "cn": "NSK 日本精工"
+    },
+    {
+      "ticker": "THK",
+      "cn": "THK"
+    },
+    {
+      "ticker": "AXTI",
+      "cn": "AXT Inc"
+    },
+    {
+      "ticker": "SIVE",
+      "cn": "Sivers IMA (瑞典 OTC)"
+    },
+    {
+      "ticker": "XFAB",
+      "cn": "X-Fab Silicon Foundries"
+    },
+    {
+      "ticker": "RPI.L",
+      "cn": "Raspberry Pi (英国 LSE)"
+    },
+    {
+      "ticker": "EWY",
+      "cn": "iShares MSCI Korea ETF"
+    },
+    {
+      "ticker": "RCAT",
+      "cn": "Red Cat"
+    },
+    {
+      "ticker": "SWARM",
+      "cn": "Swarmer"
+    },
+    {
+      "ticker": "AVAV",
+      "cn": "AeroVironment"
+    },
+    {
+      "ticker": "KTOS",
+      "cn": "Kratos"
+    }
+  ],
+  "skipped": [
+    {
+      "ticker": "AMPRE",
+      "cn": "Ampere (未上市)"
+    },
+    {
+      "ticker": "Lightmatter",
+      "cn": "Lightmatter (未上市)"
+    },
+    {
+      "ticker": "Lightelligence",
+      "cn": "曦智科技 (未上市)"
+    },
+    {
+      "ticker": "Celestial",
+      "cn": "Celestial AI (未上市)"
+    },
+    {
+      "ticker": "Ayar",
+      "cn": "Ayar Labs (未上市)"
+    },
+    {
+      "ticker": "688256.SS",
+      "cn": "寒武纪"
+    },
+    {
+      "ticker": "688041.SS",
+      "cn": "海光信息"
+    },
+    {
+      "ticker": "Huawei",
+      "cn": "华为昇腾 (未上市)"
+    },
+    {
+      "ticker": "摩尔线程",
+      "cn": "摩尔线程 (待上市)"
+    },
+    {
+      "ticker": "壁仞",
+      "cn": "壁仞 (未上市)"
+    },
+    {
+      "ticker": "688798.SS",
+      "cn": "艾为电子 等"
+    },
+    {
+      "ticker": "688008.SS",
+      "cn": "澜起科技 Montage"
+    },
+    {
+      "ticker": "002185.SZ",
+      "cn": "华天科技"
+    },
+    {
+      "ticker": "002273.SZ",
+      "cn": "水晶光电"
+    },
+    {
+      "ticker": "EVG",
+      "cn": "EV Group (未上市)"
+    },
+    {
+      "ticker": "002463.SZ",
+      "cn": "沪电股份"
+    },
+    {
+      "ticker": "688008.SS",
+      "cn": "澜起科技"
+    },
+    {
+      "ticker": "Ayar",
+      "cn": "Ayar Labs (未上市)"
+    },
+    {
+      "ticker": "300308.SZ",
+      "cn": "中际旭创 Innolight"
+    },
+    {
+      "ticker": "300502.SZ",
+      "cn": "新易盛 Eoptolink"
+    },
+    {
+      "ticker": "601869.SS",
+      "cn": "长飞光纤"
+    },
+    {
+      "ticker": "688498.SS",
+      "cn": "源杰科技"
+    },
+    {
+      "ticker": "688048.SS",
+      "cn": "长光华芯"
+    },
+    {
+      "ticker": "688313.SS",
+      "cn": "仕佳光子"
+    },
+    {
+      "ticker": "300602.SZ",
+      "cn": "飞荣达 (部分)"
+    },
+    {
+      "ticker": "688368.SS",
+      "cn": "晶丰明源 等"
+    },
+    {
+      "ticker": "600406.SS",
+      "cn": "国电南瑞"
+    },
+    {
+      "ticker": "601727.SS",
+      "cn": "上海电气"
+    },
+    {
+      "ticker": "002028.SZ",
+      "cn": "思源电气"
+    },
+    {
+      "ticker": "300750.SZ",
+      "cn": "宁德时代 CATL"
+    },
+    {
+      "ticker": "002460.SZ",
+      "cn": "赣锋锂业"
+    },
+    {
+      "ticker": "002594.SZ",
+      "cn": "比亚迪 BYD"
+    },
+    {
+      "ticker": "002837.SZ",
+      "cn": "英维克"
+    },
+    {
+      "ticker": "603596.SS",
+      "cn": "伯特利"
+    },
+    {
+      "ticker": "GRC",
+      "cn": "GRC (未上市)"
+    },
+    {
+      "ticker": "Submer",
+      "cn": "Submer (未上市)"
+    },
+    {
+      "ticker": "002747.SZ",
+      "cn": "埃斯顿"
+    },
+    {
+      "ticker": "BDC",
+      "cn": "Boyd Corp (未上市)"
+    },
+    {
+      "ticker": "600406.SS",
+      "cn": "国电南瑞 等"
+    },
+    {
+      "ticker": "600160.SS",
+      "cn": "巨化股份"
+    },
+    {
+      "ticker": "002407.SZ",
+      "cn": "多氟多"
+    },
+    {
+      "ticker": "688699.SS",
+      "cn": "上海微电子 SMEE"
+    },
+    {
+      "ticker": "688012.SS",
+      "cn": "中微公司 AMEC"
+    },
+    {
+      "ticker": "688082.SS",
+      "cn": "盛美上海 ACMR"
+    },
+    {
+      "ticker": "688200.SS",
+      "cn": "华峰测控"
+    },
+    {
+      "ticker": "688521.SS",
+      "cn": "芯原股份 VeriSilicon"
+    },
+    {
+      "ticker": "688206.SS",
+      "cn": "概伦电子"
+    },
+    {
+      "ticker": "688126.SS",
+      "cn": "沪硅产业"
+    },
+    {
+      "ticker": "688268.SS",
+      "cn": "华特气体"
+    },
+    {
+      "ticker": "G42 (未上市)",
+      "cn": "阿联酋 G42"
+    },
+    {
+      "ticker": "OpenAI (未上市)",
+      "cn": "OpenAI"
+    },
+    {
+      "ticker": "Anthropic (未上市)",
+      "cn": "Anthropic"
+    },
+    {
+      "ticker": "xAI (未上市)",
+      "cn": "xAI"
+    },
+    {
+      "ticker": "PHYS",
+      "cn": "Physical Intelligence (未上市)"
+    },
+    {
+      "ticker": "Figure",
+      "cn": "Figure AI (未上市)"
+    },
+    {
+      "ticker": "Apptronik",
+      "cn": "Apptronik (未上市)"
+    },
+    {
+      "ticker": "1X",
+      "cn": "1X Technologies (未上市)"
+    },
+    {
+      "ticker": "BostonD",
+      "cn": "Boston Dynamics (未上市)"
+    },
+    {
+      "ticker": "宇树",
+      "cn": "宇树科技 (未上市)"
+    },
+    {
+      "ticker": "智元",
+      "cn": "智元机器人 (未上市)"
+    },
+    {
+      "ticker": "002747.SZ",
+      "cn": "埃斯顿"
+    },
+    {
+      "ticker": "300124.SZ",
+      "cn": "汇川技术"
+    },
+    {
+      "ticker": "603728.SS",
+      "cn": "鸣志电器"
+    },
+    {
+      "ticker": "688165.SS",
+      "cn": "埃华路 等"
+    },
+    {
+      "ticker": "603810.SS",
+      "cn": "绿的谐波"
+    },
+    {
+      "ticker": "688046.SS",
+      "cn": "美迪凯 等"
+    },
+    {
+      "ticker": "002527.SZ",
+      "cn": "新时达"
+    },
+    {
+      "ticker": "002472.SZ",
+      "cn": "双环传动"
+    },
+    {
+      "ticker": "ATI",
+      "cn": "ATI Industrial (未上市)"
+    },
+    {
+      "ticker": "BOSCH",
+      "cn": "博世 (未上市)"
+    },
+    {
+      "ticker": "300100.SZ",
+      "cn": "双林股份 等"
+    },
+    {
+      "ticker": "688208.SS",
+      "cn": "道通科技"
+    },
+    {
+      "ticker": "300124.SZ",
+      "cn": "汇川"
+    },
+    {
+      "ticker": "002465.SZ",
+      "cn": "海格通信 等"
+    },
+    {
+      "ticker": "Physical Intelligence",
+      "cn": "PI (π0/π0.5)"
+    },
+    {
+      "ticker": "Skild",
+      "cn": "Skild AI (未上市)"
+    },
+    {
+      "ticker": "002527.SZ",
+      "cn": "新时达"
+    },
+    {
+      "ticker": "002584.SZ",
+      "cn": "西陇科学 等"
+    },
+    {
+      "ticker": "002762.SZ",
+      "cn": "金发拉比 (主题股)"
+    },
+    {
+      "ticker": "002747.SZ",
+      "cn": "埃斯顿"
+    }
+  ],
+  "stats": {
+    "total_supported": 250,
+    "total_skipped": 80
+  }
+}

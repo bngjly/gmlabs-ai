@@ -1,0 +1,78 @@
+name: Nightly Stock Scores Refresh
+
+on:
+  schedule:
+    # UTC 18:00 = 北京 02:00（数据中心负载低，yfinance 限速概率小）
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+    inputs:
+      force_rerun:
+        description: '强制全量重跑（忽略 24h 缓存）'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
+
+permissions:
+  contents: write
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scoring/requirements.txt
+
+      - name: Install deps
+        run: pip install -r scoring/requirements.txt
+
+      - name: Extract tickers from graph.html
+        working-directory: scoring
+        run: python extract_tickers.py
+
+      - name: Batch score
+        working-directory: scoring
+        env:
+          PYTHONIOENCODING: utf-8
+          FORCE_RERUN: ${{ github.event.inputs.force_rerun }}
+        run: |
+          if [ "$FORCE_RERUN" = "true" ]; then
+            python batch_score.py --force --sleep 1.5
+          else
+            python batch_score.py --sleep 1.5
+          fi
+
+      - name: Summarize results
+        working-directory: scoring
+        run: |
+          python -c "
+          import json
+          d = json.load(open('../scores.json', encoding='utf-8'))
+          ok = sum(1 for v in d.values() if v.get('status')=='ok')
+          from collections import Counter
+          dist = Counter(v.get('grade') for v in d.values() if v.get('status')=='ok')
+          print(f'Total: {len(d)}, OK: {ok}, Distribution: {dict(dist)}')
+          "
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add scores.json scoring/chain_tickers.json
+          # Only commit if there are changes
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "data: nightly scores refresh $(date -u +%Y-%m-%d) [skip ci]"
+            git push
+          fi

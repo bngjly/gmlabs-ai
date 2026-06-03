@@ -29,3 +29,10 @@ yarn-error.log*
 *.backup
 *.bak
 ai_supply_chain_*.json
+
+# Scoring engine caches (chain_tickers.json IS committed for GH Actions cron)
+scoring/__pycache__/
+scoring/data/
+scoring/output/
+scoring/*.log
+scoring/.env
