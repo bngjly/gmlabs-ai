@@ -160,6 +160,31 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
 .mini-ticker .pct.up { color: #22c55e; }
 .mini-ticker .pct.dn { color: #ef4444; }
 
+/* ===== Profile 新布局：股票为主、产业链为标签 ===== */
+.profile-list { display: flex; flex-direction: column; gap: 8px; }
+.profile-row { display: grid; grid-template-columns: 1fr 2fr 130px; gap: 16px; align-items: center;
+  background: #1a2230; border: 1px solid #2a3548; border-radius: 10px; padding: 14px 18px;
+  cursor: pointer; transition: .15s; }
+.profile-row:hover { border-color: #4fc3f7; background: #1c2535; transform: translateX(2px); }
+.pr-left { display: flex; align-items: center; gap: 12px; }
+.pr-grade { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 36px;
+  border-radius: 8px; font-weight: 800; font-size: 18px; padding: 0 8px; }
+.pr-ident .pr-ticker { font-size: 16px; font-weight: 700; color: #4fc3f7; line-height: 1.2; }
+.pr-ident .pr-name { font-size: 11px; color: #9aa5b1; margin-top: 2px; }
+.pr-mid { display: flex; flex-wrap: wrap; gap: 4px; }
+.profile-chip { display: inline-block; padding: 2px 8px; border: 1px solid; border-radius: 10px; font-size: 11px; background: rgba(0,0,0,.2); }
+.pr-right { text-align: right; }
+.pr-score { font-size: 20px; font-weight: 700; color: #4fc3f7; line-height: 1; }
+.pr-score span { font-size: 11px; color: #6b7785; font-weight: 400; margin-left: 2px; }
+.pr-na { color: #6b7785; font-size: 12px; padding: 4px 0; }
+.pr-action { font-size: 11px; color: #6b7785; margin-top: 4px; }
+.profile-row:hover .pr-action { color: #4fc3f7; }
+@media (max-width: 720px) {
+  .profile-row { grid-template-columns: auto 1fr; grid-template-rows: auto auto; }
+  .pr-right { grid-column: 1 / -1; text-align: left; display: flex; gap: 12px; align-items: baseline; }
+  .pr-mid { grid-column: 1 / -1; }
+}
+
 /* ===== Modal ===== */
 .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
 .modal-bg.show { display: flex; }
@@ -552,14 +577,12 @@ async function renderProfile() {
   const allCompaniesCount = Object.keys(scores).length;
   const gradedCount = Object.values(scores).filter(v => v && v.status === 'ok').length;
 
-  // 从 graph.html 共享的 localStorage 读取图谱数据
   let graphData = null;
   try {
     const raw = localStorage.getItem('aiChain_v1');
     if (raw) graphData = JSON.parse(raw);
   } catch (e) {}
 
-  // 没有 localStorage → 用户还没进过 graph.html，引导
   if (!graphData) {
     document.getElementById('my-watch-count').textContent = '0';
     document.getElementById('my-companies-count').textContent = allCompaniesCount;
@@ -572,31 +595,39 @@ async function renderProfile() {
     return;
   }
 
-  // 遍历所有节点找带 watch flag 的公司
-  const watches = [];   // [{layer_name, layer_num, ticker, cn, flag, score}]
+  // 遍历所有节点找带 watch flag 的公司，并聚合每个 ticker 出现在哪些层
+  // tickerMap: { 'MRVL': { cn, flag, layers: [{name, num}, ...] } }
+  const tickerMap = {};
   function walk(node, ancestorLayer) {
     const currentLayer = (node.layer !== undefined && node.id !== 'root') ? node : ancestorLayer;
     (node.companies || []).forEach(c => {
-      const flags = (c.flag || '').split(/\s+/);
-      if (flags.includes('watch')) {
-        watches.push({
+      if (!(c.flag || '').split(/\s+/).includes('watch')) return;
+      if (!tickerMap[c.t]) {
+        tickerMap[c.t] = {
           ticker: c.t,
-          cn: c.cn,
-          flag: c.flag,
-          layer_name: currentLayer ? currentLayer.name : '',
-          layer_num: currentLayer ? currentLayer.layer : 99,
-        });
+          cn: c.cn || '',
+          flag: c.flag || '',
+          layers: [],
+          role: c.role || '',
+        };
       }
+      // 找到最近的 top-level layer 名字（不是子赛道）
+      // currentLayer 可能是子赛道，我们需要往上找顶层
+      tickerMap[c.t].layers.push({
+        name: currentLayer ? currentLayer.name : '',
+        num: currentLayer ? currentLayer.layer : 99,
+      });
     });
     (node.children || []).forEach(child => walk(child, currentLayer));
   }
   walk(graphData);
 
-  document.getElementById('my-watch-count').textContent = watches.length;
+  const tickers = Object.values(tickerMap);
+  document.getElementById('my-watch-count').textContent = tickers.length;
   document.getElementById('my-companies-count').textContent = allCompaniesCount;
   document.getElementById('my-graded-count').textContent = gradedCount;
 
-  if (watches.length === 0) {
+  if (tickers.length === 0) {
     document.getElementById('watchlist-area').innerHTML = `
       <div style="padding: 50px 20px; text-align: center; color: #9aa5b1; font-size: 14px;">
         🌱 还没有自选公司<br>
@@ -605,34 +636,71 @@ async function renderProfile() {
     return;
   }
 
-  // 按层分组
-  const byLayer = {};
-  watches.forEach(w => {
-    const key = w.layer_name || '其他';
-    if (!byLayer[key]) byLayer[key] = { items: [], num: w.layer_num };
-    byLayer[key].items.push(w);
+  // 按评分排序：S > A > B > C > D > N/A
+  const gradeRank = { S:0, A:1, B:2, C:3, D:4 };
+  tickers.sort((a, b) => {
+    const sa = scores[a.ticker], sb = scores[b.ticker];
+    const ga = sa && sa.status === 'ok' ? gradeRank[sa.grade] : 5;
+    const gb = sb && sb.status === 'ok' ? gradeRank[sb.grade] : 5;
+    if (ga !== gb) return ga - gb;
+    const scA = sa && sa.status === 'ok' ? sa.score : 0;
+    const scB = sb && sb.status === 'ok' ? sb.score : 0;
+    return scB - scA;
   });
 
-  // 渲染
-  const layersHTML = Object.entries(byLayer).map(([name, grp]) => {
-    const color = LAYER_COLOR[grp.num] || '#94a3b8';
-    const tickers = grp.items.map(w => {
-      const sc = scores[w.ticker];
-      const grade = sc && sc.status === 'ok' ? sc.grade : '';
-      const score = sc && sc.status === 'ok' ? sc.score : '';
-      const gradeColor = { S:'#ef4444', A:'#22c55e', B:'#3b82f6', C:'#f59e0b', D:'#6b7785' }[grade] || '#6b7785';
-      return `<div class="mini-ticker" onclick="goto('graph')" title="${escapeAttr(w.cn || '')}">
-        <strong>${escapeHtml(w.ticker)}</strong>
-        ${grade ? `<span style="color:${gradeColor};font-size:11px;margin-left:6px">${grade}·${score}</span>` : ''}
-      </div>`;
+  // 渲染：每行 1 个 ticker，附产业链 chip 标签
+  const rowsHTML = tickers.map(t => {
+    const sc = scores[t.ticker];
+    const ok = sc && sc.status === 'ok';
+    const grade = ok ? sc.grade : '';
+    const score = ok ? sc.score : '';
+    const gradeColor = { S:'#ef4444', A:'#22c55e', B:'#3b82f6', C:'#f59e0b', D:'#6b7785' }[grade] || '#2a3548';
+    const gradeBg = ok ? gradeColor : '#1c2632';
+    const name = ok ? sc.name : t.cn;
+
+    // 去重 layers（同 ticker 可能多次出现）
+    const layerMap = {};
+    t.layers.forEach(l => { layerMap[l.name] = l.num; });
+    const chipHTML = Object.entries(layerMap).map(([nm, num]) => {
+      const color = LAYER_COLOR[num] || '#94a3b8';
+      // 提取层名前 4-6 字
+      const short = nm.length > 12 ? nm.slice(0, 10) + '..' : nm;
+      return `<span class="profile-chip" style="border-color:${color}33;color:${color}">${escapeHtml(short)}</span>`;
     }).join('');
-    return `<div class="layer-group" style="border-left: 4px solid ${color}">
-      <div class="lbl">${escapeHtml(name)}</div>
-      <div class="layer-tickers">${tickers}</div>
+
+    return `<div class="profile-row" onclick="jumpToTickerInGraph('${escapeAttr(t.ticker)}')">
+      <div class="pr-left">
+        <span class="pr-grade" style="background:${gradeBg};color:${ok ? '#fff' : '#6b7785'}">${grade || 'N/A'}</span>
+        <div class="pr-ident">
+          <div class="pr-ticker">${escapeHtml(t.ticker)}</div>
+          <div class="pr-name">${escapeHtml(name)}</div>
+        </div>
+      </div>
+      <div class="pr-mid">${chipHTML}</div>
+      <div class="pr-right">
+        ${ok ? `<div class="pr-score">${score}<span>/100</span></div>` : '<div class="pr-na">无数据</div>'}
+        <div class="pr-action">详情 →</div>
+      </div>
     </div>`;
   }).join('');
 
-  document.getElementById('watchlist-area').innerHTML = `<div class="watchlist-by-layer">${layersHTML}</div>`;
+  document.getElementById('watchlist-area').innerHTML = `<div class="profile-list">${rowsHTML}</div>`;
+}
+
+// 跳到图谱 + 把 ticker 填入图谱搜索框
+function jumpToTickerInGraph(ticker) {
+  goto('graph');
+  // graph 是 iframe，需要给它传一个 hint
+  setTimeout(() => {
+    const iframe = document.querySelector('.graph-frame');
+    if (!iframe || !iframe.contentDocument) return;
+    const searchInput = iframe.contentDocument.getElementById('search');
+    if (searchInput) {
+      searchInput.value = ticker;
+      searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+      searchInput.focus();
+    }
+  }, 600);
 }
 
 // ============ 早鸟邮箱收集 modal ============

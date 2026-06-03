@@ -13,6 +13,13 @@ header h1 { margin: 0; font-size: 20px; color: #4fc3f7; }
 .controls input, .controls button { background: #222e3e; color: #e6e6e6; border: 1px solid #3a4860; padding: 6px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; outline: none; }
 .controls button:hover { background: #2d3b50; border-color: #4fc3f7; }
 .controls input { width: 220px; cursor: text; }
+
+/* 搜索框 + 清空按钮 */
+.search-wrap { position: relative; display: inline-block; }
+.search-wrap input { padding-right: 30px; }
+.search-clear { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #6b7785; font-size: 16px; padding: 2px 6px; border-radius: 50%; line-height: 1; user-select: none; display: none; }
+.search-clear:hover { color: #fff; background: #2a3548; }
+.search-wrap.has-value .search-clear { display: inline; }
 .legend { font-size: 12px; color: #9aa5b1; display: flex; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
 .tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; }
 .t-core { background: #d32f2f; color: #fff; }
@@ -148,7 +155,7 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .ai-meta { font-size: 10px; color: #6b7785; text-align: right; margin-top: 10px; }
 
 /* ===== 层级快速导航 chips ===== */
-.layer-chips { padding: 8px 24px; background: rgba(15,20,25,.96); backdrop-filter: blur(8px); border-bottom: 1px solid #1c2632; position: sticky; top: 80px; z-index: 40; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.layer-chips { padding: 8px 24px; background: #0f1419; border-bottom: 1px solid #1c2632; box-shadow: 0 2px 8px rgba(0,0,0,.4); position: sticky; top: 80px; z-index: 40; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 .chip { padding: 4px 10px; background: #1c2632; border: 1px solid #2a3548; border-radius: 14px; font-size: 12px; cursor: pointer; transition: .15s; white-space: nowrap; color: #cfd5dc; user-select: none; }
 .chip:hover { border-color: #4fc3f7; color: #fff; background: #243245; }
 .chip.active { background: #243245; border-color: #4fc3f7; color: #4fc3f7; font-weight: 600; }
@@ -176,7 +183,10 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
   <div class="head-row">
     <h1>🧠 AI 产业链全景图谱</h1>
     <div class="controls">
-      <input id="search" placeholder="🔍 搜索公司代码 / 中文名 / 技术..." oninput="applySearch()" />
+      <span class="search-wrap" id="searchWrap">
+        <input id="search" placeholder="🔍 搜索公司代码 / 中文名 / 技术..." oninput="onSearchInput()" onkeydown="if(event.key==='Escape')clearSearch()" />
+        <span class="search-clear" onclick="clearSearch()" title="清空搜索 (Esc)">×</span>
+      </span>
       <div class="more-menu-wrap">
         <button onclick="toggleMoreMenu(event)" title="更多操作">⋯</button>
         <div class="more-menu" id="moreMenu">
@@ -1099,7 +1109,7 @@ const DEFAULT_DATA = {
     },
     {
       id: 'LS', name: '🌟 Serenity 概念股（小盘 AI 主题追踪）', layer: 98, expanded: true,
-      desc: '专业 AI 研究员 Serenity 提及/追踪的小盘高弹性标的（追踪站 analysissite.vercel.app/mentions）',
+      desc: 'Serenity 公开提及/讨论过的小盘高弹性标的（11 只，手工整理 2026-05；涨幅为首提日至 2026-05 区间）',
       companies: [
         { t: 'AXTI', cn: 'AXT Inc', role: 'InP/GaAs 衬底（光通信材料底层）首提 2026-01 涨幅 +514% YTD+614%', flag: 'core watch' },
         { t: 'AAOI', cn: 'Applied Optoelectronics', role: '光模块 EML 美系 · 首提 2025-12 涨幅 +350% YTD+395%（已在 L6a）', flag: 'core watch' },
@@ -1140,15 +1150,40 @@ function loadData() {
   try {
     const storedVersion = localStorage.getItem('aiChain_version');
     const stored = localStorage.getItem('aiChain_v1');
-    if (stored && storedVersion === DATA_VERSION) {
-      return JSON.parse(stored);
-    }
-    // 版本不匹配（包括首次访问 / 我升级了 DEFAULT_DATA）→ 用新默认值
-    if (stored && storedVersion !== DATA_VERSION) {
-      console.log(`[ChainGraph] 数据版本升级 ${storedVersion} → ${DATA_VERSION}，自动重置`);
+    if (stored && storedVersion === DATA_VERSION) return JSON.parse(stored);
+    // 版本升级：保留用户已有 watch 自选，迁移到新 DEFAULT_DATA
+    if (stored) {
+      console.log(`[ChainGraph] 数据版本升级 ${storedVersion} → ${DATA_VERSION}，迁移自选`);
+      const userData = JSON.parse(stored);
+      const userWatches = collectWatches(userData);
+      const fresh = structuredClone(DEFAULT_DATA);
+      applyWatches(fresh, userWatches);
+      return fresh;
     }
   } catch(e) {}
-  return structuredClone(DEFAULT_DATA);
+  // 真·新用户：剥离 DEFAULT_DATA 中的 watch（不污染 onboarding）
+  const fresh = structuredClone(DEFAULT_DATA);
+  stripWatches(fresh);
+  return fresh;
+}
+function collectWatches(node, set = new Set()) {
+  (node.companies || []).forEach(c => { if ((c.flag || '').split(/\s+/).includes('watch')) set.add(c.t); });
+  (node.children || []).forEach(c => collectWatches(c, set));
+  return set;
+}
+function applyWatches(node, watchSet) {
+  (node.companies || []).forEach(c => {
+    const fl = (c.flag || '').split(/\s+/).filter(f => f && f !== 'watch');
+    if (watchSet.has(c.t)) fl.push('watch');
+    c.flag = fl.join(' ').trim();
+  });
+  (node.children || []).forEach(c => applyWatches(c, watchSet));
+}
+function stripWatches(node) {
+  (node.companies || []).forEach(c => {
+    if (c.flag) c.flag = c.flag.split(/\s+/).filter(f => f !== 'watch').join(' ').trim();
+  });
+  (node.children || []).forEach(stripWatches);
 }
 function save() {
   localStorage.setItem('aiChain_v1', JSON.stringify(data));
@@ -1630,6 +1665,19 @@ function deleteNode(path) {
 }
 
 // ============ 搜索 ============
+function onSearchInput() {
+  const input = document.getElementById('search');
+  document.getElementById('searchWrap').classList.toggle('has-value', input.value.length > 0);
+  applySearch();
+}
+function clearSearch() {
+  const input = document.getElementById('search');
+  input.value = '';
+  document.getElementById('searchWrap').classList.remove('has-value');
+  applySearch();
+  input.focus();
+}
+
 function applySearch() {
   const q = document.getElementById('search').value.trim().toLowerCase();
   if (!q) {
