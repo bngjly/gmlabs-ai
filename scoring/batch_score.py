@@ -20,10 +20,10 @@ from datetime import datetime, timedelta
 
 from universal_eval import evaluate
 
-ROOT       = Path(__file__).parent              # gmlabs-ai/scoring
+ROOT       = Path(__file__).parent
 INPUT      = ROOT / "chain_tickers.json"
-OUTPUT_DIR = ROOT.parent                          # gmlabs-ai
-OUTPUT     = OUTPUT_DIR / "scores.json"           # gmlabs-ai/scores.json (前端读这个)
+OUTPUT_DIR = ROOT / "output"
+OUTPUT     = OUTPUT_DIR / "scores.json"
 
 # 节流：yfinance 大概 2 秒/票 安全
 SLEEP_SEC = 1.5
@@ -76,10 +76,12 @@ def main():
         tickers = tickers[:args.limit]
 
     OUTPUT_DIR.mkdir(exist_ok=True)
-    results = dict(existing) if not args.force else {}
+    # 重要：始终基于已有结果开始（即使 --force），这样失败的票不会覆盖之前的成功记录
+    # --force 只意味着重新评估每个 ticker，不意味着抛弃旧数据
+    results = dict(existing)
 
     total = len(tickers)
-    done, skipped, failed = 0, 0, 0
+    done, skipped, failed, preserved = 0, 0, 0, 0
     start = time.time()
 
     for i, item in enumerate(tickers, 1):
@@ -93,6 +95,8 @@ def main():
             continue
 
         print(f"[{i}/{total}] {ticker:14s} {cn:20s}", end="", flush=True)
+        prev = results.get(ticker, {})
+        prev_ok = prev.get("status") == "ok"
         try:
             res = evaluate(ticker)
             if res and res.get("status") == "ok":
@@ -100,13 +104,22 @@ def main():
                 done += 1
                 print(f"  → {res['grade']} · {res['score']} 分 · {res['tier']}/{res['sector']}")
             else:
-                results[ticker] = res or {"ticker": ticker, "status": "no_data"}
-                failed += 1
-                print(f"  ✗ 无数据")
+                # 本次失败 — 如果上次成功，保留旧结果（避免数据回退）
+                if prev_ok:
+                    preserved += 1
+                    print(f"  ⚠️ 本次失败，保留旧 {prev.get('grade')} {prev.get('score')}")
+                else:
+                    results[ticker] = res or {"ticker": ticker, "status": "no_data"}
+                    failed += 1
+                    print(f"  ✗ 无数据")
         except Exception as e:
-            failed += 1
-            results[ticker] = {"ticker": ticker, "status": "error", "error": str(e)[:200]}
-            print(f"  ✗ 异常 {e}")
+            if prev_ok:
+                preserved += 1
+                print(f"  ⚠️ 异常 {e}，保留旧 {prev.get('grade')}")
+            else:
+                failed += 1
+                results[ticker] = {"ticker": ticker, "status": "error", "error": str(e)[:200]}
+                print(f"  ✗ 异常 {e}")
 
         # 每 20 只票保存一次（防中断丢数据）
         if i % 20 == 0:
@@ -122,6 +135,7 @@ def main():
     print(f"  总计:   {total}")
     print(f"  成功:   {done}")
     print(f"  跳过:   {skipped} (24h 内已评过)")
+    print(f"  保留:   {preserved} (本次失败但旧成功，未回退)")
     print(f"  失败:   {failed}")
     print(f"  耗时:   {elapsed/60:.1f} 分钟")
     print(f"  输出:   {OUTPUT}")
