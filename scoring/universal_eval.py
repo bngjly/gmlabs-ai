@@ -108,6 +108,20 @@ def score_g1(info: dict, tier: str, sector: str) -> tuple[float, list]:
     if tier == "small" and rg < 0.30 and score >= 8:
         score -= 2
 
+    # ── Forward 拐点 bonus (v1.1) ──────────────────────────
+    # forwardPE 远低于 trailingPE = 市场预期"业绩反转向上"
+    # 让 MRVL / AMD / AVGO 这类"今年烂、明年强" 的 AI 卖铲核心不被低估
+    trailing_pe = _safe(info.get("trailingPE"))
+    forward_pe = _safe(info.get("forwardPE"))
+    if trailing_pe > 0 and forward_pe > 0 and forward_pe < trailing_pe:
+        ratio = forward_pe / trailing_pe
+        if ratio < 0.40:
+            score += 4;  notes.append(f"业绩拐点强 fwd/ttm={ratio:.2f}")
+        elif ratio < 0.60:
+            score += 3;  notes.append(f"业绩反转 fwd/ttm={ratio:.2f}")
+        elif ratio < 0.80:
+            score += 2;  notes.append(f"温和拐点 fwd/ttm={ratio:.2f}")
+
     return _clip(score, 0, 25), notes
 
 
