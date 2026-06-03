@@ -33,6 +33,7 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .layer-8 { border-left: 5px solid #ec4899; }
 .layer-9 { border-left: 5px solid #94a3b8; }
 .layer-10 { border-left: 5px solid #14b8a6; }
+.layer-98 { border-left: 5px solid #fbbf24; background: linear-gradient(90deg, rgba(251,191,36,.06) 0%, transparent 50%); }
 .layer-99 { border-left: 5px solid #64748b; }
 .toggle { width: 16px; text-align: center; color: #4fc3f7; font-weight: bold; font-size: 12px; }
 .node-title { font-weight: 600; font-size: 15px; }
@@ -105,8 +106,8 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .dim-bars { display: flex; flex-direction: column; gap: 8px; }
 .dim-bar { display: flex; align-items: center; gap: 10px; font-size: 12px; }
 .dim-bar .lbl { width: 90px; color: #cfd5dc; }
-.dim-bar .track { flex: 1; height: 8px; background: #0f1419; border-radius: 4px; overflow: hidden; position: relative; }
-.dim-bar .fill { height: 100%; background: linear-gradient(90deg, #3b82f6, #4fc3f7); border-radius: 4px; transition: width .4s; }
+.dim-bar .track { flex: 1; display: block; height: 8px; background: #0f1419; border-radius: 4px; overflow: hidden; position: relative; }
+.dim-bar .fill { display: block; height: 100%; background: linear-gradient(90deg, #3b82f6, #4fc3f7); border-radius: 4px; transition: width .4s; }
 .dim-bar .pct { width: 60px; text-align: right; color: #9aa5b1; font-size: 11px; }
 .drawer-tags { display: flex; flex-direction: column; gap: 6px; }
 .drawer-tag-row { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 6px 10px; border-radius: 6px; }
@@ -356,6 +357,7 @@ const DEFAULT_DATA = {
             { t:'6789.TW', cn:'南電 Nan Ya PCB', role:'高阶 ABF 三巨头', flag:'core' },
             { t:'5803.T', cn:'Shinko 新光电气', role:'日系第二供', flag:'comp' },
             { t:'AT&S.VI', cn:'奥地利 AT&S', role:'欧系 ABF', flag:'comp' },
+            { t:'TTMI', cn:'TTM Technologies', role:'高阶 PCB + 封装载板', flag:'comp' },
           ]
         },
         { id:'L3e', name:'🆕 玻璃基板（下一代颠覆性技术）', layer:3, expanded:true,
@@ -373,6 +375,7 @@ const DEFAULT_DATA = {
           companies:[
             { t:'BESI.AS', cn:'BE Semiconductor', role:'混合键合机独家', flag:'core' },
             { t:'ASM.AS', cn:'ASMI', role:'ALD + 键合', flag:'core' },
+            { t:'KLIC', cn:'Kulicke & Soffa', role:'引线键合 + Hybrid Bonding 第二供', flag:'core' },
             { t:'EVG', cn:'EV Group (未上市)', role:'晶圆键合', flag:'comp' },
             { t:'SUSS.DE', cn:'Süss MicroTec', role:'临时键合机', flag:'comp' },
           ]
@@ -445,6 +448,16 @@ const DEFAULT_DATA = {
             { t:'POET', cn:'POET Tech', role:'光引擎集成', flag:'comp' },
           ]
         },
+        { id:'L4g', name:'🆕 连接器 / Busbar / 线缆模块', layer:4, expanded:true,
+          desc:'GB200 NVL72 每柜数千个连接点，AI 服务器互连物理层',
+          companies:[
+            { t:'APH', cn:'Amphenol 安费诺', role:'高速连接器全球第一', flag:'core' },
+            { t:'TEL', cn:'TE Connectivity 泰科', role:'连接器双雄', flag:'core' },
+            { t:'FLEX', cn:'Flex Ltd', role:'电子制造 + 互连模块', flag:'comp' },
+            { t:'MEI', cn:'Methode Electronics', role:'AI 服务器 Busbar', flag:'comp' },
+            { t:'NVT', cn:'nVent Electric', role:'电气外壳 + 连接器', flag:'comp' },
+          ]
+        },
       ]
     },
     {
@@ -509,6 +522,10 @@ const DEFAULT_DATA = {
             { t:'2382.TW', cn:'廣達 Quanta', role:'AI 服务器代工龙头', flag:'core' },
             { t:'3231.TW', cn:'緯創 Wistron', role:'NVDA 服务器代工', flag:'core' },
             { t:'2317.TW', cn:'鴻海 Foxconn', role:'AI 服务器组装', flag:'core' },
+            { t:'2376.TW', cn:'技嘉 GIGABYTE', role:'AI 服务器 ODM', flag:'comp' },
+            { t:'4938.TW', cn:'和碩 PEGATRON', role:'AI 服务器代工', flag:'comp' },
+            { t:'LNVGY', cn:'Lenovo 联想 ADR', role:'AI 服务器全球前三', flag:'core' },
+            { t:'ASUUY', cn:'ASUS 华硕 ADR', role:'AI 服务器 + 边缘', flag:'comp' },
           ]
         },
       ]
@@ -525,6 +542,9 @@ const DEFAULT_DATA = {
         { id:'L6a', name:'光模块组装厂', layer:6, companies:[
           { t:'300308.SZ', cn:'中际旭创 Innolight', role:'全球 800G 出货第一', flag:'cn core' },
           { t:'300502.SZ', cn:'新易盛 Eoptolink', role:'1.6T 量产', flag:'cn' },
+          { t:'AAOI', cn:'Applied Optoelectronics', role:'美系光模块 + EML', flag:'comp' },
+          { t:'FN', cn:'Fabrinet', role:'光通信精密代工龙头', flag:'core' },
+          { t:'NOK', cn:'Nokia 诺基亚', role:'相干光 + 数据中心互联', flag:'comp' },
           { t:'CIEN', cn:'Ciena', role:'相干光通信', flag:'comp' },
           { t:'INFN', cn:'Infinera', role:'被 NOK 收购', flag:'comp' },
         ]},
@@ -596,9 +616,18 @@ const DEFAULT_DATA = {
       children: [
         { id:'L7a', name:'电源 IC / SiC GaN', layer:7, companies:[
           { t:'MPWR', cn:'Monolithic Power', role:'GPU 板载电源 IC', flag:'core' },
-          { t:'NVT', cn:'Navitas', role:'GaN 800V 直流', flag:'comp' },
+          { t:'NVTS', cn:'Navitas Semi', role:'GaN 800V 直流（ticker 是 NVTS 不是 NVT）', flag:'comp' },
           { t:'WOLF', cn:'Wolfspeed', role:'SiC 衬底', flag:'comp' },
           { t:'ON', cn:'安森美', role:'SiC + 功率', flag:'comp' },
+          { t:'TXN', cn:'Texas Instruments', role:'模拟电源 + 工业', flag:'core' },
+          { t:'ADI', cn:'Analog Devices', role:'模拟巨头 + Gate Driver', flag:'core' },
+          { t:'MCHP', cn:'Microchip 微芯', role:'MCU + 电源 IC', flag:'comp' },
+          { t:'POWI', cn:'Power Integrations', role:'AC-DC 转换 IC', flag:'comp' },
+          { t:'VICR', cn:'Vicor 维克', role:'48V 直流 + AI 服务器电源', flag:'comp' },
+          { t:'AOSL', cn:'Alpha & Omega Semi', role:'功率 MOSFET', flag:'comp' },
+          { t:'IFNNY', cn:'Infineon 英飞凌 ADR', role:'功率半导体全球第一', flag:'core' },
+          { t:'ACLS', cn:'Axcelis Technologies', role:'离子注入设备（功率半导体专用）', flag:'comp' },
+          { t:'STM', cn:'意法半导体', role:'MEMS + 功率', flag:'comp' },
         ]},
         { id:'L7b', name:'SMR 小型模块化核反应堆', layer:7, expanded:true,
           desc:'Sam Altman / MSFT / GOOG 已签 PPA，2028+ 落地',
@@ -624,6 +653,8 @@ const DEFAULT_DATA = {
             { t:'PWR', cn:'Quanta Services', role:'电力工程承包龙头', flag:'core' },
             { t:'MYRG', cn:'MYR Group', role:'输配电施工', flag:'comp' },
             { t:'PRIM', cn:'Primoris', role:'能源基建', flag:'comp' },
+            { t:'CAT', cn:'Caterpillar 卡特彼勒', role:'柴油发电机组 + 备电', flag:'core' },
+            { t:'CMI', cn:'Cummins 康明斯', role:'发电机 + 备用电源', flag:'comp' },
           ]
         },
         { id:'L7d', name:'HVDC 高压直流 / 输配电（电网瓶颈）', layer:7, expanded:true,
@@ -637,6 +668,8 @@ const DEFAULT_DATA = {
             { t:'600406.SS', cn:'国电南瑞', role:'A 股电网龙头', flag:'cn' },
             { t:'601727.SS', cn:'上海电气', role:'A 股输配电', flag:'cn' },
             { t:'002028.SZ', cn:'思源电气', role:'A 股 GIS / HVDC', flag:'cn' },
+            { t:'NGG', cn:'National Grid 英国国家电网 ADR', role:'欧美电网巨头', flag:'core' },
+            { t:'2308.TW', cn:'台達電 Delta Electronics', role:'电源 + 数据中心配套', flag:'core' },
           ]
         },
         { id:'L7e', name:'储能 BESS（削峰填谷，平滑 AI 负载尖峰）', layer:7, expanded:true,
@@ -769,6 +802,9 @@ const DEFAULT_DATA = {
             { t:'6857.T', cn:'Advantest', role:'HBM/SoC 测试机', flag:'core' },
             { t:'TER', cn:'Teradyne', role:'测试机第二', flag:'comp' },
             { t:'NTES.OB', cn:'Nordson', role:'封装检测', flag:'comp' },
+            { t:'AEHR', cn:'Aehr Test Systems', role:'SiC 老化测试小盘黑马', flag:'comp' },
+            { t:'FORM', cn:'FormFactor', role:'探针卡 + 测试接口', flag:'core' },
+            { t:'COHU', cn:'Cohu', role:'后段测试 + 自动化', flag:'comp' },
           ]
         },
         { id:'L9e', name:'🆕 光罩 / 掩膜', layer:9, expanded:true,
@@ -786,6 +822,9 @@ const DEFAULT_DATA = {
             { t:'SNPS', cn:'Synopsys', role:'EDA 双雄，AI 设计加持', flag:'core' },
             { t:'CDNS', cn:'Cadence', role:'EDA 双雄，AI 工具领先', flag:'core' },
             { t:'SIE.DE', cn:'Siemens EDA', role:'EDA 第三家', flag:'comp' },
+            { t:'SIEGY', cn:'Siemens AG ADR', role:'EDA + 工业 + 数据中心 PLM', flag:'core' },
+            { t:'DASTY', cn:'Dassault Systèmes ADR', role:'3D CAD + 数字孪生', flag:'core' },
+            { t:'PTC', cn:'PTC Inc', role:'CAD + IoT 数字主线', flag:'comp' },
             { t:'ARM', cn:'Arm Holdings', role:'IP 收税', flag:'core' },
             { t:'688521.SS', cn:'芯原股份 VeriSilicon', role:'A 股 IP', flag:'cn' },
             { t:'688206.SS', cn:'概伦电子', role:'A 股 EDA', flag:'cn' },
@@ -1003,6 +1042,23 @@ const DEFAULT_DATA = {
       ]
     },
     {
+      id: 'LS', name: '🌟 Serenity 概念股（小盘 AI 主题追踪）', layer: 98, expanded: true,
+      desc: '专业 AI 研究员 Serenity 提及/追踪的小盘高弹性标的（追踪站 analysissite.vercel.app/mentions）',
+      companies: [
+        { t: 'AXTI', cn: 'AXT Inc', role: 'InP/GaAs 衬底（光通信材料底层）首提 2026-01 涨幅 +514% YTD+614%', flag: 'core watch' },
+        { t: 'AAOI', cn: 'Applied Optoelectronics', role: '光模块 EML 美系 · 首提 2025-12 涨幅 +350% YTD+395%（已在 L6a）', flag: 'core watch' },
+        { t: 'LITE', cn: 'Lumentum Holdings', role: 'EML 激光器 60% 份额 · 首提 2025-12 涨幅 +133% YTD+138%（已在 L6d）', flag: 'core watch' },
+        { t: 'AEHR', cn: 'Aehr Test Systems', role: 'SiC 老化测试 · 首提 2026-03 涨幅 +171% YTD+394%（已在 L9d）', flag: 'core watch' },
+        { t: 'SNDK', cn: 'SanDisk (重新上市)', role: 'AI 推理 QLC SSD · 首提 2026-01 涨幅 +245% YTD+551%（已在 L2d）', flag: 'core watch' },
+        { t: 'MRVL', cn: 'Marvell Technology', role: '一鱼三吃 ASIC+DSP+Retimer · 首提 2026-02 涨幅 +158% YTD+129%（已在 L4-L6）', flag: 'core watch' },
+        { t: 'MU', cn: 'Micron Technology', role: 'HBM3E 进 NVDA 链 · 首提 2026-01 涨幅 +128%（已在 L2a）', flag: 'core watch' },
+        { t: 'SIVE', cn: 'Sivers IMA (瑞典 OTC)', role: '光子学小盘 · 首提 2026-03 估算涨幅 +200-400%', flag: 'watch' },
+        { t: 'XFAB', cn: 'X-Fab Silicon Foundries', role: '欧洲特种工艺代工 · 首提 2026-04 估算 +400%', flag: 'watch' },
+        { t: 'RPI.L', cn: 'Raspberry Pi (英国 LSE)', role: '边缘 AI + 嵌入式 · 首提 2026-02 涨幅 ~+200%', flag: 'watch' },
+        { t: 'EWY', cn: 'iShares MSCI Korea ETF', role: '韩国半导体期权敞口 · 首提 2026-02 期权 +300%', flag: 'comp' },
+      ]
+    },
+    {
       id: 'L99', name: '🛸 旁支：国防 AI / 无人机蜂群', layer: 99, expanded: false,
       desc: '不在主链，但与你自选相关',
       companies: [
@@ -1097,7 +1153,9 @@ function renderCompanies(arr, path) {
     if (!isCore && !isWatch && !isCn) tags.push('<span class="tag t-comp">相关</span>');
 
     // 评分徽章 + 特点标签（来自 gm_rater）
-    const sc = SCORES[c.t];
+    // 防御：cn 名含"未上市"则跳过评分查询（防 ticker 撞车，如 EVG）
+    const isUnlisted = /未上市|待上市/.test(c.cn || '');
+    const sc = isUnlisted ? null : SCORES[c.t];
     let gradeBadge = '';
     let featTags = '';
     if (sc && sc.status === 'ok') {
@@ -1183,7 +1241,8 @@ function doAddCompany(path) {
 // ============ 详情抽屉（公司点击触发，显示 gm_rater 评分）============
 function openDetail(path, idx) {
   const c = getNode(path).companies[idx];
-  const sc = SCORES[c.t];
+  const isUnlisted = /未上市|待上市/.test(c.cn || '');
+  const sc = isUnlisted ? null : SCORES[c.t];
 
   const sectorMap = {
     semiconductor:'半导体', semi_equipment:'半导体设备',
@@ -1244,11 +1303,17 @@ function openDetail(path, idx) {
         <div class="drawer-tags">${riskRows}</div>
       </div>
       <div class="score-meta">数据更新 ${sc.evaluated_at} · 引擎 gm_rater v1.0</div>`;
+  } else if (isUnlisted) {
+    scoreHTML = `
+      <div class="no-score">
+        🔒 此公司未上市，无公开财报数据<br>
+        <span style="font-size:11px">仅在产业链图谱中标记其位置，不参与评分</span>
+      </div>`;
   } else {
     scoreHTML = `
       <div class="no-score">
         ⏳ 此标的暂无评分数据<br>
-        <span style="font-size:11px">可能是：A 股 / 未上市 / yfinance 暂时无法获取</span>
+        <span style="font-size:11px">可能是：A 股 / yfinance 暂时无法获取 / 数据延迟</span>
       </div>`;
   }
 
