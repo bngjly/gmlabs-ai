@@ -55,7 +55,10 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .company .ticker { font-weight: 700; color: #4fc3f7; font-size: 13px; }
 .company .cn-name { color: #ddd; font-size: 12px; margin-left: 4px; }
 .company .role { color: #9aa5b1; font-size: 11px; display: block; margin-top: 2px; }
-.company .del { position: absolute; top: 2px; right: 4px; color: #ef4444; font-size: 12px; cursor: pointer; opacity: 0; }
+.company .del { position: absolute; top: 2px; right: 18px; color: #ef4444; font-size: 12px; cursor: pointer; opacity: 0; }
+.company .watch-star { position: absolute; top: 2px; right: 4px; font-size: 14px; cursor: pointer; color: #6b7785; transition: .12s; user-select: none; line-height: 1; }
+.company .watch-star:hover { color: #f59e0b; transform: scale(1.2); }
+.company .watch-star.on { color: #f59e0b; }
 .company:hover .del { opacity: 1; }
 .actions { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
 .btn-sm { background: #1c2632; color: #4fc3f7; border: 1px dashed #4fc3f7; padding: 4px 10px; border-radius: 5px; font-size: 12px; cursor: pointer; }
@@ -1328,7 +1331,10 @@ function renderCompanies(arr, path) {
       }
     }
 
+    const starIcon = isWatch ? '★' : '☆';
+    const starTitle = isWatch ? '取消自选' : '加入自选';
     return `<div class="${cls}" onclick="openDetail('${path}', ${i})">
+      <span class="watch-star ${isWatch?'on':''}" onclick="toggleWatch('${path}', ${i}, event)" title="${starTitle}">${starIcon}</span>
       <span class="del" onclick="deleteCompany('${path}', ${i}, event)">✕</span>
       <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}</div>
       <span class="role">${escapeHtml(c.role || '')} ${tags.join('')}</span>
@@ -1667,6 +1673,23 @@ function doEditCompany(path, idx) {
   c.flag = document.getElementById('m_flag').value;
   save(); closeModal(); render();
 }
+// ============ 一键自选切换 ============
+function toggleWatch(path, idx, e) {
+  if (e) e.stopPropagation();
+  const c = getNode(path).companies[idx];
+  if (!c) return;
+  const tokens = (c.flag || '').split(/\s+/).filter(Boolean);
+  const watchIdx = tokens.indexOf('watch');
+  if (watchIdx >= 0) {
+    tokens.splice(watchIdx, 1);
+  } else {
+    tokens.push('watch');
+  }
+  c.flag = tokens.join(' ').trim();
+  save();
+  render();
+}
+
 function deleteCompany(path, idx, e) {
   e.stopPropagation();
   if (!confirm('删除该公司？')) return;
