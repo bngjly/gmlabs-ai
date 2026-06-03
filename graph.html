@@ -118,6 +118,34 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .drawer-actions button { flex: 1; padding: 9px; }
 .no-score { background: #0f1419; padding: 14px; border-radius: 8px; border: 1px dashed #3a4860; color: #9aa5b1; font-size: 12px; text-align: center; }
 .score-meta { font-size: 11px; color: #6b7785; margin-top: 16px; text-align: right; }
+
+/* ===== AI 深度分析（drawer 内） ===== */
+.ai-section { margin-top: 20px; padding-top: 18px; border-top: 1px solid #2a3548; }
+.ai-section h4 { font-size: 13px; color: #4fc3f7; margin-bottom: 12px; font-weight: 600; }
+.ai-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.ai-btn-sm { background: #1c2632; border: 1px solid #3a4860; padding: 8px 10px; border-radius: 6px; font-size: 12px; color: #cfd5dc; cursor: pointer; transition: .15s; text-align: left; line-height: 1.3; }
+.ai-btn-sm:hover { border-color: #4fc3f7; background: #243245; color: #fff; }
+.ai-btn-sm:disabled { opacity: 0.4; cursor: not-allowed; }
+.ai-btn-sm .ico { font-size: 14px; margin-right: 4px; }
+.ai-result-panel { margin-top: 16px; background: #0f1419; border: 1px solid #2a3548; border-radius: 8px; padding: 14px 16px; font-size: 13px; line-height: 1.7; color: #cfd5dc; max-height: 60vh; overflow-y: auto; }
+.ai-result-panel h1, .ai-result-panel h2, .ai-result-panel h3 { color: #4fc3f7; margin: 12px 0 8px; font-weight: 600; }
+.ai-result-panel h1 { font-size: 16px; }
+.ai-result-panel h2 { font-size: 15px; }
+.ai-result-panel h3 { font-size: 13px; }
+.ai-result-panel p { margin: 8px 0; }
+.ai-result-panel strong { color: #fff; }
+.ai-result-panel em { color: #9aa5b1; font-style: italic; }
+.ai-result-panel ul, .ai-result-panel ol { margin: 8px 0 8px 20px; }
+.ai-result-panel li { margin: 4px 0; }
+.ai-result-panel blockquote { border-left: 3px solid #4fc3f7; padding-left: 12px; margin: 12px 0; color: #9aa5b1; font-size: 11px; }
+.ai-result-panel code { background: #2a3548; padding: 1px 6px; border-radius: 3px; font-size: 12px; }
+.ai-result-panel table { border-collapse: collapse; margin: 8px 0; }
+.ai-result-panel th, .ai-result-panel td { border: 1px solid #2a3548; padding: 4px 10px; font-size: 12px; }
+.ai-result-panel th { background: #1c2632; color: #4fc3f7; }
+.ai-loading { display: flex; align-items: center; gap: 10px; color: #9aa5b1; font-size: 13px; padding: 16px; }
+.ai-spinner { width: 14px; height: 14px; border: 2px solid #4fc3f7; border-bottom-color: transparent; border-radius: 50%; animation: ai-spin 0.7s linear infinite; }
+@keyframes ai-spin { to { transform: rotate(360deg); } }
+.ai-meta { font-size: 10px; color: #6b7785; text-align: right; margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -1327,6 +1355,20 @@ function openDetail(path, idx) {
       <span class="close-x" onclick="closeDrawer()">×</span>
     </div>
     ${scoreHTML}
+    ${isUnlisted ? '' : `
+    <div class="ai-section">
+      <h4>🤖 AI 深度分析（Gemini 2.5 Flash）</h4>
+      <div class="ai-btn-grid">
+        <button class="ai-btn-sm" onclick="runAnalysis('${path}', ${idx}, 'swot')"><span class="ico">📊</span>SWOT 分析</button>
+        <button class="ai-btn-sm" onclick="runAnalysis('${path}', ${idx}, 'dcf')"><span class="ico">💰</span>DCF 估值</button>
+        <button class="ai-btn-sm" onclick="runAnalysis('${path}', ${idx}, 'comp')"><span class="ico">⚔️</span>同业对标</button>
+        <button class="ai-btn-sm" onclick="runAnalysis('${path}', ${idx}, 'catalyst')"><span class="ico">📅</span>12 月催化剂</button>
+        <button class="ai-btn-sm" onclick="runAnalysis('${path}', ${idx}, 'earnings')"><span class="ico">📑</span>财报解读</button>
+        <button class="ai-btn-sm" onclick="runAnalysis('${path}', ${idx}, 'risk')"><span class="ico">⚠️</span>黑天鹅风险</button>
+      </div>
+      <div id="ai-result" class="ai-result-panel" style="display:none"></div>
+    </div>
+    `}
     <div class="drawer-actions">
       <button class="btn-sm" onclick="closeDrawer(); openEditCompany('${path}', ${idx})">✎ 编辑</button>
       <button class="btn-sm btn-del" onclick="closeDrawer(); deleteCompany('${path}', ${idx}, event)">✕ 删除</button>
@@ -1336,6 +1378,57 @@ function openDetail(path, idx) {
 
 function closeDrawer() {
   document.getElementById('drawer').classList.remove('show');
+}
+
+// ============ AI 深度分析（调 /api/analyze）============
+async function runAnalysis(path, idx, feature) {
+  const node = getNode(path);
+  const c = node.companies[idx];
+  const sc = SCORES[c.t] || null;
+
+  const panel = document.getElementById('ai-result');
+  if (!panel) return;
+  panel.style.display = 'block';
+  panel.innerHTML = `<div class="ai-loading"><span class="ai-spinner"></span> AI 正在分析 <strong>${escapeHtml(c.t)}</strong> · 通常 5-15 秒...</div>`;
+
+  // 禁用所有按钮防重复点击
+  document.querySelectorAll('.ai-btn-sm').forEach(b => b.disabled = true);
+
+  try {
+    const resp = await fetch('/api/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ticker: c.t,
+        feature: feature,
+        company: {
+          t: c.t,
+          cn: c.cn,
+          role: c.role,
+          flag: c.flag,
+          layer_name: node.name || '',
+        },
+        score: sc,
+      }),
+    });
+
+    const data = await resp.json();
+
+    if (!resp.ok || !data.ok) {
+      panel.innerHTML = `<div style="color:#fca5a5">❌ <strong>分析失败</strong><br>${escapeHtml(data.error || resp.statusText)}</div>`;
+      return;
+    }
+
+    // 渲染 markdown
+    const html = window.marked ? window.marked.parse(data.content) : escapeHtml(data.content).replace(/\n/g, '<br>');
+    const usage = data.usage ? `· tokens 输入 ${data.usage.promptTokenCount || '-'} / 输出 ${data.usage.candidatesTokenCount || '-'}` : '';
+    panel.innerHTML = html + `<div class="ai-meta">${data.feature_name} · ${data.model} · ${(data.elapsed_ms / 1000).toFixed(1)}s ${usage}</div>`;
+    panel.scrollTop = 0;
+  } catch (e) {
+    panel.innerHTML = `<div style="color:#fca5a5">❌ <strong>网络错误</strong><br>${escapeHtml(String(e))}</div>`;
+  } finally {
+    document.querySelectorAll('.ai-btn-sm').forEach(b => b.disabled = false);
+  }
 }
 
 function openEditCompany(path, idx) {
@@ -1490,5 +1583,7 @@ function updateStat() {
 render();
 loadScores();   // 异步加载评分，到了之后会自动 re-render
 </script>
+<!-- markdown 渲染器（用于 AI 输出） -->
+<script src="https://cdn.jsdelivr.net/npm/marked@13.0.0/marked.min.js"></script>
 </body>
 </html>
