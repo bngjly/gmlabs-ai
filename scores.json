@@ -3880,8 +3880,60 @@
   },
   "AAOI": {
     "ticker": "AAOI",
-    "status": "no_data",
-    "error": "fetch failed"
+    "status": "ok",
+    "name": "Applied Optoelectronics, Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 49.1,
+    "tier": "mid",
+    "sector": "optical",
+    "currency": "USD",
+    "market_cap_usd_b": 15.7,
+    "dims": {
+      "G1": 12.3,
+      "G2": 3.2,
+      "G3": 15.0,
+      "G4": 10.0,
+      "G5": 1.6,
+      "G6": 7.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      },
+      {
+        "emoji": "⚠️",
+        "name": "客户集中"
+      }
+    ],
+    "evaluated_at": "2026-06-03"
   },
   "FN": {
     "ticker": "FN",
