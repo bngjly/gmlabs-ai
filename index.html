@@ -187,12 +187,11 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
   <div class="tabs">
     <div class="tab active" onclick="goto('home')">首页</div>
     <div class="tab" onclick="goto('graph')">图谱</div>
-    <div class="tab" onclick="goto('analysis')">AI 分析</div>
-    <div class="tab" onclick="goto('profile')">我的</div>
+    <div class="tab" onclick="goto('profile')">研究笔记</div>
   </div>
   <div class="nav-right">
-    <button class="btn" onclick="alert('登录功能开发中\n（接 NextAuth / Clerk）')">登录</button>
-    <button class="btn btn-primary" onclick="alert('注册功能开发中')">免费注册</button>
+    <span style="font-size:11px;color:#9aa5b1;padding:0 8px;">🟡 Beta · 早鸟内测</span>
+    <button class="btn btn-primary" onclick="openWaitlist()">加入早鸟名单</button>
   </div>
 </nav>
 
@@ -203,7 +202,7 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
     <p class="sub">11 层结构，350+ 家公司，社区共建。从 NVDA 到 HBM，从 CoWoS 到液冷快接头，一图看懂 AI 怎么收税。</p>
     <div class="hero-cta">
       <button class="btn btn-primary btn-big" onclick="goto('graph')">🌐 进入图谱</button>
-      <button class="btn btn-big" onclick="goto('analysis')">🤖 AI 一键分析</button>
+      <button class="btn btn-big" onclick="goto('graph')">🤖 AI 一键分析</button>
     </div>
     <div class="hero-search">
       <input placeholder="搜索股票代码 / 中文名 / 技术名词，如 MU / HBM / 液冷..." onkeydown="if(event.key==='Enter')goto('graph')">
@@ -211,24 +210,17 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
   </div>
 
   <div class="stats-bar">
-    <div class="stat-card"><div class="num">350+</div><div class="label">已收录公司</div><div class="trend">↑ 本周 +12</div></div>
-    <div class="stat-card"><div class="num">11</div><div class="label">产业链层级</div><div class="trend">75 个子赛道</div></div>
-    <div class="stat-card"><div class="num">8,432</div><div class="label">注册用户</div><div class="trend">↑ 24h +137</div></div>
-    <div class="stat-card"><div class="num">142</div><div class="label">Pro 订阅</div><div class="trend">MRR $2,698</div></div>
+    <div class="stat-card"><div class="num" id="stat-companies">…</div><div class="label">已收录公司</div><div class="trend" id="stat-companies-trend">载入中</div></div>
+    <div class="stat-card"><div class="num" id="stat-layers">12</div><div class="label">产业链层级</div><div class="trend" id="stat-layers-trend">~75 子赛道</div></div>
+    <div class="stat-card"><div class="num" id="stat-graded">…</div><div class="label">已评分公司</div><div class="trend" id="stat-graded-trend">六维客观评分</div></div>
+    <div class="stat-card"><div class="num" id="stat-top">…</div><div class="label">S/A 级标的</div><div class="trend" id="stat-top-trend">AI 卖铲赢家</div></div>
   </div>
 
   <div class="section">
     <div class="hot-list">
-      <h3>🔥 本周热搜 · 自动从 AI 分析记录中聚合</h3>
-      <div class="hot-tags">
-        <span class="hot-tag" onclick="goto('analysis')">MU 美光<span class="trend-dn">-0.5%</span></span>
-        <span class="hot-tag" onclick="goto('analysis')">ALAB Astera<span class="trend-up">+7.3%</span></span>
-        <span class="hot-tag" onclick="goto('analysis')">LITE Lumentum<span class="trend-up">+2.1%</span></span>
-        <span class="hot-tag" onclick="goto('analysis')">BESI.AS<span class="trend-up">+4.8%</span></span>
-        <span class="hot-tag" onclick="goto('analysis')">OKLO<span class="trend-up">+12.4%</span></span>
-        <span class="hot-tag" onclick="goto('analysis')">CRDO Credo<span class="trend-up">+5.6%</span></span>
-        <span class="hot-tag" onclick="goto('analysis')">绿的谐波<span class="trend-up">+3.2%</span></span>
-        <span class="hot-tag" onclick="goto('analysis')">寒武纪<span class="trend-up">+8.9%</span></span>
+      <h3>🏆 评分 S/A 级标的 · 从 250 公司中由六维客观模型甄选</h3>
+      <div class="hot-tags" id="top-tags">
+        <span style="color:#6b7785;font-size:12px">载入中...</span>
       </div>
     </div>
   </div>
@@ -242,7 +234,7 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
         <h3>看清产业链</h3>
         <p>11 层从算力到机器人完整拆解，每一格都有龙头/竞争/中国国产替代标的，鼠标悬停查看详情。</p>
       </div>
-      <div class="feat-card" onclick="goto('analysis')">
+      <div class="feat-card" onclick="goto('graph')">
         <div class="icon">🤖</div>
         <h3>AI 深度分析</h3>
         <p>粘贴股票代码 → 一份基于产业链位置的深度报告：SWOT、DCF、催化剂时间表、对标对手。</p>
@@ -310,8 +302,8 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
   <iframe class="graph-frame" src="graph.html" title="AI 产业链图谱"></iframe>
 </div>
 
-<!-- ========== PAGE: AI ANALYSIS ========== -->
-<div class="page" id="page-analysis">
+<!-- 已删除：AI 分析独立 Tab（功能已整合到图谱抽屉中，避免重复） -->
+<div class="page hidden-page" id="page-analysis" style="display:none">
   <div class="analysis-wrap">
     <div class="bread"><a onclick="goto('graph')">← 返回图谱</a> · ② 存储 / HBM 三巨头</div>
 
@@ -429,84 +421,47 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
   </div>
 </div>
 
-<!-- ========== PAGE: PROFILE ========== -->
+<!-- ========== PAGE: PROFILE / 研究笔记 ========== -->
 <div class="page" id="page-profile">
   <div class="profile-wrap">
     <div class="profile-head">
-      <div class="avatar-big">B</div>
+      <div class="avatar-big">📒</div>
       <div class="info">
-        <h1>@bngjly <span class="rep">⭐ 280 声誉 · Editor</span></h1>
-        <div class="role">加入于 2026-01 · 已贡献 12 条 PR · 8 条 merged</div>
+        <h1>研究笔记本 <span class="rep" id="notebook-status">本地模式</span></h1>
+        <div class="role">你的自选 + 图谱编辑记录目前存在浏览器本地。注册系统上线后可云端同步、跨设备共享。</div>
       </div>
       <div class="profile-stats">
-        <div class="p-stat"><div class="v">23</div><div class="l">自选标的</div></div>
-        <div class="p-stat"><div class="v">PRO</div><div class="l">订阅</div></div>
-        <div class="p-stat"><div class="v">$4.30</div><div class="l">AI 余额</div></div>
-        <div class="p-stat"><div class="v">432</div><div class="l">本月剩余</div></div>
+        <div class="p-stat"><div class="v" id="my-watch-count">…</div><div class="l">我的自选</div></div>
+        <div class="p-stat"><div class="v" id="my-companies-count">…</div><div class="l">图谱公司总数</div></div>
+        <div class="p-stat"><div class="v" id="my-graded-count">…</div><div class="l">已评分</div></div>
       </div>
     </div>
 
-    <div class="subnav">
-      <div class="sub-tab active">我的自选</div>
-      <div class="sub-tab">我的 PR</div>
-      <div class="sub-tab">AI 分析历史</div>
-      <div class="sub-tab">账单</div>
-      <div class="sub-tab">设置</div>
+    <div id="watchlist-area">
+      <div style="padding: 40px; text-align: center; color: #6b7785; font-size: 13px;">载入自选数据中…</div>
     </div>
 
-    <div class="watchlist-by-layer">
-      <div class="layer-group" style="border-left: 4px solid #ef4444;">
-        <div class="lbl">① 算力芯片</div>
-        <div class="layer-tickers">
-          <div class="mini-ticker up" onclick="goto('analysis')">NVDA <span class="pct up">+3.2%</span></div>
-        </div>
-      </div>
-      <div class="layer-group" style="border-left: 4px solid #f59e0b;">
-        <div class="lbl">② 存储</div>
-        <div class="layer-tickers">
-          <div class="mini-ticker dn" onclick="goto('analysis')">MU <span class="pct dn">-0.5%</span></div>
-          <div class="mini-ticker up" onclick="goto('analysis')">SNDK <span class="pct up">+3.3%</span></div>
-          <div class="mini-ticker up" onclick="goto('analysis')">STX <span class="pct up">+1.2%</span></div>
-        </div>
-      </div>
-      <div class="layer-group" style="border-left: 4px solid #eab308;">
-        <div class="lbl">③ 封装</div>
-        <div class="layer-tickers">
-          <div class="mini-ticker up" onclick="goto('analysis')">ASX <span class="pct up">+3.9%</span></div>
-        </div>
-      </div>
-      <div class="layer-group" style="border-left: 4px solid #22c55e;">
-        <div class="lbl">④ 互联</div>
-        <div class="layer-tickers">
-          <div class="mini-ticker up" onclick="goto('analysis')">ALAB <span class="pct up">+7.3%</span></div>
-          <div class="mini-ticker up" onclick="goto('analysis')">CRDO <span class="pct up">+0.5%</span></div>
-          <div class="mini-ticker up" onclick="goto('analysis')">MRVL <span class="pct up">+3.1%</span></div>
-        </div>
-      </div>
-      <div class="layer-group" style="border-left: 4px solid #3b82f6;">
-        <div class="lbl">⑥ 光通信</div>
-        <div class="layer-tickers">
-          <div class="mini-ticker dn" onclick="goto('analysis')">COHR <span class="pct dn">-0.9%</span></div>
-        </div>
-      </div>
-      <div class="layer-group" style="border-left: 4px solid #64748b;">
-        <div class="lbl">🛸 国防 AI</div>
-        <div class="layer-tickers">
-          <div class="mini-ticker up" onclick="goto('analysis')">RCAT <span class="pct up">+32.6%</span></div>
-          <div class="mini-ticker up" onclick="goto('analysis')">SWARM <span class="pct up">+17.0%</span></div>
-        </div>
-      </div>
-      <div class="layer-group" style="border-left: 4px solid #94a3b8;">
-        <div class="lbl">⚫ 对冲工具</div>
-        <div class="layer-tickers">
-          <div class="mini-ticker dn">SOXS <span class="pct dn">-3.4%</span></div>
-        </div>
-      </div>
+    <div style="margin-top: 32px; padding: 18px 22px; background: #1a2230; border: 1px dashed #4fc3f7; border-radius: 10px;">
+      <strong style="color:#4fc3f7;">💡 怎么把公司加到自选？</strong>
+      <p style="color:#9aa5b1; font-size:13px; margin-top:8px; line-height:1.7;">
+        1. 切到「图谱」Tab<br>
+        2. 找到目标公司（用顶部搜索框或点击层级 chip 快速跳转）<br>
+        3. 点公司卡片 → 抽屉里点「✎ 编辑」<br>
+        4. "标签"下拉选 <strong>自选</strong> 或 <strong>核心+自选</strong> → 保存<br>
+        5. 回到这里刷新页面就能看到
+      </p>
     </div>
 
-    <div style="margin-top: 32px; padding: 20px; background: #1a2230; border: 1px dashed #4fc3f7; border-radius: 10px; text-align: center;">
-      <strong style="color:#4fc3f7;">💡 AI 组合诊断（Pro 功能）</strong>
-      <p style="color:#9aa5b1; font-size:13px; margin-top:8px;">你的自选已覆盖存储/互联/光通信/封测 4 层，缺少压舱石（GPU/代工/电力/设备）。<br>建议补：NVDA / TSM / VRT / ASML 形成完整产业链覆盖。</p>
+    <div style="margin-top: 24px; padding: 18px 22px; background: linear-gradient(135deg, #1a2230, #1f2a3d); border: 1px solid #fbbf24; border-radius: 10px;">
+      <strong style="color:#fbbf24;">🚀 早鸟权益预告</strong>
+      <p style="color:#cfd5dc; font-size:13px; margin-top:8px; line-height:1.7;">
+        正式注册系统上线时，第一批早鸟会获得：<br>
+        ✓ 自选云端同步（跨设备）<br>
+        ✓ AI 深度分析 500 次/月免费配额<br>
+        ✓ Pro 订阅终身 5 折<br>
+        ✓ 编辑权重 ×2（贡献度积分翻倍）
+      </p>
+      <button class="btn btn-primary" style="margin-top:10px" onclick="openWaitlist()">加入早鸟名单</button>
     </div>
   </div>
 </div>
@@ -517,49 +472,254 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
 </div>
 
 <script>
+// ============ 标签页切换 ============
+const VALID_PAGES = ['home', 'graph', 'profile'];
 function goto(page) {
+  if (!VALID_PAGES.includes(page)) page = 'home';
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav .tab').forEach(t => t.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
-  const tabMap = { home:0, graph:1, analysis:2, profile:3 };
-  document.querySelectorAll('.tab')[tabMap[page]].classList.add('active');
+  const tabMap = { home:0, graph:1, profile:2 };
+  const tabs = document.querySelectorAll('.nav .tab');
+  if (tabs[tabMap[page]]) tabs[tabMap[page]].classList.add('active');
   window.scrollTo(0, 0);
-}
-
-function runAI(featureName) {
-  document.getElementById('modalInner').innerHTML = `
-    <h3>🤖 ${featureName}（演示）</h3>
-    <div class="body">
-      <p style="margin-bottom: 14px;"><span class="spinner"></span> AI 正在分析 MU · 美光科技 ...</p>
-      <p style="color:#9aa5b1; font-size:13px;">
-        <strong style="color:#f59e0b;">⚠️ 这是产品原型演示</strong><br><br>
-        正式版接入后，这里会：
-        <br>1. 调用 Claude Sonnet API，使用美光在产业链中的位置 + 最新财报 + 自选关联标的上下文
-        <br>2. 生成 800-1200 字结构化报告
-        <br>3. 缓存结果 7 天，相同输入直接返回
-        <br>4. 从你的 Pro 额度扣除对应积分（约 200-500）
-        <br><br>
-        <strong>${featureName}</strong> 实际输出会包含：核心逻辑、关键数据、风险点、估值锚、催化剂时间表、可操作建议。
-      </p>
-    </div>
-    <div class="modal-actions" style="margin-top:20px; text-align:right;">
-      <button class="btn btn-primary" onclick="closeModal()">知道了</button>
-    </div>
-  `;
-  document.getElementById('modal').classList.add('show');
+  if (page === 'profile') renderProfile();
 }
 
 function closeModal() { document.getElementById('modal').classList.remove('show'); }
 
-// URL hash 路由（让分享链接能直接跳转）
+// ============ 加载评分数据（喂首页 + profile） ============
+let SCORES_CACHE = null;
+async function loadScores() {
+  if (SCORES_CACHE) return SCORES_CACHE;
+  try {
+    const r = await fetch('scores.json', { cache: 'no-cache' });
+    SCORES_CACHE = await r.json();
+    return SCORES_CACHE;
+  } catch (e) {
+    console.warn('scores.json load failed', e);
+    return {};
+  }
+}
+
+// ============ 首页统计 + Top 标的 ============
+async function renderHomeStats() {
+  const scores = await loadScores();
+  const allKeys = Object.keys(scores);
+  const ok = Object.values(scores).filter(v => v && v.status === 'ok');
+  const grades = {};
+  ok.forEach(v => { grades[v.grade] = (grades[v.grade] || 0) + 1; });
+  const sCount = grades.S || 0;
+  const aCount = grades.A || 0;
+
+  // 找出最近更新时间
+  let lastDate = '';
+  ok.forEach(v => { if (v.evaluated_at && v.evaluated_at > lastDate) lastDate = v.evaluated_at; });
+
+  document.getElementById('stat-companies').textContent = allKeys.length || '250';
+  document.getElementById('stat-companies-trend').textContent = '11 层 + Serenity 概念';
+  document.getElementById('stat-graded').textContent = ok.length || '…';
+  document.getElementById('stat-graded-trend').textContent = lastDate ? '更新 ' + lastDate : '六维客观评分';
+  document.getElementById('stat-top').textContent = (sCount + aCount) || '…';
+  document.getElementById('stat-top-trend').textContent = `S=${sCount} · A=${aCount}`;
+
+  // S/A 标的标签
+  const top = ok
+    .filter(v => v.grade === 'S' || v.grade === 'A')
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 12);
+  const tagsHTML = top.map(v => {
+    const color = v.grade === 'S' ? '#ef4444' : '#22c55e';
+    return `<span class="hot-tag" onclick="goto('graph')" title="${escapeAttr(v.name || '')}">
+      <span style="color:${color};font-weight:700">${v.grade}</span> ${escapeHtml(v.ticker)}
+      <span style="color:#6b7785;font-size:11px;margin-left:3px">${v.score}</span>
+    </span>`;
+  }).join('') || '<span style="color:#6b7785;font-size:12px">暂无数据</span>';
+  document.getElementById('top-tags').innerHTML = tagsHTML;
+}
+
+// ============ Profile：从 localStorage（graph.html 共享） 渲染自选 ============
+const LAYER_COLOR = {
+  1:'#ef4444', 2:'#f59e0b', 3:'#eab308', 4:'#22c55e', 5:'#06b6d4',
+  6:'#3b82f6', 7:'#8b5cf6', 8:'#ec4899', 9:'#94a3b8', 10:'#14b8a6',
+  98:'#fbbf24', 99:'#64748b',
+};
+
+async function renderProfile() {
+  const scores = await loadScores();
+  const allCompaniesCount = Object.keys(scores).length;
+  const gradedCount = Object.values(scores).filter(v => v && v.status === 'ok').length;
+
+  // 从 graph.html 共享的 localStorage 读取图谱数据
+  let graphData = null;
+  try {
+    const raw = localStorage.getItem('aiChain_v1');
+    if (raw) graphData = JSON.parse(raw);
+  } catch (e) {}
+
+  // 没有 localStorage → 用户还没进过 graph.html，引导
+  if (!graphData) {
+    document.getElementById('my-watch-count').textContent = '0';
+    document.getElementById('my-companies-count').textContent = allCompaniesCount;
+    document.getElementById('my-graded-count').textContent = gradedCount;
+    document.getElementById('watchlist-area').innerHTML = `
+      <div style="padding: 60px 20px; text-align: center; color: #9aa5b1; font-size: 14px;">
+        ⏳ 还没访问过图谱<br>
+        <button class="btn btn-primary" style="margin-top:14px" onclick="goto('graph')">立即进入图谱</button>
+      </div>`;
+    return;
+  }
+
+  // 遍历所有节点找带 watch flag 的公司
+  const watches = [];   // [{layer_name, layer_num, ticker, cn, flag, score}]
+  function walk(node, ancestorLayer) {
+    const currentLayer = (node.layer !== undefined && node.id !== 'root') ? node : ancestorLayer;
+    (node.companies || []).forEach(c => {
+      const flags = (c.flag || '').split(/\s+/);
+      if (flags.includes('watch')) {
+        watches.push({
+          ticker: c.t,
+          cn: c.cn,
+          flag: c.flag,
+          layer_name: currentLayer ? currentLayer.name : '',
+          layer_num: currentLayer ? currentLayer.layer : 99,
+        });
+      }
+    });
+    (node.children || []).forEach(child => walk(child, currentLayer));
+  }
+  walk(graphData);
+
+  document.getElementById('my-watch-count').textContent = watches.length;
+  document.getElementById('my-companies-count').textContent = allCompaniesCount;
+  document.getElementById('my-graded-count').textContent = gradedCount;
+
+  if (watches.length === 0) {
+    document.getElementById('watchlist-area').innerHTML = `
+      <div style="padding: 50px 20px; text-align: center; color: #9aa5b1; font-size: 14px;">
+        🌱 还没有自选公司<br>
+        <span style="font-size:12px;color:#6b7785">看看下面怎么添加</span>
+      </div>`;
+    return;
+  }
+
+  // 按层分组
+  const byLayer = {};
+  watches.forEach(w => {
+    const key = w.layer_name || '其他';
+    if (!byLayer[key]) byLayer[key] = { items: [], num: w.layer_num };
+    byLayer[key].items.push(w);
+  });
+
+  // 渲染
+  const layersHTML = Object.entries(byLayer).map(([name, grp]) => {
+    const color = LAYER_COLOR[grp.num] || '#94a3b8';
+    const tickers = grp.items.map(w => {
+      const sc = scores[w.ticker];
+      const grade = sc && sc.status === 'ok' ? sc.grade : '';
+      const score = sc && sc.status === 'ok' ? sc.score : '';
+      const gradeColor = { S:'#ef4444', A:'#22c55e', B:'#3b82f6', C:'#f59e0b', D:'#6b7785' }[grade] || '#6b7785';
+      return `<div class="mini-ticker" onclick="goto('graph')" title="${escapeAttr(w.cn || '')}">
+        <strong>${escapeHtml(w.ticker)}</strong>
+        ${grade ? `<span style="color:${gradeColor};font-size:11px;margin-left:6px">${grade}·${score}</span>` : ''}
+      </div>`;
+    }).join('');
+    return `<div class="layer-group" style="border-left: 4px solid ${color}">
+      <div class="lbl">${escapeHtml(name)}</div>
+      <div class="layer-tickers">${tickers}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('watchlist-area').innerHTML = `<div class="watchlist-by-layer">${layersHTML}</div>`;
+}
+
+// ============ 早鸟邮箱收集 modal ============
+function openWaitlist() {
+  document.getElementById('modalInner').innerHTML = `
+    <h3>🚀 加入早鸟名单</h3>
+    <div class="body">
+      <p style="color:#cfd5dc; font-size:13px; margin-bottom:14px;">
+        我们正在准备正式注册系统 + 真实账户体系。<br>
+        留个邮箱，上线时第一时间通知你，并解锁早鸟权益：
+      </p>
+      <ul style="color:#cfd5dc; font-size:13px; line-height:1.9; padding-left:20px; margin-bottom:16px;">
+        <li>自选云端同步（多设备）</li>
+        <li>AI 深度分析 <strong style="color:#4fc3f7">500 次/月</strong> 免费</li>
+        <li>Pro 订阅<strong style="color:#fbbf24"> 终身 5 折</strong></li>
+      </ul>
+      <form id="waitlist-form" onsubmit="submitWaitlist(event)">
+        <input type="email" name="email" id="waitlist-email" required placeholder="your@email.com"
+          style="width:100%; background:#0f1419; color:#e6e6e6; border:1px solid #3a4860; padding:10px 14px; border-radius:8px; font-size:14px; margin-bottom:10px;">
+        <textarea name="message" id="waitlist-message" placeholder="（可选）告诉我你最希望先看到哪个功能"
+          style="width:100%; height:60px; background:#0f1419; color:#e6e6e6; border:1px solid #3a4860; padding:10px 14px; border-radius:8px; font-size:13px; font-family:inherit; resize:vertical;"></textarea>
+      </form>
+    </div>
+    <div class="modal-actions" style="margin-top:16px; text-align:right; gap:8px; display:flex; justify-content:flex-end;">
+      <button class="btn" onclick="closeModal()" style="background:#243245; color:#cfd5dc">取消</button>
+      <button class="btn btn-primary" onclick="document.getElementById('waitlist-form').requestSubmit()">提交</button>
+    </div>
+  `;
+  document.getElementById('modal').classList.add('show');
+  setTimeout(() => document.getElementById('waitlist-email').focus(), 80);
+}
+
+async function submitWaitlist(e) {
+  e.preventDefault();
+  const email = document.getElementById('waitlist-email').value.trim();
+  const message = document.getElementById('waitlist-message').value.trim();
+  if (!email) return;
+  // 先存本地（防丢失）
+  const existing = JSON.parse(localStorage.getItem('waitlist_signups') || '[]');
+  existing.push({ email, message, at: new Date().toISOString() });
+  localStorage.setItem('waitlist_signups', JSON.stringify(existing));
+  // 提交到 formsubmit.co（邮件通知 bngjly@gmail.com）
+  try {
+    await fetch('https://formsubmit.co/ajax/bngjly@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        email,
+        message: message || '(无留言)',
+        _subject: '[ChainGraph 早鸟] 新报名',
+        _template: 'table',
+      }),
+    });
+  } catch (e) {
+    console.warn('formsubmit failed', e);
+  }
+  document.getElementById('modalInner').innerHTML = `
+    <h3 style="color:#22c55e">✅ 收到！</h3>
+    <div class="body">
+      <p style="color:#cfd5dc; font-size:14px; line-height:1.7;">
+        我们已记录你的邮箱 <strong style="color:#4fc3f7">${escapeHtml(email)}</strong>。<br>
+        正式注册系统上线时（预计 2-3 周），第一时间通知你。
+      </p>
+      <p style="color:#9aa5b1; font-size:12px; margin-top:14px;">
+        与此同时，你可以继续用图谱看产业链 + 客观评分 + AI 一键深度分析（基于浏览器本地缓存）。
+      </p>
+    </div>
+    <div class="modal-actions" style="margin-top:18px; text-align:right;">
+      <button class="btn btn-primary" onclick="closeModal()">好的</button>
+    </div>
+  `;
+}
+
+// ============ 工具 ============
+function escapeHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function escapeAttr(s) { return escapeHtml(s); }
+
+// ============ URL hash 路由 ============
 window.addEventListener('hashchange', () => {
   const h = location.hash.slice(1);
-  if (h && ['home','graph','analysis','profile'].includes(h)) goto(h);
+  if (h && VALID_PAGES.includes(h)) goto(h);
 });
 if (location.hash) {
   const h = location.hash.slice(1);
-  if (['home','graph','analysis','profile'].includes(h)) goto(h);
+  if (VALID_PAGES.includes(h)) goto(h);
 }
+
+// ============ 初始化 ============
+renderHomeStats();
 </script>
 </body>
 </html>
