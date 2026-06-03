@@ -146,6 +146,18 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .ai-spinner { width: 14px; height: 14px; border: 2px solid #4fc3f7; border-bottom-color: transparent; border-radius: 50%; animation: ai-spin 0.7s linear infinite; }
 @keyframes ai-spin { to { transform: rotate(360deg); } }
 .ai-meta { font-size: 10px; color: #6b7785; text-align: right; margin-top: 10px; }
+
+/* ===== 层级快速导航 chips ===== */
+.layer-chips { padding: 8px 24px; background: rgba(15,20,25,.96); backdrop-filter: blur(8px); border-bottom: 1px solid #1c2632; position: sticky; top: 80px; z-index: 40; display: flex; gap: 6px; overflow-x: auto; align-items: center; }
+.layer-chips::-webkit-scrollbar { height: 4px; }
+.layer-chips::-webkit-scrollbar-thumb { background: #2a3548; border-radius: 2px; }
+.chip { padding: 4px 10px; background: #1c2632; border: 1px solid #2a3548; border-radius: 14px; font-size: 12px; cursor: pointer; transition: .15s; white-space: nowrap; color: #cfd5dc; user-select: none; flex-shrink: 0; }
+.chip:hover { border-color: #4fc3f7; color: #fff; background: #243245; }
+.chip.active { background: #243245; border-color: #4fc3f7; color: #4fc3f7; font-weight: 600; }
+.chip-all { color: #9aa5b1; }
+.chip-action { color: #fbbf24; border-color: #3a3220; }
+.chip-action:hover { border-color: #fbbf24; color: #fff; }
+.chip-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
 </style>
 </head>
 <body>
@@ -170,6 +182,7 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
     <span class="stat-bar" id="stat"></span>
   </div>
 </header>
+<div class="layer-chips" id="chipBar"></div>
 <main id="tree"></main>
 
 <div class="drawer-bg" id="drawer" onclick="if(event.target===this)closeDrawer()">
@@ -1102,7 +1115,7 @@ const DEFAULT_DATA = {
 
 // ============ 状态 ============
 // 改 DEFAULT_DATA 后递增版本号，自动失效用户旧 localStorage
-const DATA_VERSION = '2026-06-03-v2';   // 含 AAOI/Serenity层/电源 IC 大补全
+const DATA_VERSION = '2026-06-03-v3';   // 含 AAOI/Serenity层/电源 IC 大补全 + 快速导航 chip
 
 let data = loadData();
 let editTarget = null;
@@ -1147,8 +1160,53 @@ function loadScores() {
 // ============ 渲染 ============
 function render() {
   document.getElementById('tree').innerHTML = renderNode(data, '');
+  renderChipBar();
   applySearch();
   updateStat();
+}
+
+// ============ 层级快速导航 chip 渲染 ============
+const LAYER_COLOR = {
+  1:'#ef4444', 2:'#f59e0b', 3:'#eab308', 4:'#22c55e', 5:'#06b6d4',
+  6:'#3b82f6', 7:'#8b5cf6', 8:'#ec4899', 9:'#94a3b8', 10:'#14b8a6',
+  98:'#fbbf24', 99:'#64748b',
+};
+function renderChipBar() {
+  const top = data.children || [];
+  const chips = top.map((node, i) => {
+    // 抓首个 emoji 或 ① ② ... 标记
+    const m = node.name.match(/^(\S+)\s*(.+)$/);
+    const icon = m ? m[1] : node.name.slice(0, 2);
+    const label = m ? (m[2].length > 8 ? m[2].slice(0, 6) + '..' : m[2]) : '';
+    const color = LAYER_COLOR[node.layer] || '#94a3b8';
+    return `<span class="chip" onclick="jumpToLayer('children.${i}')" title="${escapeHtml(node.name)}">
+      <span class="chip-dot" style="background:${color}"></span>${escapeHtml(icon)} ${escapeHtml(label)}
+    </span>`;
+  }).join('');
+  document.getElementById('chipBar').innerHTML = `
+    <span class="chip chip-all" onclick="expandAll()">⊕ 全展</span>
+    <span class="chip chip-all" onclick="collapseAll()">⊖ 全折</span>
+    <span style="color:#3a4860;flex-shrink:0">|</span>
+    ${chips}
+  `;
+}
+
+function jumpToLayer(path) {
+  // 关闭所有顶层，只展开目标
+  (data.children || []).forEach(n => n.expanded = false);
+  const target = getNode(path);
+  if (target) target.expanded = true;
+  save();
+  render();
+  // 滚动到目标节点
+  setTimeout(() => {
+    const el = document.querySelector(`.node[data-path="${path}"]`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.querySelector('.node-header').style.outline = '2px solid #4fc3f7';
+      setTimeout(() => { el.querySelector('.node-header').style.outline = ''; }, 1500);
+    }
+  }, 50);
 }
 
 function renderNode(node, path) {
@@ -1543,16 +1601,27 @@ function applySearch() {
   const q = document.getElementById('search').value.trim().toLowerCase();
   if (!q) {
     document.querySelectorAll('.node, .company').forEach(el => el.classList.remove('hidden'));
+    // 清空搜索：保持每个节点的 expanded 状态（按 data.expanded）
     return;
   }
+  // 1. 先处理叶子（公司）
   document.querySelectorAll('.company').forEach(el => {
     el.classList.toggle('hidden', !el.textContent.toLowerCase().includes(q));
   });
-  document.querySelectorAll('.node').forEach(el => {
-    const txt = el.querySelector('.node-header').textContent.toLowerCase();
+  // 2. 处理节点：从最深开始（reverse 文档顺序 = 从最后的子节点先处理）
+  //    这样父节点 check hasVisibleChild 时子节点已经标记完成
+  const nodes = Array.from(document.querySelectorAll('.node')).reverse();
+  nodes.forEach(el => {
+    const headerTxt = el.querySelector(':scope > .node-header')?.textContent.toLowerCase() || '';
     const hasVisibleCompany = Array.from(el.querySelectorAll(':scope > .node-body > .companies > .company')).some(c => !c.classList.contains('hidden'));
     const hasVisibleChild = Array.from(el.querySelectorAll(':scope > .node-body > .node')).some(c => !c.classList.contains('hidden'));
-    el.classList.toggle('hidden', !(txt.includes(q) || hasVisibleCompany || hasVisibleChild));
+    const selfMatches = headerTxt.includes(q);
+    el.classList.toggle('hidden', !(selfMatches || hasVisibleCompany || hasVisibleChild));
+    // 命中时自动展开该层（不再需要用户手动展开找到结果）
+    if (selfMatches || hasVisibleCompany || hasVisibleChild) {
+      el.classList.add('expanded');
+      el.classList.remove('collapsed');
+    }
   });
 }
 
