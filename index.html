@@ -25,8 +25,9 @@ a { color: inherit; text-decoration: none; }
 .btn-primary:hover { opacity: .9; }
 
 /* ===== Pages ===== */
-.page { display: none; padding: 0; }
-.page.active { display: block; }
+/* 单页 Tab 切换：只显示 .active 那个 */
+.page { display: none !important; padding: 0; }
+.page.active { display: block !important; }
 
 /* ===== HOME ===== */
 .hero { padding: 80px 24px 60px; text-align: center; background: radial-gradient(ellipse at top, #1a2235 0%, #0f1419 70%); }
@@ -511,9 +512,17 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
 const VALID_PAGES = ['home', 'graph', 'profile'];
 function goto(page) {
   if (!VALID_PAGES.includes(page)) page = 'home';
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // 防御：先把所有 .page 强制 display:none，再激活目标
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
   document.querySelectorAll('.nav .tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('page-' + page).classList.add('active');
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    target.classList.add('active');
+    target.style.display = 'block';
+  }
   const tabMap = { home:0, graph:1, profile:2 };
   const tabs = document.querySelectorAll('.nav .tab');
   if (tabs[tabMap[page]]) tabs[tabMap[page]].classList.add('active');
