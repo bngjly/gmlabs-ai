@@ -148,16 +148,27 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .ai-meta { font-size: 10px; color: #6b7785; text-align: right; margin-top: 10px; }
 
 /* ===== 层级快速导航 chips ===== */
-.layer-chips { padding: 8px 24px; background: rgba(15,20,25,.96); backdrop-filter: blur(8px); border-bottom: 1px solid #1c2632; position: sticky; top: 80px; z-index: 40; display: flex; gap: 6px; overflow-x: auto; align-items: center; }
-.layer-chips::-webkit-scrollbar { height: 4px; }
-.layer-chips::-webkit-scrollbar-thumb { background: #2a3548; border-radius: 2px; }
-.chip { padding: 4px 10px; background: #1c2632; border: 1px solid #2a3548; border-radius: 14px; font-size: 12px; cursor: pointer; transition: .15s; white-space: nowrap; color: #cfd5dc; user-select: none; flex-shrink: 0; }
+.layer-chips { padding: 8px 24px; background: rgba(15,20,25,.96); backdrop-filter: blur(8px); border-bottom: 1px solid #1c2632; position: sticky; top: 80px; z-index: 40; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.chip { padding: 4px 10px; background: #1c2632; border: 1px solid #2a3548; border-radius: 14px; font-size: 12px; cursor: pointer; transition: .15s; white-space: nowrap; color: #cfd5dc; user-select: none; }
 .chip:hover { border-color: #4fc3f7; color: #fff; background: #243245; }
 .chip.active { background: #243245; border-color: #4fc3f7; color: #4fc3f7; font-weight: 600; }
 .chip-all { color: #9aa5b1; }
 .chip-action { color: #fbbf24; border-color: #3a3220; }
 .chip-action:hover { border-color: #fbbf24; color: #fff; }
 .chip-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* ===== 更多菜单 ===== */
+.more-menu-wrap { position: relative; }
+.more-menu-wrap > button { padding: 6px 10px; font-weight: 700; }
+.more-menu { position: absolute; top: calc(100% + 6px); right: 0; background: #1a2230; border: 1px solid #2a3548; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.5); padding: 6px; min-width: 240px; display: none; z-index: 60; }
+.more-menu.show { display: block; }
+.more-menu button { display: block; width: 100%; text-align: left; background: transparent; border: none; padding: 8px 10px; border-radius: 5px; color: #cfd5dc; font-size: 13px; cursor: pointer; }
+.more-menu button:hover { background: #243245; color: #fff; }
+.more-menu-sep { height: 1px; background: #2a3548; margin: 4px 0; }
+
+/* ===== 编辑提示横幅 ===== */
+.edit-hint { background: #1a2230; border: 1px dashed #fbbf24; padding: 6px 12px; border-radius: 6px; font-size: 11px; color: #fbbf24; margin: 10px 0 8px; display: flex; align-items: center; gap: 8px; }
+.edit-hint .label { font-weight: 600; }
 </style>
 </head>
 <body>
@@ -166,12 +177,16 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
     <h1>🧠 AI 产业链全景图谱</h1>
     <div class="controls">
       <input id="search" placeholder="🔍 搜索公司代码 / 中文名 / 技术..." oninput="applySearch()" />
-      <button onclick="expandAll()">全部展开</button>
-      <button onclick="collapseAll()">全部折叠</button>
-      <button onclick="exportData()">导出 JSON</button>
-      <button onclick="document.getElementById('importFile').click()">导入 JSON</button>
-      <input id="importFile" type="file" accept=".json" style="display:none" onchange="importData(event)" />
-      <button onclick="resetData()" style="border-color:#ef4444;color:#ef4444">重置默认</button>
+      <div class="more-menu-wrap">
+        <button onclick="toggleMoreMenu(event)" title="更多操作">⋯</button>
+        <div class="more-menu" id="moreMenu">
+          <button onclick="exportData(); closeMoreMenu()">📥 导出 JSON（备份你的编辑）</button>
+          <button onclick="document.getElementById('importFile').click(); closeMoreMenu()">📤 导入 JSON</button>
+          <input id="importFile" type="file" accept=".json" style="display:none" onchange="importData(event)" />
+          <div class="more-menu-sep"></div>
+          <button onclick="resetData(); closeMoreMenu()" style="color:#ef4444">🗑️ 重置为最新默认</button>
+        </div>
+      </div>
     </div>
   </div>
   <div class="legend">
@@ -1227,6 +1242,11 @@ function renderNode(node, path) {
       <div class="node-body">
         ${(node.companies && node.companies.length) ? `<div class="sub-section-title">公司</div><div class="companies">${companyHTML}</div>` : ''}
         ${childHTML ? `<div class="sub-section-title" style="margin-top:14px">细分子赛道</div>${childHTML}` : ''}
+        <div class="edit-hint" title="Phase 2 接入社区 PR 系统后，编辑会变成提交给所有人审核">
+          <span>✏️</span>
+          <span class="label">本地编辑模式</span>
+          <span style="color:#cfd5dc">— 改动只存你的浏览器，不影响其他人</span>
+        </div>
         <div class="actions">
           <button class="btn-sm" onclick="openAddCompany('${path}')">+ 添加公司</button>
           <button class="btn-sm" onclick="openAddChild('${path}')">+ 添加子赛道</button>
@@ -1300,6 +1320,19 @@ function toggleNode(path, e) {
 }
 function expandAll() { walk(data, n => n.expanded = true); save(); render(); }
 function collapseAll() { walk(data, n => { if (n.id !== 'root') n.expanded = false; }); save(); render(); }
+
+// ============ 更多菜单 ============
+function toggleMoreMenu(e) {
+  e.stopPropagation();
+  document.getElementById('moreMenu').classList.toggle('show');
+}
+function closeMoreMenu() {
+  document.getElementById('moreMenu').classList.remove('show');
+}
+document.addEventListener('click', e => {
+  const wrap = document.querySelector('.more-menu-wrap');
+  if (wrap && !wrap.contains(e.target)) closeMoreMenu();
+});
 function walk(n, fn) { fn(n); (n.children || []).forEach(c => walk(c, fn)); }
 
 // ============ 模态框 ============
