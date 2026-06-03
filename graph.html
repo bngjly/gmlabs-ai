@@ -208,6 +208,11 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
   </div>
 </header>
 <div class="layer-chips" id="chipBar"></div>
+<div id="noResultsBanner" style="display:none; margin: 24px auto; max-width: 720px; padding: 24px; background: #1a2230; border: 1px dashed #4fc3f7; border-radius: 12px; text-align: center;">
+  <div style="font-size: 16px; margin-bottom: 8px;">🤷 没找到 "<span id="noResultsQuery" style="color:#4fc3f7;font-weight:600"></span>"</div>
+  <div style="color: #9aa5b1; font-size: 13px; margin-bottom: 16px;">可能是图谱还没收录这家公司或赛道</div>
+  <button class="btn-sm" onclick="openContribute()" style="font-size: 13px; padding: 8px 16px;">+ 申请收录这家公司</button>
+</div>
 <main id="tree"></main>
 
 <div class="drawer-bg" id="drawer" onclick="if(event.target===this)closeDrawer()">
@@ -1520,6 +1525,68 @@ function closeDrawer() {
   document.getElementById('drawer').classList.remove('show');
 }
 
+// ============ 申请收录公司 / 反馈 ============
+function openContribute() {
+  const currentQuery = document.getElementById('search').value.trim();
+  document.getElementById('modalInner').innerHTML = `
+    <h3>+ 申请收录公司 / 子赛道</h3>
+    <label>公司代码 / 名称</label>
+    <input id="c_ticker" placeholder="如 ASTS 或 黄仁勋小公司" value="${escapeHtml(currentQuery)}">
+    <label>建议归属层级（可选）</label>
+    <input id="c_layer" placeholder="如：⑥ 光通信 / CW 激光器">
+    <label>简短理由（为什么应该被收录）</label>
+    <textarea id="c_reason" rows="3" placeholder="如：CPO 时代 CW 激光器最有可能的小盘黑马..." style="width:100%;background:#0f1419;color:#e6e6e6;border:1px solid #3a4860;padding:8px 10px;border-radius:6px;font-family:inherit;font-size:13px;"></textarea>
+    <label>你的邮箱（可选，收录后通知你）</label>
+    <input id="c_email" type="email" placeholder="optional@email.com">
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeModal()">取消</button>
+      <button onclick="submitContribute()">提交</button>
+    </div>
+  `;
+  document.getElementById('modal').classList.add('show');
+  setTimeout(() => document.getElementById('c_ticker').focus(), 80);
+}
+
+async function submitContribute() {
+  const t = document.getElementById('c_ticker').value.trim();
+  const layer = document.getElementById('c_layer').value.trim();
+  const reason = document.getElementById('c_reason').value.trim();
+  const email = document.getElementById('c_email').value.trim();
+  if (!t || !reason) { alert('请填股票代码和理由'); return; }
+
+  // 本地备份
+  const existing = JSON.parse(localStorage.getItem('chain_contributions') || '[]');
+  existing.push({ t, layer, reason, email, at: new Date().toISOString() });
+  localStorage.setItem('chain_contributions', JSON.stringify(existing));
+
+  // 通过 formsubmit 邮件给管理员
+  try {
+    await fetch('https://formsubmit.co/ajax/bngjly@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        ticker: t,
+        suggested_layer: layer || '(未指定)',
+        reason: reason,
+        contributor_email: email || '(匿名)',
+        _subject: `[ChainGraph 收录建议] ${t}`,
+        _template: 'table',
+      }),
+    });
+  } catch (e) { console.warn('formsubmit failed', e); }
+
+  document.getElementById('modalInner').innerHTML = `
+    <h3 style="color:#22c55e">✅ 收到建议！</h3>
+    <p style="color:#cfd5dc;font-size:13px;line-height:1.7;margin:14px 0;">
+      已记录 <strong style="color:#4fc3f7">${escapeHtml(t)}</strong> 的收录建议，我们会评估并在下一次更新中处理。
+      ${email ? '收录后会邮件通知你。' : ''}
+    </p>
+    <div class="modal-actions">
+      <button onclick="closeModal()">好的</button>
+    </div>
+  `;
+}
+
 // ============ AI 深度分析（调 /api/analyze）============
 async function runAnalysis(path, idx, feature) {
   const node = getNode(path);
@@ -1680,9 +1747,10 @@ function clearSearch() {
 
 function applySearch() {
   const q = document.getElementById('search').value.trim().toLowerCase();
+  const banner = document.getElementById('noResultsBanner');
   if (!q) {
     document.querySelectorAll('.node, .company').forEach(el => el.classList.remove('hidden'));
-    // 清空搜索：保持每个节点的 expanded 状态（按 data.expanded）
+    if (banner) banner.style.display = 'none';
     return;
   }
   // 1. 先处理叶子（公司）
@@ -1690,7 +1758,6 @@ function applySearch() {
     el.classList.toggle('hidden', !el.textContent.toLowerCase().includes(q));
   });
   // 2. 处理节点：从最深开始（reverse 文档顺序 = 从最后的子节点先处理）
-  //    这样父节点 check hasVisibleChild 时子节点已经标记完成
   const nodes = Array.from(document.querySelectorAll('.node')).reverse();
   nodes.forEach(el => {
     const headerTxt = el.querySelector(':scope > .node-header')?.textContent.toLowerCase() || '';
@@ -1698,12 +1765,22 @@ function applySearch() {
     const hasVisibleChild = Array.from(el.querySelectorAll(':scope > .node-body > .node')).some(c => !c.classList.contains('hidden'));
     const selfMatches = headerTxt.includes(q);
     el.classList.toggle('hidden', !(selfMatches || hasVisibleCompany || hasVisibleChild));
-    // 命中时自动展开该层（不再需要用户手动展开找到结果）
     if (selfMatches || hasVisibleCompany || hasVisibleChild) {
       el.classList.add('expanded');
       el.classList.remove('collapsed');
     }
   });
+  // 3. 检查是否有可见结果
+  const visibleCount = document.querySelectorAll('.company:not(.hidden)').length;
+  if (banner) {
+    if (visibleCount === 0) {
+      banner.style.display = 'block';
+      const queryEl = document.getElementById('noResultsQuery');
+      if (queryEl) queryEl.textContent = q;
+    } else {
+      banner.style.display = 'none';
+    }
+  }
 }
 
 // ============ 导入导出 ============

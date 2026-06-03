@@ -230,7 +230,8 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
       <button class="btn btn-big" onclick="goto('graph')">🤖 AI 一键分析</button>
     </div>
     <div class="hero-search">
-      <input placeholder="搜索股票代码 / 中文名 / 技术名词，如 MU / HBM / 液冷..." onkeydown="if(event.key==='Enter')goto('graph')">
+      <input id="hero-search-input" placeholder="搜索股票代码 / 中文名 / 技术名词，如 MU / HBM / 液冷..."
+        onkeydown="if(event.key==='Enter') heroSearchSubmit()">
     </div>
   </div>
 
@@ -685,6 +686,13 @@ async function renderProfile() {
   }).join('');
 
   document.getElementById('watchlist-area').innerHTML = `<div class="profile-list">${rowsHTML}</div>`;
+}
+
+// 首页 hero 搜索框提交：跳到图谱并搜索
+function heroSearchSubmit() {
+  const v = document.getElementById('hero-search-input').value.trim();
+  if (!v) { goto('graph'); return; }
+  jumpToTickerInGraph(v);
 }
 
 // 跳到图谱 + 把 ticker 填入图谱搜索框（带重试，iframe 慢加载也能成功）
