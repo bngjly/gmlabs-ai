@@ -1362,12 +1362,11 @@ function renderCompanies(arr, path) {
       }
     }
 
-    // Serenity 提及徽章（来自 analysissite 抓取数据）
+    // Serenity 提及徽章（仅显示排名）
     let serenityBadge = '';
     const sr = SERENITY_POOL[c.t];
     if (sr) {
-      const sentimentColor = { '看多':'#22c55e', '看空':'#ef4444', '中性':'#9aa5b1', '未知':'#6b7785' }[sr.ai_sentiment] || '#9aa5b1';
-      serenityBadge = `<span class="serenity-badge" title="analysissite 抓取 · 提及频率 ${sr.mention_score} · AI 分类 ${sr.ai_queue} · AI 情绪 ${sr.ai_sentiment}（仅供参考，非 Serenity 本人观点）"><span style="color:#fbbf24">📡 #${sr.rank}</span> <span style="color:${sentimentColor}">${sr.ai_sentiment}</span></span>`;
+      serenityBadge = `<span class="serenity-badge" title="Serenity 提及排名 #${sr.rank}"><span style="color:#fbbf24">📡 #${sr.rank}</span></span>`;
     }
 
     const watchLabel = isWatch ? '★ 已选' : '☆ 自选';
