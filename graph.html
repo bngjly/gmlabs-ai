@@ -136,7 +136,7 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .ai-btn-sm:hover { border-color: #4fc3f7; background: #243245; color: #fff; }
 .ai-btn-sm:disabled { opacity: 0.4; cursor: not-allowed; }
 .ai-btn-sm .ico { font-size: 14px; margin-right: 4px; }
-.ai-result-panel { margin-top: 16px; background: #0f1419; border: 1px solid #2a3548; border-radius: 8px; padding: 14px 16px; font-size: 13px; line-height: 1.7; color: #cfd5dc; max-height: 60vh; overflow-y: auto; }
+.ai-result-panel { margin-top: 16px; background: #0f1419; border: 1px solid #2a3548; border-radius: 8px; padding: 14px 16px; font-size: 13px; line-height: 1.7; color: #cfd5dc; }
 .ai-result-panel h1, .ai-result-panel h2, .ai-result-panel h3 { color: #4fc3f7; margin: 12px 0 8px; font-weight: 600; }
 .ai-result-panel h1 { font-size: 16px; }
 .ai-result-panel h2 { font-size: 15px; }
@@ -1633,8 +1633,18 @@ async function runAnalysis(path, idx, feature) {
     // 渲染 markdown
     const html = window.marked ? window.marked.parse(data.content) : escapeHtml(data.content).replace(/\n/g, '<br>');
     const usage = data.usage ? `· tokens 输入 ${data.usage.promptTokenCount || '-'} / 输出 ${data.usage.candidatesTokenCount || '-'}` : '';
-    panel.innerHTML = html + `<div class="ai-meta">${data.feature_name} · ${data.model} · ${(data.elapsed_ms / 1000).toFixed(1)}s ${usage}</div>`;
-    panel.scrollTop = 0;
+    // finishReason 不是 STOP 给警告
+    let truncWarn = '';
+    if (data.finishReason && data.finishReason !== 'STOP') {
+      const msg = {
+        'MAX_TOKENS': '⚠️ 输出已达 token 上限被截断',
+        'SAFETY': '⚠️ 内容因安全策略部分截断',
+        'RECITATION': '⚠️ 内容包含引用被截断',
+        'OTHER': '⚠️ 输出未完整结束',
+      }[data.finishReason] || `⚠️ 完成原因: ${data.finishReason}`;
+      truncWarn = `<div style="background:#3a2f1a;color:#fbbf24;padding:8px 12px;border-radius:6px;margin-top:12px;font-size:12px">${msg}</div>`;
+    }
+    panel.innerHTML = html + truncWarn + `<div class="ai-meta">${data.feature_name} · ${data.model} · ${(data.elapsed_ms / 1000).toFixed(1)}s ${usage}</div>`;
   } catch (e) {
     panel.innerHTML = `<div style="color:#fca5a5">❌ <strong>网络错误</strong><br>${escapeHtml(String(e))}</div>`;
   } finally {

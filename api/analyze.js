@@ -83,12 +83,14 @@ ${companyBlock}
 ${scoreBlock}
 
 # 输出要求
-1. 600-900 字结构化中文报告，**严禁套话**，每段必须含**具体数据/数字/事实**
-2. 用 Markdown 格式，包含 2-4 个清晰小节（## 子标题）
+1. **至少 800-1500 字**结构化中文报告，**完整覆盖任务要求的所有维度**（如 SWOT 必须 4 象限全写完，每象限 3 条要点）
+2. 用 Markdown 格式，包含 3-5 个清晰小节（## 子标题）
 3. 紧密围绕"产业链位置 + 评分客观信号"展开，不脱离上下文
-4. **不写**"建议买入/卖出"等明确投资指令
-5. 末尾另起一行加 disclaimer：\`> 本分析仅供研究参考，非投资建议\`
-6. 直接输出报告正文，不要重复任务描述`;
+4. 每段必须含**具体数据/数字/事实**，禁止套话
+5. **不写**"建议买入/卖出"等明确投资指令
+6. 末尾另起一行加 disclaimer：\`> 本分析仅供研究参考，非投资建议\`
+7. 直接输出报告正文，不要重复任务描述
+8. **务必完整完成所有要点，不要中途停止**`;
 }
 
 // ============================================================
@@ -103,7 +105,7 @@ async function callGemini(prompt, apiKey) {
       contents: [{ parts: [{ text: prompt }] }],
       generationConfig: {
         temperature: 0.65,
-        maxOutputTokens: 2048,
+        maxOutputTokens: 8192,   // Gemini 2.5 Flash 上限，确保不截断
         topP: 0.9,
       },
       safetySettings: [
@@ -119,13 +121,16 @@ async function callGemini(prompt, apiKey) {
   if (data.error) {
     throw new Error(`Gemini API: ${data.error.message || JSON.stringify(data.error)}`);
   }
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+  const candidate = data?.candidates?.[0];
+  const text = candidate?.content?.parts?.[0]?.text;
+  const finishReason = candidate?.finishReason || 'UNKNOWN';
   if (!text) {
-    throw new Error('Gemini 返回空内容: ' + JSON.stringify(data).slice(0, 200));
+    throw new Error(`Gemini 返回空内容 (finishReason=${finishReason}): ` + JSON.stringify(data).slice(0, 300));
   }
   return {
     content: text,
     usage: data.usageMetadata || null,
+    finishReason,
   };
 }
 
@@ -176,7 +181,7 @@ export default async function handler(req, res) {
   try {
     const prompt = buildPrompt({ ticker, feature, company, score });
     const t0 = Date.now();
-    const { content, usage } = await callGemini(prompt, apiKey);
+    const { content, usage, finishReason } = await callGemini(prompt, apiKey);
     const elapsed = Date.now() - t0;
 
     return res.status(200).json({
@@ -187,6 +192,7 @@ export default async function handler(req, res) {
       content,
       model: GEMINI_MODEL,
       usage,
+      finishReason,
       elapsed_ms: elapsed,
     });
   } catch (e) {
