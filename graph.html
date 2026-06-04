@@ -21,6 +21,11 @@ header h1 { margin: 0; font-size: 20px; color: #4fc3f7; }
 .search-clear:hover { color: #fff; background: #2a3548; }
 .search-wrap.has-value .search-clear { display: inline; }
 .legend { font-size: 12px; color: #9aa5b1; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-left: auto; }
+.legend > span { cursor: pointer; transition: .15s; padding: 2px 6px; border-radius: 12px; user-select: none; }
+.legend > span:hover { background: #2a3548; color: #e6e6e6; }
+.legend > span.filter-on { background: rgba(79,195,247,.15); box-shadow: inset 0 0 0 1px #4fc3f7; color: #fff; }
+.legend > span.no-click { cursor: default; }
+.legend > span.no-click:hover { background: transparent; }
 .tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; }
 .t-core { background: #d32f2f; color: #fff; }
 .t-watch { background: #f59e0b; color: #000; }
@@ -203,11 +208,11 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
       </div>
     </div>
     <div class="legend">
-      <span><span class="tag t-core">核心</span> 卡脖子龙头</span>
-      <span><span class="tag t-watch">自选</span> 你已关注</span>
-      <span><span class="tag t-comp">相关</span> 主供/竞争者</span>
-      <span><span class="tag t-cn">中国</span> A 股 / 港股</span>
-      <span class="stat-bar" id="stat"></span>
+      <span onclick="toggleFlagFilter('core')" id="filter-core" title="点击筛选只看核心"><span class="tag t-core">核心</span> 卡脖子龙头</span>
+      <span onclick="toggleFlagFilter('watch')" id="filter-watch" title="点击筛选只看自选"><span class="tag t-watch">自选</span> 你已关注</span>
+      <span onclick="toggleFlagFilter('comp')" id="filter-comp" title="点击筛选只看相关"><span class="tag t-comp">相关</span> 主供/竞争者</span>
+      <span onclick="toggleFlagFilter('cn')" id="filter-cn" title="点击筛选只看中国"><span class="tag t-cn">中国</span> A 股 / 港股</span>
+      <span class="stat-bar no-click" id="stat"></span>
     </div>
   </div>
 </header>
@@ -1448,7 +1453,7 @@ function renderCompanies(arr, path) {
 
     const watchLabel = isWatch ? '★ 已选' : '☆ 自选';
     const watchTitle = isWatch ? '点击取消自选' : '点击加入自选';
-    return `<div class="${cls}" onclick="openDetail('${path}', ${i})">
+    return `<div class="${cls}" data-flag="${escapeHtml(c.flag || '')}" onclick="openDetail('${path}', ${i})">
       <span class="watch-btn ${isWatch?'on':''}" onclick="toggleWatch('${path}', ${i}, event)" title="${watchTitle}">${watchLabel}</span>
       <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}</div>
       <span class="role">${escapeHtml(c.role || '')} ${tags.join('')}</span>
@@ -1892,38 +1897,71 @@ function clearSearch() {
   input.focus();
 }
 
+let CURRENT_FLAG_FILTER = null;  // 'core' | 'watch' | 'comp' | 'cn' | null
+
+// 单个公司是否匹配 flag 过滤
+function flagMatches(flagStr, filter) {
+  if (!filter) return true;
+  const tokens = (flagStr || '').split(/\s+/).filter(Boolean);
+  if (filter === 'comp') {
+    // "相关" 定义：没有 core/watch/cn 之一
+    return !tokens.includes('core') && !tokens.includes('watch') && !tokens.includes('cn');
+  }
+  return tokens.includes(filter);
+}
+
+function toggleFlagFilter(flag) {
+  CURRENT_FLAG_FILTER = (CURRENT_FLAG_FILTER === flag) ? null : flag;
+  // 更新激活态视觉
+  ['core', 'watch', 'comp', 'cn'].forEach(f => {
+    const el = document.getElementById('filter-' + f);
+    if (el) el.classList.toggle('filter-on', CURRENT_FLAG_FILTER === f);
+  });
+  applySearch();
+}
+
 function applySearch() {
   const q = document.getElementById('search').value.trim().toLowerCase();
+  const filter = CURRENT_FLAG_FILTER;
   const banner = document.getElementById('noResultsBanner');
-  if (!q) {
+
+  // 无搜索且无筛选：全部恢复
+  if (!q && !filter) {
     document.querySelectorAll('.node, .company').forEach(el => el.classList.remove('hidden'));
     if (banner) banner.style.display = 'none';
     return;
   }
-  // 1. 先处理叶子（公司）
+
+  // 1. 处理叶子（公司）：同时匹配文本搜索 + flag 筛选
   document.querySelectorAll('.company').forEach(el => {
-    el.classList.toggle('hidden', !el.textContent.toLowerCase().includes(q));
+    const matchText = !q || el.textContent.toLowerCase().includes(q);
+    const matchFlag = flagMatches(el.getAttribute('data-flag') || '', filter);
+    el.classList.toggle('hidden', !(matchText && matchFlag));
   });
-  // 2. 处理节点：从最深开始（reverse 文档顺序 = 从最后的子节点先处理）
+
+  // 2. 处理节点：从最深开始
   const nodes = Array.from(document.querySelectorAll('.node')).reverse();
   nodes.forEach(el => {
     const headerTxt = el.querySelector(':scope > .node-header')?.textContent.toLowerCase() || '';
     const hasVisibleCompany = Array.from(el.querySelectorAll(':scope > .node-body > .companies > .company')).some(c => !c.classList.contains('hidden'));
     const hasVisibleChild = Array.from(el.querySelectorAll(':scope > .node-body > .node')).some(c => !c.classList.contains('hidden'));
-    const selfMatches = headerTxt.includes(q);
-    el.classList.toggle('hidden', !(selfMatches || hasVisibleCompany || hasVisibleChild));
-    if (selfMatches || hasVisibleCompany || hasVisibleChild) {
+    // node header 文字命中（搜索）仍算命中，但要求该节点下有可见后代才显示
+    const selfMatchesText = !q || headerTxt.includes(q);
+    const shouldShow = (selfMatchesText && (hasVisibleCompany || hasVisibleChild)) || hasVisibleCompany || hasVisibleChild;
+    el.classList.toggle('hidden', !shouldShow);
+    if (shouldShow) {
       el.classList.add('expanded');
       el.classList.remove('collapsed');
     }
   });
-  // 3. 检查是否有可见结果
+
+  // 3. 无结果横幅
   const visibleCount = document.querySelectorAll('.company:not(.hidden)').length;
   if (banner) {
     if (visibleCount === 0) {
       banner.style.display = 'block';
       const queryEl = document.getElementById('noResultsQuery');
-      if (queryEl) queryEl.textContent = q;
+      if (queryEl) queryEl.textContent = q || (filter ? `(只看 ${filter})` : '');
     } else {
       banner.style.display = 'none';
     }
