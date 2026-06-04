@@ -11957,5 +11957,152 @@
     "ticker": "FEIM",
     "status": "no_data",
     "error": "fetch failed"
+  },
+  "CBRS": {
+    "ticker": "CBRS",
+    "status": "ok",
+    "name": "Cerebras Systems Inc.",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 47.1,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 47.2,
+    "dims": {
+      "G1": 12.3,
+      "G2": 7.2,
+      "G3": 15.0,
+      "G4": 11.0,
+      "G5": 1.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-04"
+  },
+  "APP": {
+    "ticker": "APP",
+    "status": "ok",
+    "name": "AppLovin Corporation",
+    "grade": "A",
+    "grade_label": "A 强力",
+    "score": 76.0,
+    "tier": "large",
+    "sector": "other",
+    "currency": "USD",
+    "market_cap_usd_b": 191.8,
+    "dims": {
+      "G1": 18.0,
+      "G2": 22.0,
+      "G3": 7.0,
+      "G4": 19.0,
+      "G5": 5.0,
+      "G6": 5.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🛡️",
+        "name": "高毛利护城河"
+      },
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-04"
+  },
+  "9880.HK": {
+    "ticker": "9880.HK",
+    "status": "ok",
+    "name": "Ubtech Robotics Corp Ltd",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 46.1,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "HKD",
+    "market_cap_usd_b": 7.1,
+    "dims": {
+      "G1": 12.3,
+      "G2": 3.2,
+      "G3": 15.0,
+      "G4": 14.0,
+      "G5": 1.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📉",
+        "name": "经营亏损"
+      }
+    ],
+    "evaluated_at": "2026-06-04"
   }
 }
