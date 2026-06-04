@@ -414,7 +414,7 @@ const DEFAULT_DATA = {
             { t:'JCET', cn:'长电科技', role:'A 股封测龙头', flag:'cn' },
             { t:'TFME', cn:'通富微电', role:'AMD 主供封测', flag:'cn' },
             { t:'002185.SZ', cn:'华天科技', role:'A 股封测三剑客', flag:'cn' },
-            { t:'301200.SZ', cn:'大族数控 Han\\'s CNC', role:'A 股 PCB/封装精密激光 CNC 设备', flag:'cn' },
+            { t:'301200.SZ', cn:'大族数控', role:'A 股 PCB/封装精密激光 CNC 设备（Han Group 子）', flag:'cn' },
           ]
         },
         { id:'L3b', name:'中介层 / TSV 硅穿孔', layer:3, expanded:true,
@@ -1260,7 +1260,7 @@ const DEFAULT_DATA = {
 
 // ============ 状态 ============
 // 改 DEFAULT_DATA 后递增版本号，自动失效用户旧 localStorage
-const DATA_VERSION = '2026-06-04-v7';   // CBRS + APP + 7 只 A 股补全 + UBTech ticker 修正
+const DATA_VERSION = '2026-06-04-v8';   // hotfix Han\\'s 撇号语法错导致图谱白屏
 
 let data = loadData();
 let editTarget = null;
