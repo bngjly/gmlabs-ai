@@ -93,6 +93,8 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .score-tags { display: flex; gap: 3px; margin-top: 4px; flex-wrap: wrap; max-width: 240px; }
 .tag-feat { background: #1a3a2a; border: 1px solid #22552f; padding: 1px 5px; border-radius: 3px; font-size: 10px; color: #86efac; }
 .tag-risk { background: #3a1a1f; border: 1px solid #5a2228; padding: 1px 5px; border-radius: 3px; font-size: 10px; color: #fca5a5; }
+.serenity-badge { display: inline-block; background: #2a1f0f; border: 1px solid #5a4220; padding: 1px 6px; border-radius: 8px; font-size: 10px; margin-left: 4px; vertical-align: middle; cursor: help; }
+.serenity-badge:hover { background: #3a2f1a; }
 
 /* ===== 详情抽屉 ===== */
 .drawer-bg { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; align-items: stretch; justify-content: flex-end; z-index: 200; }
@@ -1115,8 +1117,8 @@ const DEFAULT_DATA = {
       ]
     },
     {
-      id: 'LS', name: '🌟 Serenity 概念股（小盘 AI 主题追踪）', layer: 98, expanded: true,
-      desc: 'Serenity 公开提及/讨论过的小盘高弹性标的（11 只，手工整理 2026-05；涨幅为首提日至 2026-05 区间）',
+      id: 'LS', name: '🌟 Serenity 公开提及 · 精选 11 只', layer: 98, expanded: true,
+      desc: 'Serenity（专业 AI 研究员）公开讨论过的高弹性标的精选。涨幅手工记录 2026-05。完整 250 只池见每只票卡片右侧 📡 Serenity 徽章（数据来自第三方 analysissite 抓取）',
       companies: [
         { t: 'AXTI', cn: 'AXT Inc', role: 'InP/GaAs 衬底（光通信材料底层）首提 2026-01 涨幅 +514% YTD+614%', flag: 'core watch' },
         { t: 'AAOI', cn: 'Applied Optoelectronics', role: '光模块 EML 美系 · 首提 2025-12 涨幅 +350% YTD+395%（已在 L6a）', flag: 'core watch' },
@@ -1211,6 +1213,22 @@ function loadScores() {
     .catch(err => {
       console.warn('[scores] failed to load, badges will be hidden:', err);
       SCORES = {};
+    });
+}
+
+// ============ Serenity 提及池数据加载（analysissite 抓取）============
+let SERENITY_POOL = {};   // { ticker: { rank, mention_score, ai_queue, ai_sentiment } }
+function loadSerenity() {
+  fetch('serenity_pool.json', { cache: 'no-cache' })
+    .then(r => r.ok ? r.json() : { pool: {} })
+    .then(d => {
+      SERENITY_POOL = d.pool || {};
+      console.log(`[serenity] loaded ${Object.keys(SERENITY_POOL).length} mentioned tickers`);
+      render();
+    })
+    .catch(err => {
+      console.warn('[serenity] failed:', err);
+      SERENITY_POOL = {};
     });
 }
 
@@ -1330,11 +1348,19 @@ function renderCompanies(arr, path) {
       }
     }
 
+    // Serenity 提及徽章（来自 analysissite 抓取数据）
+    let serenityBadge = '';
+    const sr = SERENITY_POOL[c.t];
+    if (sr) {
+      const sentimentColor = { '看多':'#22c55e', '看空':'#ef4444', '中性':'#9aa5b1', '未知':'#6b7785' }[sr.ai_sentiment] || '#9aa5b1';
+      serenityBadge = `<span class="serenity-badge" title="analysissite 抓取 · 提及频率 ${sr.mention_score} · AI 分类 ${sr.ai_queue} · AI 情绪 ${sr.ai_sentiment}（仅供参考，非 Serenity 本人观点）"><span style="color:#fbbf24">📡 #${sr.rank}</span> <span style="color:${sentimentColor}">${sr.ai_sentiment}</span></span>`;
+    }
+
     const watchLabel = isWatch ? '★ 已选' : '☆ 自选';
     const watchTitle = isWatch ? '点击取消自选' : '点击加入自选';
     return `<div class="${cls}" onclick="openDetail('${path}', ${i})">
       <span class="watch-btn ${isWatch?'on':''}" onclick="toggleWatch('${path}', ${i}, event)" title="${watchTitle}">${watchLabel}</span>
-      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}</div>
+      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}${serenityBadge}</div>
       <span class="role">${escapeHtml(c.role || '')} ${tags.join('')}</span>
       ${featTags}
     </div>`;
@@ -1854,6 +1880,7 @@ function updateStat() {
 
 render();
 loadScores();   // 异步加载评分，到了之后会自动 re-render
+loadSerenity(); // 异步加载 analysissite 抓取的 Serenity 提及池
 
 // 动态计算 header 实际高度，让 chip bar 永远紧贴下面
 function syncHeaderHeight() {

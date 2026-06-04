@@ -1,0 +1,1509 @@
+{
+  "version": "2026-05-28",
+  "source": "analysissite.vercel.app/stocks (third-party scraper of Serenity public mentions)",
+  "fact_serenity": "ticker 在此名单 = Serenity 公开提及过",
+  "fact_third_party": "mention_score / ai_queue / ai_sentiment 都是 analysissite 模型解读，非 Serenity 本人观点",
+  "total": 250,
+  "pool": {
+    "NVDA": {
+      "rank": 1,
+      "mention_score": 261,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "SIVE": {
+      "rank": 2,
+      "mention_score": 260,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "LITE": {
+      "rank": 3,
+      "mention_score": 249,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "AAOI": {
+      "rank": 4,
+      "mention_score": 233,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "IREN": {
+      "rank": 5,
+      "mention_score": 213,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "SNDK": {
+      "rank": 6,
+      "mention_score": 202,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "AMD": {
+      "rank": 7,
+      "mention_score": 196,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "MRVL": {
+      "rank": 8,
+      "mention_score": 188,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "ONDS": {
+      "rank": 9,
+      "mention_score": 173,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "POET": {
+      "rank": 10,
+      "mention_score": 166,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "HOOD": {
+      "rank": 11,
+      "mention_score": 164,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "RKLB": {
+      "rank": 12,
+      "mention_score": 160,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "AXTI": {
+      "rank": 13,
+      "mention_score": 159,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "COHR": {
+      "rank": 14,
+      "mention_score": 157,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "CRWV": {
+      "rank": 15,
+      "mention_score": 156,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "GOOGL": {
+      "rank": 16,
+      "mention_score": 155,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "INTC": {
+      "rank": 17,
+      "mention_score": 154,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "TSLA": {
+      "rank": 18,
+      "mention_score": 152,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "AMZN": {
+      "rank": 19,
+      "mention_score": 151,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "HIMS": {
+      "rank": 20,
+      "mention_score": 151,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "MSFT": {
+      "rank": 21,
+      "mention_score": 149,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "META": {
+      "rank": 22,
+      "mention_score": 146,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "MSTR": {
+      "rank": 23,
+      "mention_score": 140,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "MU": {
+      "rank": 24,
+      "mention_score": 137,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "NBIS": {
+      "rank": 25,
+      "mention_score": 136,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "SMCI": {
+      "rank": 26,
+      "mention_score": 131,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "AAPL": {
+      "rank": 27,
+      "mention_score": 123,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "TSM": {
+      "rank": 28,
+      "mention_score": 122,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "CRDO": {
+      "rank": 29,
+      "mention_score": 116,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "KLAC": {
+      "rank": 30,
+      "mention_score": 114,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "ARM": {
+      "rank": 31,
+      "mention_score": 110,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "QBTS": {
+      "rank": 32,
+      "mention_score": 106,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "AVGO": {
+      "rank": 33,
+      "mention_score": 105,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "EWY": {
+      "rank": 34,
+      "mention_score": 98,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "ASTS": {
+      "rank": 35,
+      "mention_score": 96,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "GFS": {
+      "rank": 36,
+      "mention_score": 96,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "RDDT": {
+      "rank": 37,
+      "mention_score": 95,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "OSS": {
+      "rank": 38,
+      "mention_score": 94,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "GLW": {
+      "rank": 39,
+      "mention_score": 93,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "ORCL": {
+      "rank": 40,
+      "mention_score": 92,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "ASML": {
+      "rank": 41,
+      "mention_score": 91,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "TSEM": {
+      "rank": 42,
+      "mention_score": 91,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "SOI": {
+      "rank": 43,
+      "mention_score": 88,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "STX": {
+      "rank": 44,
+      "mention_score": 87,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "YSS": {
+      "rank": 45,
+      "mention_score": 86,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "MXL": {
+      "rank": 46,
+      "mention_score": 85,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "BMNR": {
+      "rank": 47,
+      "mention_score": 84,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "MTSI": {
+      "rank": 48,
+      "mention_score": 83,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "NVTS": {
+      "rank": 49,
+      "mention_score": 83,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "WDC": {
+      "rank": 50,
+      "mention_score": 83,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "COIN": {
+      "rank": 51,
+      "mention_score": 82,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "MP": {
+      "rank": 52,
+      "mention_score": 82,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "RIOT": {
+      "rank": 53,
+      "mention_score": 82,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "RGTI": {
+      "rank": 54,
+      "mention_score": 81,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "UBER": {
+      "rank": 55,
+      "mention_score": 81,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "VPG": {
+      "rank": 56,
+      "mention_score": 79,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "ETH": {
+      "rank": 57,
+      "mention_score": 78,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "CIEN": {
+      "rank": 58,
+      "mention_score": 75,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "DOCN": {
+      "rank": 59,
+      "mention_score": 75,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "TE": {
+      "rank": 60,
+      "mention_score": 75,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "ABAT": {
+      "rank": 61,
+      "mention_score": 74,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "FLNC": {
+      "rank": 62,
+      "mention_score": 74,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "LUNR": {
+      "rank": 63,
+      "mention_score": 74,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "PLTR": {
+      "rank": 64,
+      "mention_score": 74,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "CIFR": {
+      "rank": 65,
+      "mention_score": 73,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "IBIT": {
+      "rank": 66,
+      "mention_score": 73,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "IBKR": {
+      "rank": 67,
+      "mention_score": 73,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "OKLO": {
+      "rank": 68,
+      "mention_score": 73,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "AEHR": {
+      "rank": 69,
+      "mention_score": 71,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "AMBQ": {
+      "rank": 70,
+      "mention_score": 71,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "DGXX": {
+      "rank": 71,
+      "mention_score": 71,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "CVX": {
+      "rank": 72,
+      "mention_score": 70,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "DDOG": {
+      "rank": 73,
+      "mention_score": 70,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "ASPI": {
+      "rank": 74,
+      "mention_score": 69,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "SPCE": {
+      "rank": 75,
+      "mention_score": 69,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "未知"
+    },
+    "WULF": {
+      "rank": 76,
+      "mention_score": 68,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "ASST": {
+      "rank": 77,
+      "mention_score": 67,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "BITF": {
+      "rank": 78,
+      "mention_score": 67,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "KRKNF": {
+      "rank": 79,
+      "mention_score": 67,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "OUST": {
+      "rank": 80,
+      "mention_score": 67,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "CLSK": {
+      "rank": 81,
+      "mention_score": 66,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "FLY": {
+      "rank": 82,
+      "mention_score": 66,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "PYPL": {
+      "rank": 83,
+      "mention_score": 66,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "TER": {
+      "rank": 84,
+      "mention_score": 66,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "ALAB": {
+      "rank": 85,
+      "mention_score": 65,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "AVAV": {
+      "rank": 86,
+      "mention_score": 65,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看多"
+    },
+    "BTC": {
+      "rank": 87,
+      "mention_score": 65,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "LRCX": {
+      "rank": 88,
+      "mention_score": 63,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "SPRB": {
+      "rank": 89,
+      "mention_score": 63,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "VSAT": {
+      "rank": 90,
+      "mention_score": 63,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "ACMR": {
+      "rank": 91,
+      "mention_score": 62,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "ATEYY": {
+      "rank": 92,
+      "mention_score": 62,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "CAMT": {
+      "rank": 93,
+      "mention_score": 62,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "DPRO": {
+      "rank": 94,
+      "mention_score": 62,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "LYSDY": {
+      "rank": 95,
+      "mention_score": 62,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "MPWR": {
+      "rank": 96,
+      "mention_score": 62,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "NVMI": {
+      "rank": 97,
+      "mention_score": 62,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "RMBS": {
+      "rank": 98,
+      "mention_score": 62,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "UNH": {
+      "rank": 99,
+      "mention_score": 62,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "AMKR": {
+      "rank": 100,
+      "mention_score": 61,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "LWLG": {
+      "rank": 101,
+      "mention_score": 60,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "HUT": {
+      "rank": 102,
+      "mention_score": 59,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "NVO": {
+      "rank": 103,
+      "mention_score": 59,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "SATL": {
+      "rank": 104,
+      "mention_score": 59,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "TRT": {
+      "rank": 105,
+      "mention_score": 59,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "HIVE": {
+      "rank": 106,
+      "mention_score": 58,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "POWI": {
+      "rank": 107,
+      "mention_score": 58,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "UAMY": {
+      "rank": 108,
+      "mention_score": 58,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "UMAC": {
+      "rank": 109,
+      "mention_score": 58,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "USAR": {
+      "rank": 110,
+      "mention_score": 58,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "WOLF": {
+      "rank": 111,
+      "mention_score": 58,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "FORM": {
+      "rank": 112,
+      "mention_score": 57,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "IQE": {
+      "rank": 113,
+      "mention_score": 57,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "LASR": {
+      "rank": 114,
+      "mention_score": 57,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "SPY": {
+      "rank": 115,
+      "mention_score": 57,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "AEVA": {
+      "rank": 116,
+      "mention_score": 56,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "ANET": {
+      "rank": 117,
+      "mention_score": 56,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "MRAM": {
+      "rank": 118,
+      "mention_score": 56,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "BE": {
+      "rank": 119,
+      "mention_score": 55,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "ON": {
+      "rank": 120,
+      "mention_score": 55,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "SLNH": {
+      "rank": 121,
+      "mention_score": 55,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "WYFI": {
+      "rank": 122,
+      "mention_score": 55,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "AEIS": {
+      "rank": 123,
+      "mention_score": 54,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "CPSH": {
+      "rank": 124,
+      "mention_score": 54,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "HIMX": {
+      "rank": 125,
+      "mention_score": 54,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "NOK": {
+      "rank": 126,
+      "mention_score": 54,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "SIMO": {
+      "rank": 127,
+      "mention_score": 54,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "TTMI": {
+      "rank": 128,
+      "mention_score": 54,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "ALMU": {
+      "rank": 129,
+      "mention_score": 52,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "BAM": {
+      "rank": 130,
+      "mention_score": 52,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "JBL": {
+      "rank": 131,
+      "mention_score": 52,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "PL": {
+      "rank": 132,
+      "mention_score": 52,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "SOUN": {
+      "rank": 133,
+      "mention_score": 52,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "AMSC": {
+      "rank": 134,
+      "mention_score": 51,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "CRML": {
+      "rank": 135,
+      "mention_score": 51,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "ENAFF": {
+      "rank": 136,
+      "mention_score": 51,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "GLXY": {
+      "rank": 137,
+      "mention_score": 51,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "HGRAF": {
+      "rank": 138,
+      "mention_score": 51,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "KORU": {
+      "rank": 139,
+      "mention_score": 51,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "LPTH": {
+      "rank": 140,
+      "mention_score": 51,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "ONTO": {
+      "rank": 141,
+      "mention_score": 51,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "SLOIF": {
+      "rank": 142,
+      "mention_score": 51,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "USDC": {
+      "rank": 143,
+      "mention_score": 51,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "VICR": {
+      "rank": 144,
+      "mention_score": 51,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "ACLS": {
+      "rank": 145,
+      "mention_score": 50,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "ALB": {
+      "rank": 146,
+      "mention_score": 50,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "ALOY": {
+      "rank": 147,
+      "mention_score": 50,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "AOSL": {
+      "rank": 148,
+      "mention_score": 50,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "BKSY": {
+      "rank": 149,
+      "mention_score": 50,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "BZAI": {
+      "rank": 150,
+      "mention_score": 50,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "CAR": {
+      "rank": 151,
+      "mention_score": 50,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "HPP": {
+      "rank": 152,
+      "mention_score": 50,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "INV": {
+      "rank": 153,
+      "mention_score": 50,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "MKSI": {
+      "rank": 154,
+      "mention_score": 50,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "NRGV": {
+      "rank": 155,
+      "mention_score": 50,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "OSCR": {
+      "rank": 156,
+      "mention_score": 50,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "RDW": {
+      "rank": 157,
+      "mention_score": 50,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "SEI": {
+      "rank": 158,
+      "mention_score": 50,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "SIDU": {
+      "rank": 159,
+      "mention_score": 50,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "VELO": {
+      "rank": 160,
+      "mention_score": 50,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "VSH": {
+      "rank": 161,
+      "mention_score": 50,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "AMAT": {
+      "rank": 162,
+      "mention_score": 48,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "APLD": {
+      "rank": 163,
+      "mention_score": 48,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "LPK": {
+      "rank": 164,
+      "mention_score": 48,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "OPTT": {
+      "rank": 165,
+      "mention_score": 48,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "PENG": {
+      "rank": 166,
+      "mention_score": 48,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "KLIC": {
+      "rank": 167,
+      "mention_score": 47,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "CHGG": {
+      "rank": 168,
+      "mention_score": 46,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "CSCO": {
+      "rank": 169,
+      "mention_score": 46,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "IONQ": {
+      "rank": 170,
+      "mention_score": 46,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "LGN": {
+      "rank": 171,
+      "mention_score": 46,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "MARA": {
+      "rank": 172,
+      "mention_score": 46,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "MOD": {
+      "rank": 173,
+      "mention_score": 46,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "SKYT": {
+      "rank": 174,
+      "mention_score": 46,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "SMTC": {
+      "rank": 175,
+      "mention_score": 46,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "UUUU": {
+      "rank": 176,
+      "mention_score": 46,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "VIAV": {
+      "rank": 177,
+      "mention_score": 46,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "WATT": {
+      "rank": 178,
+      "mention_score": 46,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "WTI": {
+      "rank": 179,
+      "mention_score": 46,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "FN": {
+      "rank": 180,
+      "mention_score": 45,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "XFAB": {
+      "rank": 181,
+      "mention_score": 45,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "BKKT": {
+      "rank": 182,
+      "mention_score": 44,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "CDNS": {
+      "rank": 183,
+      "mention_score": 44,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "CRCL": {
+      "rank": 184,
+      "mention_score": 44,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "DELL": {
+      "rank": 185,
+      "mention_score": 44,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "NAKA": {
+      "rank": 186,
+      "mention_score": 44,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "VRT": {
+      "rank": 187,
+      "mention_score": 44,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "AMC": {
+      "rank": 188,
+      "mention_score": 42,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "CLS": {
+      "rank": 189,
+      "mention_score": 42,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "CRWD": {
+      "rank": 190,
+      "mention_score": 42,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "FIX": {
+      "rank": 191,
+      "mention_score": 42,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "INTT": {
+      "rank": 192,
+      "mention_score": 42,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "MTRN": {
+      "rank": 193,
+      "mention_score": 42,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "NEXT": {
+      "rank": 194,
+      "mention_score": 42,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "OPTX": {
+      "rank": 195,
+      "mention_score": 42,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "SNAP": {
+      "rank": 196,
+      "mention_score": 42,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "VECO": {
+      "rank": 197,
+      "mention_score": 42,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "ASX": {
+      "rank": 198,
+      "mention_score": 40,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "DSCSY": {
+      "rank": 199,
+      "mention_score": 40,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "GDRZF": {
+      "rank": 200,
+      "mention_score": 40,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "GPUS": {
+      "rank": 201,
+      "mention_score": 40,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "CORZ": {
+      "rank": 202,
+      "mention_score": 39,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "LSCC": {
+      "rank": 203,
+      "mention_score": 39,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "PLPC": {
+      "rank": 204,
+      "mention_score": 39,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "RCAT": {
+      "rank": 205,
+      "mention_score": 39,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "SANM": {
+      "rank": 206,
+      "mention_score": 39,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "STM": {
+      "rank": 207,
+      "mention_score": 39,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "AIXXF": {
+      "rank": 208,
+      "mention_score": 38,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "EONR": {
+      "rank": 209,
+      "mention_score": 38,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "EOPSF": {
+      "rank": 210,
+      "mention_score": 38,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "EXALF": {
+      "rank": 211,
+      "mention_score": 38,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "FEIM": {
+      "rank": 212,
+      "mention_score": 38,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "FLKR": {
+      "rank": 213,
+      "mention_score": 38,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "FPLSF": {
+      "rank": 214,
+      "mention_score": 38,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "GHM": {
+      "rank": 215,
+      "mention_score": 38,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "GILT": {
+      "rank": 216,
+      "mention_score": 38,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "POWL": {
+      "rank": 217,
+      "mention_score": 38,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "QCOM": {
+      "rank": 218,
+      "mention_score": 38,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "SHMD": {
+      "rank": 219,
+      "mention_score": 38,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "SILC": {
+      "rank": 220,
+      "mention_score": 38,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "SMTOY": {
+      "rank": 221,
+      "mention_score": 38,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "TWLO": {
+      "rank": 222,
+      "mention_score": 38,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "UMC": {
+      "rank": 223,
+      "mention_score": 38,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "UPWK": {
+      "rank": 224,
+      "mention_score": 38,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "UURAF": {
+      "rank": 225,
+      "mention_score": 38,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "VLN": {
+      "rank": 226,
+      "mention_score": 38,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "WLAC": {
+      "rank": 227,
+      "mention_score": 38,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "AUR": {
+      "rank": 228,
+      "mention_score": 37,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "BIRD": {
+      "rank": 229,
+      "mention_score": 36,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "INFQ": {
+      "rank": 230,
+      "mention_score": 36,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "KULR": {
+      "rank": 231,
+      "mention_score": 36,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "NMAX": {
+      "rank": 232,
+      "mention_score": 36,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "PDFS": {
+      "rank": 233,
+      "mention_score": 36,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "U": {
+      "rank": 234,
+      "mention_score": 36,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "ALNT": {
+      "rank": 235,
+      "mention_score": 33,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "AMBA": {
+      "rank": 236,
+      "mention_score": 33,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "INDI": {
+      "rank": 237,
+      "mention_score": 33,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "NOVT": {
+      "rank": 238,
+      "mention_score": 33,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "SYM": {
+      "rank": 239,
+      "mention_score": 33,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "XLU": {
+      "rank": 240,
+      "mention_score": 33,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "AIRO": {
+      "rank": 241,
+      "mention_score": 32,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "AKAM": {
+      "rank": 242,
+      "mention_score": 32,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    },
+    "BYND": {
+      "rank": 243,
+      "mention_score": 32,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "DKNG": {
+      "rank": 244,
+      "mention_score": 32,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "EAF": {
+      "rank": 245,
+      "mention_score": 32,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "EOSE": {
+      "rank": 246,
+      "mention_score": 32,
+      "ai_queue": "高风险观察",
+      "ai_sentiment": "中性"
+    },
+    "FRMI": {
+      "rank": 247,
+      "mention_score": 32,
+      "ai_queue": "谨慎",
+      "ai_sentiment": "看空"
+    },
+    "LAC": {
+      "rank": 248,
+      "mention_score": 32,
+      "ai_queue": "积极观察",
+      "ai_sentiment": "看多"
+    },
+    "NET": {
+      "rank": 249,
+      "mention_score": 32,
+      "ai_queue": "高风险偏多",
+      "ai_sentiment": "看多"
+    },
+    "NNE": {
+      "rank": 250,
+      "mention_score": 32,
+      "ai_queue": "观察",
+      "ai_sentiment": "中性"
+    }
+  }
+}
