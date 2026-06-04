@@ -601,6 +601,12 @@ const DEFAULT_DATA = {
             { t:'4938.TW', cn:'和碩 PEGATRON', role:'AI 服务器代工', flag:'comp' },
             { t:'LNVGY', cn:'Lenovo 联想 ADR', role:'AI 服务器全球前三', flag:'core' },
             { t:'ASUUY', cn:'ASUS 华硕 ADR', role:'AI 服务器 + 边缘', flag:'comp' },
+            { t:'JBL',   cn:'Jabil', role:'EMS 全球第二，AI 服务器代工', flag:'core' },
+            { t:'SANM',  cn:'Sanmina', role:'EMS + 数据中心模块', flag:'comp' },
+            { t:'FLEX',  cn:'Flex Ltd', role:'EMS + 电子互连（已在 L4g）', flag:'comp' },
+            { t:'CLS',   cn:'Celestica', role:'交换机 + AI 整机（已上）', flag:'comp' },
+            { t:'SKYT',  cn:'SkyWater Technology', role:'美国本土晶圆代工（国防/特殊工艺）', flag:'core' },
+            { t:'MTRN',  cn:'Materion', role:'先进材料 + 半导体精密元件', flag:'comp' },
           ]
         },
       ]
@@ -622,6 +628,7 @@ const DEFAULT_DATA = {
           { t:'NOK', cn:'Nokia 诺基亚', role:'相干光 + 数据中心互联', flag:'comp' },
           { t:'CIEN', cn:'Ciena', role:'相干光通信', flag:'comp' },
           { t:'INFN', cn:'Infinera', role:'被 NOK 收购', flag:'comp' },
+          { t:'VIAV', cn:'Viavi Solutions', role:'网络测试 + 光器件', flag:'comp' },
         ]},
         { id:'L6b', name:'硅光 SiPh / CPO 共封装', layer:6, companies:[
           { t:'AVGO', cn:'博通', role:'CPO 5.0 路线图', flag:'core' },
@@ -639,6 +646,9 @@ const DEFAULT_DATA = {
             { t:'LITE', cn:'Lumentum', role:'CW DFB 主力，NVDA CPO 首选', flag:'core' },
             { t:'COHR', cn:'Coherent', role:'EML + CW 双线，与 LITE 双寡头', flag:'core watch' },
             { t:'IPGP', cn:'IPG Photonics', role:'工业激光为主，部分通信切入', flag:'comp' },
+            { t:'LASR', cn:'nLight', role:'国防/工业半导体激光', flag:'comp' },
+            { t:'LWLG', cn:'Lightwave Logic', role:'聚合物电光调制器（CPO 候选）', flag:'comp' },
+            { t:'IQE',  cn:'IQE plc', role:'化合物半导体外延片（光器件基础）', flag:'comp' },
             { t:'688498.SS', cn:'源杰科技', role:'A 股 DFB/EML 国产替代龙头', flag:'cn' },
             { t:'688048.SS', cn:'长光华芯', role:'A 股激光芯片', flag:'cn' },
             { t:'688313.SS', cn:'仕佳光子', role:'A 股 AWG + DFB', flag:'cn' },
@@ -716,6 +726,16 @@ const DEFAULT_DATA = {
           companies:[
             { t:'ACLS', cn:'Axcelis Technologies', role:'离子注入设备（SiC 专用）', flag:'core' },
             { t:'AEHR', cn:'Aehr Test Systems', role:'SiC 老化测试黑马（小盘）', flag:'comp' },
+            { t:'AEIS', cn:'Advanced Energy', role:'半导体制程电源（等离子/RF 源核心）', flag:'core' },
+          ]
+        },
+        { id:'L7a4', name:'🆕 数据中心电力配套', layer:7, expanded:false,
+          desc:'AI 数据中心电气施工 + 热管理 + 关键材料',
+          companies:[
+            { t:'AMSC', cn:'American Superconductor', role:'超导输电 + 风电变流器', flag:'comp' },
+            { t:'KULR', cn:'KULR Technology', role:'电池热管理 / SMR 配套', flag:'comp' },
+            { t:'MP',   cn:'MP Materials', role:'美国本土稀土（NdFeB 磁体）', flag:'core' },
+            { t:'FIX',  cn:'Comfort Systems USA', role:'AI 数据中心 HVAC + 电气施工', flag:'core' },
           ]
         },
         { id:'L7b', name:'SMR 小型模块化核反应堆', layer:7, expanded:true,
@@ -894,6 +914,9 @@ const DEFAULT_DATA = {
             { t:'AEHR', cn:'Aehr Test Systems', role:'SiC 老化测试小盘黑马', flag:'comp' },
             { t:'FORM', cn:'FormFactor', role:'探针卡 + 测试接口', flag:'core' },
             { t:'COHU', cn:'Cohu', role:'后段测试 + 自动化', flag:'comp' },
+            { t:'NVMI', cn:'Nova Measuring', role:'薄膜量测 + 半导体过程控制', flag:'comp' },
+            { t:'MKSI', cn:'MKS Instruments', role:'真空 + 激光 + 等离子源', flag:'core' },
+            { t:'VECO', cn:'Veeco Instruments', role:'MOCVD + 蚀刻沉积', flag:'comp' },
           ]
         },
         { id:'L9e', name:'🆕 光罩 / 掩膜', layer:9, expanded:true,
@@ -977,6 +1000,12 @@ const DEFAULT_DATA = {
             { t:'CIFR', cn:'Cipher Mining', role:'矿企转 AI 算力', flag:'comp' },
             { t:'WULF', cn:'TeraWulf', role:'核电 + AI 双概念', flag:'comp' },
             { t:'HUT', cn:'Hut 8', role:'矿+AI 混合', flag:'comp' },
+            { t:'RIOT', cn:'Riot Platforms', role:'矿企转 AI 算力', flag:'comp' },
+            { t:'MARA', cn:'Marathon Digital', role:'矿企转 AI 算力', flag:'comp' },
+            { t:'CLSK', cn:'CleanSpark', role:'矿企转 AI 算力', flag:'comp' },
+            { t:'BITF', cn:'Bitfarms', role:'矿企转 AI 算力', flag:'comp' },
+            { t:'HIVE', cn:'HIVE Digital', role:'矿企转 AI 算力', flag:'comp' },
+            { t:'OSS',  cn:'One Stop Systems', role:'AI 加速边缘服务器（特殊场景）', flag:'comp' },
             { t:'LMB.L', cn:'Lambda Labs', role:'未上市，GPU 云独角兽', flag:'comp' },
           ]
         },
@@ -1034,6 +1063,11 @@ const DEFAULT_DATA = {
             { t:'ADBE', cn:'Adobe', role:'AI 创意工具', flag:'comp' },
             { t:'NOW', cn:'ServiceNow', role:'企业 AI 工作流', flag:'comp' },
             { t:'AI', cn:'C3.ai', role:'纯 AI 应用股', flag:'comp' },
+            { t:'DDOG', cn:'Datadog', role:'AI 可观测性 + APM', flag:'comp' },
+            { t:'CRWD', cn:'CrowdStrike', role:'AI 安全 + 威胁情报', flag:'comp' },
+            { t:'SOUN', cn:'SoundHound AI', role:'语音 AI 平台', flag:'comp' },
+            { t:'U', cn:'Unity Software', role:'3D 引擎 + 数字孪生', flag:'comp' },
+            { t:'PDFS', cn:'PDF Solutions', role:'半导体良率 AI 分析', flag:'comp' },
           ]
         },
       ]
@@ -1101,9 +1135,20 @@ const DEFAULT_DATA = {
             { t:'AMBA', cn:'Ambarella', role:'AI 视觉 SoC', flag:'comp' },
             { t:'LAZR', cn:'Luminar', role:'激光雷达', flag:'comp' },
             { t:'AEVA', cn:'Aeva', role:'FMCW LiDAR', flag:'comp' },
+            { t:'OUST', cn:'Ouster', role:'数字 LiDAR（车载 + 工业）', flag:'core' },
             { t:'HSAI', cn:'禾赛科技', role:'中国 LiDAR 龙头', flag:'cn core' },
             { t:'1810.HK', cn:'小米 + RoboSense', role:'激光雷达港股', flag:'cn' },
             { t:'002465.SZ', cn:'海格通信 等', role:'A 股视觉/感知', flag:'cn' },
+          ]
+        },
+        { id:'L11h', name:'🆕 仓储 / 工业机器人系统', layer:1, expanded:true,
+          desc:'商业化已落地的机器人应用',
+          companies:[
+            { t:'SYM',  cn:'Symbotic', role:'仓库自动化 AI 系统（沃尔玛大客户）', flag:'core' },
+            { t:'KRKNF', cn:'Kraken Robotics', role:'海洋/水下机器人', flag:'comp' },
+            { t:'AVAV', cn:'AeroVironment', role:'军用无人机（已在 L99）', flag:'comp' },
+            { t:'AIRO', cn:'AIRO Group', role:'无人机平台', flag:'comp' },
+            { t:'DPRO', cn:'Draganfly', role:'无人机配件', flag:'comp' },
           ]
         },
         { id:'L11f', name:'VLA 模型 / 软件栈 / 仿真', layer:1, expanded:true,
@@ -1126,6 +1171,44 @@ const DEFAULT_DATA = {
             { t:'002747.SZ', cn:'埃斯顿', role:'机器人系统集成', flag:'cn' },
             { t:'NSK', cn:'NSK 日本精工', role:'丝杠/轴承全球第一', flag:'comp' },
             { t:'THK', cn:'THK', role:'直线导轨龙头', flag:'comp' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'L12', name: '⑫ 卫星 / 航天 / 国防通信（AI 新基建）', layer: 10, expanded: true,
+      desc: '低轨卫星互联网 + 火箭发射 + 卫星情报 + 月球任务，AI 时代的新太空基建',
+      companies: [
+        { t:'RKLB', cn:'Rocket Lab', role:'小型火箭发射 + 卫星制造', flag:'core' },
+        { t:'ASTS', cn:'AST SpaceMobile', role:'LEO 卫星直连手机', flag:'core' },
+      ],
+      children: [
+        { id:'L12a', name:'火箭发射 / 在轨服务', layer:10, expanded:true,
+          companies:[
+            { t:'RKLB', cn:'Rocket Lab', role:'小型火箭 + 卫星组件', flag:'core' },
+            { t:'LUNR', cn:'Intuitive Machines', role:'月球着陆器 + NASA 合约', flag:'comp' },
+            { t:'RDW',  cn:'Redwire Space', role:'太空硬件 + 在轨制造', flag:'comp' },
+          ]
+        },
+        { id:'L12b', name:'在轨卫星运营商', layer:10, expanded:true,
+          companies:[
+            { t:'ASTS', cn:'AST SpaceMobile', role:'LEO 直连手机', flag:'core' },
+            { t:'PL',   cn:'Planet Labs', role:'对地观测卫星群', flag:'comp' },
+            { t:'SATL', cn:'Satellogic', role:'卫星情报 + 高频拍摄', flag:'comp' },
+            { t:'BKSY', cn:'BlackSky', role:'实时卫星情报', flag:'comp' },
+          ]
+        },
+        { id:'L12c', name:'卫星地面站 + 宽带', layer:10, expanded:true,
+          companies:[
+            { t:'VSAT', cn:'Viasat', role:'卫星宽带运营', flag:'comp' },
+            { t:'GILT', cn:'Gilat Satellite', role:'卫星地面站设备', flag:'comp' },
+            { t:'IRDM', cn:'Iridium', role:'低轨语音/数据网', flag:'comp' },
+          ]
+        },
+        { id:'L12d', name:'无人机网络 / 国防通信', layer:10, expanded:true,
+          companies:[
+            { t:'ONDS', cn:'Ondas Holdings', role:'无人机专用通信网', flag:'comp' },
+            { t:'FEIM', cn:'Frequency Electronics', role:'精密时钟 + 国防定位', flag:'comp' },
           ]
         },
       ]
@@ -1163,7 +1246,7 @@ const DEFAULT_DATA = {
 
 // ============ 状态 ============
 // 改 DEFAULT_DATA 后递增版本号，自动失效用户旧 localStorage
-const DATA_VERSION = '2026-06-04-v4';   // 拆 L7a 出功率半导体器件子层 + VSH/DIOD/Rohm 新增
+const DATA_VERSION = '2026-06-04-v5';   // +L12 卫星航天 +30 Serenity 缺失补全
 
 let data = loadData();
 let editTarget = null;
