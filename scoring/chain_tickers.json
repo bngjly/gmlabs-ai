@@ -10,6 +10,10 @@
       "cn": "AMD"
     },
     {
+      "ticker": "CBRS",
+      "cn": "Cerebras Systems"
+    },
+    {
       "ticker": "AVGO",
       "cn": "博通"
     },
@@ -382,6 +386,22 @@
       "cn": "ASUS 华硕 ADR"
     },
     {
+      "ticker": "JBL",
+      "cn": "Jabil"
+    },
+    {
+      "ticker": "SANM",
+      "cn": "Sanmina"
+    },
+    {
+      "ticker": "SKYT",
+      "cn": "SkyWater Technology"
+    },
+    {
+      "ticker": "MTRN",
+      "cn": "Materion"
+    },
+    {
       "ticker": "LITE",
       "cn": "Lumentum"
     },
@@ -410,12 +430,28 @@
       "cn": "Infinera"
     },
     {
+      "ticker": "VIAV",
+      "cn": "Viavi Solutions"
+    },
+    {
       "ticker": "AYAR",
       "cn": "Ayar Labs"
     },
     {
       "ticker": "IPGP",
       "cn": "IPG Photonics"
+    },
+    {
+      "ticker": "LASR",
+      "cn": "nLight"
+    },
+    {
+      "ticker": "LWLG",
+      "cn": "Lightwave Logic"
+    },
+    {
+      "ticker": "IQE",
+      "cn": "IQE plc"
     },
     {
       "ticker": "6902.T",
@@ -442,18 +478,6 @@
       "cn": "Monolithic Power"
     },
     {
-      "ticker": "NVTS",
-      "cn": "Navitas Semi"
-    },
-    {
-      "ticker": "WOLF",
-      "cn": "Wolfspeed"
-    },
-    {
-      "ticker": "ON",
-      "cn": "安森美"
-    },
-    {
       "ticker": "TXN",
       "cn": "Texas Instruments"
     },
@@ -470,20 +494,68 @@
       "cn": "Vicor 维克"
     },
     {
+      "ticker": "IFNNY",
+      "cn": "Infineon 英飞凌 ADR"
+    },
+    {
+      "ticker": "STM",
+      "cn": "意法半导体"
+    },
+    {
+      "ticker": "ON",
+      "cn": "安森美 Onsemi"
+    },
+    {
+      "ticker": "VSH",
+      "cn": "Vishay Intertechnology"
+    },
+    {
+      "ticker": "DIOD",
+      "cn": "Diodes Incorporated"
+    },
+    {
       "ticker": "AOSL",
       "cn": "Alpha & Omega Semi"
     },
     {
-      "ticker": "IFNNY",
-      "cn": "Infineon 英飞凌 ADR"
+      "ticker": "NVTS",
+      "cn": "Navitas Semi"
+    },
+    {
+      "ticker": "WOLF",
+      "cn": "Wolfspeed"
+    },
+    {
+      "ticker": "6963.T",
+      "cn": "Rohm 罗姆"
     },
     {
       "ticker": "ACLS",
       "cn": "Axcelis Technologies"
     },
     {
-      "ticker": "STM",
-      "cn": "意法半导体"
+      "ticker": "AEHR",
+      "cn": "Aehr Test Systems"
+    },
+    {
+      "ticker": "AEIS",
+      "cn": "Advanced Energy"
+    },
+    {
+      "ticker": "AMSC",
+      "cn": "American Superconductor"
+    },
+    {
+      "ticker": "KULR",
+      "cn": "KULR Technology"
+    },
+    {
+      "ticker": "MP",
+      "cn": "MP Materials"
+    },
+    {
+      "ticker": "FIX",
+      "cn": "Comfort Systems USA"
     },
     {
       "ticker": "OKLO",
@@ -698,16 +770,24 @@
       "cn": "Nordson"
     },
     {
-      "ticker": "AEHR",
-      "cn": "Aehr Test Systems"
-    },
-    {
       "ticker": "FORM",
       "cn": "FormFactor"
     },
     {
       "ticker": "COHU",
       "cn": "Cohu"
+    },
+    {
+      "ticker": "NVMI",
+      "cn": "Nova Measuring"
+    },
+    {
+      "ticker": "MKSI",
+      "cn": "MKS Instruments"
+    },
+    {
+      "ticker": "VECO",
+      "cn": "Veeco Instruments"
     },
     {
       "ticker": "TOPN.T",
@@ -818,6 +898,30 @@
       "cn": "Hut 8"
     },
     {
+      "ticker": "RIOT",
+      "cn": "Riot Platforms"
+    },
+    {
+      "ticker": "MARA",
+      "cn": "Marathon Digital"
+    },
+    {
+      "ticker": "CLSK",
+      "cn": "CleanSpark"
+    },
+    {
+      "ticker": "BITF",
+      "cn": "Bitfarms"
+    },
+    {
+      "ticker": "HIVE",
+      "cn": "HIVE Digital"
+    },
+    {
+      "ticker": "OSS",
+      "cn": "One Stop Systems"
+    },
+    {
       "ticker": "LMB.L",
       "cn": "Lambda Labs"
     },
@@ -906,7 +1010,31 @@
       "cn": "C3.ai"
     },
     {
-      "ticker": "9606.HK",
+      "ticker": "DDOG",
+      "cn": "Datadog"
+    },
+    {
+      "ticker": "CRWD",
+      "cn": "CrowdStrike"
+    },
+    {
+      "ticker": "SOUN",
+      "cn": "SoundHound AI"
+    },
+    {
+      "ticker": "U",
+      "cn": "Unity Software"
+    },
+    {
+      "ticker": "PDFS",
+      "cn": "PDF Solutions"
+    },
+    {
+      "ticker": "APP",
+      "cn": "AppLovin"
+    },
+    {
+      "ticker": "9880.HK",
       "cn": "优必选 UBTech"
     },
     {
@@ -946,12 +1074,36 @@
       "cn": "Aeva"
     },
     {
+      "ticker": "OUST",
+      "cn": "Ouster"
+    },
+    {
       "ticker": "HSAI",
       "cn": "禾赛科技"
     },
     {
       "ticker": "1810.HK",
       "cn": "小米 + RoboSense"
+    },
+    {
+      "ticker": "SYM",
+      "cn": "Symbotic"
+    },
+    {
+      "ticker": "KRKNF",
+      "cn": "Kraken Robotics"
+    },
+    {
+      "ticker": "AVAV",
+      "cn": "AeroVironment"
+    },
+    {
+      "ticker": "AIRO",
+      "cn": "AIRO Group"
+    },
+    {
+      "ticker": "DPRO",
+      "cn": "Draganfly"
     },
     {
       "ticker": "BIDU",
@@ -964,6 +1116,54 @@
     {
       "ticker": "THK",
       "cn": "THK"
+    },
+    {
+      "ticker": "RKLB",
+      "cn": "Rocket Lab"
+    },
+    {
+      "ticker": "ASTS",
+      "cn": "AST SpaceMobile"
+    },
+    {
+      "ticker": "LUNR",
+      "cn": "Intuitive Machines"
+    },
+    {
+      "ticker": "RDW",
+      "cn": "Redwire Space"
+    },
+    {
+      "ticker": "PL",
+      "cn": "Planet Labs"
+    },
+    {
+      "ticker": "SATL",
+      "cn": "Satellogic"
+    },
+    {
+      "ticker": "BKSY",
+      "cn": "BlackSky"
+    },
+    {
+      "ticker": "VSAT",
+      "cn": "Viasat"
+    },
+    {
+      "ticker": "GILT",
+      "cn": "Gilat Satellite"
+    },
+    {
+      "ticker": "IRDM",
+      "cn": "Iridium"
+    },
+    {
+      "ticker": "ONDS",
+      "cn": "Ondas Holdings"
+    },
+    {
+      "ticker": "FEIM",
+      "cn": "Frequency Electronics"
     },
     {
       "ticker": "AXTI",
@@ -992,10 +1192,6 @@
     {
       "ticker": "SWARM",
       "cn": "Swarmer"
-    },
-    {
-      "ticker": "AVAV",
-      "cn": "AeroVironment"
     },
     {
       "ticker": "KTOS",
@@ -1052,8 +1248,24 @@
       "cn": "澜起科技 Montage"
     },
     {
+      "ticker": "301308.SZ",
+      "cn": "江波龙 Longsys"
+    },
+    {
+      "ticker": "603986.SS",
+      "cn": "兆易创新 GigaDevice"
+    },
+    {
+      "ticker": "300302.SZ",
+      "cn": "同有科技 Toyou Feiji"
+    },
+    {
       "ticker": "002185.SZ",
       "cn": "华天科技"
+    },
+    {
+      "ticker": "301200.SZ",
+      "cn": "大族数控"
     },
     {
       "ticker": "002273.SZ",
@@ -1180,8 +1392,16 @@
       "cn": "盛美上海 ACMR"
     },
     {
+      "ticker": "688072.SS",
+      "cn": "拓荆科技 Piotech"
+    },
+    {
       "ticker": "688200.SS",
       "cn": "华峰测控"
+    },
+    {
+      "ticker": "300604.SZ",
+      "cn": "长川科技 Changchuan"
     },
     {
       "ticker": "688521.SS",
@@ -1198,6 +1418,10 @@
     {
       "ticker": "688268.SS",
       "cn": "华特气体"
+    },
+    {
+      "ticker": "688019.SS",
+      "cn": "安集科技 Anji Microelectronics"
     },
     {
       "ticker": "G42 (未上市)",
@@ -1325,7 +1549,7 @@
     }
   ],
   "stats": {
-    "total_supported": 250,
-    "total_skipped": 80
+    "total_supported": 299,
+    "total_skipped": 87
   }
 }
