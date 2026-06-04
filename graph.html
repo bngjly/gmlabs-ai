@@ -1362,18 +1362,12 @@ function renderCompanies(arr, path) {
       }
     }
 
-    // Serenity 提及徽章（仅显示排名）
-    let serenityBadge = '';
-    const sr = SERENITY_POOL[c.t];
-    if (sr) {
-      serenityBadge = `<span class="serenity-badge" title="Serenity 提及排名 #${sr.rank}"><span style="color:#fbbf24">📡 #${sr.rank}</span></span>`;
-    }
 
     const watchLabel = isWatch ? '★ 已选' : '☆ 自选';
     const watchTitle = isWatch ? '点击取消自选' : '点击加入自选';
     return `<div class="${cls}" onclick="openDetail('${path}', ${i})">
       <span class="watch-btn ${isWatch?'on':''}" onclick="toggleWatch('${path}', ${i}, event)" title="${watchTitle}">${watchLabel}</span>
-      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}${serenityBadge}</div>
+      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}</div>
       <span class="role">${escapeHtml(c.role || '')} ${tags.join('')}</span>
       ${featTags}
     </div>`;
@@ -1893,7 +1887,7 @@ function updateStat() {
 
 render();
 loadScores();   // 异步加载评分，到了之后会自动 re-render
-loadSerenity(); // 异步加载 analysissite 抓取的 Serenity 提及池
+// Serenity 池仅供 dev 端比对使用（gm_rater/audit_serenity_gap.py），UI 不展示
 
 // 动态计算 header 实际高度，让 chip bar 永远紧贴下面
 function syncHeaderHeight() {
