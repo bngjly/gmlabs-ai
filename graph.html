@@ -242,7 +242,7 @@ const DEFAULT_DATA = {
       companies: [
         { t: 'NVDA', cn: '英伟达', role: 'GPU 绝对霸主 Blackwell/Rubin', flag: 'core' },
         { t: 'AMD', cn: 'AMD', role: 'MI300/MI400 唯一挑战者', flag: 'comp' },
-        { t: 'CBRS', cn: 'Cerebras Systems', role: '晶圆级 AI 芯片（WSE 单晶圆 85万+ 核），NVDA 直接挑战者，2026 IPO', flag: 'core' },
+        { t: 'CBRS', cn: 'Cerebras Systems', role: '晶圆级 AI 芯片（WSE 85 万核），叙事强但市场份额 <1%，2026 IPO 验证期', flag: 'comp' },
         { t: 'AVGO', cn: '博通', role: 'Google TPU / Meta MTIA 代工', flag: 'core' },
         { t: 'MRVL', cn: '迈威尔', role: 'AWS Trainium 合作 / 定制 ASIC', flag: 'watch' },
         { t: 'INTC', cn: '英特尔', role: 'Gaudi 边缘玩家', flag: 'comp' },
@@ -615,7 +615,7 @@ const DEFAULT_DATA = {
             { t:'SANM',  cn:'Sanmina', role:'EMS + 数据中心模块', flag:'comp' },
             { t:'FLEX',  cn:'Flex Ltd', role:'EMS + 电子互连（已在 L4g）', flag:'comp' },
             { t:'CLS',   cn:'Celestica', role:'交换机 + AI 整机（已上）', flag:'comp' },
-            { t:'SKYT',  cn:'SkyWater Technology', role:'美国本土晶圆代工（国防/特殊工艺）', flag:'core' },
+            { t:'SKYT',  cn:'SkyWater Technology', role:'美国本土晶圆代工（产能小，非主流）', flag:'comp' },
             { t:'MTRN',  cn:'Materion', role:'先进材料 + 半导体精密元件', flag:'comp' },
           ]
         },
@@ -1081,7 +1081,7 @@ const DEFAULT_DATA = {
             { t:'SOUN', cn:'SoundHound AI', role:'语音 AI 平台', flag:'comp' },
             { t:'U', cn:'Unity Software', role:'3D 引擎 + 数字孪生', flag:'comp' },
             { t:'PDFS', cn:'PDF Solutions', role:'半导体良率 AI 分析', flag:'comp' },
-            { t:'APP', cn:'AppLovin', role:'AI 驱动广告投放 + 移动游戏，2026 表现极强', flag:'core' },
+            { t:'APP', cn:'AppLovin', role:'AI 广告平台（财务质量强但非基础设施卡脖子）', flag:'comp' },
           ]
         },
       ]
@@ -1149,7 +1149,7 @@ const DEFAULT_DATA = {
             { t:'AMBA', cn:'Ambarella', role:'AI 视觉 SoC', flag:'comp' },
             { t:'LAZR', cn:'Luminar', role:'激光雷达', flag:'comp' },
             { t:'AEVA', cn:'Aeva', role:'FMCW LiDAR', flag:'comp' },
-            { t:'OUST', cn:'Ouster', role:'数字 LiDAR（车载 + 工业）', flag:'core' },
+            { t:'OUST', cn:'Ouster', role:'数字 LiDAR（与 Luminar/Hesai 多家竞争）', flag:'comp' },
             { t:'HSAI', cn:'禾赛科技', role:'中国 LiDAR 龙头', flag:'cn core' },
             { t:'1810.HK', cn:'小米 + RoboSense', role:'激光雷达港股', flag:'cn' },
             { t:'002465.SZ', cn:'海格通信 等', role:'A 股视觉/感知', flag:'cn' },
@@ -1158,7 +1158,7 @@ const DEFAULT_DATA = {
         { id:'L11h', name:'🆕 仓储 / 工业机器人系统', layer:1, expanded:true,
           desc:'商业化已落地的机器人应用',
           companies:[
-            { t:'SYM',  cn:'Symbotic', role:'仓库自动化 AI 系统（沃尔玛大客户）', flag:'core' },
+            { t:'SYM',  cn:'Symbotic', role:'仓库自动化 AI 系统（沃尔玛 niche 龙头）', flag:'comp' },
             { t:'KRKNF', cn:'Kraken Robotics', role:'海洋/水下机器人', flag:'comp' },
             { t:'AVAV', cn:'AeroVironment', role:'军用无人机（已在 L99）', flag:'comp' },
             { t:'AIRO', cn:'AIRO Group', role:'无人机平台', flag:'comp' },
@@ -1193,13 +1193,13 @@ const DEFAULT_DATA = {
       id: 'L12', name: '⑫ 卫星 / 航天 / 国防通信（AI 新基建）', layer: 10, expanded: true,
       desc: '低轨卫星互联网 + 火箭发射 + 卫星情报 + 月球任务，AI 时代的新太空基建',
       companies: [
-        { t:'RKLB', cn:'Rocket Lab', role:'小型火箭发射 + 卫星制造', flag:'core' },
-        { t:'ASTS', cn:'AST SpaceMobile', role:'LEO 卫星直连手机', flag:'core' },
+        { t:'RKLB', cn:'Rocket Lab', role:'小型火箭发射（SpaceX 之后 #2，非垄断）', flag:'comp' },
+        { t:'ASTS', cn:'AST SpaceMobile', role:'LEO 直连手机（独特技术但商业化未验证）', flag:'comp' },
       ],
       children: [
         { id:'L12a', name:'火箭发射 / 在轨服务', layer:10, expanded:true,
           companies:[
-            { t:'RKLB', cn:'Rocket Lab', role:'小型火箭 + 卫星组件', flag:'core' },
+            { t:'RKLB', cn:'Rocket Lab', role:'小型火箭 + 卫星组件', flag:'comp' },
             { t:'LUNR', cn:'Intuitive Machines', role:'月球着陆器 + NASA 合约', flag:'comp' },
             { t:'RDW',  cn:'Redwire Space', role:'太空硬件 + 在轨制造', flag:'comp' },
           ]
@@ -1260,7 +1260,7 @@ const DEFAULT_DATA = {
 
 // ============ 状态 ============
 // 改 DEFAULT_DATA 后递增版本号，自动失效用户旧 localStorage
-const DATA_VERSION = '2026-06-04-v8';   // hotfix Han\\'s 撇号语法错导致图谱白屏
+const DATA_VERSION = '2026-06-04-v9';   // 系统降级 7 个误标 core 的票（CBRS/RKLB/ASTS/APP/SYM/SKYT/OUST）
 
 let data = loadData();
 let editTarget = null;
