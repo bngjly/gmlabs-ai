@@ -9988,5 +9988,139 @@
       }
     ],
     "evaluated_at": "2026-06-03"
+  },
+  "DIOD": {
+    "ticker": "DIOD",
+    "status": "ok",
+    "name": "Diodes Incorporated",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 46.4,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 5.3,
+    "dims": {
+      "G1": 11.4,
+      "G2": 6.4,
+      "G3": 12.0,
+      "G4": 9.0,
+      "G5": 1.6,
+      "G6": 6.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [],
+    "evaluated_at": "2026-06-04"
+  },
+  "6963.T": {
+    "ticker": "6963.T",
+    "status": "ok",
+    "name": "ROHM Co., Ltd.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 37.3,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "JPY",
+    "market_cap_usd_b": 14.1,
+    "dims": {
+      "G1": 3.5,
+      "G2": 3.2,
+      "G3": 11.0,
+      "G4": 14.0,
+      "G5": 5.6,
+      "G6": 0.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值过高"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-04"
+  },
+  "VSH": {
+    "ticker": "VSH",
+    "status": "ok",
+    "name": "Vishay Intertechnology, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 40.2,
+    "tier": "mid",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 8.7,
+    "dims": {
+      "G1": 11.4,
+      "G2": 3.2,
+      "G3": 9.0,
+      "G4": 7.0,
+      "G5": 5.6,
+      "G6": 4.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-04"
   }
 }

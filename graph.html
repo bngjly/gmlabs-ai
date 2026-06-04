@@ -689,21 +689,35 @@ const DEFAULT_DATA = {
         { t: 'GEV', cn: 'GE Vernova', role: '燃气轮机', flag: 'core' },
       ],
       children: [
-        { id:'L7a', name:'电源 IC / SiC GaN', layer:7, companies:[
+        { id:'L7a', name:'电源 IC / 控制器 / 模块', layer:7, companies:[
           { t:'MPWR', cn:'Monolithic Power', role:'GPU 板载电源 IC', flag:'core' },
-          { t:'NVTS', cn:'Navitas Semi', role:'GaN 800V 直流（ticker 是 NVTS 不是 NVT）', flag:'comp' },
-          { t:'WOLF', cn:'Wolfspeed', role:'SiC 衬底', flag:'comp' },
-          { t:'ON', cn:'安森美', role:'SiC + 功率', flag:'comp' },
           { t:'TXN', cn:'Texas Instruments', role:'模拟电源 + 工业', flag:'core' },
           { t:'ADI', cn:'Analog Devices', role:'模拟巨头 + Gate Driver', flag:'core' },
           { t:'MCHP', cn:'Microchip 微芯', role:'MCU + 电源 IC', flag:'comp' },
           { t:'POWI', cn:'Power Integrations', role:'AC-DC 转换 IC', flag:'comp' },
           { t:'VICR', cn:'Vicor 维克', role:'48V 直流 + AI 服务器电源', flag:'comp' },
-          { t:'AOSL', cn:'Alpha & Omega Semi', role:'功率 MOSFET', flag:'comp' },
-          { t:'IFNNY', cn:'Infineon 英飞凌 ADR', role:'功率半导体全球第一', flag:'core' },
-          { t:'ACLS', cn:'Axcelis Technologies', role:'离子注入设备（功率半导体专用）', flag:'comp' },
-          { t:'STM', cn:'意法半导体', role:'MEMS + 功率', flag:'comp' },
         ]},
+        { id:'L7a2', name:'🆕 功率半导体器件（MOSFET / Diode / 整流）', layer:7, expanded:true,
+          desc:'800V HVDC 数据中心配电的基础元器件，AI 服务器电力骨干',
+          companies:[
+            { t:'IFNNY', cn:'Infineon 英飞凌 ADR', role:'功率半导体全球第一 · SuperJunction MOSFET 主导', flag:'core' },
+            { t:'STM', cn:'意法半导体', role:'SiC + IGBT + 功率 MOS', flag:'comp' },
+            { t:'ON', cn:'安森美 Onsemi', role:'SiC + 功率 + 汽车', flag:'comp' },
+            { t:'VSH', cn:'Vishay Intertechnology', role:'800V HVDC 一站式 · MOSFET + Diode + 电阻电感电容', flag:'core' },
+            { t:'DIOD', cn:'Diodes Incorporated', role:'功率二极管专精', flag:'comp' },
+            { t:'AOSL', cn:'Alpha & Omega Semi', role:'功率 MOSFET 中型玩家', flag:'comp' },
+            { t:'NVTS', cn:'Navitas Semi', role:'GaN 800V 直流（注意 ticker NVTS 非 NVT）', flag:'comp' },
+            { t:'WOLF', cn:'Wolfspeed', role:'SiC 衬底先驱 · 转型阵痛期', flag:'comp' },
+            { t:'6963.T', cn:'Rohm 罗姆', role:'日系 SiC MOSFET', flag:'comp' },
+          ]
+        },
+        { id:'L7a3', name:'🆕 功率半导体设备', layer:7, expanded:false,
+          desc:'制造 MOSFET / SiC 器件的专用设备',
+          companies:[
+            { t:'ACLS', cn:'Axcelis Technologies', role:'离子注入设备（SiC 专用）', flag:'core' },
+            { t:'AEHR', cn:'Aehr Test Systems', role:'SiC 老化测试黑马（小盘）', flag:'comp' },
+          ]
+        },
         { id:'L7b', name:'SMR 小型模块化核反应堆', layer:7, expanded:true,
           desc:'Sam Altman / MSFT / GOOG 已签 PPA，2028+ 落地',
           companies:[
@@ -1149,7 +1163,7 @@ const DEFAULT_DATA = {
 
 // ============ 状态 ============
 // 改 DEFAULT_DATA 后递增版本号，自动失效用户旧 localStorage
-const DATA_VERSION = '2026-06-03-v3';   // 含 AAOI/Serenity层/电源 IC 大补全 + 快速导航 chip
+const DATA_VERSION = '2026-06-04-v4';   // 拆 L7a 出功率半导体器件子层 + VSH/DIOD/Rohm 新增
 
 let data = loadData();
 let editTarget = null;
