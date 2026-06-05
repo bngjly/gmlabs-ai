@@ -7,6 +7,8 @@
 <meta name="description" content="社区共建的 AI 产业链全景图谱。350+ 家公司，11 层结构，AI 一键深度分析。">
 <!-- Vercel Analytics (匿名 PV/UV，启用需在 Vercel Dashboard 打开) -->
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- 双语字典（必须在 body 脚本之前加载） -->
+<script src="i18n.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif; background: #0f1419; color: #e6e6e6; line-height: 1.55; min-height: 100vh; }
@@ -216,121 +218,123 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
 <nav class="nav">
   <div class="brand"><span class="logo">🧠</span> ChainGraph</div>
   <div class="tabs">
-    <div class="tab active" onclick="goto('home')">首页</div>
-    <div class="tab" onclick="goto('graph')">图谱</div>
-    <div class="tab" onclick="goto('profile')">研究笔记</div>
+    <div class="tab active" onclick="goto('home')" data-i18n="nav.home">首页</div>
+    <div class="tab" onclick="goto('graph')" data-i18n="nav.graph">图谱</div>
+    <div class="tab" onclick="goto('profile')" data-i18n="nav.profile">研究笔记</div>
   </div>
   <div class="nav-right">
-    <span style="font-size:11px;color:#9aa5b1;padding:0 8px;">🟡 Beta · 早鸟内测</span>
-    <button class="btn btn-primary" onclick="openWaitlist()">加入早鸟名单</button>
+    <span style="font-size:11px;color:#9aa5b1;padding:0 8px;" data-i18n="nav.beta">🟡 Beta · 早鸟内测</span>
+    <button class="btn" onclick="setLang(CURRENT_LANG==='zh'?'en':'zh')" title="切换语言 / Toggle language" style="font-weight:700;min-width:36px"><span data-i18n="nav.lang">EN</span></button>
+    <button class="btn btn-primary" onclick="openWaitlist()" data-i18n="nav.signup">加入早鸟名单</button>
   </div>
 </nav>
 
 <!-- ========== PAGE: HOME ========== -->
 <div class="page active" id="page-home">
   <div class="hero">
-    <h1>全球 AI 产业链的<br>「维基百科」</h1>
-    <p class="sub">11 层结构，350+ 家公司，社区共建。从 NVDA 到 HBM，从 CoWoS 到液冷快接头，一图看懂 AI 怎么收税。</p>
+    <h1 data-i18n="home.hero.title">全球 AI 产业链的<br>「维基百科」</h1>
+    <p class="sub" data-i18n="home.hero.sub">11 层结构，350+ 家公司，社区共建。从 NVDA 到 HBM，从 CoWoS 到液冷快接头，一图看懂 AI 怎么收税。</p>
     <div class="hero-cta">
-      <button class="btn btn-primary btn-big" onclick="goto('graph')">🌐 进入图谱</button>
-      <button class="btn btn-big" onclick="goto('graph')">🤖 AI 一键分析</button>
+      <button class="btn btn-primary btn-big" onclick="goto('graph')" data-i18n="home.hero.cta.graph">🌐 进入图谱</button>
+      <button class="btn btn-big" onclick="goto('graph')" data-i18n="home.hero.cta.ai">🤖 AI 一键分析</button>
     </div>
     <div class="hero-search">
       <span class="hero-search-icon">🔍</span>
       <input id="hero-search-input" placeholder="股票代码 / 中文名 / 技术名词，如 MU / HBM / 液冷..."
+        data-i18n="home.search.ph" data-i18n-attr="placeholder"
         onkeydown="if(event.key==='Enter') heroSearchSubmit()">
-      <button onclick="heroSearchSubmit()">搜索 →</button>
+      <button onclick="heroSearchSubmit()" data-i18n="home.search.btn">搜索 →</button>
     </div>
-    <div class="hero-search-hint">按 Enter 或点搜索按钮跳转到图谱并定位</div>
+    <div class="hero-search-hint" data-i18n="home.search.hint">按 Enter 或点搜索按钮跳转到图谱并定位</div>
   </div>
 
   <div class="stats-bar">
-    <div class="stat-card"><div class="num" id="stat-companies">…</div><div class="label">已收录公司</div><div class="trend" id="stat-companies-trend">载入中</div></div>
-    <div class="stat-card"><div class="num" id="stat-layers">12</div><div class="label">产业链层级</div><div class="trend" id="stat-layers-trend">~75 子赛道</div></div>
-    <div class="stat-card"><div class="num" id="stat-graded">…</div><div class="label">已评分公司</div><div class="trend" id="stat-graded-trend">六维客观评分</div></div>
-    <div class="stat-card"><div class="num" id="stat-top">…</div><div class="label">S/A 级标的</div><div class="trend" id="stat-top-trend">AI 卖铲赢家</div></div>
+    <div class="stat-card"><div class="num" id="stat-companies">…</div><div class="label" data-i18n="home.stat.companies">已收录公司</div><div class="trend" id="stat-companies-trend" data-i18n="home.stat.companies.trend">11 层 + Serenity 概念</div></div>
+    <div class="stat-card"><div class="num" id="stat-layers">12</div><div class="label" data-i18n="home.stat.layers">产业链层级</div><div class="trend" id="stat-layers-trend" data-i18n="home.stat.layers.trend">~75 子赛道</div></div>
+    <div class="stat-card"><div class="num" id="stat-graded">…</div><div class="label" data-i18n="home.stat.graded">已评分公司</div><div class="trend" id="stat-graded-trend" data-i18n="home.stat.graded.trend">六维客观评分</div></div>
+    <div class="stat-card"><div class="num" id="stat-top">…</div><div class="label" data-i18n="home.stat.top">S/A 级标的</div><div class="trend" id="stat-top-trend" data-i18n="home.stat.top.trend">AI 卖铲赢家</div></div>
   </div>
 
   <div class="section">
     <div class="hot-list">
-      <h3>🏆 评分 S/A 级标的 · 从 250 公司中由六维客观模型甄选</h3>
+      <h3 data-i18n="home.toptags.title">🏆 评分 S/A 级标的 · 从 250 公司中由六维客观模型甄选</h3>
       <div class="hot-tags" id="top-tags">
-        <span style="color:#6b7785;font-size:12px">载入中...</span>
+        <span style="color:#6b7785;font-size:12px" data-i18n="common.loading">载入中...</span>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>三个核心场景</h2>
-    <p class="lead">从看懂产业链，到挖掘标的，到社区共建——一个工具搞定</p>
+    <h2 data-i18n="home.scenes.h2">三个核心场景</h2>
+    <p class="lead" data-i18n="home.scenes.lead">从看懂产业链，到挖掘标的，到社区共建——一个工具搞定</p>
     <div class="feat-grid">
       <div class="feat-card" onclick="goto('graph')">
         <div class="icon">🌐</div>
-        <h3>看清产业链</h3>
-        <p>11 层从算力到机器人完整拆解，每一格都有龙头/竞争/中国国产替代标的，鼠标悬停查看详情。</p>
+        <h3 data-i18n="home.scene1.h3">看清产业链</h3>
+        <p data-i18n="home.scene1.p">11 层从算力到机器人完整拆解，每一格都有龙头/竞争/中国国产替代标的，鼠标悬停查看详情。</p>
       </div>
       <div class="feat-card" onclick="goto('graph')">
         <div class="icon">🤖</div>
-        <h3>AI 深度分析</h3>
-        <p>粘贴股票代码 → 一份基于产业链位置的深度报告：SWOT、DCF、催化剂时间表、对标对手。</p>
+        <h3 data-i18n="home.scene2.h3">AI 深度分析</h3>
+        <p data-i18n="home.scene2.p">粘贴股票代码 → 一份基于产业链位置的深度报告：SWOT、DCF、催化剂时间表、对标对手。</p>
       </div>
       <div class="feat-card" onclick="alert('社区 PR 功能 Phase 3 开放\n现在可以先在 GitHub 提 issue')">
         <div class="icon">🛠️</div>
-        <h3>共建图谱</h3>
-        <p>GitHub 式 PR 工作流：你提交新节点，社区投票，管理员合并。贡献度累积成声誉积分。</p>
+        <h3 data-i18n="home.scene3.h3">共建图谱</h3>
+        <p data-i18n="home.scene3.p">GitHub 式 PR 工作流：你提交新节点，社区投票，管理员合并。贡献度累积成声誉积分。</p>
       </div>
     </div>
   </div>
 
   <div class="pricing">
     <div class="section" style="padding: 0;">
-      <h2>定价</h2>
-      <p class="lead">核心收费的是 <strong style="color:#4fc3f7">AI 深度分析</strong>。图谱浏览 + 客观评分永久免费。</p>
+      <h2 data-i18n="home.pricing.h2">定价</h2>
+      <p class="lead" data-i18n="home.pricing.lead">核心收费的是 <strong style="color:#4fc3f7">AI 深度分析</strong>。图谱浏览 + 客观评分永久免费。</p>
       <div class="price-grid">
         <div class="price-card">
-          <div class="name">FREE · 永久</div>
-          <div class="price">$0<small>/永久</small></div>
+          <div class="name" data-i18n="home.price.free.name">FREE · 永久</div>
+          <div class="price">$0<small data-i18n="home.price.free.unit">/永久</small></div>
           <ul>
-            <li>完整产业链图谱浏览</li>
-            <li>250+ 公司客观评分（每日刷新）</li>
-            <li>本地自选 + 笔记（浏览器存储）</li>
-            <li><strong>AI 深度分析 5 次/月</strong>（共享试用额度）</li>
+            <li data-i18n="home.price.free.f1">完整产业链图谱浏览</li>
+            <li data-i18n="home.price.free.f2">250+ 公司客观评分（每日刷新）</li>
+            <li data-i18n="home.price.free.f3">本地自选 + 笔记（浏览器存储）</li>
+            <li data-i18n="home.price.free.f4"><strong>AI 深度分析 5 次/月</strong>（共享试用额度）</li>
           </ul>
-          <button class="btn btn-big" style="width:100%" onclick="openWaitlist()">加入早鸟名单</button>
+          <button class="btn btn-big" style="width:100%" onclick="openWaitlist()" data-i18n="home.price.free.cta">加入早鸟名单</button>
         </div>
         <div class="price-card featured">
-          <span class="badge">主力</span>
-          <div class="name">PRO · 包月</div>
-          <div class="price">$19<small>/月</small></div>
+          <span class="badge" data-i18n="home.price.pro.badge">主力</span>
+          <div class="name" data-i18n="home.price.pro.name">PRO · 包月</div>
+          <div class="price">$19<small data-i18n="home.price.pro.unit">/月</small></div>
           <ul>
-            <li>所有 Free 功能</li>
-            <li><strong>AI 深度分析 500 次/月</strong></li>
-            <li>自选云端同步（多设备）</li>
-            <li>新功能优先体验权</li>
-            <li><span style="color:#6b7785">早鸟期可享终身 5 折</span></li>
+            <li data-i18n="home.price.pro.f1">所有 Free 功能</li>
+            <li data-i18n="home.price.pro.f2"><strong>AI 深度分析 500 次/月</strong></li>
+            <li data-i18n="home.price.pro.f3">自选云端同步（多设备）</li>
+            <li data-i18n="home.price.pro.f4">新功能优先体验权</li>
+            <li data-i18n="home.price.pro.f5"><span style="color:#6b7785">早鸟期可享终身 5 折</span></li>
           </ul>
-          <button class="btn btn-primary btn-big" style="width:100%" onclick="openWaitlist()">加入早鸟名单</button>
+          <button class="btn btn-primary btn-big" style="width:100%" onclick="openWaitlist()" data-i18n="home.price.pro.cta">加入早鸟名单</button>
         </div>
         <div class="price-card">
-          <div class="name">API · 按量</div>
-          <div class="price">$10<small>起充</small></div>
+          <div class="name" data-i18n="home.price.api.name">API · 按量</div>
+          <div class="price">$10<small data-i18n="home.price.api.unit">起充</small></div>
           <ul>
-            <li>Pro 额度用完后无限叠加</li>
-            <li>按 token 实际成本 1.5x 计费</li>
-            <li>程序化 API 接口（待开通）</li>
-            <li>面向量化 / 机构 / 重度用户</li>
+            <li data-i18n="home.price.api.f1">Pro 额度用完后无限叠加</li>
+            <li data-i18n="home.price.api.f2">按 token 实际成本 1.5x 计费</li>
+            <li data-i18n="home.price.api.f3">程序化 API 接口（待开通）</li>
+            <li data-i18n="home.price.api.f4">面向量化 / 机构 / 重度用户</li>
           </ul>
-          <button class="btn btn-big" style="width:100%" onclick="openWaitlist()">加入早鸟名单</button>
+          <button class="btn btn-big" style="width:100%" onclick="openWaitlist()" data-i18n="home.price.api.cta">加入早鸟名单</button>
         </div>
       </div>
-      <p style="text-align:center;color:#6b7785;font-size:12px;margin-top:24px">
+      <p style="text-align:center;color:#6b7785;font-size:12px;margin-top:24px" data-i18n="home.pricing.foot">
         💡 当前所有 AI 分析功能 <strong style="color:#fbbf24">早鸟期完全免费试用</strong>，正式收费需等注册系统上线
       </p>
     </div>
   </div>
 
   <footer>
-    © 2026 ChainGraph · gmlabs.ai · 由 Claude + 社区共建 · <a href="#" style="color:#4fc3f7">关于</a> · <a href="#" style="color:#4fc3f7">条款</a> · <a href="#" style="color:#4fc3f7">隐私</a>
+    <span data-i18n="footer.tagline">© 2026 ChainGraph · gmlabs.ai · 由 Claude + 社区共建</span> · <a href="#" style="color:#4fc3f7" data-i18n="footer.about">关于</a> · <a href="#" style="color:#4fc3f7" data-i18n="footer.terms">条款</a> · <a href="#" style="color:#4fc3f7" data-i18n="footer.privacy">隐私</a>
   </footer>
 </div>
 
@@ -464,48 +468,47 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
     <div class="profile-head">
       <div class="avatar-big">📒</div>
       <div class="info">
-        <h1>研究笔记本 <span class="rep" id="notebook-status">本地模式</span></h1>
-        <div class="role">你的自选 + 图谱编辑记录目前存在浏览器本地。注册系统上线后可云端同步、跨设备共享。</div>
+        <h1><span data-i18n="profile.title">研究笔记本</span> <span class="rep" id="notebook-status" data-i18n="profile.local">本地模式</span></h1>
+        <div class="role" data-i18n="profile.role">你的自选 + 图谱编辑记录目前存在浏览器本地。注册系统上线后可云端同步、跨设备共享。</div>
       </div>
       <div class="profile-stats">
-        <div class="p-stat"><div class="v" id="my-watch-count">…</div><div class="l">我的自选</div></div>
-        <div class="p-stat"><div class="v" id="my-companies-count">…</div><div class="l">图谱公司总数</div></div>
-        <div class="p-stat"><div class="v" id="my-graded-count">…</div><div class="l">已评分</div></div>
+        <div class="p-stat"><div class="v" id="my-watch-count">…</div><div class="l" data-i18n="profile.stat.watch">我的自选</div></div>
+        <div class="p-stat"><div class="v" id="my-companies-count">…</div><div class="l" data-i18n="profile.stat.companies">图谱公司总数</div></div>
+        <div class="p-stat"><div class="v" id="my-graded-count">…</div><div class="l" data-i18n="profile.stat.graded">已评分</div></div>
       </div>
     </div>
 
     <div class="profile-tools" style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">
-      <button class="btn" onclick="exportMyWatchlist('csv')" title="下载为 CSV，可用 Excel 打开">📥 导出自选 (CSV)</button>
-      <button class="btn" onclick="exportMyWatchlist('json')" title="下载为 JSON，可备份/迁移">📥 导出自选 (JSON)</button>
-      <button class="btn" onclick="document.getElementById('importWatchlistFile').click()" title="从之前导出的 CSV/JSON 恢复">📤 导入自选</button>
+      <button class="btn" onclick="exportMyWatchlist('csv')" data-i18n="profile.export.csv">📥 导出自选 (CSV)</button>
+      <button class="btn" onclick="exportMyWatchlist('json')" data-i18n="profile.export.json">📥 导出自选 (JSON)</button>
+      <button class="btn" onclick="document.getElementById('importWatchlistFile').click()" data-i18n="profile.import">📤 导入自选</button>
       <input id="importWatchlistFile" type="file" accept=".csv,.json" style="display:none" onchange="importMyWatchlist(event)" />
-      <span style="font-size:11px;color:#6b7785;margin-left:auto;">💡 担心丢失？随时导出备份到云盘/邮件</span>
+      <span style="font-size:11px;color:#6b7785;margin-left:auto;" data-i18n="profile.export.hint">💡 担心丢失？随时导出备份到云盘/邮件</span>
     </div>
     <div id="watchlist-area">
-      <div style="padding: 40px; text-align: center; color: #6b7785; font-size: 13px;">载入自选数据中…</div>
+      <div style="padding: 40px; text-align: center; color: #6b7785; font-size: 13px;" data-i18n="common.loading">载入自选数据中…</div>
     </div>
 
     <div style="margin-top: 32px; padding: 18px 22px; background: #1a2230; border: 1px dashed #4fc3f7; border-radius: 10px;">
-      <strong style="color:#4fc3f7;">💡 怎么把公司加到自选？</strong>
-      <p style="color:#9aa5b1; font-size:13px; margin-top:8px; line-height:1.7;">
+      <strong style="color:#4fc3f7;" data-i18n="profile.howto.title">💡 怎么把公司加到自选？</strong>
+      <p style="color:#9aa5b1; font-size:13px; margin-top:8px; line-height:1.7;" data-i18n="profile.howto.steps">
         1. 切到「图谱」Tab<br>
         2. 找到目标公司（用顶部搜索框或点击层级 chip 快速跳转）<br>
-        3. 点公司卡片 → 抽屉里点「✎ 编辑」<br>
-        4. "标签"下拉选 <strong>自选</strong> 或 <strong>核心+自选</strong> → 保存<br>
-        5. 回到这里刷新页面就能看到
+        3. 点公司卡片右上角的 ☆ 自选 按钮<br>
+        4. 回到这里刷新页面就能看到
       </p>
     </div>
 
     <div style="margin-top: 24px; padding: 18px 22px; background: linear-gradient(135deg, #1a2230, #1f2a3d); border: 1px solid #fbbf24; border-radius: 10px;">
-      <strong style="color:#fbbf24;">🚀 早鸟权益预告</strong>
-      <p style="color:#cfd5dc; font-size:13px; margin-top:8px; line-height:1.7;">
+      <strong style="color:#fbbf24;" data-i18n="profile.perks.title">🚀 早鸟权益预告</strong>
+      <p style="color:#cfd5dc; font-size:13px; margin-top:8px; line-height:1.7;" data-i18n="profile.perks.body">
         正式注册系统上线时，第一批早鸟会获得：<br>
         ✓ 自选云端同步（跨设备）<br>
         ✓ AI 深度分析 500 次/月免费配额<br>
         ✓ Pro 订阅终身 5 折<br>
         ✓ 编辑权重 ×2（贡献度积分翻倍）
       </p>
-      <button class="btn btn-primary" style="margin-top:10px" onclick="openWaitlist()">加入早鸟名单</button>
+      <button class="btn btn-primary" style="margin-top:10px" onclick="openWaitlist()" data-i18n="profile.perks.cta">加入早鸟名单</button>
     </div>
   </div>
 </div>
@@ -972,6 +975,7 @@ if (location.hash) {
 }
 
 // ============ 初始化 ============
+if (typeof applyI18n === 'function') applyI18n();
 renderHomeStats();
 </script>
 </body>
