@@ -202,6 +202,10 @@
       "cn": "联发科"
     },
     {
+      "ticker": "00981.HK",
+      "cn": "中芯国际 SMIC（港）"
+    },
+    {
       "ticker": "ASX",
       "cn": "日月光"
     },
@@ -230,6 +234,26 @@
       "cn": "(系统集成)"
     },
     {
+      "ticker": "TTMI",
+      "cn": "TTM Technologies"
+    },
+    {
+      "ticker": "JBL",
+      "cn": "Jabil"
+    },
+    {
+      "ticker": "ROG",
+      "cn": "Rogers Corp"
+    },
+    {
+      "ticker": "0148.HK",
+      "cn": "建滔集团 Kingboard"
+    },
+    {
+      "ticker": "1888.HK",
+      "cn": "建滔积层板"
+    },
+    {
       "ticker": "4062.T",
       "cn": "Ibiden 揖斐电"
     },
@@ -250,10 +274,6 @@
       "cn": "奥地利 AT&S"
     },
     {
-      "ticker": "TTMI",
-      "cn": "TTM Technologies"
-    },
-    {
       "ticker": "GLW",
       "cn": "Corning 康宁"
     },
@@ -268,6 +288,10 @@
     {
       "ticker": "SUSS.DE",
       "cn": "Süss MicroTec"
+    },
+    {
+      "ticker": "00522.HK",
+      "cn": "ASMPT 港股"
     },
     {
       "ticker": "CRDO",
@@ -386,10 +410,6 @@
       "cn": "ASUS 华硕 ADR"
     },
     {
-      "ticker": "JBL",
-      "cn": "Jabil"
-    },
-    {
       "ticker": "SANM",
       "cn": "Sanmina"
     },
@@ -494,6 +514,10 @@
       "cn": "Vicor 维克"
     },
     {
+      "ticker": "NXPI",
+      "cn": "NXP Semiconductors"
+    },
+    {
       "ticker": "IFNNY",
       "cn": "Infineon 英飞凌 ADR"
     },
@@ -556,6 +580,10 @@
     {
       "ticker": "FIX",
       "cn": "Comfort Systems USA"
+    },
+    {
+      "ticker": "BE",
+      "cn": "Bloom Energy"
     },
     {
       "ticker": "OKLO",
@@ -922,6 +950,10 @@
       "cn": "One Stop Systems"
     },
     {
+      "ticker": "PENG",
+      "cn": "Penguin Solutions"
+    },
+    {
       "ticker": "LMB.L",
       "cn": "Lambda Labs"
     },
@@ -1260,12 +1292,20 @@
       "cn": "同有科技 Toyou Feiji"
     },
     {
+      "ticker": "688981.SS",
+      "cn": "中芯国际 SMIC（A）"
+    },
+    {
       "ticker": "002185.SZ",
       "cn": "华天科技"
     },
     {
       "ticker": "301200.SZ",
       "cn": "大族数控"
+    },
+    {
+      "ticker": "002463.SZ",
+      "cn": "沪电股份（已在 L4b）"
     },
     {
       "ticker": "002273.SZ",
@@ -1549,7 +1589,7 @@
     }
   ],
   "stats": {
-    "total_supported": 299,
-    "total_skipped": 87
+    "total_supported": 307,
+    "total_skipped": 89
   }
 }
