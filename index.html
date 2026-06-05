@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ChainGraph · 全球 AI 产业链共建图谱</title>
 <meta name="description" content="社区共建的 AI 产业链全景图谱。350+ 家公司，11 层结构，AI 一键深度分析。">
+<!-- Vercel Analytics (匿名 PV/UV，启用需在 Vercel Dashboard 打开) -->
+<script defer src="/_vercel/insights/script.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif; background: #0f1419; color: #e6e6e6; line-height: 1.55; min-height: 100vh; }
@@ -472,6 +474,13 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
       </div>
     </div>
 
+    <div class="profile-tools" style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">
+      <button class="btn" onclick="exportMyWatchlist('csv')" title="下载为 CSV，可用 Excel 打开">📥 导出自选 (CSV)</button>
+      <button class="btn" onclick="exportMyWatchlist('json')" title="下载为 JSON，可备份/迁移">📥 导出自选 (JSON)</button>
+      <button class="btn" onclick="document.getElementById('importWatchlistFile').click()" title="从之前导出的 CSV/JSON 恢复">📤 导入自选</button>
+      <input id="importWatchlistFile" type="file" accept=".csv,.json" style="display:none" onchange="importMyWatchlist(event)" />
+      <span style="font-size:11px;color:#6b7785;margin-left:auto;">💡 担心丢失？随时导出备份到云盘/邮件</span>
+    </div>
     <div id="watchlist-area">
       <div style="padding: 40px; text-align: center; color: #6b7785; font-size: 13px;">载入自选数据中…</div>
     </div>
@@ -809,6 +818,144 @@ async function submitWaitlist(e) {
     </div>
   `;
 }
+
+// ============ 自选导出 / 导入 ============
+async function exportMyWatchlist(format) {
+  const scores = await loadScores();
+  let graphData = null;
+  try { graphData = JSON.parse(localStorage.getItem('aiChain_v1') || 'null'); } catch(e) {}
+  if (!graphData) {
+    alert('还没有自选数据。先去图谱里给公司打 ★ 自选标记。');
+    return;
+  }
+  // 收集所有带 watch 的公司
+  const rows = [];  // { ticker, cn, layer, grade, score, sector, tier }
+  function walk(node, ancestorLayer) {
+    const currentLayer = (node.layer !== undefined && node.id !== 'root') ? node : ancestorLayer;
+    (node.companies || []).forEach(c => {
+      const flags = (c.flag || '').split(/\s+/);
+      if (!flags.includes('watch')) return;
+      const sc = scores[c.t];
+      const ok = sc && sc.status === 'ok';
+      rows.push({
+        ticker: c.t,
+        cn: c.cn || '',
+        layer: currentLayer ? currentLayer.name : '',
+        role: c.role || '',
+        flag: c.flag || '',
+        grade: ok ? sc.grade : '',
+        score: ok ? sc.score : '',
+        tier: ok ? sc.tier : '',
+        sector: ok ? sc.sector : '',
+      });
+    });
+    (node.children || []).forEach(child => walk(child, currentLayer));
+  }
+  walk(graphData);
+  if (rows.length === 0) {
+    alert('还没有自选公司。先去图谱里给公司打 ★ 自选标记。');
+    return;
+  }
+
+  // 按评分排序
+  rows.sort((a,b) => (parseFloat(b.score)||0) - (parseFloat(a.score)||0));
+
+  const today = new Date().toISOString().slice(0,10);
+  const filename = `chaingraph_自选_${today}`;
+
+  if (format === 'csv') {
+    // CSV 加 BOM 让 Excel 正确识别中文
+    const headers = ['Ticker','公司名','所属层','评分等级','评分','档位','行业','角色描述','原标签'];
+    const csvRows = [headers.join(',')];
+    rows.forEach(r => {
+      csvRows.push([
+        r.ticker, r.cn, r.layer, r.grade, r.score, r.tier, r.sector, r.role, r.flag
+      ].map(v => `"${String(v).replace(/"/g,'""')}"`).join(','));
+    });
+    const blob = new Blob(['﻿' + csvRows.join('\n')], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename + '.csv';
+    a.click();
+  } else {
+    const payload = {
+      exported_at: new Date().toISOString(),
+      source: 'gmlabs.ai ChainGraph',
+      device_id: getDeviceId(),
+      total: rows.length,
+      watchlist: rows,
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename + '.json';
+    a.click();
+  }
+}
+
+async function importMyWatchlist(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const text = await f.text();
+  let tickers = [];
+  try {
+    if (f.name.endsWith('.json')) {
+      const data = JSON.parse(text);
+      tickers = (data.watchlist || []).map(r => r.ticker).filter(Boolean);
+    } else {
+      // CSV: 假设第一列是 Ticker
+      const lines = text.split('\n').slice(1);  // skip header
+      tickers = lines.map(line => {
+        const cells = line.split(',');
+        return cells[0]?.replace(/^"|"$/g, '').trim();
+      }).filter(Boolean);
+    }
+  } catch (err) {
+    alert('文件解析失败：' + err.message);
+    return;
+  }
+  if (tickers.length === 0) {
+    alert('文件中没有发现 ticker');
+    return;
+  }
+  // 加载图谱数据
+  let graphData = null;
+  try { graphData = JSON.parse(localStorage.getItem('aiChain_v1') || 'null'); } catch(e) {}
+  if (!graphData) {
+    alert('请先访问图谱 Tab 加载数据再导入');
+    return;
+  }
+  // 为匹配 ticker 的公司加 watch
+  let count = 0;
+  const tickerSet = new Set(tickers);
+  function walkAndAdd(node) {
+    (node.companies || []).forEach(c => {
+      if (tickerSet.has(c.t)) {
+        const tokens = (c.flag || '').split(/\s+/).filter(Boolean);
+        if (!tokens.includes('watch')) tokens.push('watch');
+        c.flag = tokens.join(' ');
+        count++;
+      }
+    });
+    (node.children || []).forEach(walkAndAdd);
+  }
+  walkAndAdd(graphData);
+  localStorage.setItem('aiChain_v1', JSON.stringify(graphData));
+  alert(`✅ 导入成功！标记了 ${count} 只自选（共 ${tickers.length} 个 ticker，未匹配的可能是图谱里没收录）`);
+  renderProfile();
+  e.target.value = '';  // 重置 input 以便再次导入同一文件
+}
+
+// ============ Device ID（统计独立设备） ============
+function getDeviceId() {
+  let id = localStorage.getItem('device_id');
+  if (!id) {
+    id = 'd_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 10);
+    localStorage.setItem('device_id', id);
+    localStorage.setItem('first_visit', new Date().toISOString());
+  }
+  return id;
+}
+getDeviceId();  // 启动时确保设备 ID 已生成
 
 // ============ 工具 ============
 function escapeHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
