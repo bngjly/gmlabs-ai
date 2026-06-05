@@ -404,6 +404,8 @@ const DEFAULT_DATA = {
       companies: [
         { t: 'TSM', cn: '台积电', role: 'CoWoS / SoIC 独家产能', flag: 'core' },
         { t: '2454.TW', cn: '联发科', role: 'ASIC 设计协同', flag: 'comp' },
+        { t: '00981.HK', cn: '中芯国际 SMIC（港）', role: '中国最大代工厂，国产替代核心', flag: 'cn core' },
+        { t: '688981.SS', cn: '中芯国际 SMIC（A）', role: '中国最大代工厂 A 股', flag: 'cn' },
       ],
       children: [
         { id:'L3a', name:'OSAT 后段封测', layer:3, expanded:true,
@@ -432,6 +434,17 @@ const DEFAULT_DATA = {
             { t:'INTC', cn:'EMIB + Foveros', role:'Intel 自有 2.5D/3D 路线', flag:'comp' },
             { t:'TSM', cn:'SoIC 3D 堆叠', role:'下一代直接芯片对芯片堆叠', flag:'core' },
             { t:'SMCI/HPE', cn:'(系统集成)', role:'用 CoWoS 模组组装', flag:'comp' },
+          ]
+        },
+        { id:'L3g', name:'🆕 高频 PCB / CCL 基材（AI 服务器涨价潮）', layer:3, expanded:true,
+          desc:'AI 服务器升级带动 800G 高频 PCB + 高速 CCL 需求暴增',
+          companies:[
+            { t:'TTMI', cn:'TTM Technologies', role:'美系 PCB + 国防 + AI 服务器', flag:'core' },
+            { t:'JBL',  cn:'Jabil', role:'EMS + AI 服务器 PCB 组装', flag:'core' },
+            { t:'ROG',  cn:'Rogers Corp', role:'高频 PCB 基材龙头（5G/AI 必备）', flag:'core' },
+            { t:'0148.HK', cn:'建滔集团 Kingboard', role:'港股 CCL/PCB 综合龙头', flag:'cn core' },
+            { t:'1888.HK', cn:'建滔积层板', role:'港股 CCL 专精', flag:'cn' },
+            { t:'002463.SZ', cn:'沪电股份（已在 L4b）', role:'A 股 AI 服务器 PCB 主供', flag:'cn' },
           ]
         },
         { id:'L3d', name:'🆕 ABF 载板（封装最硬瓶颈之一）', layer:3, expanded:true,
@@ -463,6 +476,7 @@ const DEFAULT_DATA = {
             { t:'KLIC', cn:'Kulicke & Soffa', role:'引线键合 + Hybrid Bonding 第二供', flag:'core' },
             { t:'EVG', cn:'EV Group (未上市)', role:'晶圆键合', flag:'comp' },
             { t:'SUSS.DE', cn:'Süss MicroTec', role:'临时键合机', flag:'comp' },
+            { t:'00522.HK', cn:'ASMPT 港股', role:'先进封装设备（TCB / Hybrid Bonding 重要参与者）', flag:'cn core' },
           ]
         },
       ]
@@ -716,6 +730,7 @@ const DEFAULT_DATA = {
           { t:'MCHP', cn:'Microchip 微芯', role:'MCU + 电源 IC', flag:'comp' },
           { t:'POWI', cn:'Power Integrations', role:'AC-DC 转换 IC', flag:'comp' },
           { t:'VICR', cn:'Vicor 维克', role:'48V 直流 + AI 服务器电源', flag:'comp' },
+          { t:'NXPI', cn:'NXP Semiconductors', role:'汽车电源 + 边缘 IoT 模拟芯片', flag:'core' },
         ]},
         { id:'L7a2', name:'🆕 功率半导体器件（MOSFET / Diode / 整流）', layer:7, expanded:true,
           desc:'800V HVDC 数据中心配电的基础元器件，AI 服务器电力骨干',
@@ -746,6 +761,7 @@ const DEFAULT_DATA = {
             { t:'KULR', cn:'KULR Technology', role:'电池热管理 / SMR 配套', flag:'comp' },
             { t:'MP',   cn:'MP Materials', role:'美国本土稀土（NdFeB 磁体）', flag:'core' },
             { t:'FIX',  cn:'Comfort Systems USA', role:'AI 数据中心 HVAC + 电气施工（多家竞争）', flag:'comp' },
+            { t:'BE',   cn:'Bloom Energy', role:'固体氧化物燃料电池（AI 数据中心备电 + AWS/Equinix 客户）', flag:'comp' },
           ]
         },
         { id:'L7b', name:'SMR 小型模块化核反应堆', layer:7, expanded:true,
@@ -1019,6 +1035,7 @@ const DEFAULT_DATA = {
             { t:'BITF', cn:'Bitfarms', role:'矿企转 AI 算力', flag:'comp' },
             { t:'HIVE', cn:'HIVE Digital', role:'矿企转 AI 算力', flag:'comp' },
             { t:'OSS',  cn:'One Stop Systems', role:'AI 加速边缘服务器（特殊场景）', flag:'comp' },
+            { t:'PENG', cn:'Penguin Solutions', role:'AI HPC 整机方案（2025 Trump 榜首 157% 涨幅）', flag:'comp' },
             { t:'LMB.L', cn:'Lambda Labs', role:'未上市，GPU 云独角兽', flag:'comp' },
           ]
         },
@@ -1260,7 +1277,7 @@ const DEFAULT_DATA = {
 
 // ============ 状态 ============
 // 改 DEFAULT_DATA 后递增版本号，自动失效用户旧 localStorage
-const DATA_VERSION = '2026-06-04-v9';   // 系统降级 7 个误标 core 的票（CBRS/RKLB/ASTS/APP/SYM/SKYT/OUST）
+const DATA_VERSION = '2026-06-04-v10';  // +ROG/PENG/NXPI/BE/SMIC/ASMPT 等 9 个文章漏点补全
 
 let data = loadData();
 let editTarget = null;

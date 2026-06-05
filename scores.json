@@ -12104,5 +12104,298 @@
       }
     ],
     "evaluated_at": "2026-06-04"
+  },
+  "ROG": {
+    "ticker": "ROG",
+    "status": "ok",
+    "name": "Rogers Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 44.7,
+    "tier": "small",
+    "sector": "other",
+    "currency": "USD",
+    "market_cap_usd_b": 2.6,
+    "dims": {
+      "G1": 5.8,
+      "G2": 7.2,
+      "G3": 11.2,
+      "G4": 8.8,
+      "G5": 0.0,
+      "G6": 11.7
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-05"
+  },
+  "PENG": {
+    "ticker": "PENG",
+    "status": "ok",
+    "name": "Penguin Solutions, Inc.",
+    "grade": "D",
+    "grade_label": "D 弱势",
+    "score": 41.1,
+    "tier": "small",
+    "sector": "other",
+    "currency": "USD",
+    "market_cap_usd_b": 3.7,
+    "dims": {
+      "G1": 14.4,
+      "G2": 7.2,
+      "G3": 7.5,
+      "G4": 8.8,
+      "G5": 0.0,
+      "G6": 3.2
+    },
+    "dim_max": {
+      "G1": 24,
+      "G2": 18,
+      "G3": 14,
+      "G4": 22,
+      "G5": 6,
+      "G6": 16
+    },
+    "features": [],
+    "risks": [
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🌪️",
+        "name": "营收下滑"
+      },
+      {
+        "emoji": "🎯",
+        "name": "高做空比例"
+      }
+    ],
+    "evaluated_at": "2026-06-05"
+  },
+  "NXPI": {
+    "ticker": "NXPI",
+    "status": "ok",
+    "name": "NXP Semiconductors N.V.",
+    "grade": "B",
+    "grade_label": "B 合格",
+    "score": 71.6,
+    "tier": "large",
+    "sector": "semiconductor",
+    "currency": "USD",
+    "market_cap_usd_b": 81.4,
+    "dims": {
+      "G1": 14.4,
+      "G2": 20.2,
+      "G3": 6.0,
+      "G4": 13.0,
+      "G5": 9.0,
+      "G6": 9.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🐂",
+        "name": "现金牛"
+      },
+      {
+        "emoji": "⚡",
+        "name": "高 ROE"
+      },
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "⚖️",
+        "name": "中等负债"
+      }
+    ],
+    "evaluated_at": "2026-06-05"
+  },
+  "BE": {
+    "ticker": "BE",
+    "status": "ok",
+    "name": "Bloom Energy Corporation",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 43.8,
+    "tier": "large",
+    "sector": "capital_goods",
+    "currency": "USD",
+    "market_cap_usd_b": 82.9,
+    "dims": {
+      "G1": 10.1,
+      "G2": 9.7,
+      "G3": 6.0,
+      "G4": 11.0,
+      "G5": 5.0,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 18,
+      "G2": 22,
+      "G3": 15,
+      "G4": 20,
+      "G5": 10,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "🚀",
+        "name": "高速增长"
+      },
+      {
+        "emoji": "💵",
+        "name": "正向现金流"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🪙",
+        "name": "高杠杆"
+      }
+    ],
+    "evaluated_at": "2026-06-05"
+  },
+  "0148.HK": {
+    "ticker": "0148.HK",
+    "status": "ok",
+    "name": "Kingboard Holdings Limited",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 51.6,
+    "tier": "mid",
+    "sector": "capital_goods",
+    "currency": "HKD",
+    "market_cap_usd_b": 9.2,
+    "dims": {
+      "G1": 15.0,
+      "G2": 4.0,
+      "G3": 8.0,
+      "G4": 10.0,
+      "G5": 5.6,
+      "G6": 9.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💎",
+        "name": "PEG 低估"
+      },
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      },
+      {
+        "emoji": "🐌",
+        "name": "增长放缓"
+      }
+    ],
+    "evaluated_at": "2026-06-05"
+  },
+  "1888.HK": {
+    "ticker": "1888.HK",
+    "status": "ok",
+    "name": "Kingboard Laminates Holdings Limited",
+    "grade": "C",
+    "grade_label": "C 一般",
+    "score": 54.1,
+    "tier": "mid",
+    "sector": "other",
+    "currency": "HKD",
+    "market_cap_usd_b": 21.0,
+    "dims": {
+      "G1": 18.5,
+      "G2": 8.0,
+      "G3": 9.0,
+      "G4": 11.0,
+      "G5": 5.6,
+      "G6": 2.0
+    },
+    "dim_max": {
+      "G1": 22,
+      "G2": 20,
+      "G3": 15,
+      "G4": 20,
+      "G5": 8,
+      "G6": 15
+    },
+    "features": [
+      {
+        "emoji": "💰",
+        "name": "高分红"
+      },
+      {
+        "emoji": "🆕",
+        "name": "创始人控盘"
+      }
+    ],
+    "risks": [
+      {
+        "emoji": "🏚️",
+        "name": "自由现金流为负"
+      },
+      {
+        "emoji": "📊",
+        "name": "估值与增速不匹配"
+      },
+      {
+        "emoji": "🔻",
+        "name": "低毛利率"
+      }
+    ],
+    "evaluated_at": "2026-06-05"
   }
 }
