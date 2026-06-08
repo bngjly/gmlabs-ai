@@ -193,6 +193,25 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
   .pr-mid { grid-column: 1 / -1; }
 }
 
+/* ===== 首页 KOL 推荐区块 ===== */
+.home-kol-showcase { max-width: 700px; margin: 0 auto; }
+.home-kol-serenity { display: flex; align-items: center; gap: 18px; background: linear-gradient(135deg, #1a2230 0%, #1e2a3a 100%); border: 1px solid #2a3548; border-radius: 14px; padding: 24px; cursor: pointer; transition: .2s; }
+.home-kol-serenity:hover { border-color: #4fc3f7; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(79,195,247,.12); }
+.home-kol-avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 2px solid #4fc3f7; flex-shrink: 0; }
+.home-kol-info { flex: 1; }
+.home-kol-info h3 { font-size: 18px; margin-bottom: 6px; color: #e6e6e6; }
+.home-kol-info p { font-size: 13px; color: #9aa5b1; margin-bottom: 10px; }
+.home-kol-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.hk-tag { padding: 3px 10px; background: rgba(79,195,247,.1); border: 1px solid rgba(79,195,247,.25); border-radius: 12px; font-size: 11px; color: #4fc3f7; }
+.home-kol-arrow { font-size: 28px; color: #4fc3f7; flex-shrink: 0; }
+.home-kol-actions { display: flex; gap: 12px; justify-content: center; margin-top: 18px; }
+@media (max-width: 600px) {
+  .home-kol-serenity { flex-direction: column; text-align: center; gap: 12px; }
+  .home-kol-arrow { display: none; }
+  .home-kol-tags { justify-content: center; }
+  .home-kol-actions { flex-direction: column; align-items: stretch; }
+}
+
 /* ===== KOL 观点 PAGE ===== */
 .kol-wrap { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
 .kol-header { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #2a3548; }
@@ -373,6 +392,32 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
     </div>
   </div>
 
+  <!-- KOL 观点推荐区块 -->
+  <div class="section">
+    <h2>🐦 KOL 实时观点</h2>
+    <p class="lead">聚合著名 KOL 公开推文，自动提取 ticker、多空立场和核心观点</p>
+    <div class="home-kol-showcase">
+      <div class="home-kol-serenity" onclick="goto('kol')">
+        <img class="home-kol-avatar" src="https://masterticker.com/twitter-author-avatars/aleabitoreddit.jpg" alt="Serenity" onerror="this.style.display='none'">
+        <div class="home-kol-info">
+          <h3>🌟 Serenity <span style="color:#6b7785;font-weight:400;font-size:13px">@aleabitoreddit</span></h3>
+          <p>华尔街顶级 KOL · 250+ 只标的深度覆盖 · 实时多空观点追踪</p>
+          <div class="home-kol-tags" id="home-kol-tags">
+            <span class="hk-tag">实时观点流</span>
+            <span class="hk-tag">多空立场</span>
+            <span class="hk-tag">250 只提及标的</span>
+            <span class="hk-tag">热力榜</span>
+          </div>
+        </div>
+        <div class="home-kol-arrow">→</div>
+      </div>
+      <div class="home-kol-actions">
+        <button class="btn btn-primary" onclick="goto('kol')">查看 KOL 观点 →</button>
+        <a class="btn" href="https://t.me/yoyoaidaily" target="_blank" rel="noopener">📬 Telegram 订阅</a>
+      </div>
+    </div>
+  </div>
+
   <div class="section">
     <h2 data-i18n="home.scenes.h2">三个核心场景</h2>
     <p class="lead" data-i18n="home.scenes.lead">从看懂产业链，到挖掘标的，到社区共建——一个工具搞定</p>
@@ -382,15 +427,15 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
         <h3 data-i18n="home.scene1.h3">看清产业链</h3>
         <p data-i18n="home.scene1.p">11 层从算力到机器人完整拆解，每一格都有龙头/竞争/中国国产替代标的，鼠标悬停查看详情。</p>
       </div>
+      <div class="feat-card" onclick="goto('kol')">
+        <div class="icon">🐦</div>
+        <h3>KOL 观点追踪</h3>
+        <p>著名 KOL 实时多空观点流 + Serenity 250 只标的热力榜，Telegram 频道同步推送。</p>
+      </div>
       <div class="feat-card" onclick="goto('graph')">
         <div class="icon">🤖</div>
         <h3 data-i18n="home.scene2.h3">AI 深度分析</h3>
         <p data-i18n="home.scene2.p">粘贴股票代码 → 一份基于产业链位置的深度报告：SWOT、DCF、催化剂时间表、对标对手。</p>
-      </div>
-      <div class="feat-card" onclick="alert('社区 PR 功能 Phase 3 开放\n现在可以先在 GitHub 提 issue')">
-        <div class="icon">🛠️</div>
-        <h3 data-i18n="home.scene3.h3">共建图谱</h3>
-        <p data-i18n="home.scene3.p">GitHub 式 PR 工作流：你提交新节点，社区投票，管理员合并。贡献度累积成声誉积分。</p>
       </div>
     </div>
   </div>
@@ -716,7 +761,7 @@ function goto(page) {
   window.scrollTo(0, 0);
   if (page === 'profile') renderProfile();
   if (page === 'kol') {
-    if (!KOL_LOADED) loadKolOpinions();
+    loadKolOpinions();
     if (!POOL_DATA) loadSerenityPool();
   }
 }
@@ -1162,8 +1207,16 @@ let KOL_ALL = [];   // raw items
 let KOL_STANCE = 'all';
 let KOL_TIME = 'all';
 let KOL_PERSON = 'all';  // 当前选中的 KOL handle，'all' = 全部分组显示
+let KOL_FETCH_TS = 0;    // 上次成功拉取的时间戳
+const KOL_CACHE_TTL = 5 * 60 * 1000;  // 前端缓存 5 分钟
 
-async function loadKolOpinions() {
+async function loadKolOpinions(force) {
+  // 5 分钟内重复切换 tab 不重新 fetch
+  if (!force && KOL_LOADED && KOL_ALL.length && (Date.now() - KOL_FETCH_TS < KOL_CACHE_TTL)) {
+    renderKolPeople();
+    renderKolList();
+    return;
+  }
   // 优先实时 API，失败则用静态缓存兜底
   async function tryFetch(url) {
     const r = await fetch(url, { cache: 'no-cache' });
@@ -1180,6 +1233,7 @@ async function loadKolOpinions() {
     }
     KOL_ALL = data.items || [];
     KOL_LOADED = true;
+    KOL_FETCH_TS = Date.now();
     renderKolPeople();
     renderKolList();
   } catch (e) {
