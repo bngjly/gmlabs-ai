@@ -69,10 +69,11 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add scores.json scoring/chain_tickers.json
-          # Only commit if there are changes
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "data: nightly scores refresh $(date -u +%Y-%m-%d) [skip ci]"
+            # 防止与其他 push 冲突
+            git pull --rebase origin main
             git push
           fi
