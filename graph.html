@@ -1943,7 +1943,13 @@ function toggleFlagFilter(flag) {
     const el = document.getElementById('filter-' + f);
     if (el) el.classList.toggle('filter-on', CURRENT_FLAG_FILTER === f);
   });
-  applySearch();
+  // 激活筛选时展开所有节点，方便查看匹配项；取消时保持当前状态
+  if (CURRENT_FLAG_FILTER) {
+    walk(data, n => n.expanded = true);
+    save(); render();
+  } else {
+    applySearch();
+  }
 }
 
 function applySearch() {
@@ -1975,10 +1981,6 @@ function applySearch() {
     const selfMatchesText = !q || headerTxt.includes(q);
     const shouldShow = (selfMatchesText && (hasVisibleCompany || hasVisibleChild)) || hasVisibleCompany || hasVisibleChild;
     el.classList.toggle('hidden', !shouldShow);
-    if (shouldShow) {
-      el.classList.add('expanded');
-      el.classList.remove('collapsed');
-    }
   });
 
   // 3. 无结果横幅
