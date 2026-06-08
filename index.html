@@ -205,6 +205,7 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
 .kol-person:hover { border-color: #4fc3f7; }
 .kol-person.active { border-color: #4fc3f7; background: rgba(79,195,247,.1); }
 .kol-person .p-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg,#4fc3f7,#a855f7); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #000; flex-shrink: 0; }
+.kol-person .p-avatar-img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .kol-person.active .p-avatar { box-shadow: 0 0 0 2px #4fc3f7; }
 .kol-person .p-info .p-name { font-size: 13px; font-weight: 600; color: #e6e6e6; }
 .kol-person .p-info .p-stats { font-size: 11px; color: #6b7785; }
@@ -214,6 +215,7 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
 /* KOL 分组标题 */
 .kol-group-header { display: flex; align-items: center; gap: 12px; padding: 16px 0 10px; border-bottom: 1px solid #2a3548; margin-bottom: 12px; }
 .kol-group-header:not(:first-child) { margin-top: 24px; }
+img.g-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
 .kol-group-header .g-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg,#4fc3f7,#a855f7); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: #000; }
 .kol-group-header .g-name { font-size: 17px; font-weight: 700; }
 .kol-group-header .g-handle { font-size: 12px; color: #6b7785; }
@@ -239,6 +241,7 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
 .kol-card { background: #1a2230; border: 1px solid #2a3548; border-radius: 12px; padding: 20px 24px; transition: .15s; }
 .kol-card:hover { border-color: #3a4860; }
 .kol-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; }
 .kol-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,#4fc3f7,#a855f7); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #000; flex-shrink: 0; }
 .kol-meta .kol-name { font-size: 15px; font-weight: 600; }
 .kol-meta .kol-handle { font-size: 12px; color: #6b7785; }
@@ -1138,7 +1141,10 @@ function escapeHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&a
 function escapeAttr(s) { return escapeHtml(s); }
 
 // ============ KOL 观点 ============
-const KOL_CACHE_FILE = 'kol_cache.json';  // 静态缓存，GitHub Action 每 4h 刷新
+const KOL_CACHE_FILE = 'kol_cache.json';  // 静态缓存，GitHub Action 每 1h 刷新
+const KOL_AVATAR_BASE = 'https://masterticker.com/twitter-author-avatars/';
+// Serenity 置顶
+const KOL_PRIORITY = ['aleabitoreddit'];
 const CHAINGRAPH_TICKERS = new Set([
   'NVDA','AMD','AVGO','MRVL','TSM','INTC','MU','AMAT','KLAC',
   'LITE','COHR','AAOI','ANET','ALAB','CRDO','SNDK','STX',
@@ -1181,10 +1187,18 @@ function renderKolPeople() {
     else if (it.stance === 'bearish') map[h].bearish++;
     else map[h].neutral++;
   });
-  const people = Object.values(map).sort((a, b) => b.total - a.total);
+  const people = Object.values(map).sort((a, b) => {
+    // 优先级排序：KOL_PRIORITY 中的排前面
+    const ai = KOL_PRIORITY.indexOf(a.handle);
+    const bi = KOL_PRIORITY.indexOf(b.handle);
+    if (ai !== -1 && bi !== -1) return ai - bi;
+    if (ai !== -1) return -1;
+    if (bi !== -1) return 1;
+    return b.total - a.total;
+  });
 
   let html = `<div class="kol-person active" onclick="setKolPerson('all')">
-    <div class="p-avatar">All</div>
+    <div class="p-avatar" style="font-size:11px">All</div>
     <div class="p-info">
       <div class="p-name">全部 KOL</div>
       <div class="p-stats">${KOL_ALL.length} 条观点</div>
@@ -1192,8 +1206,9 @@ function renderKolPeople() {
   </div>`;
 
   people.forEach(p => {
+    const avatarUrl = KOL_AVATAR_BASE + p.handle + '.jpg';
     html += `<div class="kol-person" data-handle="${escapeAttr(p.handle)}" onclick="setKolPerson('${escapeAttr(p.handle)}')">
-      <div class="p-avatar">${escapeHtml(p.display.charAt(0).toUpperCase())}</div>
+      <img class="p-avatar-img" src="${avatarUrl}" alt="${escapeAttr(p.display)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="p-avatar" style="display:none">${escapeHtml(p.display.charAt(0).toUpperCase())}</div>
       <div class="p-info">
         <div class="p-name">${escapeHtml(p.display)}</div>
         <div class="p-stats">${p.total} 条 · <span class="bull">${p.bullish}多</span> <span class="bear">${p.bearish}空</span></div>
@@ -1299,7 +1314,7 @@ function renderKolList() {
 
     return `<div class="kol-card">
       ${showHeader ? `<div class="kol-card-top">
-        <div class="kol-avatar">${escapeHtml(display.charAt(0).toUpperCase())}</div>
+        <img class="kol-avatar" src="${KOL_AVATAR_BASE + handle + '.jpg'}" alt="" style="object-fit:cover" onerror="this.style.display='none'">
         <div class="kol-meta">
           <div class="kol-name">${escapeHtml(display)}</div>
           <div class="kol-handle">@${escapeHtml(handle)}</div>
@@ -1332,12 +1347,19 @@ function renderKolList() {
       if (!groups[h]) groups[h] = { handle: h, display: it.display_name || h, items: [] };
       groups[h].items.push(it);
     });
-    // 按观点数降序
-    const sorted = Object.values(groups).sort((a, b) => b.items.length - a.items.length);
+    // Serenity 优先，其余按观点数降序
+    const sorted = Object.values(groups).sort((a, b) => {
+      const ai = KOL_PRIORITY.indexOf(a.handle);
+      const bi = KOL_PRIORITY.indexOf(b.handle);
+      if (ai !== -1 && bi !== -1) return ai - bi;
+      if (ai !== -1) return -1;
+      if (bi !== -1) return 1;
+      return b.items.length - a.items.length;
+    });
 
     sorted.forEach(g => {
       html += `<div class="kol-group-header">
-        <div class="g-avatar">${escapeHtml(g.display.charAt(0).toUpperCase())}</div>
+        <img class="g-avatar" src="${KOL_AVATAR_BASE + g.handle + '.jpg'}" alt="" style="object-fit:cover" onerror="this.style.display='none'">
         <div>
           <div class="g-name">${escapeHtml(g.display)}</div>
           <div class="g-handle">@${escapeHtml(g.handle)}</div>

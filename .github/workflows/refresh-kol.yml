@@ -2,8 +2,8 @@ name: Refresh KOL Opinions Cache
 
 on:
   schedule:
-    # 每 4 小时刷新一次（UTC 0/4/8/12/16/20）
-    - cron: '15 0,4,8,12,16,20 * * *'
+    # 每小时刷新一次
+    - cron: '15 * * * *'
   workflow_dispatch:
 
 permissions:
