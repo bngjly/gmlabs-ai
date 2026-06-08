@@ -659,9 +659,7 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
     </div>
 
     <!-- 观点列表 -->
-    <div id="kol-list">
-      <div class="kol-loading"><span class="spinner"></span> 获取最新 KOL 观点...</div>
-    </div>
+    <div id="kol-list"></div>
 
     <!-- Serenity Ticker Pool 热力榜 -->
     <div class="serenity-pool">
@@ -1207,40 +1205,57 @@ let KOL_ALL = [];   // raw items
 let KOL_STANCE = 'all';
 let KOL_TIME = 'all';
 let KOL_PERSON = 'all';  // 当前选中的 KOL handle，'all' = 全部分组显示
-let KOL_FETCH_TS = 0;    // 上次成功拉取的时间戳
-const KOL_CACHE_TTL = 5 * 60 * 1000;  // 前端缓存 5 分钟
+let KOL_FETCH_TS = 0;    // 上次 API 增量刷新时间戳
+const KOL_REFRESH_TTL = 5 * 60 * 1000;  // API 增量刷新间隔 5 分钟
 
-async function loadKolOpinions(force) {
-  // 5 分钟内重复切换 tab 不重新 fetch
-  if (!force && KOL_LOADED && KOL_ALL.length && (Date.now() - KOL_FETCH_TS < KOL_CACHE_TTL)) {
+async function loadKolOpinions() {
+  // ① 首次加载：立即从静态缓存渲染（秒出，无 loading）
+  if (!KOL_LOADED) {
+    try {
+      const r = await fetch(KOL_CACHE_FILE);
+      if (r.ok) {
+        const data = await r.json();
+        KOL_ALL = data.items || [];
+      }
+    } catch (e) {
+      console.warn('Static cache load failed', e);
+    }
+    KOL_LOADED = true;
     renderKolPeople();
     renderKolList();
+    // 首次加载后立即尝试 API 增量刷新
+    refreshKolFromApi();
     return;
   }
-  // 优先实时 API，失败则用静态缓存兜底
-  async function tryFetch(url) {
-    const r = await fetch(url, { cache: 'no-cache' });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    return r.json();
+
+  // ② 后续切换 tab：直接渲染内存数据，后台静默刷新
+  renderKolPeople();
+  renderKolList();
+  // 超过刷新间隔才请求 API
+  if (Date.now() - KOL_FETCH_TS > KOL_REFRESH_TTL) {
+    refreshKolFromApi();
   }
+}
+
+async function refreshKolFromApi() {
+  // 后台静默请求 API，有新数据才更新渲染
   try {
-    let data;
-    try {
-      data = await tryFetch(KOL_API + '?limit=60');
-    } catch (e) {
-      console.warn('API proxy failed, fallback to cache', e);
-      data = await tryFetch(KOL_CACHE_FILE);
-    }
-    KOL_ALL = data.items || [];
-    KOL_LOADED = true;
+    const r = await fetch(KOL_API + '?limit=60', { cache: 'no-cache' });
+    if (!r.ok) return;
+    const data = await r.json();
+    const newItems = data.items || [];
+    if (!newItems.length) return;
     KOL_FETCH_TS = Date.now();
-    renderKolPeople();
-    renderKolList();
+    // 只有内容变化才重新渲染（比较最新一条的 tweet_id）
+    const oldTop = KOL_ALL[0]?.tweet_id;
+    const newTop = newItems[0]?.tweet_id;
+    if (oldTop !== newTop) {
+      KOL_ALL = newItems;
+      renderKolPeople();
+      renderKolList();
+    }
   } catch (e) {
-    console.warn('KOL load failed', e);
-    KOL_LOADED = true;
-    document.getElementById('kol-list').innerHTML =
-      '<div class="kol-empty">暂无 KOL 观点数据</div>';
+    console.warn('API refresh failed (silent)', e);
   }
 }
 
@@ -1529,6 +1544,10 @@ if (location.hash) {
 // ============ 初始化 ============
 if (typeof applyI18n === 'function') applyI18n();
 renderHomeStats();
+// 预加载 KOL 静态缓存（后台），切到 KOL tab 时秒出
+fetch(KOL_CACHE_FILE).then(r => r.ok ? r.json() : null).then(data => {
+  if (data && data.items) { KOL_ALL = data.items; KOL_LOADED = true; }
+}).catch(() => {});
 </script>
 </body>
 </html>
