@@ -310,9 +310,13 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
 
 @media (max-width: 768px) {
   .hero h1 { font-size: 32px; }
-  .nav { gap: 12px; padding: 10px 16px; }
-  .tabs { overflow-x: auto; }
-  .nav-right .btn { padding: 6px 10px; font-size: 12px; }
+  .nav { flex-wrap: wrap; gap: 8px; padding: 10px 16px; }
+  .brand { font-size: 16px; }
+  .tabs { order: 3; flex: 0 0 100%; overflow-x: auto; gap: 2px; padding-top: 4px; border-top: 1px solid #2a3548; }
+  .tab { padding: 6px 12px; font-size: 13px; white-space: nowrap; }
+  .nav-right { margin-left: auto; }
+  .nav-right .btn { padding: 5px 8px; font-size: 11px; }
+  .nav-right span[data-i18n="nav.beta"] { display: none; }
 }
 </style>
 </head>
