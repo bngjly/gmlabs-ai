@@ -199,6 +199,26 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
 .kol-header h1 { font-size: 28px; margin-bottom: 6px; }
 .kol-header .sub { color: #9aa5b1; font-size: 14px; }
 
+/* KOL 人物选择栏 */
+.kol-people { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px; }
+.kol-person { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: #1a2230; border: 1px solid #2a3548; border-radius: 10px; cursor: pointer; transition: .15s; white-space: nowrap; flex-shrink: 0; }
+.kol-person:hover { border-color: #4fc3f7; }
+.kol-person.active { border-color: #4fc3f7; background: rgba(79,195,247,.1); }
+.kol-person .p-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg,#4fc3f7,#a855f7); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #000; flex-shrink: 0; }
+.kol-person.active .p-avatar { box-shadow: 0 0 0 2px #4fc3f7; }
+.kol-person .p-info .p-name { font-size: 13px; font-weight: 600; color: #e6e6e6; }
+.kol-person .p-info .p-stats { font-size: 11px; color: #6b7785; }
+.kol-person .p-info .p-stats .bull { color: #22c55e; }
+.kol-person .p-info .p-stats .bear { color: #ef4444; }
+
+/* KOL 分组标题 */
+.kol-group-header { display: flex; align-items: center; gap: 12px; padding: 16px 0 10px; border-bottom: 1px solid #2a3548; margin-bottom: 12px; }
+.kol-group-header:not(:first-child) { margin-top: 24px; }
+.kol-group-header .g-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg,#4fc3f7,#a855f7); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: #000; }
+.kol-group-header .g-name { font-size: 17px; font-weight: 700; }
+.kol-group-header .g-handle { font-size: 12px; color: #6b7785; }
+.kol-group-header .g-count { font-size: 12px; color: #9aa5b1; margin-left: auto; }
+
 .kol-filters { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
 .kol-filter-group { display: flex; gap: 4px; background: #1a2230; border: 1px solid #2a3548; border-radius: 8px; padding: 3px; }
 .kol-chip { padding: 6px 14px; border-radius: 6px; font-size: 13px; cursor: pointer; color: #9aa5b1; transition: .15s; white-space: nowrap; }
@@ -562,6 +582,11 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
       <div class="tg-action">
         <button class="btn btn-primary" onclick="openTgSubscribe()">订阅 Telegram 通知</button>
       </div>
+    </div>
+
+    <!-- KOL 人物选择 -->
+    <div class="kol-people" id="kol-people">
+      <!-- JS 动态生成 -->
     </div>
 
     <!-- 筛选栏 -->
@@ -1125,15 +1150,16 @@ let KOL_LOADED = false;
 let KOL_ALL = [];   // raw items
 let KOL_STANCE = 'all';
 let KOL_TIME = 'all';
+let KOL_PERSON = 'all';  // 当前选中的 KOL handle，'all' = 全部分组显示
 
 async function loadKolOpinions() {
-  // 读静态缓存文件（GitHub Action 每 4h 刷新，零 CORS 问题）
   try {
     const r = await fetch(KOL_CACHE_FILE, { cache: 'no-cache' });
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const data = await r.json();
     KOL_ALL = data.items || [];
     KOL_LOADED = true;
+    renderKolPeople();
     renderKolList();
   } catch (e) {
     console.warn('kol_cache.json load failed', e);
@@ -1141,6 +1167,50 @@ async function loadKolOpinions() {
     document.getElementById('kol-list').innerHTML =
       '<div class="kol-empty">暂无 KOL 观点数据</div>';
   }
+}
+
+// 构建 KOL 人物选择栏
+function renderKolPeople() {
+  // 统计每个 KOL 的观点数和多空比
+  const map = {};
+  KOL_ALL.forEach(it => {
+    const h = it.account_handle || 'unknown';
+    if (!map[h]) map[h] = { handle: h, display: it.display_name || h, total: 0, bullish: 0, bearish: 0, neutral: 0 };
+    map[h].total++;
+    if (it.stance === 'bullish') map[h].bullish++;
+    else if (it.stance === 'bearish') map[h].bearish++;
+    else map[h].neutral++;
+  });
+  const people = Object.values(map).sort((a, b) => b.total - a.total);
+
+  let html = `<div class="kol-person active" onclick="setKolPerson('all')">
+    <div class="p-avatar">All</div>
+    <div class="p-info">
+      <div class="p-name">全部 KOL</div>
+      <div class="p-stats">${KOL_ALL.length} 条观点</div>
+    </div>
+  </div>`;
+
+  people.forEach(p => {
+    html += `<div class="kol-person" data-handle="${escapeAttr(p.handle)}" onclick="setKolPerson('${escapeAttr(p.handle)}')">
+      <div class="p-avatar">${escapeHtml(p.display.charAt(0).toUpperCase())}</div>
+      <div class="p-info">
+        <div class="p-name">${escapeHtml(p.display)}</div>
+        <div class="p-stats">${p.total} 条 · <span class="bull">${p.bullish}多</span> <span class="bear">${p.bearish}空</span></div>
+      </div>
+    </div>`;
+  });
+
+  document.getElementById('kol-people').innerHTML = html;
+}
+
+function setKolPerson(handle) {
+  KOL_PERSON = handle;
+  document.querySelectorAll('.kol-person').forEach(el => {
+    const h = el.dataset.handle || 'all';
+    el.classList.toggle('active', h === handle || (!el.dataset.handle && handle === 'all'));
+  });
+  renderKolList();
 }
 
 function setKolStance(v) {
@@ -1164,6 +1234,7 @@ function renderKolList() {
   const timeMs = { '24h': 86400e3, '7d': 7*86400e3, '30d': 30*86400e3 };
 
   let items = KOL_ALL.filter(it => {
+    if (KOL_PERSON !== 'all' && it.account_handle !== KOL_PERSON) return false;
     if (KOL_STANCE !== 'all' && it.stance !== KOL_STANCE) return false;
     if (KOL_TIME !== 'all') {
       try {
@@ -1174,7 +1245,6 @@ function renderKolList() {
     return true;
   });
 
-  // 按时间倒序（新→旧）
   items.sort((a, b) => {
     try { return new Date(b.created_at) - new Date(a.created_at); } catch(e) { return 0; }
   });
@@ -1189,7 +1259,7 @@ function renderKolList() {
 
   const stanceMap = { bullish: '🟢 看多', bearish: '🔴 看空', neutral: '⚪ 中性' };
 
-  const html = items.map(it => {
+  function renderCard(it) {
     const handle = it.account_handle || 'unknown';
     const display = it.display_name || handle;
     const stance = it.stance || 'neutral';
@@ -1200,7 +1270,6 @@ function renderKolList() {
     const tweetId = it.tweet_id || '';
     const created = it.created_at || '';
 
-    // 时间
     let timeStr = '';
     try {
       const dt = new Date(created);
@@ -1211,7 +1280,6 @@ function renderKolList() {
       else timeStr = dt.toLocaleDateString('zh-CN', { month:'short', day:'numeric' });
     } catch(e) { timeStr = created; }
 
-    // ticker tags
     const tickerHTML = tickers.map(t => {
       const inGraph = CHAINGRAPH_TICKERS.has(t);
       const cls = 'kol-ticker-tag' + (inGraph ? ' in-graph' : '');
@@ -1220,36 +1288,72 @@ function renderKolList() {
       return `<span class="${cls}"${onclick}>$${escapeHtml(t)}${pin}</span>`;
     }).join('');
 
-    // themes
     const themeHTML = themes.slice(0, 4).map(t =>
       `<span class="theme-tag">${escapeHtml(t)}</span>`
     ).join('');
 
     const tweetUrl = tweetId ? `https://x.com/${handle}/status/${tweetId}` : '';
 
+    // 选中单个 KOL 时不重复显示头像/名字，卡片更紧凑
+    const showHeader = KOL_PERSON === 'all';
+
     return `<div class="kol-card">
-      <div class="kol-card-top">
+      ${showHeader ? `<div class="kol-card-top">
         <div class="kol-avatar">${escapeHtml(display.charAt(0).toUpperCase())}</div>
         <div class="kol-meta">
           <div class="kol-name">${escapeHtml(display)}</div>
           <div class="kol-handle">@${escapeHtml(handle)}</div>
         </div>
         <span class="kol-stance ${stance}">${stanceMap[stance] || stance}</span>
-      </div>
+      </div>` : `<div class="kol-card-top" style="margin-bottom:4px">
+        <span class="kol-stance ${stance}">${stanceMap[stance] || stance}</span>
+        <span style="font-size:12px;color:#6b7785;margin-left:auto">${timeStr}</span>
+      </div>`}
       ${tickerHTML ? `<div class="kol-tickers">${tickerHTML}</div>` : ''}
       <div class="kol-body">
         ${keyClaim ? `<div class="claim">${escapeHtml(keyClaim)}</div>` : ''}
         ${summary ? `<div class="summary">${escapeHtml(summary)}</div>` : ''}
       </div>
       <div class="kol-footer">
-        <span>${timeStr}</span>
+        ${showHeader ? `<span>${timeStr}</span>` : ''}
         ${themeHTML ? `<div class="themes">${themeHTML}</div>` : ''}
         ${tweetUrl ? `<a href="${tweetUrl}" target="_blank" rel="noopener">查看原帖 ↗</a>` : ''}
       </div>
     </div>`;
-  }).join('');
+  }
 
-  document.getElementById('kol-list').innerHTML = `<div class="kol-list">${html}</div>`;
+  let html = '';
+
+  if (KOL_PERSON === 'all') {
+    // 按 KOL 分组显示
+    const groups = {};
+    items.forEach(it => {
+      const h = it.account_handle || 'unknown';
+      if (!groups[h]) groups[h] = { handle: h, display: it.display_name || h, items: [] };
+      groups[h].items.push(it);
+    });
+    // 按观点数降序
+    const sorted = Object.values(groups).sort((a, b) => b.items.length - a.items.length);
+
+    sorted.forEach(g => {
+      html += `<div class="kol-group-header">
+        <div class="g-avatar">${escapeHtml(g.display.charAt(0).toUpperCase())}</div>
+        <div>
+          <div class="g-name">${escapeHtml(g.display)}</div>
+          <div class="g-handle">@${escapeHtml(g.handle)}</div>
+        </div>
+        <span class="g-count">${g.items.length} 条</span>
+      </div>`;
+      html += `<div class="kol-list">`;
+      html += g.items.map(renderCard).join('');
+      html += `</div>`;
+    });
+  } else {
+    // 单个 KOL 模式 — 紧凑卡片
+    html = `<div class="kol-list">${items.map(renderCard).join('')}</div>`;
+  }
+
+  document.getElementById('kol-list').innerHTML = html;
 }
 
 // ============ Serenity Pool 热力榜 ============
