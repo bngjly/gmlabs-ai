@@ -19,26 +19,70 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Fetch MasterTicker KOL opinions
+      - name: Fetch and merge KOL opinions
         run: |
+          # 拉取最新 60 条
           curl -sf --retry 3 --retry-delay 10 \
             -H 'User-Agent: ChainGraph/1.0 (gmlabs.ai)' \
             -H 'Accept: application/json' \
             'https://masterticker.com/api/twitter/opinions/latest?limit=60' \
-            -o kol_cache_new.json
+            -o kol_new.json
 
-          # 验证 JSON 有效且有 items
-          python3 -c "
+          # 累积合并：新数据 + 已有数据，按 tweet_id 去重，保留 30 天内
+          python3 << 'PYEOF'
           import json, sys
-          d = json.load(open('kol_cache_new.json'))
-          items = d.get('items', [])
-          if len(items) == 0:
-              print('WARNING: 0 items returned, keeping old cache')
-              sys.exit(1)
-          print(f'OK: {len(items)} items, generated={d.get(\"generated_at\",\"?\")}')
-          "
+          from datetime import datetime, timezone, timedelta
 
-          mv kol_cache_new.json kol_cache.json
+          # 读取 API 新数据
+          try:
+              new_data = json.load(open('kol_new.json'))
+              new_items = new_data.get('items', [])
+          except Exception as e:
+              print(f'ERROR: Failed to parse API response: {e}')
+              sys.exit(1)
+
+          if not new_items:
+              print('WARNING: 0 new items from API, keeping existing cache')
+              sys.exit(0)
+
+          # 读取已有累积数据
+          try:
+              old_data = json.load(open('kol_cache.json'))
+              old_items = old_data.get('items', [])
+          except Exception:
+              old_items = []
+
+          # 按 tweet_id 去重合并（新的覆盖旧的）
+          seen = {}
+          for it in old_items:
+              tid = it.get('tweet_id', '')
+              if tid:
+                  seen[tid] = it
+          for it in new_items:
+              tid = it.get('tweet_id', '')
+              if tid:
+                  seen[tid] = it
+
+          # 按 created_at 降序排序
+          all_items = list(seen.values())
+          all_items.sort(key=lambda x: x.get('created_at', ''), reverse=True)
+
+          # 只保留 30 天内的数据
+          cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
+          all_items = [it for it in all_items if it.get('created_at', '') >= cutoff]
+
+          # 写入
+          result = {
+              'items': all_items,
+              'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+              'total': len(all_items)
+          }
+          with open('kol_cache.json', 'w', encoding='utf-8') as f:
+              json.dump(result, f, ensure_ascii=False, separators=(',', ':'))
+
+          added = len(all_items) - len(old_items)
+          print(f'OK: {len(new_items)} from API, {len(old_items)} existing -> {len(all_items)} total ({added:+d})')
+          PYEOF
 
       - name: Commit and push if changed
         run: |
