@@ -398,7 +398,7 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
     <p class="lead">聚合著名 KOL 公开推文，自动提取 ticker、多空立场和核心观点</p>
     <div class="home-kol-showcase">
       <div class="home-kol-serenity" onclick="goto('kol')">
-        <img class="home-kol-avatar" src="https://masterticker.com/twitter-author-avatars/aleabitoreddit.jpg" alt="Serenity" onerror="this.style.display='none'">
+        <img class="home-kol-avatar" src="/avatars/aleabitoreddit.jpg" alt="Serenity" onerror="this.style.display='none'">
         <div class="home-kol-info">
           <h3>🌟 Serenity <span style="color:#6b7785;font-weight:400;font-size:13px">@aleabitoreddit</span></h3>
           <p>华尔街顶级 KOL · 250+ 只标的深度覆盖 · 实时多空观点追踪</p>
@@ -1189,7 +1189,7 @@ function escapeAttr(s) { return escapeHtml(s); }
 // ============ KOL 观点 ============
 const KOL_API = '/api/kol';               // Vercel serverless proxy（实时）
 const KOL_CACHE_FILE = 'kol_cache.json';  // 静态兜底
-const KOL_AVATAR_BASE = 'https://masterticker.com/twitter-author-avatars/';
+const KOL_AVATAR_BASE = '/avatars/';
 // Serenity 置顶
 const KOL_PRIORITY = ['aleabitoreddit'];
 const CHAINGRAPH_TICKERS = new Set([

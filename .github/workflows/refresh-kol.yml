@@ -84,11 +84,34 @@ jobs:
           print(f'OK: {len(new_items)} from API, {len(old_items)} existing -> {len(all_items)} total ({added:+d})')
           PYEOF
 
+      - name: Sync KOL avatars
+        run: |
+          mkdir -p avatars
+          python3 << 'PYEOF'
+          import json, subprocess, os
+          d = json.load(open('kol_cache.json'))
+          handles = set(it.get('account_handle','') for it in d.get('items',[]) if it.get('account_handle'))
+          for h in sorted(handles):
+              path = f'avatars/{h}.jpg'
+              if os.path.exists(path) and os.path.getsize(path) > 1000:
+                  continue  # 已有有效头像，跳过
+              # 优先 unavatar.io（聚合 Twitter 头像），备选 MasterTicker
+              for url in [f'https://unavatar.io/twitter/{h}', f'https://masterticker.com/twitter-author-avatars/{h}.jpg']:
+                  ret = subprocess.run(['curl', '-sf', '--max-time', '10', '-o', path, url], capture_output=True)
+                  if ret.returncode == 0 and os.path.exists(path) and os.path.getsize(path) > 1000:
+                      print(f'OK: {h} from {url.split("/")[2]}')
+                      break
+              else:
+                  print(f'SKIP: {h} (no avatar source)')
+                  if os.path.exists(path) and os.path.getsize(path) <= 1000:
+                      os.remove(path)
+          PYEOF
+
       - name: Commit and push if changed
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add kol_cache.json
+          git add kol_cache.json avatars/
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
