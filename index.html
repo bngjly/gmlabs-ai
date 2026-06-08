@@ -579,11 +579,11 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
     <div class="kol-tg-banner">
       <div class="tg-icon">📬</div>
       <div class="tg-text">
-        <h3>Telegram 实时推送</h3>
+        <h3>Telegram 频道订阅</h3>
         <p>随时获得最新 KOL 观点，直达你的 Telegram。</p>
       </div>
       <div class="tg-action">
-        <button class="btn btn-primary" onclick="openTgSubscribe()">订阅 Telegram 通知</button>
+        <a class="btn btn-primary" href="https://t.me/yoyoaidaily" target="_blank" rel="noopener">加入频道 →</a>
       </div>
     </div>
 
@@ -1444,30 +1444,7 @@ function renderPool() {
 
 // ============ Telegram 订阅 Modal ============
 function openTgSubscribe() {
-  document.getElementById('modalInner').innerHTML = `
-    <h3>📬 Telegram 实时推送</h3>
-    <div class="body">
-      <p style="color:#cfd5dc; font-size:14px; line-height:1.7; margin-bottom:16px;">
-        订阅后，最新 KOL 观点自动推送到你的 Telegram，不错过任何重要信号。
-      </p>
-      <div style="background:#0f1419; border:1px solid #2a3548; border-radius:10px; padding:20px; text-align:center; margin-bottom:16px;">
-        <div style="font-size:48px; margin-bottom:10px;">🤖</div>
-        <p style="color:#fbbf24; font-size:14px; font-weight:600; margin-bottom:6px;">功能开发中</p>
-        <p style="color:#9aa5b1; font-size:13px; line-height:1.6;">
-          公开订阅频道即将上线。<br>
-          留下邮箱，我们第一时间通知你。
-        </p>
-      </div>
-      <p style="color:#6b7785; font-size:12px; line-height:1.6;">
-        💡 <strong style="color:#9aa5b1">已有私有推送</strong>：如果你是项目成员，Bot 已在后台运行并推送到指定 Chat。
-      </p>
-    </div>
-    <div style="margin-top:16px; text-align:right; display:flex; gap:8px; justify-content:flex-end;">
-      <button class="btn" onclick="closeModal()" style="background:#243245; color:#cfd5dc">关闭</button>
-      <button class="btn btn-primary" onclick="closeModal();openWaitlist()">留邮箱等通知</button>
-    </div>
-  `;
-  document.getElementById('modal').classList.add('show');
+  window.open('https://t.me/yoyoaidaily', '_blank');
 }
 
 // ============ URL hash 路由 ============
