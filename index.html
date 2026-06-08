@@ -798,7 +798,7 @@ async function renderHomeStats() {
   document.getElementById('stat-companies').textContent = allKeys.length || '250';
   document.getElementById('stat-companies-trend').textContent = '11 层 + Serenity 概念';
   document.getElementById('stat-graded').textContent = ok.length || '…';
-  document.getElementById('stat-graded-trend').textContent = lastDate ? '更新 ' + lastDate : '六维客观评分';
+  document.getElementById('stat-graded-trend').textContent = '六维客观评分';
   document.getElementById('stat-top').textContent = (sCount + aCount) || '…';
   document.getElementById('stat-top-trend').textContent = `S=${sCount} · A=${aCount}`;
 
@@ -828,7 +828,7 @@ function updateKolStat() {
   }
   const kolHandles = new Set(KOL_ALL.map(it => it.account_handle).filter(Boolean));
   document.getElementById('stat-kol').textContent = kolHandles.size;
-  document.getElementById('stat-kol-trend').textContent = KOL_ALL.length + ' 条观点';
+  document.getElementById('stat-kol-trend').textContent = '实时观点流';
 }
 
 // ============ Profile：从 localStorage（graph.html 共享） 渲染自选 ============
