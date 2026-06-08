@@ -1145,7 +1145,8 @@ function escapeHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&a
 function escapeAttr(s) { return escapeHtml(s); }
 
 // ============ KOL 观点 ============
-const KOL_CACHE_FILE = 'kol_cache.json';  // 静态缓存，GitHub Action 每 1h 刷新
+const KOL_API = '/api/kol';               // Vercel serverless proxy（实时）
+const KOL_CACHE_FILE = 'kol_cache.json';  // 静态兜底
 const KOL_AVATAR_BASE = 'https://masterticker.com/twitter-author-avatars/';
 // Serenity 置顶
 const KOL_PRIORITY = ['aleabitoreddit'];
@@ -1163,16 +1164,26 @@ let KOL_TIME = 'all';
 let KOL_PERSON = 'all';  // 当前选中的 KOL handle，'all' = 全部分组显示
 
 async function loadKolOpinions() {
-  try {
-    const r = await fetch(KOL_CACHE_FILE, { cache: 'no-cache' });
+  // 优先实时 API，失败则用静态缓存兜底
+  async function tryFetch(url) {
+    const r = await fetch(url, { cache: 'no-cache' });
     if (!r.ok) throw new Error('HTTP ' + r.status);
-    const data = await r.json();
+    return r.json();
+  }
+  try {
+    let data;
+    try {
+      data = await tryFetch(KOL_API + '?limit=60');
+    } catch (e) {
+      console.warn('API proxy failed, fallback to cache', e);
+      data = await tryFetch(KOL_CACHE_FILE);
+    }
     KOL_ALL = data.items || [];
     KOL_LOADED = true;
     renderKolPeople();
     renderKolList();
   } catch (e) {
-    console.warn('kol_cache.json load failed', e);
+    console.warn('KOL load failed', e);
     KOL_LOADED = true;
     document.getElementById('kol-list').innerHTML =
       '<div class="kol-empty">暂无 KOL 观点数据</div>';
