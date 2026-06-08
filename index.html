@@ -1113,8 +1113,7 @@ function escapeHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&a
 function escapeAttr(s) { return escapeHtml(s); }
 
 // ============ KOL 观点 ============
-const KOL_API_PROXY = '/api/kol';  // Vercel serverless proxy (CORS safe)
-const KOL_API_FALLBACK = 'https://masterticker.com/api/twitter/opinions/latest';
+const KOL_CACHE_FILE = 'kol_cache.json';  // 静态缓存，GitHub Action 每 4h 刷新
 const CHAINGRAPH_TICKERS = new Set([
   'NVDA','AMD','AVGO','MRVL','TSM','INTC','MU','AMAT','KLAC',
   'LITE','COHR','AAOI','ANET','ALAB','CRDO','SNDK','STX',
@@ -1123,50 +1122,26 @@ const CHAINGRAPH_TICKERS = new Set([
   'TSLA','ARM','QCOM','ASML','BESI',
 ]);
 let KOL_LOADED = false;
-let KOL_ALL = [];   // raw items from API
+let KOL_ALL = [];   // raw items
 let KOL_STANCE = 'all';
 let KOL_TIME = 'all';
 
 async function loadKolOpinions() {
-  // 优先走 Vercel proxy（避免 CORS），失败则直连 MasterTicker
-  async function tryFetch(url) {
-    const r = await fetch(url, { headers: { 'Accept': 'application/json' } });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    return r.json();
-  }
+  // 读静态缓存文件（GitHub Action 每 4h 刷新，零 CORS 问题）
   try {
-    let data;
-    try {
-      data = await tryFetch(KOL_API_PROXY + '?limit=60');
-    } catch (e1) {
-      console.warn('proxy failed, trying direct', e1);
-      data = await tryFetch(KOL_API_FALLBACK + '?limit=60');
-    }
-    KOL_ALL = data.items || data || [];
+    const r = await fetch(KOL_CACHE_FILE, { cache: 'no-cache' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const data = await r.json();
+    KOL_ALL = data.items || [];
     KOL_LOADED = true;
-    KOL_LAST_UPDATE = Date.now();
     renderKolList();
   } catch (e) {
-    console.warn('KOL API error', e);
-    KOL_LOADED = true;  // 标记已尝试，避免重复触发
-    if (KOL_ALL.length > 0) {
-      renderKolList();   // 有旧数据就继续展示
-    } else {
-      document.getElementById('kol-list').innerHTML =
-        '<div class="kol-empty">暂无 KOL 观点数据，将在下次刷新时自动获取</div>';
-    }
+    console.warn('kol_cache.json load failed', e);
+    KOL_LOADED = true;
+    document.getElementById('kol-list').innerHTML =
+      '<div class="kol-empty">暂无 KOL 观点数据</div>';
   }
 }
-
-// 每 4 小时静默刷新一次 KOL 数据
-let KOL_LAST_UPDATE = 0;
-const KOL_REFRESH_MS = 4 * 3600 * 1000;
-setInterval(() => {
-  if (KOL_LOADED && Date.now() - KOL_LAST_UPDATE >= KOL_REFRESH_MS) {
-    console.log('[KOL] auto-refresh');
-    loadKolOpinions();
-  }
-}, 60000);  // 每分钟检查一次是否该刷新
 
 function setKolStance(v) {
   KOL_STANCE = v;
