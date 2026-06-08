@@ -361,7 +361,7 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
 <div class="page active" id="page-home">
   <div class="hero">
     <h1 data-i18n="home.hero.title">全球 AI 产业链的<br>「维基百科」</h1>
-    <p class="sub" data-i18n="home.hero.sub">11 层结构，350+ 家公司，社区共建。从 NVDA 到 HBM，从 CoWoS 到液冷快接头，一图看懂 AI 怎么收税。</p>
+    <p class="sub" data-i18n="home.hero.sub">11 层结构，350+ 家公司，社区共建。从 NVDA 到 HBM，从 CoWoS 到液冷快接头，一图看懂 AI 产业链全貌。</p>
     <div class="hero-cta">
       <button class="btn btn-primary btn-big" onclick="goto('graph')" data-i18n="home.hero.cta.graph">🌐 进入图谱</button>
       <button class="btn btn-big" onclick="goto('graph')" data-i18n="home.hero.cta.ai">🤖 AI 一键分析</button>
@@ -381,6 +381,7 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
     <div class="stat-card"><div class="num" id="stat-layers">12</div><div class="label" data-i18n="home.stat.layers">产业链层级</div><div class="trend" id="stat-layers-trend" data-i18n="home.stat.layers.trend">~75 子赛道</div></div>
     <div class="stat-card"><div class="num" id="stat-graded">…</div><div class="label" data-i18n="home.stat.graded">已评分公司</div><div class="trend" id="stat-graded-trend" data-i18n="home.stat.graded.trend">六维客观评分</div></div>
     <div class="stat-card"><div class="num" id="stat-top">…</div><div class="label" data-i18n="home.stat.top">S/A 级标的</div><div class="trend" id="stat-top-trend" data-i18n="home.stat.top.trend">AI 卖铲赢家</div></div>
+    <div class="stat-card"><div class="num" id="stat-kol">…</div><div class="label">KOL 追踪</div><div class="trend" id="stat-kol-trend">实时观点流</div></div>
   </div>
 
   <div class="section">
@@ -813,6 +814,20 @@ async function renderHomeStats() {
     </span>`;
   }).join('') || '<span style="color:#6b7785;font-size:12px">暂无数据</span>';
   document.getElementById('top-tags').innerHTML = tagsHTML;
+
+  // KOL 统计（从预加载的缓存中取）
+  updateKolStat();
+}
+
+function updateKolStat() {
+  if (!KOL_ALL.length) {
+    // 预加载还没完成，稍后重试
+    setTimeout(updateKolStat, 500);
+    return;
+  }
+  const kolHandles = new Set(KOL_ALL.map(it => it.account_handle).filter(Boolean));
+  document.getElementById('stat-kol').textContent = kolHandles.size;
+  document.getElementById('stat-kol-trend').textContent = KOL_ALL.length + ' 条观点';
 }
 
 // ============ Profile：从 localStorage（graph.html 共享） 渲染自选 ============
