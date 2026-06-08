@@ -798,7 +798,7 @@ async function renderHomeStats() {
   document.getElementById('stat-companies').textContent = allKeys.length || '250';
   document.getElementById('stat-companies-trend').textContent = '11 层 + Serenity 概念';
   document.getElementById('stat-graded').textContent = ok.length || '…';
-  document.getElementById('stat-graded-trend').textContent = '六维客观评分';
+  document.getElementById('stat-graded-trend').textContent = lastDate ? '更新 ' + lastDate : '六维客观评分';
   document.getElementById('stat-top').textContent = (sCount + aCount) || '…';
   document.getElementById('stat-top-trend').textContent = `S=${sCount} · A=${aCount}`;
 
