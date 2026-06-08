@@ -67,8 +67,8 @@ jobs:
           all_items = list(seen.values())
           all_items.sort(key=lambda x: x.get('created_at', ''), reverse=True)
 
-          # 只保留 30 天内的数据
-          cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
+          # 只保留 7 天内的数据
+          cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
           all_items = [it for it in all_items if it.get('created_at', '') >= cutoff]
 
           # 写入
