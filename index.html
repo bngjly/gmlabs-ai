@@ -193,6 +193,87 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
   .pr-mid { grid-column: 1 / -1; }
 }
 
+/* ===== KOL 观点 PAGE ===== */
+.kol-wrap { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+.kol-header { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #2a3548; }
+.kol-header h1 { font-size: 28px; margin-bottom: 6px; }
+.kol-header .sub { color: #9aa5b1; font-size: 14px; }
+
+.kol-filters { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+.kol-filter-group { display: flex; gap: 4px; background: #1a2230; border: 1px solid #2a3548; border-radius: 8px; padding: 3px; }
+.kol-chip { padding: 6px 14px; border-radius: 6px; font-size: 13px; cursor: pointer; color: #9aa5b1; transition: .15s; white-space: nowrap; }
+.kol-chip:hover { color: #e6e6e6; }
+.kol-chip.active { background: #4fc3f7; color: #000; font-weight: 600; }
+.kol-chip.bull.active { background: #22c55e; color: #000; }
+.kol-chip.bear.active { background: #ef4444; color: #fff; }
+.kol-chip.neut.active { background: #9aa5b1; color: #000; }
+.kol-count { font-size: 12px; color: #6b7785; margin-left: auto; }
+
+.kol-tg-banner { background: linear-gradient(135deg, #1a2230 0%, #1f2a3d 100%); border: 1px solid #4fc3f7; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.kol-tg-banner .tg-icon { font-size: 36px; }
+.kol-tg-banner .tg-text h3 { font-size: 16px; color: #4fc3f7; margin-bottom: 4px; }
+.kol-tg-banner .tg-text p { font-size: 13px; color: #9aa5b1; }
+.kol-tg-banner .tg-action { margin-left: auto; }
+
+.kol-list { display: flex; flex-direction: column; gap: 12px; }
+.kol-card { background: #1a2230; border: 1px solid #2a3548; border-radius: 12px; padding: 20px 24px; transition: .15s; }
+.kol-card:hover { border-color: #3a4860; }
+.kol-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.kol-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,#4fc3f7,#a855f7); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #000; flex-shrink: 0; }
+.kol-meta .kol-name { font-size: 15px; font-weight: 600; }
+.kol-meta .kol-handle { font-size: 12px; color: #6b7785; }
+.kol-stance { padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: auto; }
+.kol-stance.bullish { background: rgba(34,197,94,.15); color: #22c55e; }
+.kol-stance.bearish { background: rgba(239,68,68,.15); color: #ef4444; }
+.kol-stance.neutral { background: rgba(154,165,177,.15); color: #9aa5b1; }
+
+.kol-tickers { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.kol-ticker-tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; background: #243245; border: 1px solid #3a4860; border-radius: 6px; font-size: 13px; font-weight: 600; color: #4fc3f7; cursor: default; }
+.kol-ticker-tag.in-graph { border-color: #4fc3f7; cursor: pointer; }
+.kol-ticker-tag.in-graph:hover { background: #2d3b50; }
+.kol-ticker-tag .pin { font-size: 11px; }
+
+.kol-body { color: #cfd5dc; font-size: 14px; line-height: 1.7; }
+.kol-body .claim { font-weight: 600; color: #e6e6e6; margin-bottom: 6px; }
+.kol-body .summary { color: #9aa5b1; font-size: 13px; }
+
+.kol-footer { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding-top: 10px; border-top: 1px solid #243245; font-size: 12px; color: #6b7785; flex-wrap: wrap; }
+.kol-footer .themes { display: flex; gap: 4px; flex-wrap: wrap; }
+.kol-footer .theme-tag { padding: 2px 8px; background: #243245; border-radius: 4px; font-size: 11px; color: #9aa5b1; }
+.kol-footer a { color: #4fc3f7; text-decoration: none; }
+.kol-footer a:hover { text-decoration: underline; }
+
+.kol-empty { text-align: center; padding: 60px 20px; color: #6b7785; font-size: 14px; }
+.kol-loading { text-align: center; padding: 60px 20px; color: #9aa5b1; font-size: 14px; }
+
+/* Serenity Ticker Pool 热力榜 */
+.serenity-pool { margin-top: 32px; }
+.serenity-pool h2 { font-size: 20px; margin-bottom: 6px; }
+.serenity-pool .pool-sub { color: #9aa5b1; font-size: 13px; margin-bottom: 16px; }
+.pool-filters { display: flex; gap: 4px; margin-bottom: 14px; background: #1a2230; border: 1px solid #2a3548; border-radius: 8px; padding: 3px; width: fit-content; }
+.pool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+.pool-item { background: #1a2230; border: 1px solid #2a3548; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; transition: .15s; cursor: pointer; }
+.pool-item:hover { border-color: #4fc3f7; transform: translateY(-1px); }
+.pool-rank { font-size: 11px; color: #6b7785; min-width: 20px; }
+.pool-rank.top3 { color: #fbbf24; font-weight: 700; }
+.pool-ticker { font-size: 15px; font-weight: 700; color: #4fc3f7; }
+.pool-score { font-size: 11px; color: #6b7785; margin-left: auto; }
+.pool-badge { padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.pool-badge.bullish { background: rgba(34,197,94,.15); color: #22c55e; }
+.pool-badge.bearish { background: rgba(239,68,68,.15); color: #ef4444; }
+.pool-badge.neutral { background: rgba(154,165,177,.15); color: #9aa5b1; }
+.pool-more { text-align: center; padding: 16px; }
+.pool-more button { background: #243245; border: 1px solid #3a4860; color: #9aa5b1; padding: 8px 20px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+.pool-more button:hover { border-color: #4fc3f7; color: #e6e6e6; }
+
+@media (max-width: 720px) {
+  .kol-tg-banner { flex-direction: column; text-align: center; }
+  .kol-tg-banner .tg-action { margin-left: 0; }
+  .kol-card-top { gap: 8px; }
+  .kol-stance { margin-left: 0; }
+  .pool-grid { grid-template-columns: 1fr; }
+}
+
 /* ===== Modal ===== */
 .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
 .modal-bg.show { display: flex; }
@@ -220,6 +301,7 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
   <div class="tabs">
     <div class="tab active" onclick="goto('home')" data-i18n="nav.home">首页</div>
     <div class="tab" onclick="goto('graph')" data-i18n="nav.graph">图谱</div>
+    <div class="tab" onclick="goto('kol')" data-i18n="nav.kol">KOL 观点</div>
     <div class="tab" onclick="goto('profile')" data-i18n="nav.profile">研究笔记</div>
   </div>
   <div class="nav-right">
@@ -462,6 +544,68 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
   </div>
 </div>
 
+<!-- ========== PAGE: KOL 观点 ========== -->
+<div class="page" id="page-kol" style="display:none">
+  <div class="kol-wrap">
+    <div class="kol-header">
+      <h1>🐦 KOL 观点流</h1>
+      <p class="sub">聚合 MasterTicker 追踪的华尔街 KOL 公开推文，自动提取 ticker、多空立场和核心观点。图谱收录标的可一键跳转。</p>
+    </div>
+
+    <!-- Telegram 订阅 Banner -->
+    <div class="kol-tg-banner">
+      <div class="tg-icon">📬</div>
+      <div class="tg-text">
+        <h3>Telegram 实时推送</h3>
+        <p>新观点 4 小时内自动推送到你的 Telegram，无需反复刷新。</p>
+      </div>
+      <div class="tg-action">
+        <button class="btn btn-primary" onclick="openTgSubscribe()">订阅 Telegram 通知</button>
+      </div>
+    </div>
+
+    <!-- 筛选栏 -->
+    <div class="kol-filters">
+      <div class="kol-filter-group" id="kol-stance-filter">
+        <span class="kol-chip active" data-stance="all" onclick="setKolStance('all')">全部</span>
+        <span class="kol-chip bull" data-stance="bullish" onclick="setKolStance('bullish')">🟢 看多</span>
+        <span class="kol-chip bear" data-stance="bearish" onclick="setKolStance('bearish')">🔴 看空</span>
+        <span class="kol-chip neut" data-stance="neutral" onclick="setKolStance('neutral')">⚪ 中性</span>
+      </div>
+      <div class="kol-filter-group" id="kol-time-filter">
+        <span class="kol-chip active" data-time="all" onclick="setKolTime('all')">全部</span>
+        <span class="kol-chip" data-time="24h" onclick="setKolTime('24h')">24h</span>
+        <span class="kol-chip" data-time="7d" onclick="setKolTime('7d')">7 天</span>
+        <span class="kol-chip" data-time="30d" onclick="setKolTime('30d')">30 天</span>
+      </div>
+      <span class="kol-count" id="kol-count"></span>
+    </div>
+
+    <!-- 观点列表 -->
+    <div id="kol-list">
+      <div class="kol-loading"><span class="spinner"></span> 获取最新 KOL 观点...</div>
+    </div>
+
+    <!-- Serenity Ticker Pool 热力榜 -->
+    <div class="serenity-pool">
+      <h2>🔥 Serenity 提及热力榜</h2>
+      <p class="pool-sub">基于 Serenity（@aleabitoreddit）250 只公开提及标的的历史提及频次排名。情绪标签由第三方 AI 模型解读，非 Serenity 本人观点。</p>
+      <div class="pool-filters" id="pool-sentiment-filter">
+        <span class="kol-chip active" data-ps="all" onclick="setPoolSentiment('all')">全部</span>
+        <span class="kol-chip bull" data-ps="看多" onclick="setPoolSentiment('看多')">看多</span>
+        <span class="kol-chip bear" data-ps="看空" onclick="setPoolSentiment('看空')">看空</span>
+        <span class="kol-chip neut" data-ps="中性" onclick="setPoolSentiment('中性')">中性</span>
+      </div>
+      <div class="pool-grid" id="pool-grid">
+        <div style="color:#6b7785;font-size:13px;grid-column:1/-1;text-align:center;padding:20px">载入中...</div>
+      </div>
+      <div class="pool-more" id="pool-more" style="display:none">
+        <button onclick="showMorePool()">展开更多</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ========== PAGE: PROFILE / 研究笔记 ========== -->
 <div class="page" id="page-profile" style="display:none">
   <div class="profile-wrap">
@@ -520,7 +664,7 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
 
 <script>
 // ============ 标签页切换 ============
-const VALID_PAGES = ['home', 'graph', 'profile'];
+const VALID_PAGES = ['home', 'graph', 'kol', 'profile'];
 function goto(page) {
   if (!VALID_PAGES.includes(page)) page = 'home';
   // 防御：先把所有 .page 强制 display:none，再激活目标
@@ -534,11 +678,15 @@ function goto(page) {
     target.classList.add('active');
     target.style.display = 'block';
   }
-  const tabMap = { home:0, graph:1, profile:2 };
+  const tabMap = { home:0, graph:1, kol:2, profile:3 };
   const tabs = document.querySelectorAll('.nav .tab');
   if (tabs[tabMap[page]]) tabs[tabMap[page]].classList.add('active');
   window.scrollTo(0, 0);
   if (page === 'profile') renderProfile();
+  if (page === 'kol') {
+    if (!KOL_LOADED) loadKolOpinions();
+    if (!POOL_DATA) loadSerenityPool();
+  }
 }
 
 function closeModal() { document.getElementById('modal').classList.remove('show'); }
@@ -963,6 +1111,263 @@ getDeviceId();  // 启动时确保设备 ID 已生成
 // ============ 工具 ============
 function escapeHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function escapeAttr(s) { return escapeHtml(s); }
+
+// ============ KOL 观点 ============
+const KOL_API_PROXY = '/api/kol';  // Vercel serverless proxy (CORS safe)
+const KOL_API_FALLBACK = 'https://masterticker.com/api/twitter/opinions/latest';
+const CHAINGRAPH_TICKERS = new Set([
+  'NVDA','AMD','AVGO','MRVL','TSM','INTC','MU','AMAT','KLAC',
+  'LITE','COHR','AAOI','ANET','ALAB','CRDO','SNDK','STX',
+  'VRT','MOD','GEV','ETN','SMCI','DELL',
+  'AXTI','AEHR','SIVE','XFAB','POET',
+  'TSLA','ARM','QCOM','ASML','BESI',
+]);
+let KOL_LOADED = false;
+let KOL_ALL = [];   // raw items from API
+let KOL_STANCE = 'all';
+let KOL_TIME = 'all';
+
+async function loadKolOpinions() {
+  // 优先走 Vercel proxy（避免 CORS），失败则直连 MasterTicker
+  async function tryFetch(url) {
+    const r = await fetch(url, { headers: { 'Accept': 'application/json' } });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  }
+  try {
+    let data;
+    try {
+      data = await tryFetch(KOL_API_PROXY + '?limit=60');
+    } catch (e1) {
+      console.warn('proxy failed, trying direct', e1);
+      data = await tryFetch(KOL_API_FALLBACK + '?limit=60');
+    }
+    KOL_ALL = data.items || data || [];
+    KOL_LOADED = true;
+    KOL_LAST_UPDATE = Date.now();
+    renderKolList();
+  } catch (e) {
+    console.warn('KOL API error', e);
+    KOL_LOADED = true;  // 标记已尝试，避免重复触发
+    if (KOL_ALL.length > 0) {
+      renderKolList();   // 有旧数据就继续展示
+    } else {
+      document.getElementById('kol-list').innerHTML =
+        '<div class="kol-empty">暂无 KOL 观点数据，将在下次刷新时自动获取</div>';
+    }
+  }
+}
+
+// 每 4 小时静默刷新一次 KOL 数据
+let KOL_LAST_UPDATE = 0;
+const KOL_REFRESH_MS = 4 * 3600 * 1000;
+setInterval(() => {
+  if (KOL_LOADED && Date.now() - KOL_LAST_UPDATE >= KOL_REFRESH_MS) {
+    console.log('[KOL] auto-refresh');
+    loadKolOpinions();
+  }
+}, 60000);  // 每分钟检查一次是否该刷新
+
+function setKolStance(v) {
+  KOL_STANCE = v;
+  document.querySelectorAll('#kol-stance-filter .kol-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.stance === v);
+  });
+  renderKolList();
+}
+
+function setKolTime(v) {
+  KOL_TIME = v;
+  document.querySelectorAll('#kol-time-filter .kol-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.time === v);
+  });
+  renderKolList();
+}
+
+function renderKolList() {
+  const now = Date.now();
+  const timeMs = { '24h': 86400e3, '7d': 7*86400e3, '30d': 30*86400e3 };
+
+  let items = KOL_ALL.filter(it => {
+    if (KOL_STANCE !== 'all' && it.stance !== KOL_STANCE) return false;
+    if (KOL_TIME !== 'all') {
+      try {
+        const t = new Date(it.created_at).getTime();
+        if (now - t > timeMs[KOL_TIME]) return false;
+      } catch(e) { return false; }
+    }
+    return true;
+  });
+
+  // 按时间倒序（新→旧）
+  items.sort((a, b) => {
+    try { return new Date(b.created_at) - new Date(a.created_at); } catch(e) { return 0; }
+  });
+
+  document.getElementById('kol-count').textContent = items.length + ' 条观点';
+
+  if (items.length === 0) {
+    document.getElementById('kol-list').innerHTML =
+      '<div class="kol-empty">暂无匹配的观点，试试放宽筛选条件</div>';
+    return;
+  }
+
+  const stanceMap = { bullish: '🟢 看多', bearish: '🔴 看空', neutral: '⚪ 中性' };
+
+  const html = items.map(it => {
+    const handle = it.account_handle || 'unknown';
+    const display = it.display_name || handle;
+    const stance = it.stance || 'neutral';
+    const tickers = it.mentioned_tickers || [];
+    const keyClaim = it.key_claim || '';
+    const summary = it.summary || '';
+    const themes = it.themes || [];
+    const tweetId = it.tweet_id || '';
+    const created = it.created_at || '';
+
+    // 时间
+    let timeStr = '';
+    try {
+      const dt = new Date(created);
+      const diff = now - dt.getTime();
+      if (diff < 3600e3) timeStr = Math.floor(diff/60e3) + ' 分钟前';
+      else if (diff < 86400e3) timeStr = Math.floor(diff/3600e3) + ' 小时前';
+      else if (diff < 7*86400e3) timeStr = Math.floor(diff/86400e3) + ' 天前';
+      else timeStr = dt.toLocaleDateString('zh-CN', { month:'short', day:'numeric' });
+    } catch(e) { timeStr = created; }
+
+    // ticker tags
+    const tickerHTML = tickers.map(t => {
+      const inGraph = CHAINGRAPH_TICKERS.has(t);
+      const cls = 'kol-ticker-tag' + (inGraph ? ' in-graph' : '');
+      const onclick = inGraph ? ` onclick="jumpToTickerInGraph('${escapeAttr(t)}')"` : '';
+      const pin = inGraph ? ' <span class="pin">📌</span>' : '';
+      return `<span class="${cls}"${onclick}>$${escapeHtml(t)}${pin}</span>`;
+    }).join('');
+
+    // themes
+    const themeHTML = themes.slice(0, 4).map(t =>
+      `<span class="theme-tag">${escapeHtml(t)}</span>`
+    ).join('');
+
+    const tweetUrl = tweetId ? `https://x.com/${handle}/status/${tweetId}` : '';
+
+    return `<div class="kol-card">
+      <div class="kol-card-top">
+        <div class="kol-avatar">${escapeHtml(display.charAt(0).toUpperCase())}</div>
+        <div class="kol-meta">
+          <div class="kol-name">${escapeHtml(display)}</div>
+          <div class="kol-handle">@${escapeHtml(handle)}</div>
+        </div>
+        <span class="kol-stance ${stance}">${stanceMap[stance] || stance}</span>
+      </div>
+      ${tickerHTML ? `<div class="kol-tickers">${tickerHTML}</div>` : ''}
+      <div class="kol-body">
+        ${keyClaim ? `<div class="claim">${escapeHtml(keyClaim)}</div>` : ''}
+        ${summary ? `<div class="summary">${escapeHtml(summary)}</div>` : ''}
+      </div>
+      <div class="kol-footer">
+        <span>${timeStr}</span>
+        ${themeHTML ? `<div class="themes">${themeHTML}</div>` : ''}
+        ${tweetUrl ? `<a href="${tweetUrl}" target="_blank" rel="noopener">查看原帖 ↗</a>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('kol-list').innerHTML = `<div class="kol-list">${html}</div>`;
+}
+
+// ============ Serenity Pool 热力榜 ============
+let POOL_DATA = null;
+let POOL_SENTIMENT = 'all';
+let POOL_SHOW = 20;  // 默认显示前 20
+
+async function loadSerenityPool() {
+  try {
+    const r = await fetch('serenity_pool.json', { cache: 'no-cache' });
+    const data = await r.json();
+    POOL_DATA = Object.entries(data.pool).map(([ticker, v]) => ({ ticker, ...v }));
+    POOL_DATA.sort((a, b) => a.rank - b.rank);
+    renderPool();
+  } catch (e) {
+    console.warn('serenity_pool load failed', e);
+    document.getElementById('pool-grid').innerHTML =
+      '<div style="color:#6b7785;font-size:13px;grid-column:1/-1;text-align:center;padding:20px">暂无数据</div>';
+  }
+}
+
+function setPoolSentiment(v) {
+  POOL_SENTIMENT = v;
+  POOL_SHOW = 20;
+  document.querySelectorAll('#pool-sentiment-filter .kol-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.ps === v);
+  });
+  renderPool();
+}
+
+function showMorePool() {
+  POOL_SHOW += 30;
+  renderPool();
+}
+
+function renderPool() {
+  if (!POOL_DATA) return;
+  const sentimentMap = { '看多': 'bullish', '看空': 'bearish', '中性': 'neutral' };
+  const sentimentLabel = { '看多': '看多', '看空': '看空', '中性': '中性', '未知': '未知' };
+
+  let items = POOL_DATA;
+  if (POOL_SENTIMENT !== 'all') {
+    items = items.filter(it => it.ai_sentiment === POOL_SENTIMENT);
+  }
+
+  const visible = items.slice(0, POOL_SHOW);
+  const hasMore = items.length > POOL_SHOW;
+
+  const html = visible.map((it, i) => {
+    const cls = sentimentMap[it.ai_sentiment] || 'neutral';
+    const label = sentimentLabel[it.ai_sentiment] || it.ai_sentiment;
+    const inGraph = CHAINGRAPH_TICKERS.has(it.ticker);
+    const onclick = inGraph ? `jumpToTickerInGraph('${escapeAttr(it.ticker)}')` : '';
+    const rankCls = it.rank <= 3 ? 'pool-rank top3' : 'pool-rank';
+    return `<div class="pool-item" ${onclick ? `onclick="${onclick}"` : ''}>
+      <span class="${rankCls}">#${it.rank}</span>
+      <span class="pool-ticker">${escapeHtml(it.ticker)}${inGraph ? ' <span style="font-size:11px">📌</span>' : ''}</span>
+      <span class="pool-badge ${cls}">${label}</span>
+      <span class="pool-score">热度 ${it.mention_score}</span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('pool-grid').innerHTML = html || '<div style="color:#6b7785;font-size:13px;grid-column:1/-1;text-align:center;padding:20px">无匹配数据</div>';
+  document.getElementById('pool-more').style.display = hasMore ? 'block' : 'none';
+}
+
+// ============ Telegram 订阅 Modal ============
+function openTgSubscribe() {
+  document.getElementById('modalInner').innerHTML = `
+    <h3>📬 Telegram 实时推送</h3>
+    <div class="body">
+      <p style="color:#cfd5dc; font-size:14px; line-height:1.7; margin-bottom:16px;">
+        我们的 Bot 每 4 小时扫描一次 MasterTicker 更新，发现新观点立即推送到你的 Telegram。
+      </p>
+      <div style="background:#0f1419; border:1px solid #2a3548; border-radius:10px; padding:20px; text-align:center; margin-bottom:16px;">
+        <div style="font-size:48px; margin-bottom:10px;">🤖</div>
+        <p style="color:#fbbf24; font-size:14px; font-weight:600; margin-bottom:6px;">功能开发中</p>
+        <p style="color:#9aa5b1; font-size:13px; line-height:1.6;">
+          公开订阅频道即将上线。<br>
+          留下邮箱，我们第一时间通知你。
+        </p>
+      </div>
+      <p style="color:#6b7785; font-size:12px; line-height:1.6;">
+        💡 <strong style="color:#9aa5b1">已有私有推送</strong>：如果你是项目成员，Bot 已在后台运行并推送到指定 Chat。
+      </p>
+    </div>
+    <div style="margin-top:16px; text-align:right; display:flex; gap:8px; justify-content:flex-end;">
+      <button class="btn" onclick="closeModal()" style="background:#243245; color:#cfd5dc">关闭</button>
+      <button class="btn btn-primary" onclick="closeModal();openWaitlist()">留邮箱等通知</button>
+    </div>
+  `;
+  document.getElementById('modal').classList.add('show');
+}
 
 // ============ URL hash 路由 ============
 window.addEventListener('hashchange', () => {
