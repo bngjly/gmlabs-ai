@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ChainGraph · 全球 AI 产业链共建图谱</title>
 <meta name="description" content="社区共建的 AI 产业链全景图谱。350+ 家公司，11 层结构，AI 一键深度分析。">
+<link rel="preload" href="scores.json" as="fetch">
+<link rel="preload" href="kol_cache.json" as="fetch">
 <!-- Vercel Analytics (匿名 PV/UV，启用需在 Vercel Dashboard 打开) -->
 <script defer src="/_vercel/insights/script.js"></script>
 <!-- 双语字典（必须在 body 脚本之前加载） -->
@@ -772,7 +774,7 @@ let SCORES_CACHE = null;
 async function loadScores() {
   if (SCORES_CACHE) return SCORES_CACHE;
   try {
-    const r = await fetch('scores.json', { cache: 'no-cache' });
+    const r = await fetch('scores.json');
     SCORES_CACHE = await r.json();
     return SCORES_CACHE;
   } catch (e) {
