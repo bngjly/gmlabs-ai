@@ -129,6 +129,10 @@ def main():
 
     # 最终保存
     OUTPUT.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
+    # 同步到仓库根目录（网站读取的文件），紧凑格式减小体积
+    SITE_OUTPUT = ROOT.parent / "scores.json"
+    SITE_OUTPUT.write_text(
+        json.dumps(results, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     elapsed = time.time() - start
     print(f"\n══════ 完成 ══════")
