@@ -36,3 +36,5 @@ scoring/data/
 scoring/output/
 scoring/*.log
 scoring/.env
+
+.vercel
