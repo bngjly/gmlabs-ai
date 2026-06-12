@@ -50,10 +50,6 @@
       "cn": "Maia 100/200"
     },
     {
-      "ticker": "OpenAI",
-      "cn": "OpenAI ASIC"
-    },
-    {
       "ticker": "ARM",
       "cn": "Arm Holdings"
     },
@@ -146,7 +142,7 @@
       "cn": "Lasertec"
     },
     {
-      "ticker": "RMBX.OB",
+      "ticker": "RMBS",
       "cn": "Rambus"
     },
     {
@@ -182,7 +178,7 @@
       "cn": "西部数据"
     },
     {
-      "ticker": "TDK.T",
+      "ticker": "6762.T",
       "cn": "TDK"
     },
     {
@@ -202,7 +198,7 @@
       "cn": "联发科"
     },
     {
-      "ticker": "00981.HK",
+      "ticker": "0981.HK",
       "cn": "中芯国际 SMIC（港）"
     },
     {
@@ -214,14 +210,6 @@
       "cn": "Amkor"
     },
     {
-      "ticker": "JCET",
-      "cn": "长电科技"
-    },
-    {
-      "ticker": "TFME",
-      "cn": "通富微电"
-    },
-    {
       "ticker": "UMC",
       "cn": "联电"
     },
@@ -230,7 +218,7 @@
       "cn": "GlobalFoundries"
     },
     {
-      "ticker": "SMCI/HPE",
+      "ticker": "SMCI",
       "cn": "(系统集成)"
     },
     {
@@ -270,7 +258,7 @@
       "cn": "Shinko 新光电气"
     },
     {
-      "ticker": "AT&S.VI",
+      "ticker": "ATS.VI",
       "cn": "奥地利 AT&S"
     },
     {
@@ -278,7 +266,7 @@
       "cn": "Corning 康宁"
     },
     {
-      "ticker": "AGC.T",
+      "ticker": "5201.T",
       "cn": "AGC 旭硝子"
     },
     {
@@ -286,11 +274,11 @@
       "cn": "Kulicke & Soffa"
     },
     {
-      "ticker": "SUSS.DE",
+      "ticker": "SMHN.DE",
       "cn": "Süss MicroTec"
     },
     {
-      "ticker": "00522.HK",
+      "ticker": "0522.HK",
       "cn": "ASMPT 港股"
     },
     {
@@ -298,7 +286,7 @@
       "cn": "Credo"
     },
     {
-      "ticker": "Parade",
+      "ticker": "4966.TWO",
       "cn": "Parade Tech"
     },
     {
@@ -312,18 +300,6 @@
     {
       "ticker": "ANET",
       "cn": "Arista"
-    },
-    {
-      "ticker": "SMCI",
-      "cn": "Supermicro"
-    },
-    {
-      "ticker": "RMBX",
-      "cn": "Rambus"
-    },
-    {
-      "ticker": "Lightmatter",
-      "cn": "Lightmatter"
     },
     {
       "ticker": "APH",
@@ -344,10 +320,6 @@
     {
       "ticker": "NVT",
       "cn": "nVent Electric"
-    },
-    {
-      "ticker": "JNPR",
-      "cn": "Juniper"
     },
     {
       "ticker": "SNPS",
@@ -446,16 +418,8 @@
       "cn": "Ciena"
     },
     {
-      "ticker": "INFN",
-      "cn": "Infinera"
-    },
-    {
       "ticker": "VIAV",
       "cn": "Viavi Solutions"
-    },
-    {
-      "ticker": "AYAR",
-      "cn": "Ayar Labs"
     },
     {
       "ticker": "IPGP",
@@ -470,7 +434,7 @@
       "cn": "Lightwave Logic"
     },
     {
-      "ticker": "IQE",
+      "ticker": "IQE.L",
       "cn": "IQE plc"
     },
     {
@@ -706,7 +670,7 @@
       "cn": "奇鋐 Auras"
     },
     {
-      "ticker": "3324.TW",
+      "ticker": "3324.TWO",
       "cn": "雙鴻 Auras Tech"
     },
     {
@@ -726,20 +690,12 @@
       "cn": "Solvay"
     },
     {
-      "ticker": "CPC",
-      "cn": "CPC (Dover 子公司 DOV)"
-    },
-    {
       "ticker": "DOV",
       "cn": "Dover 多佛"
     },
     {
       "ticker": "PH",
       "cn": "Parker Hannifin 派克"
-    },
-    {
-      "ticker": "STBN.SW",
-      "cn": "Stäubli 史陶比尔"
     },
     {
       "ticker": "SWK",
@@ -794,7 +750,7 @@
       "cn": "Camtek"
     },
     {
-      "ticker": "NTES.OB",
+      "ticker": "NDSN",
       "cn": "Nordson"
     },
     {
@@ -818,7 +774,7 @@
       "cn": "Veeco Instruments"
     },
     {
-      "ticker": "TOPN.T",
+      "ticker": "7911.T",
       "cn": "Toppan 凸版印刷"
     },
     {
@@ -850,16 +806,8 @@
       "cn": "信越化学 Shin-Etsu"
     },
     {
-      "ticker": "GWC.TW",
+      "ticker": "6488.TWO",
       "cn": "GlobalWafers 環球晶圆"
-    },
-    {
-      "ticker": "SK Siltron",
-      "cn": "SK Siltron"
-    },
-    {
-      "ticker": "4185.T",
-      "cn": "JSR 光刻胶"
     },
     {
       "ticker": "4186.T",
@@ -870,7 +818,7 @@
       "cn": "三菱化学"
     },
     {
-      "ticker": "CCMP",
+      "ticker": "ENTG",
       "cn": "Entegris"
     },
     {
@@ -938,10 +886,6 @@
       "cn": "CleanSpark"
     },
     {
-      "ticker": "BITF",
-      "cn": "Bitfarms"
-    },
-    {
       "ticker": "HIVE",
       "cn": "HIVE Digital"
     },
@@ -954,24 +898,8 @@
       "cn": "Penguin Solutions"
     },
     {
-      "ticker": "LMB.L",
-      "cn": "Lambda Labs"
-    },
-    {
-      "ticker": "Humain",
-      "cn": "沙特 Humain"
-    },
-    {
-      "ticker": "TATA.NS",
-      "cn": "印度 Tata"
-    },
-    {
       "ticker": "9984.T",
       "cn": "软银 SoftBank"
-    },
-    {
-      "ticker": "OTE.AT",
-      "cn": "欧洲电信"
     },
     {
       "ticker": "MTZ",
@@ -990,7 +918,7 @@
       "cn": "Powell Industries"
     },
     {
-      "ticker": "CECE.O",
+      "ticker": "CECO",
       "cn": "CECO Environmental"
     },
     {
@@ -1086,7 +1014,7 @@
       "cn": "Harmonic Drive 日本"
     },
     {
-      "ticker": "2042.TW",
+      "ticker": "2013.TW",
       "cn": "中鋼結構"
     },
     {
@@ -1096,10 +1024,6 @@
     {
       "ticker": "AMBA",
       "cn": "Ambarella"
-    },
-    {
-      "ticker": "LAZR",
-      "cn": "Luminar"
     },
     {
       "ticker": "AEVA",
@@ -1142,11 +1066,11 @@
       "cn": "百度 Apollo"
     },
     {
-      "ticker": "NSK",
+      "ticker": "6471.T",
       "cn": "NSK 日本精工"
     },
     {
-      "ticker": "THK",
+      "ticker": "6481.T",
       "cn": "THK"
     },
     {
@@ -1202,11 +1126,11 @@
       "cn": "AXT Inc"
     },
     {
-      "ticker": "SIVE",
+      "ticker": "SIVE.ST",
       "cn": "Sivers IMA (瑞典 OTC)"
     },
     {
-      "ticker": "XFAB",
+      "ticker": "XFAB.PA",
       "cn": "X-Fab Silicon Foundries"
     },
     {
@@ -1222,15 +1146,15 @@
       "cn": "Red Cat"
     },
     {
-      "ticker": "SWARM",
-      "cn": "Swarmer"
-    },
-    {
       "ticker": "KTOS",
       "cn": "Kratos"
     }
   ],
   "skipped": [
+    {
+      "ticker": "OpenAI",
+      "cn": "OpenAI ASIC（未上市）"
+    },
     {
       "ticker": "AMPRE",
       "cn": "Ampere (未上市)"
@@ -1296,6 +1220,14 @@
       "cn": "中芯国际 SMIC（A）"
     },
     {
+      "ticker": "600584.SS",
+      "cn": "长电科技"
+    },
+    {
+      "ticker": "002156.SZ",
+      "cn": "通富微电"
+    },
+    {
       "ticker": "002185.SZ",
       "cn": "华天科技"
     },
@@ -1328,12 +1260,28 @@
       "cn": "Ayar Labs (未上市)"
     },
     {
+      "ticker": "Lightmatter",
+      "cn": "Lightmatter（未上市）"
+    },
+    {
+      "ticker": "JNPR",
+      "cn": "Juniper（已并入 HPE）"
+    },
+    {
       "ticker": "300308.SZ",
       "cn": "中际旭创 Innolight"
     },
     {
       "ticker": "300502.SZ",
       "cn": "新易盛 Eoptolink"
+    },
+    {
+      "ticker": "INFN",
+      "cn": "Infinera（已并入 NOK）"
+    },
+    {
+      "ticker": "AYAR",
+      "cn": "Ayar Labs（未上市）"
     },
     {
       "ticker": "601869.SS",
@@ -1420,6 +1368,14 @@
       "cn": "多氟多"
     },
     {
+      "ticker": "CPC",
+      "cn": "CPC（Dover 子公司·未上市）"
+    },
+    {
+      "ticker": "STBN.SW",
+      "cn": "Stäubli 史陶比尔（未上市）"
+    },
+    {
       "ticker": "688699.SS",
       "cn": "上海微电子 SMEE"
     },
@@ -1452,8 +1408,16 @@
       "cn": "概伦电子"
     },
     {
+      "ticker": "SK Siltron",
+      "cn": "SK Siltron（未上市）"
+    },
+    {
       "ticker": "688126.SS",
       "cn": "沪硅产业"
+    },
+    {
+      "ticker": "4185.T",
+      "cn": "JSR 光刻胶（已私有化）"
     },
     {
       "ticker": "688268.SS",
@@ -1464,8 +1428,28 @@
       "cn": "安集科技 Anji Microelectronics"
     },
     {
+      "ticker": "BITF",
+      "cn": "Bitfarms（数据缺失）"
+    },
+    {
+      "ticker": "LMB.L",
+      "cn": "Lambda Labs（未上市）"
+    },
+    {
       "ticker": "G42 (未上市)",
       "cn": "阿联酋 G42"
+    },
+    {
+      "ticker": "Humain",
+      "cn": "沙特 Humain（未上市）"
+    },
+    {
+      "ticker": "TATA.NS",
+      "cn": "印度 Tata（未上市）"
+    },
+    {
+      "ticker": "OTE.AT",
+      "cn": "欧洲电信（泛指）"
     },
     {
       "ticker": "OpenAI (未上市)",
@@ -1560,6 +1544,10 @@
       "cn": "汇川"
     },
     {
+      "ticker": "LAZR",
+      "cn": "Luminar（已退市）"
+    },
+    {
       "ticker": "002465.SZ",
       "cn": "海格通信 等"
     },
@@ -1586,10 +1574,14 @@
     {
       "ticker": "002747.SZ",
       "cn": "埃斯顿"
+    },
+    {
+      "ticker": "SWARM",
+      "cn": "Swarmer（未上市）"
     }
   ],
   "stats": {
-    "total_supported": 307,
-    "total_skipped": 89
+    "total_supported": 287,
+    "total_skipped": 107
   }
 }

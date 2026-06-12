@@ -38,7 +38,8 @@ def is_supported(ticker: str, cn_name: str = "") -> bool:
     # 防止 ticker 撞车：cn 字段含"未上市"/"待上市"也跳过
     # 例如 EVG 在图里是 EV Group (未上市)，但 NYSE 上 EVG 是 Eaton Vance Fund
     cn_str = str(cn_name)
-    if any(s in cn_str for s in ["未上市", "待上市", "未公开"]):
+    if any(s in cn_str for s in ["未上市", "待上市", "未公开",
+                                 "已退市", "已私有化", "已并入", "泛指", "数据缺失"]):
         return False
     return True
 

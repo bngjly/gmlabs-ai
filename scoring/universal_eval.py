@@ -434,7 +434,8 @@ def score_g6(info: dict, tier: str, sector: str) -> tuple[float, list]:
 # 总评分 + 等级
 # ════════════════════════════════════════════════════════
 def to_grade(score: float) -> str:
-    # 阈值调整 2026-06-03：S 85→82（让 TSM/SK/Samsung 也进 S），B 60→58
+    # ⚠️ 阈值冻结 2026-06-11：S=82 / A=73 / B=58 / C=43。
+    # 此后只允许改进评分模型本身，不允许为让某只票升降级而调阈值。
     if score >= 82: return "S"
     if score >= 73: return "A"
     if score >= 58: return "B"

@@ -195,6 +195,31 @@ footer { padding: 40px 24px; text-align: center; color: #6b7785; font-size: 13px
   .pr-mid { grid-column: 1 / -1; }
 }
 
+/* ===== 质量×估值矩阵 ===== */
+.qv-matrix-wrap { position: relative; max-width: 860px; margin: 0 auto; }
+.qv-matrix { position: relative; width: 100%; height: 460px; background: #131a24;
+  border: 1px solid #2a3548; border-radius: 12px; overflow: hidden; }
+.qv-matrix::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: #2a3548; }
+.qv-matrix::after { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: #2a3548; }
+.qv-quadrant-label { position: absolute; font-size: 12px; color: #3d4a5c; font-weight: 700; line-height: 1.5; pointer-events: none; z-index: 1; }
+.qv-quadrant-label span { font-weight: 400; font-size: 11px; }
+.qv-tl { top: 12px; left: 16px; }
+.qv-tr { top: 12px; right: 16px; text-align: right; color: rgba(34,197,94,.45); }
+.qv-bl { bottom: 30px; left: 16px; }
+.qv-br { bottom: 30px; right: 16px; text-align: right; }
+.qv-axis-y { position: absolute; left: 8px; top: 50%; transform: rotate(-90deg) translateX(50%); transform-origin: left center; font-size: 11px; color: #6b7785; pointer-events: none; }
+.qv-axis-x { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #6b7785; pointer-events: none; }
+.qv-dot { position: absolute; width: 12px; height: 12px; border-radius: 50%; transform: translate(-50%, 50%);
+  cursor: pointer; transition: .15s; z-index: 2; border: 1px solid rgba(255,255,255,.25); }
+.qv-dot:hover { transform: translate(-50%, 50%) scale(1.8); z-index: 5; }
+.qv-dot.g-S { background: #ef4444; }
+.qv-dot.g-A { background: #22c55e; }
+.qv-dot.g-B { background: #3b82f6; opacity: .75; }
+.qv-dot-label { position: absolute; transform: translate(-50%, 0); font-size: 9px; color: #9aa5b1; pointer-events: none; z-index: 3; white-space: nowrap; }
+.qv-tooltip { position: absolute; background: #1e2836; border: 1px solid #4fc3f7; border-radius: 8px;
+  padding: 8px 12px; font-size: 12px; color: #e6e6e6; pointer-events: none; z-index: 10; box-shadow: 0 4px 20px rgba(0,0,0,.5); }
+@media (max-width: 600px) { .qv-matrix { height: 360px; } }
+
 /* ===== 首页 KOL 推荐区块 ===== */
 .home-kol-showcase { max-width: 700px; margin: 0 auto; }
 .home-kol-serenity { display: flex; align-items: center; gap: 18px; background: linear-gradient(135deg, #1a2230 0%, #1e2a3a 100%); border: 1px solid #2a3548; border-radius: 14px; padding: 24px; cursor: pointer; transition: .2s; }
@@ -393,6 +418,23 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
       <div class="hot-tags" id="top-tags">
         <span style="color:#6b7785;font-size:12px" data-i18n="common.loading">载入中...</span>
       </div>
+    </div>
+  </div>
+
+  <!-- 质量 × 估值矩阵 -->
+  <div class="section">
+    <h2>📐 质量 × 估值矩阵</h2>
+    <p class="lead">纵轴 = 公司质量（增长/盈利/健康/护城河/回报），横轴 = 估值合理度。<strong style="color:#22c55e">右上角 = 又好又便宜</strong>，左上角 = 好但贵（等回调），点击任意点跳转图谱。</p>
+    <div class="qv-matrix-wrap">
+      <div class="qv-matrix" id="qv-matrix">
+        <div class="qv-quadrant-label qv-tl">优质但贵<br><span>等回调</span></div>
+        <div class="qv-quadrant-label qv-tr">又好又便宜<br><span>黄金区</span></div>
+        <div class="qv-quadrant-label qv-bl">又差又贵<br><span>回避</span></div>
+        <div class="qv-quadrant-label qv-br">便宜但弱<br><span>价值陷阱?</span></div>
+        <div class="qv-axis-y">质量分 →</div>
+        <div class="qv-axis-x">估值合理度 →</div>
+      </div>
+      <div class="qv-tooltip" id="qv-tooltip" style="display:none"></div>
     </div>
   </div>
 
@@ -820,6 +862,69 @@ async function renderHomeStats() {
 
   // KOL 统计（从预加载的缓存中取）
   updateKolStat();
+
+  // 质量×估值矩阵
+  renderQvMatrix(ok);
+}
+
+// ============ 质量×估值矩阵 ============
+function renderQvMatrix(okList) {
+  const box = document.getElementById('qv-matrix');
+  if (!box || !okList.length) return;
+
+  // 质量分 = G1-G5 得分占比；估值分 = G6 占比（独立两轴）
+  const pts = [];
+  okList.forEach(v => {
+    if (!v.dims || !v.dim_max) return;
+    if (!['S','A','B'].includes(v.grade)) return;  // 只画 S/A/B，避免太密
+    let q = 0, qm = 0;
+    ['G1','G2','G3','G4','G5'].forEach(g => { q += v.dims[g] || 0; qm += v.dim_max[g] || 0; });
+    const g6m = v.dim_max.G6 || 1;
+    pts.push({
+      t: v.ticker, grade: v.grade, score: v.score,
+      quality: qm ? q / qm * 100 : 0,
+      value: (v.dims.G6 || 0) / g6m * 100,
+    });
+  });
+  if (!pts.length) return;
+
+  // 轴范围自适应（留 8% 边距）
+  const qs = pts.map(p => p.quality), vs = pts.map(p => p.value);
+  const qMin = Math.min(...qs) - 5, qMax = Math.max(...qs) + 5;
+  const vMin = Math.min(...vs) - 5, vMax = Math.max(...vs) + 5;
+  const X = p => ((p.value - vMin) / (vMax - vMin)) * 88 + 6;   // %
+  const Y = p => ((p.quality - qMin) / (qMax - qMin)) * 82 + 9; // % from bottom
+
+  const tip = document.getElementById('qv-tooltip');
+  let html = '';
+  pts.sort((a, b) => b.score - a.score);
+  pts.forEach((p, i) => {
+    const x = X(p).toFixed(1), y = Y(p).toFixed(1);
+    html += `<div class="qv-dot g-${p.grade}" style="left:${x}%;bottom:${y}%"
+      data-t="${escapeAttr(p.t)}" data-g="${p.grade}" data-s="${p.score}"
+      data-q="${p.quality.toFixed(0)}" data-v="${p.value.toFixed(0)}"
+      onclick="jumpToTickerInGraph('${escapeAttr(p.t)}')"></div>`;
+    // 前 14 名带 ticker 标签
+    if (i < 14) html += `<div class="qv-dot-label" style="left:${x}%;bottom:calc(${y}% + 9px)">${escapeHtml(p.t)}</div>`;
+  });
+  // 保留象限标签和轴标签
+  const labels = box.querySelectorAll('.qv-quadrant-label, .qv-axis-y, .qv-axis-x');
+  box.innerHTML = '';
+  labels.forEach(l => box.appendChild(l));
+  box.insertAdjacentHTML('beforeend', html);
+
+  // tooltip
+  box.querySelectorAll('.qv-dot').forEach(dot => {
+    dot.addEventListener('mouseenter', e => {
+      const d = e.target.dataset;
+      tip.innerHTML = `<b style="color:#4fc3f7">${d.t}</b> · ${d.g} 级 ${d.s} 分<br>质量 ${d.q} / 估值合理度 ${d.v}<br><span style="color:#6b7785;font-size:11px">点击跳转图谱</span>`;
+      tip.style.display = 'block';
+      const r = e.target.getBoundingClientRect(), w = box.getBoundingClientRect();
+      tip.style.left = Math.min(r.left - w.left + 16, w.width - 180) + 'px';
+      tip.style.top = (r.top - w.top - 10) + 'px';
+    });
+    dot.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+  });
 }
 
 function updateKolStat() {

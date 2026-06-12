@@ -127,6 +127,14 @@ def main():
 
         time.sleep(args.sleep)
 
+    # 清理：图谱里已不存在的 ticker（改名/退市/标未上市）从结果中移除
+    valid = {item["ticker"] for item in tickers}
+    stale = [k for k in results if k not in valid]
+    for k in stale:
+        del results[k]
+    if stale:
+        print(f"  清理 {len(stale)} 个已移除 ticker: {stale[:10]}{'...' if len(stale) > 10 else ''}")
+
     # 最终保存
     OUTPUT.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
     # 同步到仓库根目录（网站读取的文件），紧凑格式减小体积

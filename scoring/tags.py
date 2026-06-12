@@ -99,16 +99,24 @@ def extract_risks(info: dict, dims: dict, tier: str, sector: str) -> list:
     """风险标签 - 数据驱动，触发即标"""
     risks = []   # [(priority, emoji, name)]
 
-    revenue = info.get("totalRevenue") or 0
-    gross = info.get("grossMargins") or 0
-    op_margin = info.get("operatingMargins") or 0
-    debt_to_eq = info.get("debtToEquity") or 0
-    fcf = info.get("freeCashflow") or 0
-    pe = info.get("trailingPE") or info.get("forwardPE") or 0
-    peg = info.get("pegRatio") or 0
-    revenue_growth = info.get("revenueGrowth") or 0
-    profit_margins = info.get("profitMargins") or 0
-    short_pct = info.get("shortPercentOfFloat") or 0
+    def _num(v):
+        # yfinance 偶尔返回字符串（如 'Infinity'），统一转 float，转不动归 0
+        try:
+            f = float(v)
+            return f if f == f and f not in (float("inf"), float("-inf")) else 0.0
+        except (TypeError, ValueError):
+            return 0.0
+
+    revenue = _num(info.get("totalRevenue"))
+    gross = _num(info.get("grossMargins"))
+    op_margin = _num(info.get("operatingMargins"))
+    debt_to_eq = _num(info.get("debtToEquity"))
+    fcf = _num(info.get("freeCashflow"))
+    pe = _num(info.get("trailingPE")) or _num(info.get("forwardPE"))
+    peg = _num(info.get("pegRatio"))
+    revenue_growth = _num(info.get("revenueGrowth"))
+    profit_margins = _num(info.get("profitMargins"))
+    short_pct = _num(info.get("shortPercentOfFloat"))
 
     # ── 估值过高 ──
     if peg and peg > 3.0:

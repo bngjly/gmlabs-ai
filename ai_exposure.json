@@ -1,0 +1,32 @@
+{
+  "_doc": "AI 暴露度人工标注（AI 相关营收占总营收比例）。high: ≥50%，mid: 15-50%，low: <15%。未列出 = 未标注。标注日期 2026-06-11，随财报季复核。",
+  "high": [
+    "NVDA", "AMD", "ALAB", "CRDO", "MRVL", "SMCI", "VRT", "ANET",
+    "MU", "000660.KS", "TSM", "COHR", "LITE", "AAOI", "FN", "CLS",
+    "NBIS", "CRWV", "PLTR", "MOD", "AVGO", "ARM",
+    "IREN", "APLD", "GDS", "VNET", "POET", "6533.TW", "3661.TW",
+    "ASPI", "SIVE.ST", "CIEN", "MTSI", "AEHR", "CAMT", "ONTO",
+    "BESI", "4966.TWO", "0522.HK"
+  ],
+  "mid": [
+    "MSFT", "GOOGL", "AMZN", "ORCL", "ETN", "GEV", "ASML", "AMAT",
+    "LRCX", "KLAC", "TER", "ENTG", "MKSI", "INTC", "QCOM",
+    "DELL", "HPE", "WDC", "SNDK", "STX", "PSTG", "NTAP",
+    "6762.T", "8035.T", "6857.T", "7735.T", "6146.T", "3445.TWO",
+    "2308.TW", "2317.TW", "2382.TW", "3231.TW", "6669.TW",
+    "JBL", "FLEX", "CRM", "NOW", "SNOW", "DDOG", "NET",
+    "EQIX", "DLR", "IRM", "SBAC",
+    "XFAB.PA", "IQE.L", "NDSN", "ICHR", "UCTT", "AEIS",
+    "PWR", "EME", "FIX", "STRL", "IESC", "CSWI"
+  ],
+  "low": [
+    "005930.KS", "META", "AAPL", "TSLA", "0981.HK", "SSNLF",
+    "HON", "DOV", "PH", "ITW", "EMR", "ABB", "SIE.DE",
+    "6471.T", "6481.T", "5201.T", "7911.T", "2013.TW",
+    "CAT", "DE", "GE", "RTX", "LMT", "NOC", "BA",
+    "T", "VZ", "TMUS", "CMCSA",
+    "NEE", "DUK", "SO", "D", "EXC", "CEG", "VST", "TLN",
+    "GM", "F", "TM", "7203.T",
+    "TCS.NS", "CECO", "6488.TWO", "SMHN.DE", "ATS.VI"
+  ]
+}
