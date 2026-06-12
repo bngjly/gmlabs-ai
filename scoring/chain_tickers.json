@@ -330,10 +330,6 @@
       "cn": "Cadence"
     },
     {
-      "ticker": "AWE.L",
-      "cn": "Alphawave"
-    },
-    {
       "ticker": "CEVA",
       "cn": "CEVA"
     },
@@ -1268,6 +1264,10 @@
       "cn": "Juniper（已并入 HPE）"
     },
     {
+      "ticker": "AWE.L",
+      "cn": "Alphawave（已并入 QCOM）"
+    },
+    {
       "ticker": "300308.SZ",
       "cn": "中际旭创 Innolight"
     },
@@ -1298,6 +1298,10 @@
     {
       "ticker": "688313.SS",
       "cn": "仕佳光子"
+    },
+    {
+      "ticker": "AWE.L",
+      "cn": "Alphawave（已并入 QCOM）"
     },
     {
       "ticker": "300602.SZ",
@@ -1581,7 +1585,7 @@
     }
   ],
   "stats": {
-    "total_supported": 287,
-    "total_skipped": 107
+    "total_supported": 286,
+    "total_skipped": 109
   }
 }
