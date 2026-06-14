@@ -31,6 +31,8 @@ export default async function middleware(req) {
 <meta name="twitter:image" content="${ogImage}">
 `;
 
+  // 去掉源页面里的默认 og:/twitter: 标签，避免与上面注入的 ticker 专属标签重复
+  html = html.replace(/\s*<meta (?:property="og:|name="twitter:)[^>]*>\n?/g, '');
   html = html.replace('</head>', metaTags + '</head>');
   html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
 
