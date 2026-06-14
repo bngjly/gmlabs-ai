@@ -35,6 +35,7 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .node { margin: 8px 0; }
 .node-header { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #1c2632; border: 1px solid #2a3548; border-radius: 8px; cursor: pointer; transition: .15s; user-select: none; }
 .node-header:hover { background: #243245; border-color: #4fc3f7; }
+.deep-link-highlight .node-header { outline: 2px solid #4fc3f7; box-shadow: 0 0 16px rgba(79,195,247,.5); transition: outline .3s, box-shadow .3s; }
 .layer-1 { border-left: 5px solid #ef4444; }
 .layer-2 { border-left: 5px solid #f59e0b; }
 .layer-3 { border-left: 5px solid #eab308; }
@@ -1352,11 +1353,58 @@ function loadScores() {
       const okCount = Object.values(SCORES).filter(v => v && v.status === 'ok').length;
       console.log(`[scores] loaded ${okCount} graded companies`);
       render();   // 重新渲染让徽章出现
+      applyDeepLink();
     })
     .catch(err => {
       console.warn('[scores] failed to load, badges will be hidden:', err);
       SCORES = {};
+      applyDeepLink();
     });
+}
+
+// ============ 深链直达（?t=TICKER 自动定位并展开评分抽屉）============
+// 用于视频/社媒分享：gmlabs.ai/graph.html?t=NVDA 进站即展开该公司评分
+const DEEP_LINK_TICKER = new URLSearchParams(location.search).get('t');
+let deepLinkApplied = false;
+
+function findCompanyPath(ticker, node = data, path = '') {
+  const target = ticker.toUpperCase();
+  for (let i = 0; i < (node.companies || []).length; i++) {
+    if ((node.companies[i].t || '').toUpperCase() === target) return { path, idx: i };
+  }
+  for (let i = 0; i < (node.children || []).length; i++) {
+    const childPath = path ? `${path}.children.${i}` : `children.${i}`;
+    const found = findCompanyPath(ticker, node.children[i], childPath);
+    if (found) return found;
+  }
+  return null;
+}
+
+function applyDeepLink() {
+  if (deepLinkApplied || !DEEP_LINK_TICKER) return;
+  const found = findCompanyPath(DEEP_LINK_TICKER);
+  if (!found) return;
+  deepLinkApplied = true;
+
+  // 展开路径上所有祖先节点，让目标公司可见
+  const parts = found.path.split('.');
+  let acc = '';
+  for (let i = 0; i < parts.length; i += 2) {
+    acc = acc ? `${acc}.${parts[i]}.${parts[i+1]}` : `${parts[i]}.${parts[i+1]}`;
+    const n = getNode(acc);
+    if (n) n.expanded = true;
+  }
+  render();
+
+  setTimeout(() => {
+    const el = document.querySelector(`.node[data-path="${found.path}"]`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('deep-link-highlight');
+      setTimeout(() => el.classList.remove('deep-link-highlight'), 2000);
+    }
+    openDetail(found.path, found.idx);
+  }, 150);
 }
 
 // ============ AI 暴露度标注（人工维护 ai_exposure.json）============

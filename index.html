@@ -5,9 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ChainGraph · 全球 AI 产业链共建图谱</title>
 <meta name="description" content="社区共建的 AI 产业链全景图谱。350+ 家公司，11 层结构，AI 一键深度分析。">
+<meta property="og:title" content="ChainGraph · 全球 AI 产业链共建图谱">
+<meta property="og:description" content="社区共建的 AI 产业链全景图谱。286+ 家公司，11 层结构，AI 一键深度分析。">
+<meta property="og:image" content="https://www.gmlabs.ai/api/og">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ChainGraph · 全球 AI 产业链共建图谱">
+<meta name="twitter:description" content="社区共建的 AI 产业链全景图谱。286+ 家公司，11 层结构，AI 一键深度分析。">
+<meta name="twitter:image" content="https://www.gmlabs.ai/api/og">
 <link rel="preload" href="scores.json" as="fetch">
 <link rel="preload" href="kol_cache.json" as="fetch">
-<!-- Vercel Analytics (匿名 PV/UV，启用需在 Vercel Dashboard 打开) -->
+<!-- Vercel Analytics (匿名 PV/UV + 自定义事件，启用需在 Vercel Dashboard 打开) -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <!-- 双语字典（必须在 body 脚本之前加载） -->
 <script src="i18n.js"></script>
@@ -1662,6 +1671,7 @@ function renderPool() {
 
 // ============ Telegram 订阅 Modal ============
 function openTgSubscribe() {
+  trackTgClick({ via: 'modal' });
   window.open('https://t.me/yoyoaidaily', '_blank');
 }
 
@@ -1674,6 +1684,42 @@ if (location.hash) {
   const h = location.hash.slice(1);
   if (VALID_PAGES.includes(h)) goto(h);
 }
+
+// ============ 深链直达（?t=TICKER：跳到图谱并自动展开该公司）============
+// 用于视频/社媒分享：gmlabs.ai/?t=NVDA 进站即定位到 NVDA 评分
+(function deepLinkToCompany() {
+  const ticker = new URLSearchParams(location.search).get('t');
+  if (!ticker) return;
+  const iframe = document.querySelector('.graph-frame');
+  if (iframe) iframe.src = `graph?t=${encodeURIComponent(ticker)}`;
+  goto('graph');
+})();
+
+// ============ 轻量统计：UTM 透传 + 转化事件（Vercel Analytics）============
+// 视频投放链接规范：https://gmlabs.ai/?t=NVDA&utm_source=youtube&utm_content=v286_NVDA
+// utm_source: youtube | x | bilibili 等渠道；utm_content: 视频/素材标识（建议含 ticker）
+// 落地时记录 utm 到 sessionStorage，点击 Telegram 订阅时回带，用于衡量内容→订阅转化
+function trackTgClick(extra) {
+  let utm = {};
+  try { utm = JSON.parse(sessionStorage.getItem('gm_utm') || '{}'); } catch (e) {}
+  window.va('event', { name: 'tg_click', data: Object.assign({}, utm, extra) });
+}
+(function trackUtmAndLanding() {
+  const params = new URLSearchParams(location.search);
+  const utm = {};
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(k => {
+    const v = params.get(k);
+    if (v) utm[k] = v;
+  });
+  if (Object.keys(utm).length) sessionStorage.setItem('gm_utm', JSON.stringify(utm));
+  const ticker = params.get('t') || '';
+  if (Object.keys(utm).length || ticker) {
+    window.va('event', { name: 'landing', data: Object.assign({ ticker }, utm) });
+  }
+  document.querySelectorAll('a[href^="https://t.me/"]').forEach(a => {
+    a.addEventListener('click', () => trackTgClick({ via: 'link' }));
+  });
+})();
 
 // ============ 初始化 ============
 if (typeof applyI18n === 'function') applyI18n();

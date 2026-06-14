@@ -1,0 +1,7 @@
+{
+  "name": "gmlabs-ai",
+  "private": true,
+  "dependencies": {
+    "@vercel/og": "^0.6.3"
+  }
+}
