@@ -1,0 +1,8 @@
+# gmlabs.ai — AI 产业链图谱
+User-agent: *
+Allow: /
+
+# graph.html 是被 iframe 内嵌的框架页，规范落地页是首页深链 /?t=TICKER
+Disallow: /graph.html
+
+Sitemap: https://www.gmlabs.ai/sitemap.xml
