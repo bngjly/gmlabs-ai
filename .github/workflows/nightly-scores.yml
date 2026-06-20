@@ -72,7 +72,10 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "data: nightly scores refresh $(date -u +%Y-%m-%d) [skip ci]"
+            # 注意：故意不加 [skip ci]——让 Vercel 检测到 push 并自动部署，
+            # 使每日刷新的 scores.json 进入生产（SEO 正文依赖最新评分）。
+            # 本工作流仅由 schedule/workflow_dispatch 触发（无 push 触发），不会自循环。
+            git commit -m "data: nightly scores refresh $(date -u +%Y-%m-%d)"
             # 防止与其他 push 冲突
             git pull --rebase origin main
             git push
