@@ -14,7 +14,7 @@ window.I18N = {
 
     // ====== Home Hero ======
     'home.hero.title': '全球 AI 产业链的<br>「维基百科」',
-    'home.hero.sub': '11 层结构，350+ 家公司，社区共建。从 NVDA 到 HBM，从 CoWoS 到液冷快接头，一图看懂 AI 怎么收税。',
+    'home.hero.sub': '11 层结构，350+ 家公司，社区共建。从 NVDA 到 HBM，从 CoWoS 到液冷快接头，一图看懂 AI 产业链全貌。',
     'home.hero.cta.graph': '🌐 进入图谱',
     'home.hero.cta.ai': '🤖 AI 一键分析',
     'home.search.ph': '股票代码 / 中文名 / 技术名词，如 MU / HBM / 液冷...',
