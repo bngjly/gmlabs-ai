@@ -83,3 +83,5 @@ vercel --prod
 | Telegram Bot | $0 |
 | 域名 gmlabs.ai | 已付 |
 | **当前月成本** | **$0** |
+
+<!-- deploy-test: 验证 git push 自动部署 2026-06-20 20:06 -->
