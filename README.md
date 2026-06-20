@@ -1,87 +1,86 @@
-# ChainGraph · gmlabs.ai
+﻿# ChainGraph 路 gmlabs.ai
 
-全球 AI 产业链共建图谱 + AI 深度分析 + KOL 观点聚合平台。
+鍏ㄧ悆 AI 浜т笟閾惧叡寤哄浘璋?+ AI 娣卞害鍒嗘瀽 + KOL 瑙傜偣鑱氬悎骞冲彴銆?
 
-## 当前文件结构
+## 褰撳墠鏂囦欢缁撴瀯
 
 ```
 gmlabs-ai/
-├── index.html          # 落地页 SPA（首页 / 图谱 / KOL 观点 / 研究笔记）
-├── graph.html          # 完整交互式 AI 产业链图谱（11 层 350+ 公司）
-├── i18n.js             # 中英文双语支持
-├── scores.json         # 六维客观评分数据（GitHub Actions 每日刷新）
-├── serenity_pool.json  # Serenity 250 只公开提及标的 + 情绪标签
-├── kol_cache.json      # KOL 观点缓存（每小时自动刷新）
-├── api/
-│   ├── analyze.js      # Vercel Serverless — Gemini AI 深度分析
-│   └── kol.js          # Vercel Serverless — KOL 观点 API 代理
-├── scoring/            # 评分脚本（Python + GitHub Actions）
-├── vercel.json         # Vercel 部署配置 + 安全 headers
-└── README.md           # 本文件
+鈹溾攢鈹€ index.html          # 钀藉湴椤?SPA锛堥椤?/ 鍥捐氨 / KOL 瑙傜偣 / 鐮旂┒绗旇锛?
+鈹溾攢鈹€ graph.html          # 瀹屾暣浜や簰寮?AI 浜т笟閾惧浘璋憋紙11 灞?350+ 鍏徃锛?
+鈹溾攢鈹€ i18n.js             # 涓嫳鏂囧弻璇敮鎸?
+鈹溾攢鈹€ scores.json         # 鍏淮瀹㈣璇勫垎鏁版嵁锛圙itHub Actions 姣忔棩鍒锋柊锛?
+鈹溾攢鈹€ serenity_pool.json  # Serenity 250 鍙叕寮€鎻愬強鏍囩殑 + 鎯呯华鏍囩
+鈹溾攢鈹€ kol_cache.json      # KOL 瑙傜偣缂撳瓨锛堟瘡灏忔椂鑷姩鍒锋柊锛?
+鈹溾攢鈹€ api/
+鈹?  鈹溾攢鈹€ analyze.js      # Vercel Serverless 鈥?Gemini AI 娣卞害鍒嗘瀽
+鈹?  鈹斺攢鈹€ kol.js          # Vercel Serverless 鈥?KOL 瑙傜偣 API 浠ｇ悊
+鈹溾攢鈹€ scoring/            # 璇勫垎鑴氭湰锛圥ython + GitHub Actions锛?
+鈹溾攢鈹€ vercel.json         # Vercel 閮ㄧ讲閰嶇疆 + 瀹夊叏 headers
+鈹斺攢鈹€ README.md           # 鏈枃浠?
 ```
 
-## 四个 Tab
+## 鍥涗釜 Tab
 
-| Tab | 描述 |
+| Tab | 鎻忚堪 |
 |-----|------|
-| 首页 | 产品介绍、S/A 级标的展示、定价、早鸟邮箱收集 |
-| 图谱 | 11 层 AI 产业链交互式图谱（iframe 嵌入 graph.html） |
-| **KOL 观点** | 著名 KOL 实时观点流 + Serenity 250 只 ticker 热力榜 |
-| 研究笔记 | 本地自选管理、导入/导出、评分查看 |
+| 棣栭〉 | 浜у搧浠嬬粛銆丼/A 绾ф爣鐨勫睍绀恒€佸畾浠枫€佹棭楦熼偖绠辨敹闆?|
+| 鍥捐氨 | 11 灞?AI 浜т笟閾句氦浜掑紡鍥捐氨锛坕frame 宓屽叆 graph.html锛?|
+| **KOL 瑙傜偣** | 钁楀悕 KOL 瀹炴椂瑙傜偣娴?+ Serenity 250 鍙?ticker 鐑姏姒?|
+| 鐮旂┒绗旇 | 鏈湴鑷€夌鐞嗐€佸鍏?瀵煎嚭銆佽瘎鍒嗘煡鐪?|
 
-## KOL 观点页
+## KOL 瑙傜偣椤?
 
-- **实时数据**: `/api/kol` serverless proxy 实时获取，静态缓存兜底
-- **筛选**: 多空立场（看多/看空/中性）+ 时间范围（24h/7d/30d）+ KOL 人物选择
-- **图谱联动**: 图谱收录的 ticker 带 📌 标记，点击跳转定位
-- **Serenity 热力榜**: 基于 `serenity_pool.json` 的 250 只历史提及标的排名
-- **Telegram 频道**: t.me/yoyoaidaily 公开订阅
+- **瀹炴椂鏁版嵁**: `/api/kol` serverless proxy 瀹炴椂鑾峰彇锛岄潤鎬佺紦瀛樺厹搴?
+- **绛涢€?*: 澶氱┖绔嬪満锛堢湅澶?鐪嬬┖/涓€э級+ 鏃堕棿鑼冨洿锛?4h/7d/30d锛? KOL 浜虹墿閫夋嫨
+- **鍥捐氨鑱斿姩**: 鍥捐氨鏀跺綍鐨?ticker 甯?馃搶 鏍囪锛岀偣鍑昏烦杞畾浣?
+- **Serenity 鐑姏姒?*: 鍩轰簬 `serenity_pool.json` 鐨?250 鍙巻鍙叉彁鍙婃爣鐨勬帓鍚?
+- **Telegram 棰戦亾**: t.me/yoyoaidaily 鍏紑璁㈤槄
 
-## 评分体系
+## 璇勫垎浣撶郴
 
-六维客观模型（yfinance 基本面数据，每晚刷新）：
+鍏淮瀹㈣妯″瀷锛坹finance 鍩烘湰闈㈡暟鎹紝姣忔櫄鍒锋柊锛夛細
 
-| 维度 | 满分 | 内容 |
+| 缁村害 | 婊″垎 | 鍐呭 |
 |------|------|------|
-| G1 增长动能 | 25 | 营收/EPS 增速 + 加速度 |
-| G2 盈利质量 | 25 | 毛利/营业利润率/ROE/FCF |
-| G3 财务健康 | 15 | 负债率/流动性/利息保障 |
-| G4 护城河 | 20 | 毛利率持续性/市场地位/内部人持股 |
-| G5 股东回报 | 10 | 分红 + 回购 − SBC 稀释 |
-| G6 估值合理性 | 15 | PEG / P/E / EV-EBITDA / FCF Yield |
+| G1 澧為暱鍔ㄨ兘 | 25 | 钀ユ敹/EPS 澧為€?+ 鍔犻€熷害 |
+| G2 鐩堝埄璐ㄩ噺 | 25 | 姣涘埄/钀ヤ笟鍒╂鼎鐜?ROE/FCF |
+| G3 璐㈠姟鍋ュ悍 | 15 | 璐熷€虹巼/娴佸姩鎬?鍒╂伅淇濋殰 |
+| G4 鎶ゅ煄娌?| 20 | 姣涘埄鐜囨寔缁€?甯傚満鍦颁綅/鍐呴儴浜烘寔鑲?|
+| G5 鑲′笢鍥炴姤 | 10 | 鍒嗙孩 + 鍥炶喘 鈭?SBC 绋€閲?|
+| G6 浼板€煎悎鐞嗘€?| 15 | PEG / P/E / EV-EBITDA / FCF Yield |
 
-**等级阈值（2026-06-11 冻结，不再为个股调整）**：S ≥ 82 · A ≥ 73 · B ≥ 58 · C ≥ 43 · D < 43
+**绛夌骇闃堝€硷紙2026-06-11 鍐荤粨锛屼笉鍐嶄负涓偂璋冩暣锛?*锛歋 鈮?82 路 A 鈮?73 路 B 鈮?58 路 C 鈮?43 路 D < 43
 
-补充维度：**AI 暴露度**（人工标注：高 ≥50% / 中 15-50% / 低 <15% AI 相关营收占比），与六维分离展示——同为 S 级，AI 纯度不同含金量完全不同。
+琛ュ厖缁村害锛?*AI 鏆撮湶搴?*锛堜汉宸ユ爣娉細楂?鈮?0% / 涓?15-50% / 浣?<15% AI 鐩稿叧钀ユ敹鍗犳瘮锛夛紝涓庡叚缁村垎绂诲睍绀衡€斺€斿悓涓?S 绾э紝AI 绾害涓嶅悓鍚噾閲忓畬鍏ㄤ笉鍚屻€?
 
-## VPS 后端
+## VPS 鍚庣
 
-VPS（`37.60.251.23`）运行 `twitter_monitor` 服务：
-- 每小时轮询 KOL 观点数据
-- 新观点 → Telegram 推送（私聊 + 公开频道 @yoyoaidaily）
-- supervisor 进程管理
+VPS锛坄37.60.251.23`锛夎繍琛?`twitter_monitor` 鏈嶅姟锛?
+- 姣忓皬鏃惰疆璇?KOL 瑙傜偣鏁版嵁
+- 鏂拌鐐?鈫?Telegram 鎺ㄩ€侊紙绉佽亰 + 鍏紑棰戦亾 @yoyoaidaily锛?
+- supervisor 杩涚▼绠＄悊
 
-## 本地预览
+## 鏈湴棰勮
 
 ```bash
 npx serve -s .
 ```
 
-## 部署
+## 閮ㄧ讲
 
 ```bash
 cd "C:\Users\86135\Desktop\WorkSpace\gmlabs-ai"
 vercel --prod
 ```
 
-## 成本
+## 鎴愭湰
 
-| 项 | 费用 |
+| 椤?| 璐圭敤 |
 |---|---|
 | Vercel Hosting | $0 |
-| KOL 数据 API | $0 |
+| KOL 鏁版嵁 API | $0 |
 | Telegram Bot | $0 |
-| 域名 gmlabs.ai | 已付 |
-| **当前月成本** | **$0** |
+| 鍩熷悕 gmlabs.ai | 宸蹭粯 |
+| **褰撳墠鏈堟垚鏈?* | **$0** |
 
-<!-- deploy-test: 验证 git push 自动部署 2026-06-20 20:06 -->
