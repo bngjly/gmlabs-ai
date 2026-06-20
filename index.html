@@ -857,6 +857,34 @@ async function loadScores() {
   }
 }
 
+// ============ 首页统计：小聚合文件秒出（home_stats.json ~1KB），免拉 142KB 全量 ============
+async function renderHomeStatsFast() {
+  try {
+    const r = await fetch('home_stats.json');
+    if (!r.ok) return false;
+    const s = await r.json();
+    const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    set('stat-companies', s.companies || '250');
+    set('stat-companies-trend', '11 层 + Serenity 概念');
+    set('stat-graded', s.graded || '…');
+    set('stat-graded-trend', s.last_date ? '更新 ' + s.last_date : '六维客观评分');
+    set('stat-top', (s.s_count + s.a_count) || '…');
+    set('stat-top-trend', `S=${s.s_count} · A=${s.a_count}`);
+    if (typeof s.kol_count === 'number' && s.kol_count) set('stat-kol', s.kol_count);
+    const tags = (s.top_tags || []).map(v => {
+      const color = v.grade === 'S' ? '#ef4444' : '#22c55e';
+      return `<span class="hot-tag" onclick="jumpToTickerInGraph('${escapeAttr(v.ticker)}')" title="${escapeAttr(v.name || '')}">
+        <span style="color:${color};font-weight:700">${v.grade}</span> ${escapeHtml(v.ticker)}
+        <span style="color:#6b7785;font-size:11px;margin-left:3px">${v.score}</span>
+      </span>`;
+    }).join('');
+    if (tags) { const tt = document.getElementById('top-tags'); if (tt) tt.innerHTML = tags; }
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 // ============ 首页统计 + Top 标的 ============
 async function renderHomeStats() {
   const scores = await loadScores();
@@ -1746,7 +1774,8 @@ function trackTgClick(extra) {
 
 // ============ 初始化 ============
 if (typeof applyI18n === 'function') applyI18n();
-renderHomeStats();
+renderHomeStatsFast();  // 小聚合文件秒出统计卡 + 标的标签
+renderHomeStats();      // 全量数据：质量×估值矩阵 + 卡片兜底重填
 // 预加载 KOL 静态缓存（后台），切到 KOL tab 时秒出
 fetch(KOL_CACHE_FILE).then(r => r.ok ? r.json() : null).then(data => {
   if (data && data.items) { KOL_ALL = data.items; KOL_LOADED = true; }

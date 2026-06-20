@@ -6,7 +6,7 @@
   ],
   "headers": [
     {
-      "source": "/(scores|serenity_pool|ai_exposure|kol_cache).json",
+      "source": "/(scores|serenity_pool|ai_exposure|kol_cache|home_stats).json",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=86400, stale-while-revalidate=604800" }
       ]
