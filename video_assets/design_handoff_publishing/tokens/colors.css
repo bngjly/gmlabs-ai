@@ -1,0 +1,36 @@
+/* YoYo AI 日报 — 色彩 token（源自 logo：assets/yoyo_ai.svg） */
+:root {
+  /* 品牌核心色 */
+  --yoyo-navy:      #050F1E;  /* 藏青 · 深色场景背景 / 正文标题 */
+  --yoyo-navy-2:    #0A1828;  /* 藏青浅一档 · 深色卡片 */
+  --yoyo-blue:      #1A8FFF;  /* 亮蓝 · 主强调色（眼镜蓝） */
+  --yoyo-sky:       #82CFFF;  /* 天蓝 · 高光 / 次级强调 */
+  --yoyo-gold:      #F0B90B;  /* 金圈 · 点缀强调，克制使用 */
+
+  /* 浅色正片中性色 */
+  --yoyo-bg:        #EEF1F7;  /* 冷白画布 */
+  --yoyo-card:      #FFFFFF;
+  --yoyo-line:      #DCE3ED;
+  --yoyo-ink:       #050F1E;
+  --yoyo-mute:      #46586E;
+  --yoyo-faint:     #93A1B4;
+
+  /* 深色片头/片尾/封面 */
+  --yoyo-dark-bg:   #050F1E;
+  --yoyo-dark-card: #0A1828;
+  --yoyo-dark-line: #1B2B40;
+  --yoyo-dark-ink:  #EEF0F8;
+  --yoyo-dark-mute: #8FA2B8;
+
+  /* 语义别名 */
+  --surface-page:   var(--yoyo-bg);
+  --surface-card:   var(--yoyo-card);
+  --text-body:      var(--yoyo-ink);
+  --text-muted:     var(--yoyo-mute);
+  --accent-primary: var(--yoyo-blue);
+  --accent-gold:    var(--yoyo-gold);
+
+  /* 阴影（冷调） */
+  --shadow-card: 0 10px 30px rgba(10, 24, 40, 0.07);
+  --shadow-pill: 0 6px 18px rgba(10, 24, 40, 0.06);
+}

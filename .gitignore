@@ -38,3 +38,9 @@ scoring/*.log
 scoring/.env
 
 .vercel
+
+# 视频生产媒体产物（成品本地保留，不进 git）
+video_assets/produce/raw/
+video_assets/produce/out/
+video_assets/produce/audio/
+AI产业链全景图谱视频.zip
