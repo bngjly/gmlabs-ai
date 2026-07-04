@@ -207,12 +207,28 @@ def mux(scenes_path, name):
     amix = "".join(f"[a{i}]" for i in range(n)) + f"amix=inputs={n}:normalize=0[aout]"
     filter_a = ";".join(delays + [amix])
 
+    # URL 引导：全程角标 "gmlabs.ai" 常驻 + CTA 场景放大条幅（口播/画面都不提官网是转化链路的命门缺口）
+    font = "C\\:/Windows/Fonts/msyhbd.ttc"
+    watermark = (
+        f"drawtext=fontfile='{font}':text='gmlabs.ai':fontsize=26:fontcolor=white@0.55:"
+        f"x=w-tw-40:y=40:box=1:boxcolor=black@0.25:boxborderw=10"
+    )
+    vf = f"crop={W}:{H}:0:0,fps={FPS},{watermark}"
+    cta = data.get("cta_overlay")
+    if cta:
+        banner = (
+            f"drawtext=fontfile='{font}':text='{cta['text']}':fontsize=42:fontcolor=white:"
+            f"x=(w-tw)/2:y=h-160:box=1:boxcolor=black@0.55:boxborderw=20:"
+            f"enable='between(t,{cta['start']},{cta['end']})'"
+        )
+        vf += f",{banner}"
+
     out_mp4 = out_dir / f"{name}_final.mp4"
     cmd = [
         "ffmpeg", "-y",
         "-ss", f"{t0:.3f}", "-i", str(raw), *inputs,
         "-filter_complex",
-        f"[0:v]crop={W}:{H}:0:0,fps={FPS}[vout];{filter_a}",
+        f"[0:v]{vf}[vout];{filter_a}",
         "-map", "[vout]", "-map", "[aout]",
         "-c:v", "libx264", "-preset", "medium", "-crf", "18",
         "-pix_fmt", "yuv420p",

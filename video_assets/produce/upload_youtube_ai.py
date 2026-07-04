@@ -145,14 +145,22 @@ VIDEOS = {
 
 
 def build_description(v):
+    # 链接放最前——YouTube 折叠态只显示前 1-2 行，链接放在 intro 后面等于没曝光
     return (
+        f"🔗 完整 AI 产业链图谱 + 286 家公司六维评分：{SITE}/?{v['utm']}\n\n"
         f"{v['intro']}\n\n"
-        f"🔗 交互式 AI 产业链全景图谱（286 家公司 · 六维评分，可点开每家公司）：\n"
-        f"{SITE}/?{v['utm']}\n\n"
         f"📬 每天 60 秒看懂一个 AI 产业链概念，Telegram 订阅：\n{TG}\n\n"
         f"章节：\n{v['chapters']}\n\n"
         f"{DISCLAIMER}\n\n"
         + " ".join(f"#{t.replace(' ', '')}" for t in v["tags"][:15])
+    )
+
+
+def build_pinned_comment(v):
+    return (
+        f"👇 视频里提到的 AI 产业链交互图谱在这，286 家公司 + 六维客观评分，点开每家公司都能看详情：\n"
+        f"{SITE}/?{v['utm']}\n\n"
+        f"想每天追更，Telegram 订阅：{TG}"
     )
 
 
@@ -230,6 +238,16 @@ def upload_one(service, key):
                 print(f"  已设置封面", file=sys.stderr)
             except Exception as e:
                 print(f"  [警告] 封面设置失败(账号可能未验证自定义封面权限): {e}", file=sys.stderr)
+
+    # 置顶评论——YouTube API 不支持程序化置顶，发完评论需手动在 Studio 点一下"置顶"
+    try:
+        service.commentThreads().insert(part="snippet", body={
+            "snippet": {"videoId": video_id,
+                        "topLevelComment": {"snippet": {"textOriginal": build_pinned_comment(v)}}},
+        }).execute()
+        print("  已发评论（YouTube API 不支持程序化置顶，去 Studio 手动点一下「置顶」）", file=sys.stderr)
+    except Exception as e:
+        print(f"  [警告] 发评论失败: {e}", file=sys.stderr)
 
     return url
 
