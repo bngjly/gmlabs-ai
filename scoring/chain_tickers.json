@@ -1380,6 +1380,18 @@
       "cn": "Stäubli 史陶比尔（未上市）"
     },
     {
+      "ticker": "Element Six",
+      "cn": "Element Six（戴比尔斯子公司·未上市）"
+    },
+    {
+      "ticker": "Diamond Foundry",
+      "cn": "Diamond Foundry（未上市）"
+    },
+    {
+      "ticker": "AKHAN",
+      "cn": "AKHAN Semi（未上市）"
+    },
+    {
       "ticker": "688699.SS",
       "cn": "上海微电子 SMEE"
     },
@@ -1586,6 +1598,6 @@
   ],
   "stats": {
     "total_supported": 286,
-    "total_skipped": 109
+    "total_skipped": 112
   }
 }
