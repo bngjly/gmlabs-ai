@@ -289,13 +289,13 @@ const DEFAULT_DATA = {
           ]
         },
         { id:'L1c', name:'🆕 CPU（数据中心通用算力）', layer:1, expanded:true,
-          desc:'Arm 服务器份额从 10% → 30% 是确定趋势',
+          desc:'Agent AI 推理回补 CPU 需求，CPU:GPU 配比从 1:8 → 1:4，每台 AI 服务器 CPU 价值量翻倍；叠加 Arm 服务器份额 10% → 30%',
           companies:[
-            { t:'INTC', cn:'Intel Xeon', role:'传统霸主，市场份额流失', flag:'comp' },
-            { t:'AMD', cn:'AMD EPYC', role:'数据中心 CPU 份额 50%+', flag:'core' },
+            { t:'INTC', cn:'Intel Xeon', role:'CPU 回升受益方，靠先进封装/新材料反攻', flag:'comp' },
+            { t:'AMD', cn:'AMD EPYC', role:'数据中心 CPU 份额 50%+，配比回补最大受益', flag:'core' },
             { t:'ARM', cn:'Arm Holdings', role:'IP 授权 + Neoverse 服务器架构', flag:'core' },
             { t:'NVDA', cn:'Grace CPU', role:'GH200/GB200 配套', flag:'core' },
-            { t:'AMPRE', cn:'Ampere (未上市)', role:'Arm 服务器 CPU', flag:'comp' },
+            { t:'AMPRE', cn:'Ampere (未上市)', role:'Arm 服务器 CPU，配比回补受益', flag:'comp' },
             { t:'AAPL', cn:'Apple Silicon', role:'M 系列自研', flag:'comp' },
           ]
         },
@@ -645,7 +645,7 @@ const DEFAULT_DATA = {
             { t:'ASUUY', cn:'ASUS 华硕 ADR', role:'AI 服务器 + 边缘', flag:'comp' },
             { t:'JBL',   cn:'Jabil', role:'EMS 全球第二，AI 服务器代工', flag:'core' },
             { t:'SANM',  cn:'Sanmina', role:'EMS + 数据中心模块', flag:'comp' },
-            { t:'FLEX',  cn:'Flex Ltd', role:'EMS + 电子互连（已在 L4g）', flag:'comp' },
+            { t:'FLEX',  cn:'Flex Ltd', role:'EMS + 电子互连', flag:'comp' },
             { t:'CLS',   cn:'Celestica', role:'交换机 + AI 整机（已上）', flag:'comp' },
             { t:'SKYT',  cn:'SkyWater Technology', role:'美国本土晶圆代工（产能小，非主流）', flag:'comp' },
             { t:'MTRN',  cn:'Materion', role:'先进材料 + 半导体精密元件', flag:'comp' },
@@ -759,7 +759,7 @@ const DEFAULT_DATA = {
             { t:'VSH', cn:'Vishay Intertechnology', role:'多产品线（MOSFET + Diode + 被动元件），800V HVDC 广覆盖但非卡脖子', flag:'comp' },
             { t:'DIOD', cn:'Diodes Incorporated', role:'功率二极管专精', flag:'comp' },
             { t:'AOSL', cn:'Alpha & Omega Semi', role:'功率 MOSFET 中型玩家', flag:'comp' },
-            { t:'NVTS', cn:'Navitas Semi', role:'GaN 800V 直流（注意 ticker NVTS 非 NVT）', flag:'comp' },
+            { t:'NVTS', cn:'Navitas Semi', role:'GaN 800V 直流', flag:'comp' },
             { t:'WOLF', cn:'Wolfspeed', role:'SiC 衬底先驱 · 转型阵痛期', flag:'comp' },
             { t:'6963.T', cn:'Rohm 罗姆', role:'日系 SiC MOSFET', flag:'comp' },
           ]
@@ -903,6 +903,14 @@ const DEFAULT_DATA = {
             { t:'JCI', cn:'Johnson Controls 江森', role:'楼宇 HVAC', flag:'comp' },
             { t:'TT', cn:'Trane Technologies', role:'Chiller 龙头', flag:'comp' },
             { t:'LII', cn:'Lennox', role:'空调 OEM', flag:'comp' },
+          ]
+        },
+        { id:'L8g', name:'🆕 人工合成钻石散热衬底（下一代材料）', layer:8, expanded:true,
+          desc:'超高热导率，用于 GPU/HBM 散热与 GaN-on-Diamond；陈立武点名方向，上市纯标的稀缺，以未上市为主',
+          companies:[
+            { t:'Element Six', cn:'Element Six（戴比尔斯子公司·未上市）', role:'合成钻石散热衬底龙头', flag:'comp' },
+            { t:'Diamond Foundry', cn:'Diamond Foundry（未上市）', role:'晶圆级单晶钻石', flag:'comp' },
+            { t:'AKHAN', cn:'AKHAN Semi（未上市）', role:'钻石半导体涂层', flag:'comp' },
           ]
         },
       ]
@@ -1138,7 +1146,7 @@ const DEFAULT_DATA = {
             { t:'Apptronik', cn:'Apptronik (未上市)', role:'NASA + 谷歌投资', flag:'comp' },
             { t:'1X', cn:'1X Technologies (未上市)', role:'OpenAI 投资', flag:'comp' },
             { t:'BostonD', cn:'Boston Dynamics (未上市)', role:'现代汽车旗下', flag:'comp' },
-            { t:'9880.HK', cn:'优必选 UBTech', role:'港股人形龙头（正确 ticker 是 9880 非 9606）', flag:'cn core' },
+            { t:'9880.HK', cn:'优必选 UBTech', role:'港股人形龙头', flag:'cn core' },
             { t:'宇树', cn:'宇树科技 (未上市)', role:'四足/人形国产黑马', flag:'cn' },
             { t:'智元', cn:'智元机器人 (未上市)', role:'稚晖君创业', flag:'cn' },
             { t:'XPEV', cn:'小鹏 IronAI', role:'港 A 双上市', flag:'cn' },
@@ -1195,7 +1203,7 @@ const DEFAULT_DATA = {
           companies:[
             { t:'SYM',  cn:'Symbotic', role:'仓库自动化 AI 系统（沃尔玛 niche 龙头）', flag:'comp' },
             { t:'KRKNF', cn:'Kraken Robotics', role:'海洋/水下机器人', flag:'comp' },
-            { t:'AVAV', cn:'AeroVironment', role:'军用无人机（已在 L99）', flag:'comp' },
+            { t:'AVAV', cn:'AeroVironment', role:'军用无人机', flag:'comp' },
             { t:'AIRO', cn:'AIRO Group', role:'无人机平台', flag:'comp' },
             { t:'DPRO', cn:'Draganfly', role:'无人机配件', flag:'comp' },
           ]
