@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #0a0a0a; }</style>
+</helmet>
+<x-import component="TermVideo" from="./TermVideoScenes.jsx" data="{{ termData }}" orientation="{{ orientation }}" hint-size="100%,100%" style="position:absolute; inset:0;"></x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:540},&quot;orientation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;landscape&quot;,&quot;options&quot;:[&quot;landscape&quot;,&quot;portrait&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;画面&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      orientation: this.props.orientation ?? 'landscape',
+      termData: {
+        enName: 'CoWoS',
+        cnName: '芯粒堆叠封装',
+        category: '供应链 · 先进封装 (CoWoS)',
+        color: 'oklch(0.66 0.20 35)',
+        hook: '没有它，GPU 和 HBM 焊不到一起',
+        definition: 'CoWoS 是台积电的先进封装技术：先把 GPU 裸片和 HBM 堆栈焊在硅中介层上（Chip-on-Wafer），再把这块硅片焊到封装基板上（on-Substrate）。',
+        metaphor: '相当于给 GPU 和 HBM 之间修一条纳米级立交桥，让数据不用绕远路。',
+        flow: [
+          { label: 'GPU 裸片 + HBM 堆栈', sub: '两种裸片分开制造' },
+          { label: '焊上硅中介层', sub: 'Interposer · 纳米级布线' },
+          { label: '再焊上封装基板', sub: 'Substrate' },
+          { label: 'AI 超级芯片', sub: '= CoWoS 封装完成' },
+        ],
+        whyMatters: [
+          { label: 'AI 芯片出货的隐形瓶颈', detail: '旗舰 AI GPU 普遍依赖 CoWoS，台积电产能爬坡速度直接决定了显卡能卖出多少' },
+          { label: 'CoWoS-S → CoWoS-L', detail: '从单一中介层升级为拼接式中介层，才能塞下更大的 GPU 和更多 HBM' },
+          { label: '一步错，整颗芯片报废', detail: '先进封装任何一步出问题，报废的是已经投入大量成本的裸片，代价远高于普通基板' },
+        ],
+        players: ['台积电 TSMC', '三星 Samsung', '英特尔 Intel'],
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

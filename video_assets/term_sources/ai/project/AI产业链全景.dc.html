@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ext-resource-dependency" content="./AIChainVideo.jsx" data-resource-id="aichainJsx" />
+<template id="__bundler_thumbnail" data-bg-color="#EEF1F7">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect x="470" y="250" width="140" height="140" rx="26" fill="none" stroke="#1A8FFF" stroke-width="10"/>
+    <text x="540" y="340" font-family="sans-serif" font-size="52" font-weight="700" fill="#050F1E" text-anchor="middle">AI</text>
+    <rect x="420" y="470" width="360" height="22" rx="11" fill="#1A8FFF"/>
+    <rect x="470" y="520" width="260" height="14" rx="7" fill="#93A1B4"/>
+  </svg>
+</template>
+<script src="./support.js"></script>
+<script>
+  (function () {
+    function patch() {
+      var r = window.__resources;
+      if (r && r.aichainJsx) {
+        document.querySelectorAll('x-import[from="./AIChainVideo.jsx"]').forEach(function (el) {
+          el.setAttribute('from', r.aichainJsx);
+        });
+        return true;
+      }
+      return false;
+    }
+    if (!patch()) {
+      var iv = setInterval(function () { if (patch()) clearInterval(iv); }, 15);
+      setTimeout(function () { clearInterval(iv); }, 5000);
+    }
+  })();
+</script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #0a0a0a; }
+  </style>
+</helmet>
+<x-import component="AIChainVideo" from="./AIChainVideo.jsx" hint-size="100%,100%" style="position:absolute; inset:0;"></x-import>
+</x-dc>
+</body>
+</html>

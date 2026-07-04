@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #0a0a0a; }</style>
+</helmet>
+<x-import component="TermVideo" from="./TermVideoScenes.jsx" data="{{ termData }}" orientation="{{ orientation }}" hint-size="100%,100%" style="position:absolute; inset:0;"></x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:540},&quot;orientation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;landscape&quot;,&quot;options&quot;:[&quot;landscape&quot;,&quot;portrait&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;画面&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      orientation: this.props.orientation ?? 'landscape',
+      termData: {
+        enName: 'OSAT',
+        cnName: '委外封装测试',
+        category: '供应链 · 先进封装与测试',
+        color: 'oklch(0.70 0.17 80)',
+        hook: '芯片造出来只是一半，OSAT 负责另一半',
+        definition: '晶圆厂（Foundry）只造裸片（Die）。把裸片切割、封装成看得见的芯片、再逐颗测试是否合格——这件事外包给专门公司来做，就是 OSAT（委外封装测试）。',
+        metaphor: '如果说台积电是"烘焙面包"，OSAT 就是"切片、装盒、质检"的那道工序。',
+        flow: [
+          { label: '晶圆厂产出裸片', sub: 'Foundry · Die' },
+          { label: 'OSAT 封装', sub: '切割 / 打线 / 塑封' },
+          { label: 'OSAT 测试', sub: '筛选良品与次品' },
+          { label: '良品出厂', sub: '交付整机厂' },
+        ],
+        whyMatters: [
+          { label: '不再只是"打包"', detail: 'AI 芯片封装涉及 CoWoS、2.5D/3D 堆叠，OSAT 的技术难度已大幅提升' },
+          { label: '先进封装产能紧缺', detail: '先进封装产能是 AI 芯片实际出货速度的瓶颈之一，不只是芯片本身产能' },
+          { label: '良率决定成本', detail: '测试环节筛掉次品，良率每提升 1%，都直接影响整条产业链的成本' },
+        ],
+        players: ['日月光 ASE', '安靠 Amkor', '长电科技 JCET', '矽品 SPIL', '力成 PTI'],
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

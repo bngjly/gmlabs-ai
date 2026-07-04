@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #0a0a0a; }</style>
+</helmet>
+<x-import component="TermVideo" from="./TermVideoScenes.jsx" data="{{ termData }}" orientation="{{ orientation }}" hint-size="100%,100%" style="position:absolute; inset:0;"></x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:540},&quot;orientation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;landscape&quot;,&quot;options&quot;:[&quot;landscape&quot;,&quot;portrait&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;画面&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      orientation: this.props.orientation ?? 'landscape',
+      termData: {
+        enName: 'CPO',
+        cnName: '共封装光学',
+        category: '供应链 · 光通信 (CPO)',
+        color: 'oklch(0.62 0.15 240)',
+        hook: '光模块以后可能不再"插"在交换机上',
+        definition: '传统方案里，光模块是插在交换机面板上的独立部件，电信号要先走一段铜线才能到光模块。CPO 把光引擎直接封装在交换芯片旁边，电信号几乎"零距离"转换成光信号。',
+        metaphor: '把插线式的对讲机，换成焊死在芯片旁边的直连光纤——距离越短，损耗和功耗越低。',
+        compare: {
+          beforeLabel: '可插拔光模块',
+          before: ['ASIC 交换芯片', '较长铜线走线', '面板可插拔光模块'],
+          afterLabel: '共封装光学',
+          after: ['ASIC + 光引擎同封装', '近乎零距离转光', '直接引出光纤'],
+        },
+        whyMatters: [
+          { label: '功耗是下一代网络的生死线', detail: '800G / 1.6T 时代，可插拔光模块的功耗和信号损耗已成为集群规模的限制因素' },
+          { label: '带宽密度更高', detail: '去掉面板走线后，同样空间能塞下更多光通道，适配更大规模的 GPU 集群' },
+          { label: '仍处早期，维护是挑战', detail: '光引擎和芯片封装在一起，一旦损坏不能像插拔模块一样直接更换' },
+        ],
+        players: ['博通 Broadcom', '英伟达 NVIDIA', '台积电 TSMC', 'Ayar Labs'],
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

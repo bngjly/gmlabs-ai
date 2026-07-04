@@ -1,0 +1,3 @@
+/* YoYo AI 日报 — global CSS entry. Import-only file. */
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";

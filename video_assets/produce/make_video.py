@@ -11,21 +11,24 @@ make_video.py — Claude Design HTML 动画 → YouTube 成品 MP4 + SRT
   3. 合成：检测 t=0 → ffmpeg 裁播放条 + 从 t=0 截取 → 按场景时间轴混配音 → MP4
   4. 字幕：按场景时间轴生成 SRT（YouTube 上传用，不烧录）
 
-用法: python make_video.py [--skip-tts] [--skip-record]
+用法:
+  python make_video.py --scenes scenes.json --html "path/to/xxx.dc.html" --name OutputName [--skip-tts] [--skip-record]
+
+默认（不传 --scenes/--html/--name）走全景视频这套，向后兼容旧调用。
 """
+import argparse
 import asyncio
+import http.server
 import json
-import re
 import subprocess
 import sys
+import threading
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
-HTML = BASE.parent / "design_handoff_publishing" / "AI产业链全景图谱视频.html"
-SCENES = BASE / "scenes.json"
-AUDIO = BASE / "audio"
-RAW = BASE / "raw"
-OUT = BASE / "out"
+DEFAULT_HTML = BASE.parent / "design_handoff_publishing" / "AI产业链全景图谱视频.html"
+DEFAULT_SCENES = BASE / "scenes.json"
+DEFAULT_NAME = "AI产业链全景图谱"
 
 VOICE = "zh-CN-XiaoxiaoNeural"
 RATE = "+10%"
@@ -67,66 +70,111 @@ RELEASE_JS = """
 """
 
 
-def load_scenes():
-    return json.loads(SCENES.read_text(encoding="utf-8"))
+def parse_args():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--scenes", default=str(DEFAULT_SCENES))
+    ap.add_argument("--html", default=str(DEFAULT_HTML))
+    ap.add_argument("--name", default=DEFAULT_NAME)
+    ap.add_argument("--skip-tts", action="store_true")
+    ap.add_argument("--skip-record", action="store_true")
+    return ap.parse_args()
+
+
+def load_scenes(scenes_path):
+    return json.loads(Path(scenes_path).read_text(encoding="utf-8"))
+
+
+def paths_for(name):
+    audio = BASE / "audio" / name
+    raw = BASE / "raw" / name
+    out = BASE / "out"
+    audio.mkdir(parents=True, exist_ok=True)
+    raw.mkdir(parents=True, exist_ok=True)
+    out.mkdir(exist_ok=True)
+    return audio, raw, out
 
 
 # ── 1. TTS ────────────────────────────────────────────────────────────
-async def tts():
+async def tts(scenes_path, name):
     import edge_tts
-    data = load_scenes()
-    AUDIO.mkdir(exist_ok=True)
+    data = load_scenes(scenes_path)
+    audio_dir, _, _ = paths_for(name)
     for sc in data["scenes"]:
-        out = AUDIO / f"{sc['id']}.mp3"
+        out = audio_dir / f"{sc['id']}.mp3"
         await edge_tts.Communicate(sc["text"], voice=VOICE, rate=RATE).save(str(out))
         r = subprocess.run(
             ["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
-             "-of", "csv=p=0", str(out)], capture_output=True, text=True)
+             "-of", "csv=p=0", str(out)], capture_output=True, text=True,
+            encoding="utf-8", errors="replace")
         dur = float(r.stdout.strip())
         window = sc["end"] - sc["start"]
         flag = "!! 超窗" if dur > window else "OK"
-        print(f"[TTS] {sc['id']:12s} {dur:5.2f}s / 窗口 {window:5.2f}s  {flag}")
+        print(f"[TTS] {sc['id']:14s} {dur:5.2f}s / 窗口 {window:5.2f}s  {flag}")
+
+
+def _start_http_server(serve_dir):
+    """.dc.html 靠 x-import fetch() 加载 jsx，file:// 协议下会被 CORS 挡住，
+    需要本地 HTTP server 才能正常渲染（全景视频那种自包含 bundle 不需要）。"""
+    handler = lambda *a, **kw: http.server.SimpleHTTPRequestHandler(*a, directory=str(serve_dir), **kw)
+    httpd = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    port = httpd.server_address[1]
+    t = threading.Thread(target=httpd.serve_forever, daemon=True)
+    t.start()
+    return httpd, port
 
 
 # ── 2. 录制 ───────────────────────────────────────────────────────────
-def record():
+def record(html_path, scenes_path, name):
     from playwright.sync_api import sync_playwright
-    RAW.mkdir(exist_ok=True)
-    data = load_scenes()
+    _, raw_dir, _ = paths_for(name)
+    data = load_scenes(scenes_path)
     total = data["duration"]
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        ctx = browser.new_context(
-            viewport={"width": W, "height": H + BAR},
-            record_video_dir=str(RAW),
-            record_video_size={"width": W, "height": H + BAR},
-        )
-        ctx.add_init_script(FREEZE_SHIM)
-        page = ctx.new_page()
-        page.goto(HTML.as_uri())
-        page.evaluate(MARKER_JS)
-        page.wait_for_timeout(9000)             # 等 bundle 完全加载（动画被冻结，等多久都不跑）
-        page.evaluate(RELEASE_JS)               # 撤标记 + 放行动画 = t0
-        page.wait_for_timeout(int((total + 1.5) * 1000))
-        video_path = page.video.path()
-        ctx.close()
-        browser.close()
-    raw_out = RAW / "capture.webm"
+    html = Path(html_path).resolve()
+    needs_server = ".dc.html" in html.name
+
+    httpd = None
+    if needs_server:
+        httpd, port = _start_http_server(html.parent)
+        url = f"http://127.0.0.1:{port}/{html.name}"
+    else:
+        url = html.as_uri()
+
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            ctx = browser.new_context(
+                viewport={"width": W, "height": H + BAR},
+                record_video_dir=str(raw_dir),
+                record_video_size={"width": W, "height": H + BAR},
+            )
+            ctx.add_init_script(FREEZE_SHIM)
+            page = ctx.new_page()
+            page.goto(url)
+            page.evaluate(MARKER_JS)
+            page.wait_for_timeout(9000)             # 等 bundle 完全加载（动画被冻结，等多久都不跑）
+            page.evaluate(RELEASE_JS)               # 撤标记 + 放行动画 = t0
+            page.wait_for_timeout(int((total + 1.5) * 1000))
+            video_path = page.video.path()
+            ctx.close()
+            browser.close()
+    finally:
+        if httpd:
+            httpd.shutdown()
+
+    raw_out = raw_dir / "capture.webm"
     Path(video_path).replace(raw_out)
     print(f"[REC] {raw_out} ({raw_out.stat().st_size/1e6:.1f} MB)")
 
 
 # ── 3. 检测 t0（洋红标记最后出现的帧）─────────────────────────────────
-def detect_t0():
-    raw = RAW / "capture.webm"
-    # 只看左上角 80x80：洋红时饱和度极高（SATAVG 大），撤掉后是浅色页面（SATAVG 小）
-    # 注意：movie= 里 Windows 盘符冒号会被 lavfi 当参数分隔符，必须用相对路径（cwd 切到 raw/）
+def detect_t0(raw_dir):
+    # 注意：movie= 里 Windows 盘符冒号会被 lavfi 当参数分隔符，必须用相对路径（cwd 切到 raw_dir）
     r = subprocess.run(
         ["ffprobe", "-f", "lavfi",
          "-i", "movie=capture.webm,crop=80:80:0:0,signalstats",
          "-show_entries", "frame=pts_time:frame_tags=lavfi.signalstats.SATAVG",
          "-of", "csv=p=0", "-v", "quiet"],
-        capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=str(RAW))
+        capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=str(raw_dir))
     last_marker = 0.0
     for line in r.stdout.splitlines():
         parts = line.strip().split(",")
@@ -143,23 +191,23 @@ def detect_t0():
 
 
 # ── 4. 合成 ───────────────────────────────────────────────────────────
-def mux():
-    OUT.mkdir(exist_ok=True)
-    data = load_scenes()
+def mux(scenes_path, name):
+    audio_dir, raw_dir, out_dir = paths_for(name)
+    data = load_scenes(scenes_path)
     total = data["duration"]
-    raw = RAW / "capture.webm"
-    t0 = detect_t0()
+    raw = raw_dir / "capture.webm"
+    t0 = detect_t0(raw_dir)
 
     inputs, delays = [], []
     for i, sc in enumerate(data["scenes"]):
-        inputs += ["-i", str(AUDIO / f"{sc['id']}.mp3")]
+        inputs += ["-i", str(audio_dir / f"{sc['id']}.mp3")]
         ms = int(sc["start"] * 1000)
         delays.append(f"[{i+1}:a]adelay={ms}|{ms}[a{i}]")
     n = len(data["scenes"])
     amix = "".join(f"[a{i}]" for i in range(n)) + f"amix=inputs={n}:normalize=0[aout]"
     filter_a = ";".join(delays + [amix])
 
-    out_mp4 = OUT / "AI产业链全景图谱_final.mp4"
+    out_mp4 = out_dir / f"{name}_final.mp4"
     cmd = [
         "ffmpeg", "-y",
         "-ss", f"{t0:.3f}", "-i", str(raw), *inputs,
@@ -186,23 +234,23 @@ def fmt_ts(t):
     return f"{int(h):02d}:{int(m):02d}:{int(s):02d},{int((t % 1)*1000):03d}"
 
 
-def srt():
-    OUT.mkdir(exist_ok=True)
-    data = load_scenes()
+def srt(scenes_path, name):
+    _, _, out_dir = paths_for(name)
+    data = load_scenes(scenes_path)
     lines = []
     for i, sc in enumerate(data["scenes"], 1):
         lines.append(f"{i}\n{fmt_ts(sc['start'])} --> {fmt_ts(sc['end'])}\n{sc['text']}\n")
-    out = OUT / "AI产业链全景图谱.srt"
+    out = out_dir / f"{name}.srt"
     out.write_text("\n".join(lines), encoding="utf-8-sig")
     print(f"[SRT] {out}")
 
 
 if __name__ == "__main__":
-    args = sys.argv[1:]
-    if "--skip-tts" not in args:
-        asyncio.run(tts())
-    if "--skip-record" not in args:
-        record()
-    mux()
-    srt()
-    print("\n[DONE] 成品在 out/ 目录")
+    args = parse_args()
+    if not args.skip_tts:
+        asyncio.run(tts(args.scenes, args.name))
+    if not args.skip_record:
+        record(args.html, args.scenes, args.name)
+    mux(args.scenes, args.name)
+    srt(args.scenes, args.name)
+    print(f"\n[DONE] {args.name} 成品在 out/ 目录")

@@ -1,0 +1,20 @@
+/* YoYo AI 日报 — 字体 token */
+:root {
+  /* 数字/英文展示 */
+  --font-display: 'Space Grotesk', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  /* 中文正文/标题 */
+  --font-cjk: 'PingFang SC', 'Microsoft YaHei', 'Space Grotesk', sans-serif;
+  /* 编号/kicker/数据标签 */
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* 1920×1080 视频字号刻度（竖版 1080×1920 同刻度） */
+  --fs-hero: 96px;      /* 片头主标题 */
+  --fs-title: 52px;     /* 场景大标题 */
+  --fs-section: 46px;   /* 区块标题 */
+  --fs-card: 30px;      /* 卡片标题 */
+  --fs-body: 20px;      /* 卡片说明 */
+  --fs-kicker: 15px;    /* MONO kicker，letter-spacing 0.18em+ */
+
+  --ls-kicker: 0.18em;
+  --ls-title: -0.015em;
+}

@@ -43,4 +43,5 @@ scoring/.env
 video_assets/produce/raw/
 video_assets/produce/out/
 video_assets/produce/audio/
+video_assets/produce/__pycache__/
 AI产业链全景图谱视频.zip
