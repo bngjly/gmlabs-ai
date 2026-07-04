@@ -65,8 +65,11 @@ VIDEOS = {
             "60 秒把 AI 产业链一次讲清：算力芯片、HBM、先进封装、互联、交换、光模块、"
             "电力、液冷、上游设备、数据中心，再到应用前线的机器人与卫星——12 个环节，一张图看懂。"
         ),
-        "tags": ["AI", "AI产业链", "GPU", "HBM", "光模块", "液冷", "英伟达", "半导体",
-                 "科技投资", "机器人", "YoYo AI日报", "AI科普"],
+        "tags": ["AI", "AI产业链", "AI supply chain", "GPU", "HBM", "CoWoS", "光模块",
+                 "optical module", "液冷", "liquid cooling", "英伟达", "NVIDIA", "台积电",
+                 "TSMC", "半导体", "semiconductor", "科技投资", "机器人", "robotics",
+                 "人工智能", "artificial intelligence", "数据中心", "data center",
+                 "AI芯片", "AI chip", "算力", "YoYo AI日报", "AI科普"],
     },
     "cowos": {
         "file": "CoWoS_final.mp4",
@@ -85,8 +88,10 @@ VIDEOS = {
             "这就是 CoWoS，台积电的先进封装技术。一颗 AI 超级芯片的拼装过程："
             "封装基板 → 硅中介层 → GPU 裸片 → 两侧 HBM 内存堆栈 → 上千条微米级导线直连。"
         ),
-        "tags": ["CoWoS", "先进封装", "AI芯片", "台积电", "半导体", "AI产业链",
-                 "YoYo AI日报", "AI科普", "HBM"],
+        "tags": ["CoWoS", "先进封装", "advanced packaging", "AI芯片", "AI chip", "台积电",
+                 "TSMC", "半导体", "semiconductor", "AI产业链", "AI supply chain", "HBM",
+                 "GPU", "chiplet", "芯粒", "封装技术", "英伟达", "NVIDIA",
+                 "YoYo AI日报", "AI科普"],
     },
     "osat": {
         "file": "OSAT_final.mp4",
@@ -107,7 +112,9 @@ VIDEOS = {
             "三步走：把晶圆切成裸片 → 封装给裸片穿上盔甲 → 测试分选良品放行、次品淘汰。"
             "AI 时代 OSAT 也要做 2.5D/3D 堆叠，价值量在快速上升。"
         ),
-        "tags": ["OSAT", "封装测试", "AI芯片", "半导体", "AI产业链",
+        "tags": ["OSAT", "封装测试", "packaging test", "AI芯片", "AI chip", "半导体",
+                 "semiconductor", "AI产业链", "AI supply chain", "芯片封装",
+                 "chip packaging", "良率", "yield", "台积电", "TSMC",
                  "YoYo AI日报", "AI科普"],
     },
     "cpo": {
@@ -129,7 +136,9 @@ VIDEOS = {
             "把光引擎直接焊到交换芯片旁边。传统方案光模块插在面板上，信号走一长段铜线才能转光出柜；"
             "CPO 走几毫米就完成光电转换，省的是万卡集群兆瓦级的电。"
         ),
-        "tags": ["CPO", "共封装光学", "光模块", "AI算力", "半导体", "AI产业链",
+        "tags": ["CPO", "共封装光学", "co-packaged optics", "光模块", "optical module",
+                 "AI算力", "AI compute", "半导体", "semiconductor", "数据中心",
+                 "data center", "交换芯片", "switch chip", "AI产业链",
                  "YoYo AI日报", "AI科普"],
     },
 }
@@ -143,7 +152,7 @@ def build_description(v):
         f"📬 每天 60 秒看懂一个 AI 产业链概念，Telegram 订阅：\n{TG}\n\n"
         f"章节：\n{v['chapters']}\n\n"
         f"{DISCLAIMER}\n\n"
-        + " ".join(f"#{t}" for t in v["tags"][:10])
+        + " ".join(f"#{t.replace(' ', '')}" for t in v["tags"][:15])
     )
 
 
