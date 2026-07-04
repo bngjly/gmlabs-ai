@@ -37,6 +37,28 @@ https://t.me/yoyoaidaily
 - 受众：不是面向儿童 · 类别：教育
 - 封面：用片尾全景一图流截图（55-60s 处，12 环节全展开那帧）或 S1 标题帧
 
+## ✅ 已发布（2026-07-04）
+- YouTube: https://youtu.be/x_ps21VinHY （ai_ecosystem 合集 + 中文字幕已挂）
+- 官网首页「▶ 60 秒看懂产业链」按钮已嵌入本片
+- ⚠️ 自定义封面失败：账号需先在 studio.youtube.com 完成手机验证，验证后手动上传 `封面_全景一图流.png`
+
+## TG 宣发文案（@yoyoaidaily 专用，直接粘贴）
+
+```
+🎬 新栏目上线 | YoYo AI 日报
+
+60 秒看懂 AI 产业链全景：12 个环节，从一块芯片到机器人与卫星。
+
+GPU 是大脑，HBM 是记忆，封装是胶水；出了机柜必须换光；一个机柜 130 千瓦，液冷成了唯一选择——整条链谁在卡位，一张图讲清。
+
+▶️ 视频：https://youtu.be/x_ps21VinHY
+
+🗺 交互版图谱（286 家公司，可点开每家的六维评分）：
+https://www.gmlabs.ai/?utm_source=telegram&utm_medium=post&utm_campaign=chain_map&utm_content=chain_map_20260704
+
+后续每天 60 秒讲一个产业链概念（CoWoS / CPO / OSAT…），本频道同步更新。
+```
+
 ## 同步分发（发布 YouTube 后 24h 内）
 
 - **X**：置顶推。文案：`60 秒看懂 AI 产业链：12 个环节，从一块芯片到机器人与卫星。完整交互图谱（286 家公司+六维评分）👇` + 深链（utm_source=x）+ 视频前 30s 剪辑或全片直传
