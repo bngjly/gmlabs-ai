@@ -6,6 +6,10 @@
 
 ---
 
+## ✅ 第 1 期已发布（2026-07-04）
+- YouTube: https://youtu.be/MmQyiEN7MBU （ai_ecosystem 合集 + 中文字幕 + 置顶评论已发，需去 Studio 手动点「置顶」）
+- 待发：TG @yoyoaidaily + X
+
 ## 第 1 期 · CoWoS（52.1s）
 
 **标题**
