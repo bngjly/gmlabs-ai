@@ -20,13 +20,20 @@ VPS = "root@37.60.251.23"
 REMOTE_DIR = "/root/twitter_monitor"
 
 
+SITE_LINK = "https://www.gmlabs.ai/?utm_source=telegram&utm_medium=post&utm_campaign=video_notify"
+
+
 def send(title: str, url: str, desc: str = "") -> bool:
     text = (
         f"🎬 <b>新视频上线</b> | YoYo AI 日报\n\n"
-        f"{title}\n"
+        f"<b>{title}</b>\n"
         + (f"\n{desc}\n" if desc else "")
-        + f"\n▶️ {url}\n\n"
-        f"🗺 完整交互式 AI 产业链图谱：https://www.gmlabs.ai/?utm_source=telegram&utm_medium=post&utm_campaign=video_notify"
+        + f"\n▶️ 视频：{url}\n\n"
+        f"━━━━━━━━━━━━━━\n"
+        f"🗺 <b>gmlabs.ai</b> —— 286 家公司 · 六维客观评分\n"
+        f"每家公司都能点开看完整评分和产业链上下游\n"
+        f"👉 <a href=\"{SITE_LINK}\">点击进入 AI 产业链图谱</a>\n"
+        f"━━━━━━━━━━━━━━"
     )
     # 用 heredoc 把消息传给远端 python，避免本地拼 shell 引号转义问题
     remote_py = (
