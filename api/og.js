@@ -64,6 +64,26 @@ function truncate(s, max) {
   return s.length > max ? s.slice(0, max - 1).trimEnd() + '…' : s;
 }
 
+// ChainGraph 品牌标：菱形节点网络（与 /logo.svg 同款），渐变圆角底 + 白色符号
+function brandMark(size) {
+  const glyph = Math.round(size * 0.72);
+  return h('div', {
+    style: {
+      width: `${size}px`, height: `${size}px`, borderRadius: `${Math.round(size * 14 / 64)}px`,
+      background: 'linear-gradient(135deg,#4fc3f7,#3b82f6)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    },
+  },
+    h('svg', { width: glyph, height: glyph, viewBox: '0 0 64 64' },
+      h('path', { d: 'M32 16 L17 32 L32 48 L47 32 Z', stroke: '#ffffff', strokeWidth: 4, fill: 'none', strokeLinejoin: 'round' }),
+      h('circle', { cx: 32, cy: 16, r: 6, fill: '#ffffff' }),
+      h('circle', { cx: 17, cy: 32, r: 5, fill: '#ffffff' }),
+      h('circle', { cx: 47, cy: 32, r: 5, fill: '#ffffff' }),
+      h('circle', { cx: 32, cy: 48, r: 6, fill: '#ffffff' }),
+    ),
+  );
+}
+
 function buildScoreCard(ticker, sc, aiLevel) {
   const dims = sc.dims || {};
   const dimMax = sc.dim_max || {};
@@ -90,14 +110,7 @@ function buildScoreCard(ticker, sc, aiLevel) {
   },
     // 顶部品牌行
     h('div', { style: { display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '36px' } },
-      h('div', {
-        style: {
-          width: '44px', height: '44px', borderRadius: '10px',
-          background: 'linear-gradient(135deg,#4fc3f7,#3b82f6)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: '24px', color: '#000', fontWeight: 700,
-        },
-      }, '⚡'),
+      brandMark(44),
       h('div', { style: { display: 'flex', fontSize: '28px', fontWeight: 700, color: '#4fc3f7' } }, 'gmlabs.ai'),
       h('div', { style: { display: 'flex', fontSize: '22px', color: '#6b7785', marginLeft: '8px' } }, 'AI Supply Chain Score Card'),
     ),
@@ -152,14 +165,7 @@ function buildFallbackCard(label) {
       color: '#e6e6e6', fontFamily: '"sans-serif"',
     },
   },
-    h('div', {
-      style: {
-        width: '64px', height: '64px', borderRadius: '14px',
-        background: 'linear-gradient(135deg,#4fc3f7,#3b82f6)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontSize: '34px', color: '#000', fontWeight: 700,
-      },
-    }, '⚡'),
+    brandMark(64),
     h('div', { style: { fontSize: '56px', fontWeight: 800, display: 'flex' } }, 'gmlabs.ai'),
     h('div', { style: { fontSize: '28px', color: '#9aa5b1', display: 'flex' } }, `AI Supply Chain Map — ${label}`),
     h('div', { style: { fontSize: '22px', color: '#4fc3f7', display: 'flex' } }, 'Telegram @yoyoaidaily'),
