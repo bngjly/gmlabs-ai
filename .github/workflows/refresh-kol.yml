@@ -21,12 +21,16 @@ jobs:
 
       - name: Fetch and merge KOL opinions
         run: |
-          # 拉取最新 60 条
-          curl -sf --retry 3 --retry-delay 10 \
+          # 拉取最新 60 条；上游 API 偶发抖动时不算失败（每小时跑一次，漏一轮无损，
+          # 已有 kol_cache.json 兜底），避免误报红色告警邮件
+          if ! curl -sf --retry 3 --retry-delay 10 \
             -H 'User-Agent: ChainGraph/1.0 (gmlabs.ai)' \
             -H 'Accept: application/json' \
             'https://masterticker.com/api/twitter/opinions/latest?limit=60' \
-            -o kol_new.json
+            -o kol_new.json; then
+            echo "WARNING: upstream API unreachable, keeping existing cache"
+            exit 0
+          fi
 
           # 累积合并：新数据 + 已有数据，按 tweet_id 去重，保留 30 天内
           python3 << 'PYEOF'
