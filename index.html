@@ -15,6 +15,9 @@
 <meta name="twitter:description" content="社区共建的 AI 产业链全景图谱。286+ 家公司，11 层结构，AI 一键深度分析。">
 <meta name="twitter:image" content="https://www.gmlabs.ai/api/og">
 <link rel="canonical" href="https://www.gmlabs.ai/">
+<link rel="icon" type="image/svg+xml" href="/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -31,7 +34,7 @@
   "@type": "Organization",
   "name": "gmlabs.ai",
   "url": "https://www.gmlabs.ai/",
-  "logo": "https://www.gmlabs.ai/api/og",
+  "logo": "https://www.gmlabs.ai/logo-512.png",
   "description": "AI 产业链全景图谱与每日 KOL 观点、加密交易策略。",
   "sameAs": ["https://t.me/yoyoaidaily"]
 }
@@ -51,7 +54,7 @@ a { color: inherit; text-decoration: none; }
 /* ===== Nav ===== */
 .nav { position: sticky; top: 0; z-index: 100; background: rgba(15,20,25,.92); backdrop-filter: blur(12px); border-bottom: 1px solid #2a3548; padding: 12px 24px; display: flex; align-items: center; gap: 28px; }
 .brand { font-size: 18px; font-weight: 700; color: #4fc3f7; display: flex; align-items: center; gap: 8px; }
-.brand .logo { width: 28px; height: 28px; background: linear-gradient(135deg,#4fc3f7,#3b82f6); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; }
+.brand .logo { width: 28px; height: 28px; border-radius: 6px; display: inline-block; vertical-align: middle; }
 .tabs { display: flex; gap: 4px; flex: 1; }
 .tab { padding: 8px 16px; border-radius: 8px; font-size: 14px; cursor: pointer; color: #9aa5b1; transition: .15s; font-weight: 500; }
 .tab:hover { background: #1c2632; color: #e6e6e6; }
@@ -402,7 +405,7 @@ img.kol-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; 
 
 <!-- ========== NAV ========== -->
 <nav class="nav">
-  <div class="brand"><span class="logo">🧠</span> ChainGraph</div>
+  <div class="brand"><img class="logo" src="/logo.svg" alt="ChainGraph logo"> ChainGraph</div>
   <div class="tabs">
     <div class="tab active" onclick="goto('home')" data-i18n="nav.home">首页</div>
     <div class="tab" onclick="goto('graph')" data-i18n="nav.graph">图谱</div>
