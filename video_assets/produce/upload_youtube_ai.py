@@ -26,6 +26,9 @@ from google_auth_httplib2 import AuthorizedHttp
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import notify_tg
+
 try:
     sys.stdout.reconfigure(encoding="utf-8")
     sys.stderr.reconfigure(encoding="utf-8")
@@ -248,6 +251,12 @@ def upload_one(service, key):
         print("  已发评论（YouTube API 不支持程序化置顶，去 Studio 手动点一下「置顶」）", file=sys.stderr)
     except Exception as e:
         print(f"  [警告] 发评论失败: {e}", file=sys.stderr)
+
+    # TG 推送到 @yoyoaidaily（与 KOL/Serenity 自动抓取的推送完全独立，同一个 bot）
+    try:
+        notify_tg.send(v["title"], url, v["intro"][:80])
+    except Exception as e:
+        print(f"  [警告] TG 推送失败: {e}", file=sys.stderr)
 
     return url
 
