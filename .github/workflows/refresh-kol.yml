@@ -86,6 +86,29 @@ jobs:
 
           added = len(all_items) - len(old_items)
           print(f'OK: {len(new_items)} from API, {len(old_items)} existing -> {len(all_items)} total ({added:+d})')
+
+          # ── 追加到永久归档（瘦身字段，按月分片，供 KOL 战绩榜计算用） ──
+          import os
+          os.makedirs('kol_archive', exist_ok=True)
+          SLIM = ['tweet_id', 'created_at', 'account_handle', 'display_name', 'stance', 'confidence', 'mentioned_tickers']
+          from collections import defaultdict
+          by_month = defaultdict(dict)
+          for it in new_items:
+              tid = it.get('tweet_id'); ca = it.get('created_at', '')
+              if not tid or len(ca) < 7:
+                  continue
+              by_month[ca[:7]][tid] = {k: it.get(k) for k in SLIM}
+          for month, recs in sorted(by_month.items()):
+              path = f'kol_archive/{month}.json'
+              existing = {}
+              if os.path.exists(path):
+                  existing = {r['tweet_id']: r for r in json.load(open(path, encoding='utf-8'))}
+              n0 = len(existing)
+              existing.update(recs)
+              out = sorted(existing.values(), key=lambda r: r['created_at'])
+              with open(path, 'w', encoding='utf-8') as f:
+                  json.dump(out, f, ensure_ascii=False, separators=(',', ':'))
+              print(f'ARCHIVE {path}: {n0} -> {len(out)}')
           PYEOF
 
       - name: Sync KOL avatars
@@ -115,7 +138,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add kol_cache.json avatars/
+          git add kol_cache.json avatars/ kol_archive/
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

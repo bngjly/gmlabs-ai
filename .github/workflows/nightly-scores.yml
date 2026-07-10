@@ -68,11 +68,17 @@ jobs:
         working-directory: scoring
         run: python build_home_stats.py
 
+      - name: KOL performance leaderboard (KOL 战绩榜)
+        working-directory: scoring
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python kol_perf.py
+
       - name: Commit and push if changed
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add scores.json scoring/chain_tickers.json home_stats.json
+          git add scores.json scoring/chain_tickers.json home_stats.json kol_perf.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
