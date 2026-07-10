@@ -1,0 +1,4 @@
+{
+  "_doc": "社区首提登记表。采纳一条 Issue 后在此登记：ticker=yfinance 代码, by=署名, issue=Issue 编号, called_at=Issue 创建日(基准日), layer=收录层级。夜任务 kol_perf.py 读取此表计算首提战绩 → community_perf.json",
+  "calls": []
+}

@@ -66,6 +66,7 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .company .ticker { font-weight: 700; color: #4fc3f7; font-size: 13px; }
 .company .cn-name { color: #ddd; font-size: 12px; margin-left: 4px; }
 .company .role { color: #9aa5b1; font-size: 11px; display: block; margin-top: 2px; }
+.by-badge { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 9px; font-size: 10px; background: rgba(240,185,11,0.14); color: #f0b90b; border: 1px solid rgba(240,185,11,0.35); vertical-align: middle; }
 .company .watch-btn { position: absolute; top: 4px; right: 4px; font-size: 10px; padding: 2px 8px; border-radius: 10px; cursor: pointer; color: #9aa5b1; background: #1c2632; border: 1px solid #2a3548; transition: .12s; user-select: none; line-height: 1.5; white-space: nowrap; }
 .company .watch-btn:hover { color: #f59e0b; border-color: #f59e0b; }
 .company .watch-btn.on { color: #fbbf24; background: #3a2f1a; border-color: #f59e0b; font-weight: 600; }
@@ -1589,7 +1590,7 @@ function renderCompanies(arr, path) {
     const watchTitle = isWatch ? '点击取消自选' : '点击加入自选';
     return `<div class="${cls}" data-flag="${escapeHtml(c.flag || '')}" onclick="openDetail('${path}', ${i})">
       <span class="watch-btn ${isWatch?'on':''}" onclick="toggleWatch('${path}', ${i}, event)" title="${watchTitle}">${watchLabel}</span>
-      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}${aiBadge}</div>
+      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}${aiBadge}${c.by ? `<span class="by-badge" title="社区首提${c.since ? ' · ' + escapeHtml(c.since) : ''}">🏅 ${escapeHtml(c.by)}</span>` : ''}</div>
       <span class="role">${escapeHtml(c.role || '')} ${tags.join('')}</span>
       ${featTags}
     </div>`;
@@ -1790,15 +1791,22 @@ function closeDrawer() {
 function openContribute() {
   const currentQuery = document.getElementById('search').value.trim();
   document.getElementById('modalInner').innerHTML = `
-    <h3>+ 申请收录公司 / 子赛道</h3>
+    <h3>+ 首提新标的 / 子赛道</h3>
+    <p style="color:#9aa5b1;font-size:12px;line-height:1.6;margin:0 0 12px;">
+      提交后<strong style="color:#4fc3f7">公开公示</strong>（时间戳公证）。采纳后收录进图谱并为你<strong style="color:#4fc3f7">永久署名</strong>，
+      以提交日为基准追踪你的首提战绩。
+    </p>
     <label>公司代码 / 名称</label>
     <input id="c_ticker" placeholder="如 ASTS 或 黄仁勋小公司" value="${escapeHtml(currentQuery)}">
     <label>建议归属层级（可选）</label>
     <input id="c_layer" placeholder="如：⑥ 光通信 / CW 激光器">
-    <label>简短理由（为什么应该被收录）</label>
+    <label>首提逻辑（为什么值得收录）</label>
     <textarea id="c_reason" rows="3" placeholder="如：CPO 时代 CW 激光器最有可能的小盘黑马..." style="width:100%;background:#0f1419;color:#e6e6e6;border:1px solid #3a4860;padding:8px 10px;border-radius:6px;font-family:inherit;font-size:13px;"></textarea>
-    <label>你的邮箱（可选，收录后通知你）</label>
+    <label>署名（可选，X/TG 用户名，采纳后展示在节点上）</label>
+    <input id="c_handle" placeholder="@your_handle">
+    <label>你的邮箱（可选，仅管理员可见，收录后通知你）</label>
     <input id="c_email" type="email" placeholder="optional@email.com">
+    <input id="c_website" style="display:none" tabindex="-1" autocomplete="off">
     <div class="modal-actions">
       <button class="secondary" onclick="closeModal()">取消</button>
       <button onclick="submitContribute()">提交</button>
@@ -1812,15 +1820,32 @@ async function submitContribute() {
   const t = document.getElementById('c_ticker').value.trim();
   const layer = document.getElementById('c_layer').value.trim();
   const reason = document.getElementById('c_reason').value.trim();
+  const handle = document.getElementById('c_handle').value.trim();
   const email = document.getElementById('c_email').value.trim();
-  if (!t || !reason) { alert('请填股票代码和理由'); return; }
+  const website = document.getElementById('c_website').value;  // 蜜罐
+  if (!t || !reason) { alert('请填股票代码和首提逻辑'); return; }
+  if (reason.length < 10) { alert('首提逻辑至少 10 个字——这是要公示署名的'); return; }
 
   // 本地备份
   const existing = JSON.parse(localStorage.getItem('chain_contributions') || '[]');
-  existing.push({ t, layer, reason, email, at: new Date().toISOString() });
+  existing.push({ t, layer, reason, handle, email, at: new Date().toISOString() });
   localStorage.setItem('chain_contributions', JSON.stringify(existing));
 
-  // 通过 formsubmit 邮件给管理员
+  // 1) 公开公示通道：GitHub Issue（时间戳公证 + 可讨论）
+  let issueUrl = null;
+  try {
+    const r = await fetch('/api/contribute', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ticker: t, layer, reason, handle, website }),
+    });
+    if (r.ok) {
+      const d = await r.json();
+      if (d.ok && d.issue_url) issueUrl = d.issue_url;
+    }
+  } catch (e) { console.warn('contribute api failed', e); }
+
+  // 2) 私有通道：邮件给管理员（邮箱等 PII 不进公开 Issue）
   try {
     await fetch('https://formsubmit.co/ajax/bngjly@gmail.com', {
       method: 'POST',
@@ -1829,19 +1854,23 @@ async function submitContribute() {
         ticker: t,
         suggested_layer: layer || '(未指定)',
         reason: reason,
+        contributor_handle: handle || '(匿名)',
         contributor_email: email || '(匿名)',
-        _subject: `[ChainGraph 收录建议] ${t}`,
+        issue_url: issueUrl || '(Issue 创建失败，仅邮件)',
+        _subject: `[ChainGraph 首提] ${t}`,
         _template: 'table',
       }),
     });
   } catch (e) { console.warn('formsubmit failed', e); }
 
   document.getElementById('modalInner').innerHTML = `
-    <h3 style="color:#22c55e">✅ 收到建议！</h3>
+    <h3 style="color:#22c55e">✅ 首提已记录！</h3>
     <p style="color:#cfd5dc;font-size:13px;line-height:1.7;margin:14px 0;">
-      已记录 <strong style="color:#4fc3f7">${escapeHtml(t)}</strong> 的收录建议，我们会评估并在下一次更新中处理。
-      ${email ? '收录后会邮件通知你。' : ''}
+      <strong style="color:#4fc3f7">${escapeHtml(t)}</strong> 的首提已${issueUrl ? '公开公示' : '提交'}。
+      采纳后将收录进图谱${handle ? '并为 <strong style="color:#4fc3f7">' + escapeHtml(handle) + '</strong> 署名' : ''}，
+      以今天为基准日追踪战绩。${email ? '收录后会邮件通知你。' : ''}
     </p>
+    ${issueUrl ? `<p style="font-size:13px;margin:0 0 14px;"><a href="${escapeAttr(issueUrl)}" target="_blank" rel="noopener" style="color:#4fc3f7">→ 查看公示页（含时间戳公证）</a></p>` : ''}
     <div class="modal-actions">
       <button onclick="closeModal()">好的</button>
     </div>

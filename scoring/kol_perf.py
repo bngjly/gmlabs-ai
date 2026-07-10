@@ -106,7 +106,11 @@ def fetch_prices(tickers, start):
             continue
         for t in chunk:
             try:
-                sub = df[t][['Open', 'Close']].dropna() if len(chunk) > 1 else df[['Open', 'Close']].dropna()
+                # 按实际列结构判断（yfinance 单/多 ticker 返回形状不同，不能按 chunk 长度猜）
+                if isinstance(df.columns, pd.MultiIndex):
+                    sub = df[t][['Open', 'Close']].dropna()
+                else:
+                    sub = df[['Open', 'Close']].dropna()
             except Exception:
                 skipped.append(t)
                 continue
@@ -189,6 +193,47 @@ def aggregate(records):
     return kols
 
 
+def community_perf(prices_cache=None):
+    """社区首提战绩：community_calls.json → community_perf.json（同一套无前视规则，首提=看多）"""
+    calls_path = os.path.join(ROOT, 'community_calls.json')
+    out_path = os.path.join(ROOT, 'community_perf.json')
+    calls = []
+    if os.path.exists(calls_path):
+        calls = json.load(open(calls_path, encoding='utf-8')).get('calls', [])
+
+    signals = [{
+        'handle': c.get('by', ''),
+        'name': c.get('by', ''),
+        'ticker': CRYPTO_MAP.get(c.get('ticker', ''), c.get('ticker', '')),
+        'ticker_display': c.get('ticker', ''),
+        'stance': 'bullish',
+        'confidence': '',
+        'at': c.get('called_at', '') + 'T00:00:00Z',
+        'tweet_id': f"issue-{c.get('issue', '')}",
+        'issue': c.get('issue'),
+        'layer': c.get('layer', ''),
+    } for c in calls if c.get('ticker') and c.get('called_at')]
+
+    records = []
+    if signals:
+        start = datetime.fromisoformat(min(s['at'] for s in signals).replace('Z', '+00:00')) - timedelta(days=5)
+        prices, skipped = fetch_prices([s['ticker'] for s in signals], start)
+        if skipped:
+            retry, skipped = fetch_prices(skipped, start)
+            prices.update(retry)
+        records = compute(signals, prices)
+
+    result = {
+        'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'methodology': '基准=首提公示日次日开盘价；收益=持有至各期限收盘；模拟收益，非投资建议。',
+        'contributors': aggregate(records) if records else [],
+        'calls': sorted(records, key=lambda r: r['at'], reverse=True),
+    }
+    with open(out_path, 'w', encoding='utf-8') as f:
+        json.dump(result, f, ensure_ascii=False, separators=(',', ':'))
+    print(f'wrote {out_path} | contributors={len(result["contributors"])} calls={len(records)}')
+
+
 def main():
     signals = load_signals()
     print(f'signals after dedup: {len(signals)}')
@@ -219,6 +264,8 @@ def main():
     with open(OUT_PATH, 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, separators=(',', ':'))
     print(f'wrote {OUT_PATH} | kols={len(kols)} signals={len(records)}')
+
+    community_perf()
 
 
 if __name__ == '__main__':
