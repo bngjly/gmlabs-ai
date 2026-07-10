@@ -78,7 +78,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add scores.json scoring/chain_tickers.json home_stats.json kol_perf.json
+          git add scores.json scoring/chain_tickers.json home_stats.json kol_perf.json community_perf.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
