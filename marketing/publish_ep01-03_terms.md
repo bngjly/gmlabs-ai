@@ -8,7 +8,15 @@
 
 ## ✅ 第 1 期已发布（2026-07-04）
 - YouTube: https://youtu.be/MmQyiEN7MBU （ai_ecosystem 合集 + 中文字幕 + 置顶评论已发，需去 Studio 手动点「置顶」）
-- 待发：TG @yoyoaidaily + X
+- TG @yoyoaidaily: 已发（旧模板，后补发新模板一条）
+- 待发：X
+
+## ✅ 第 2 期已发布（2026-07-04）
+- YouTube: https://youtu.be/dyZf9HL2Kj4 （ai_ecosystem 合集 + 中文字幕 + 置顶评论已发，需去 Studio 手动点「置顶」）
+- TG @yoyoaidaily: 已发（新模板，含官网 CTA）
+- 待发：X
+
+## 待发：第 3 期 CPO
 
 ## 第 1 期 · CoWoS（52.1s）
 
