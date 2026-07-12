@@ -16,7 +16,12 @@
 - TG @yoyoaidaily: 已发（新模板，含官网 CTA）
 - 待发：X
 
-## 待发：第 3 期 CPO
+## ✅ 第 3 期已发布（2026-07-04）
+- YouTube: https://youtu.be/3aOYVoWMaw4 （ai_ecosystem 合集 + 中文字幕 + 置顶评论已发，需去 Studio 手动点「置顶」）
+- TG @yoyoaidaily: 已发（新模板，含官网 CTA）
+- 待发：X
+
+**四期全部上线，YouTube+TG 双端打通。X 待账号 Bio/Display Name 设置完成后统一补发。**
 
 ## 第 1 期 · CoWoS（52.1s）
 
