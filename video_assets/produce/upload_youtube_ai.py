@@ -144,6 +144,32 @@ VIDEOS = {
                  "data center", "交换芯片", "switch chip", "AI产业链",
                  "YoYo AI日报", "AI科普"],
     },
+    "ep01_nvda": {
+        "file": "EP01_NVDA_final.mp4",
+        "srt": "EP01_NVDA.srt",
+        "thumbnail": None,
+        "title": "全网都在吹英伟达，我讲它唯一的弱点 | 软肋系列EP01",
+        "utm": "utm_source=youtube&utm_medium=description&utm_campaign=weakspot&utm_content=nvda_ws_20260717",
+        "chapters": (
+            "0:00 反着来：只讲它唯一的软肋\n"
+            "0:14 30秒讲完它为什么强\n"
+            "0:40 软肋本体：价值上移，它没卡位\n"
+            "1:35 思科2000：卖铲人拿不到金矿\n"
+            "2:15 客户反水：谷歌/亚马逊/微软/OpenAI全在自研\n"
+            "2:50 三个判断\n"
+            "3:18 数据背书：六维模型 S级 85.3，生态卡位唯一短板"
+        ),
+        "intro": (
+            "英伟达，全网都在吹，好像没有弱点。这期反着来：只讲它唯一的软肋——生态卡位。"
+            "AI 产业链十一层，它只站住算力层；2000 年的思科就是前车之鉴：互联网越来越大，"
+            "钱却被上层赚走。而且谷歌、亚马逊、微软、Meta、OpenAI 全在自研芯片。"
+            "看懂这个软肋，你就看懂 AI 的钱下一步流向哪。"
+        ),
+        "tags": ["英伟达", "NVDA", "NVIDIA", "英伟达软肋", "AI芯片", "AI chip", "思科",
+                 "Cisco", "CUDA", "生态卡位", "AI产业链", "AI supply chain", "半导体",
+                 "semiconductor", "美股", "科技股", "TPU", "自研芯片",
+                 "YoYo AI日报", "软肋系列"],
+    },
 }
 
 

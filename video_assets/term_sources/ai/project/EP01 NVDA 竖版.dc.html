@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #0a0a0a; } a { color: #1A8FFF; } a:hover { color: #82CFFF; }</style>
+</helmet>
+<x-import component="StockVideo" from="./StockVideoScenes.jsx" data="{{ epData }}" orientation="{{ orientation }}" hint-size="100%,100%" style="position:absolute; inset:0;"></x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;orientation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;portrait&quot;,&quot;options&quot;:[&quot;landscape&quot;,&quot;portrait&quot;],&quot;tsType&quot;:&quot;'landscape'|'portrait'&quot;,&quot;section&quot;:&quot;版式&quot;}}">
+class Component extends DCLogic {
+  state = { data: null };
+  componentDidMount() {
+    import('./data/ep01_NVDA.js').then((m) => this.setState({ data: m.default }));
+  }
+  renderVals() {
+    return {
+      epData: this.state.data,
+      orientation: this.props.orientation ?? 'portrait',
+    };
+  }
+}
+</script>
+</body>
+</html>
