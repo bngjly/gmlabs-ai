@@ -524,6 +524,7 @@ def evaluate(ticker: str, debug: bool = False) -> Optional[dict]:
         "tier": tier,
         "sector": sector,
         "currency": currency,
+        "price": _safe(info.get("currentPrice") or info.get("regularMarketPrice"), default=None),
         "market_cap_usd_b": round(market_cap_usd / 1e9, 1) if market_cap_usd else None,
         "dims": dims,
         "dim_max": {"G1": weights[0], "G2": weights[1], "G3": weights[2],

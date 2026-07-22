@@ -67,6 +67,9 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
 .company .cn-name { color: #ddd; font-size: 12px; margin-left: 4px; }
 .company .role { color: #9aa5b1; font-size: 11px; display: block; margin-top: 2px; }
 .by-badge { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 9px; font-size: 10px; background: rgba(240,185,11,0.14); color: #f0b90b; border: 1px solid rgba(240,185,11,0.35); vertical-align: middle; }
+.watch-pl { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 9px; font-size: 10px; background: rgba(107,119,133,0.14); color: #9aa5b1; border: 1px solid rgba(107,119,133,0.3); vertical-align: middle; }
+.watch-pl.up { background: rgba(34,197,94,0.14); color: #22c55e; border-color: rgba(34,197,94,0.35); }
+.watch-pl.down { background: rgba(239,68,68,0.14); color: #ef4444; border-color: rgba(239,68,68,0.35); }
 .company .watch-btn { position: absolute; top: 4px; right: 4px; font-size: 10px; padding: 2px 8px; border-radius: 10px; cursor: pointer; color: #9aa5b1; background: #1c2632; border: 1px solid #2a3548; transition: .12s; user-select: none; line-height: 1.5; white-space: nowrap; }
 .company .watch-btn:hover { color: #f59e0b; border-color: #f59e0b; }
 .company .watch-btn.on { color: #fbbf24; background: #3a2f1a; border-color: #f59e0b; font-weight: 600; }
@@ -218,6 +221,7 @@ main { padding: 20px; max-width: 1500px; margin: 0 auto; }
         <input id="search" placeholder="🔍 实时过滤·输入即筛选（Esc 清空）" oninput="onSearchInput()" onkeydown="if(event.key==='Escape')clearSearch()" />
         <span class="search-clear" onclick="clearSearch()" title="清空搜索 (Esc)">×</span>
       </span>
+      <button onclick="openMyStats()" title="自选战绩：胜率 / 平均收益 / 等级（敢晒亏损版）">📊 战绩</button>
       <div class="more-menu-wrap">
         <button onclick="toggleMoreMenu(event)" title="更多操作">⋯</button>
         <div class="more-menu" id="moreMenu">
@@ -1358,6 +1362,116 @@ function save() {
   updateStat();
 }
 
+// ============ 📊 自选战绩 · 诚实养成体系 ============
+// 原则：等级 = 样本量 + 胜率双门槛（防小样本吹牛）；分享强制带最差持仓（敢晒亏损）
+const STAT_LEVELS = [
+  { icon: '🌱', name: '观察员',     need: s => true,                              req: '开始给自选打基准' },
+  { icon: '📋', name: '记录者',     need: s => s.tracked >= 3,                    req: '3 只带基准的自选' },
+  { icon: '🎯', name: '猎手',       need: s => s.tracked >= 5 && s.wr >= 50,      req: '5 只 · 胜率 ≥50%' },
+  { icon: '🏹', name: '神射手',     need: s => s.tracked >= 8 && s.wr >= 60,      req: '8 只 · 胜率 ≥60%' },
+  { icon: '👑', name: '传奇操盘手', need: s => s.tracked >= 12 && s.wr >= 70,     req: '12 只 · 胜率 ≥70%' },
+];
+
+function collectWatchedForStats(node, seen = new Map()) {
+  (node.companies || []).forEach(c => {
+    if ((c.flag || '').split(/\s+/).includes('watch') && !seen.has(c.t)) seen.set(c.t, c);
+  });
+  (node.children || []).forEach(ch => collectWatchedForStats(ch, seen));
+  return seen;
+}
+
+function computeWatchStats() {
+  const all = Array.from(collectWatchedForStats(data).values());
+  const entries = [];
+  all.forEach(c => {
+    const sc = SCORES[c.t];
+    if (c.watch_at && c.watch_price != null && sc && sc.status === 'ok' && sc.price != null) {
+      const pct = (sc.price - c.watch_price) / c.watch_price * 100;
+      const days = Math.max(0, Math.round((Date.now() - new Date(c.watch_at + 'T00:00:00Z').getTime()) / 86400000));
+      entries.push({ t: c.t, cn: c.cn || '', pct, days, at: c.watch_at });
+    }
+  });
+  const wins = entries.filter(e => e.pct > 0).length;
+  const losses = entries.length - wins;
+  const wr = entries.length ? (wins / entries.length) * 100 : 0;
+  const avg = entries.length ? entries.reduce((s, e) => s + e.pct, 0) / entries.length : 0;
+  const best = entries.length ? entries.reduce((a, b) => (a.pct > b.pct ? a : b)) : null;
+  const worst = entries.length ? entries.reduce((a, b) => (a.pct < b.pct ? a : b)) : null;
+  const avgDays = entries.length ? Math.round(entries.reduce((s, e) => s + e.days, 0) / entries.length) : 0;
+  return { total: all.length, tracked: entries.length, untracked: all.length - entries.length,
+           wins, losses, wr, avg, best, worst, avgDays, entries };
+}
+
+function statLevel(s) {
+  let cur = STAT_LEVELS[0], next = null;
+  for (const lv of STAT_LEVELS) {
+    if (lv.need(s)) cur = lv;
+    else { next = lv; break; }
+  }
+  return { cur, next };
+}
+
+function fmtPct(p) { return (p >= 0 ? '+' : '') + p.toFixed(1) + '%'; }
+
+function openMyStats() {
+  const s = computeWatchStats();
+  const { cur, next } = statLevel(s);
+
+  if (!s.tracked) {
+    openModal(`
+      <h3>📊 我的自选战绩</h3>
+      <div style="text-align:center;padding:18px 0 6px;font-size:34px">${cur.icon}</div>
+      <div style="text-align:center;font-weight:700;margin-bottom:14px">${cur.name}</div>
+      <p style="color:#9aa5b1;font-size:13px;line-height:1.8">
+        还没有带基准价的自选。去图谱里点「☆ 自选」，系统会自动记下选入日期和当时价格，
+        之后这里就能看到你的真实胜率${s.untracked ? `。<br>（你有 ${s.untracked} 只早期自选没有基准价，重新点选一次即可开始追踪）` : '。'}
+      </p>
+      <div class="modal-actions"><button onclick="closeModal()">好的</button></div>
+    `);
+    return;
+  }
+
+  const rows = s.entries.slice().sort((a, b) => b.pct - a.pct).map(e => `
+    <div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #1c2632">
+      <span>${escapeHtml(e.t)} <span style="color:#6b7785">${escapeHtml(e.cn)}</span></span>
+      <span style="color:${e.pct >= 0 ? '#22c55e' : '#ef4444'}">${fmtPct(e.pct)} <span style="color:#6b7785">· ${e.days}天</span></span>
+    </div>`).join('');
+
+  openModal(`
+    <h3>📊 我的自选战绩</h3>
+    <div style="text-align:center;padding:10px 0 2px;font-size:34px">${cur.icon}</div>
+    <div style="text-align:center;font-weight:700;margin-bottom:2px">${cur.name}</div>
+    ${next ? `<div style="text-align:center;color:#6b7785;font-size:11px;margin-bottom:12px">下一级 ${next.icon}${next.name}：${next.req}</div>` : '<div style="text-align:center;color:#f0b90b;font-size:11px;margin-bottom:12px">已到顶级</div>'}
+    <div style="display:flex;gap:8px;text-align:center;margin-bottom:12px">
+      <div style="flex:1;background:#0f1419;border-radius:8px;padding:8px"><div style="font-size:18px;font-weight:700">${s.wins}<span style="color:#22c55e">赚</span>${s.losses}<span style="color:#ef4444">亏</span></div><div style="color:#6b7785;font-size:11px">共 ${s.tracked} 只追踪</div></div>
+      <div style="flex:1;background:#0f1419;border-radius:8px;padding:8px"><div style="font-size:18px;font-weight:700">${s.wr.toFixed(0)}%</div><div style="color:#6b7785;font-size:11px">胜率</div></div>
+      <div style="flex:1;background:#0f1419;border-radius:8px;padding:8px"><div style="font-size:18px;font-weight:700;color:${s.avg >= 0 ? '#22c55e' : '#ef4444'}">${fmtPct(s.avg)}</div><div style="color:#6b7785;font-size:11px">平均 · 持有均${s.avgDays}天</div></div>
+    </div>
+    <div style="max-height:180px;overflow-y:auto;margin-bottom:6px">${rows}</div>
+    ${s.untracked ? `<div style="color:#6b7785;font-size:11px;margin-bottom:8px">另有 ${s.untracked} 只自选无基准价（未上市或早期加入），未计入胜率</div>` : ''}
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeModal()">关闭</button>
+      <button onclick="shareMyStats()">📋 复制战绩（含亏损）</button>
+    </div>
+  `);
+}
+
+function shareMyStats() {
+  const s = computeWatchStats();
+  const { cur } = statLevel(s);
+  if (!s.tracked) return;
+  const lines = [
+    `📊 我的 ChainGraph 自选战绩 · ${cur.icon}${cur.name}`,
+    `${s.tracked} 只追踪：${s.wins} 赚 ${s.losses} 亏 · 胜率 ${s.wr.toFixed(0)}% · 平均 ${fmtPct(s.avg)}（持有均 ${s.avgDays} 天）`,
+    `最佳 ${s.best.t} ${fmtPct(s.best.pct)} · 最差 ${s.worst.t} ${fmtPct(s.worst.pct)}`,
+    `敢晒亏损的战绩才是真战绩 → https://www.gmlabs.ai`,
+  ];
+  navigator.clipboard?.writeText(lines.join('\n')).then(
+    () => alert('已复制（含最差持仓——敢晒亏损才是真战绩）'),
+    () => alert('复制失败，请手动截图分享')
+  );
+}
+
 // ============ 评分数据加载 (gm_rater 输出) ============
 function loadScores() {
   fetch('scores.json', { cache: 'no-cache' })
@@ -1588,9 +1702,19 @@ function renderCompanies(arr, path) {
 
     const watchLabel = isWatch ? '★ 已选' : '☆ 自选';
     const watchTitle = isWatch ? '点击取消自选' : '点击加入自选';
+    let watchBadge = '';
+    if (isWatch && c.watch_at) {
+      if (c.watch_price != null && sc && sc.status === 'ok' && sc.price != null) {
+        const pct = ((sc.price - c.watch_price) / c.watch_price) * 100;
+        const up = pct >= 0;
+        watchBadge = `<span class="watch-pl ${up ? 'up' : 'down'}" title="自 ${escapeAttr(c.watch_at)} 选入，基准 $${c.watch_price}">自${escapeHtml(c.watch_at)} ${up ? '+' : ''}${pct.toFixed(1)}%</span>`;
+      } else {
+        watchBadge = `<span class="watch-pl" title="选入时未取到基准价，暂无法计算涨跌">自${escapeHtml(c.watch_at)}</span>`;
+      }
+    }
     return `<div class="${cls}" data-flag="${escapeHtml(c.flag || '')}" onclick="openDetail('${path}', ${i})">
       <span class="watch-btn ${isWatch?'on':''}" onclick="toggleWatch('${path}', ${i}, event)" title="${watchTitle}">${watchLabel}</span>
-      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}${aiBadge}${c.by ? `<span class="by-badge" title="社区首提${c.since ? ' · ' + escapeHtml(c.since) : ''}">🏅 ${escapeHtml(c.by)}</span>` : ''}</div>
+      <div><span class="ticker">${escapeHtml(c.t)}</span><span class="cn-name">${escapeHtml(c.cn || '')}</span>${gradeBadge}${aiBadge}${watchBadge}${c.by ? `<span class="by-badge" title="社区首提${c.since ? ' · ' + escapeHtml(c.since) : ''}">🏅 ${escapeHtml(c.by)}</span>` : ''}</div>
       <span class="role">${escapeHtml(c.role || '')} ${tags.join('')}</span>
       ${featTags}
     </div>`;
@@ -1598,6 +1722,7 @@ function renderCompanies(arr, path) {
 }
 
 function escapeHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function escapeAttr(s) { return escapeHtml(s); }
 
 // ============ 路径取节点 ============
 function getNode(path) {
@@ -1976,8 +2101,14 @@ function toggleWatch(path, idx, e) {
   const watchIdx = tokens.indexOf('watch');
   if (watchIdx >= 0) {
     tokens.splice(watchIdx, 1);
+    delete c.watch_at;
+    delete c.watch_price;
   } else {
     tokens.push('watch');
+    // 记下选入日期 + 当时的评分快照价，作为后续涨跌幅的基准
+    c.watch_at = new Date().toISOString().slice(0, 10);
+    const sc = SCORES[c.t];
+    c.watch_price = (sc && sc.status === 'ok' && sc.price != null) ? sc.price : null;
   }
   c.flag = tokens.join(' ').trim();
   save();
