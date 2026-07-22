@@ -15,11 +15,9 @@ GRAPH_HTML = Path(__file__).parent.parent / "graph.html"    # gmlabs-ai/graph.ht
 OUTPUT     = Path(__file__).parent / "chain_tickers.json"    # gmlabs-ai/scoring/chain_tickers.json
 
 # yfinance 不支持的 ticker（未上市 / 内部代号 / 主题股）
+# A 股（.SS/.SZ/.BJ）已启用：evaluator.py 走 akshare（东财+同花顺）兜底，不经 yfinance
 SKIP_PATTERNS = [
     r"未上市", r"待上市", r"\(.*未上市.*\)",
-    r"^\d+\.SS$",   # 上证 A 股 暂时不做（本 Sprint）
-    r"^\d+\.SZ$",   # 深证 A 股 暂时不做
-    r"^\d+\.BJ$",   # 北交所
 ]
 
 # 中文名作为 ticker 的（数据脏）跳过

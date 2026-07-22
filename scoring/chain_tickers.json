@@ -94,8 +94,20 @@
       "cn": "BigBear AI"
     },
     {
+      "ticker": "688256.SS",
+      "cn": "寒武纪"
+    },
+    {
+      "ticker": "688041.SS",
+      "cn": "海光信息"
+    },
+    {
       "ticker": "9660.HK",
       "cn": "地平线机器人"
+    },
+    {
+      "ticker": "688798.SS",
+      "cn": "艾为电子 等"
     },
     {
       "ticker": "MU",
@@ -140,6 +152,10 @@
     {
       "ticker": "6920.T",
       "cn": "Lasertec"
+    },
+    {
+      "ticker": "688008.SS",
+      "cn": "澜起科技 Montage"
     },
     {
       "ticker": "RMBS",
@@ -194,6 +210,18 @@
       "cn": "Solidigm (SK)"
     },
     {
+      "ticker": "301308.SZ",
+      "cn": "江波龙 Longsys"
+    },
+    {
+      "ticker": "603986.SS",
+      "cn": "兆易创新 GigaDevice"
+    },
+    {
+      "ticker": "300302.SZ",
+      "cn": "同有科技 Toyou Feiji"
+    },
+    {
       "ticker": "2454.TW",
       "cn": "联发科"
     },
@@ -202,12 +230,32 @@
       "cn": "中芯国际 SMIC（港）"
     },
     {
+      "ticker": "688981.SS",
+      "cn": "中芯国际 SMIC（A）"
+    },
+    {
       "ticker": "ASX",
       "cn": "日月光"
     },
     {
       "ticker": "AMKR",
       "cn": "Amkor"
+    },
+    {
+      "ticker": "600584.SS",
+      "cn": "长电科技"
+    },
+    {
+      "ticker": "002156.SZ",
+      "cn": "通富微电"
+    },
+    {
+      "ticker": "002185.SZ",
+      "cn": "华天科技"
+    },
+    {
+      "ticker": "301200.SZ",
+      "cn": "大族数控"
     },
     {
       "ticker": "UMC",
@@ -242,6 +290,10 @@
       "cn": "建滔积层板"
     },
     {
+      "ticker": "002463.SZ",
+      "cn": "沪电股份（已在 L4b）"
+    },
+    {
       "ticker": "4062.T",
       "cn": "Ibiden 揖斐电"
     },
@@ -268,6 +320,10 @@
     {
       "ticker": "5201.T",
       "cn": "AGC 旭硝子"
+    },
+    {
+      "ticker": "002273.SZ",
+      "cn": "水晶光电"
     },
     {
       "ticker": "KLIC",
@@ -398,6 +454,14 @@
       "cn": "Coherent"
     },
     {
+      "ticker": "300308.SZ",
+      "cn": "中际旭创 Innolight"
+    },
+    {
+      "ticker": "300502.SZ",
+      "cn": "新易盛 Eoptolink"
+    },
+    {
       "ticker": "AAOI",
       "cn": "Applied Optoelectronics"
     },
@@ -418,6 +482,10 @@
       "cn": "Viavi Solutions"
     },
     {
+      "ticker": "601869.SS",
+      "cn": "长飞光纤"
+    },
+    {
       "ticker": "IPGP",
       "cn": "IPG Photonics"
     },
@@ -434,6 +502,18 @@
       "cn": "IQE plc"
     },
     {
+      "ticker": "688498.SS",
+      "cn": "源杰科技"
+    },
+    {
+      "ticker": "688048.SS",
+      "cn": "长光华芯"
+    },
+    {
+      "ticker": "688313.SS",
+      "cn": "仕佳光子"
+    },
+    {
       "ticker": "6902.T",
       "cn": "Sumitomo Electric 住友"
     },
@@ -444,6 +524,14 @@
     {
       "ticker": "ADI",
       "cn": "Analog Devices"
+    },
+    {
+      "ticker": "300602.SZ",
+      "cn": "飞荣达 (部分)"
+    },
+    {
+      "ticker": "688368.SS",
+      "cn": "晶丰明源 等"
     },
     {
       "ticker": "ETN",
@@ -630,6 +718,18 @@
       "cn": "nVent / Pentair"
     },
     {
+      "ticker": "600406.SS",
+      "cn": "国电南瑞"
+    },
+    {
+      "ticker": "601727.SS",
+      "cn": "上海电气"
+    },
+    {
+      "ticker": "002028.SZ",
+      "cn": "思源电气"
+    },
+    {
       "ticker": "NGG",
       "cn": "National Grid 英国国家电网 ADR"
     },
@@ -654,8 +754,20 @@
       "cn": "Enphase"
     },
     {
+      "ticker": "300750.SZ",
+      "cn": "宁德时代 CATL"
+    },
+    {
       "ticker": "373220.KS",
       "cn": "LG Energy Solution"
+    },
+    {
+      "ticker": "002460.SZ",
+      "cn": "赣锋锂业"
+    },
+    {
+      "ticker": "002594.SZ",
+      "cn": "比亚迪 BYD"
     },
     {
       "ticker": "MOD",
@@ -670,8 +782,20 @@
       "cn": "雙鴻 Auras Tech"
     },
     {
+      "ticker": "002837.SZ",
+      "cn": "英维克"
+    },
+    {
+      "ticker": "603596.SS",
+      "cn": "伯特利"
+    },
+    {
       "ticker": "4540.T",
       "cn": "TSMC 配套散热"
+    },
+    {
+      "ticker": "002747.SZ",
+      "cn": "埃斯顿"
     },
     {
       "ticker": "MMM",
@@ -684,6 +808,14 @@
     {
       "ticker": "SHW",
       "cn": "Solvay"
+    },
+    {
+      "ticker": "600160.SS",
+      "cn": "巨化股份"
+    },
+    {
+      "ticker": "002407.SZ",
+      "cn": "多氟多"
     },
     {
       "ticker": "DOV",
@@ -730,12 +862,32 @@
       "cn": "佳能 Canon"
     },
     {
+      "ticker": "688699.SS",
+      "cn": "上海微电子 SMEE"
+    },
+    {
       "ticker": "TOELY",
       "cn": "东京电子 TEL"
     },
     {
       "ticker": "8035.T",
       "cn": "TEL 东京威力"
+    },
+    {
+      "ticker": "688012.SS",
+      "cn": "中微公司 AMEC"
+    },
+    {
+      "ticker": "688082.SS",
+      "cn": "盛美上海 ACMR"
+    },
+    {
+      "ticker": "688072.SS",
+      "cn": "拓荆科技 Piotech"
+    },
+    {
+      "ticker": "688200.SS",
+      "cn": "华峰测控"
     },
     {
       "ticker": "ONTO",
@@ -770,6 +922,10 @@
       "cn": "Veeco Instruments"
     },
     {
+      "ticker": "300604.SZ",
+      "cn": "长川科技 Changchuan"
+    },
+    {
       "ticker": "7911.T",
       "cn": "Toppan 凸版印刷"
     },
@@ -794,6 +950,14 @@
       "cn": "PTC Inc"
     },
     {
+      "ticker": "688521.SS",
+      "cn": "芯原股份 VeriSilicon"
+    },
+    {
+      "ticker": "688206.SS",
+      "cn": "概伦电子"
+    },
+    {
       "ticker": "3436.T",
       "cn": "SUMCO"
     },
@@ -804,6 +968,10 @@
     {
       "ticker": "6488.TWO",
       "cn": "GlobalWafers 環球晶圆"
+    },
+    {
+      "ticker": "688126.SS",
+      "cn": "沪硅产业"
     },
     {
       "ticker": "4186.T",
@@ -828,6 +996,14 @@
     {
       "ticker": "4091.T",
       "cn": "大阳日酸"
+    },
+    {
+      "ticker": "688268.SS",
+      "cn": "华特气体"
+    },
+    {
+      "ticker": "688019.SS",
+      "cn": "安集科技 Anji Microelectronics"
     },
     {
       "ticker": "ORCL",
@@ -1006,12 +1182,48 @@
       "cn": "日本电产 Nidec"
     },
     {
+      "ticker": "300124.SZ",
+      "cn": "汇川技术"
+    },
+    {
+      "ticker": "603728.SS",
+      "cn": "鸣志电器"
+    },
+    {
+      "ticker": "688165.SS",
+      "cn": "埃华路 等"
+    },
+    {
       "ticker": "6324.T",
       "cn": "Harmonic Drive 日本"
     },
     {
+      "ticker": "603810.SS",
+      "cn": "绿的谐波"
+    },
+    {
+      "ticker": "688046.SS",
+      "cn": "美迪凯 等"
+    },
+    {
+      "ticker": "002527.SZ",
+      "cn": "新时达"
+    },
+    {
+      "ticker": "002472.SZ",
+      "cn": "双环传动"
+    },
+    {
       "ticker": "2013.TW",
       "cn": "中鋼結構"
+    },
+    {
+      "ticker": "300100.SZ",
+      "cn": "双林股份 等"
+    },
+    {
+      "ticker": "688208.SS",
+      "cn": "道通科技"
     },
     {
       "ticker": "MBLY",
@@ -1038,6 +1250,10 @@
       "cn": "小米 + RoboSense"
     },
     {
+      "ticker": "002465.SZ",
+      "cn": "海格通信 等"
+    },
+    {
       "ticker": "SYM",
       "cn": "Symbotic"
     },
@@ -1060,6 +1276,14 @@
     {
       "ticker": "BIDU",
       "cn": "百度 Apollo"
+    },
+    {
+      "ticker": "002584.SZ",
+      "cn": "西陇科学 等"
+    },
+    {
+      "ticker": "002762.SZ",
+      "cn": "金发拉比 (主题股)"
     },
     {
       "ticker": "6471.T",
@@ -1172,14 +1396,6 @@
       "cn": "Ayar Labs (未上市)"
     },
     {
-      "ticker": "688256.SS",
-      "cn": "寒武纪"
-    },
-    {
-      "ticker": "688041.SS",
-      "cn": "海光信息"
-    },
-    {
       "ticker": "Huawei",
       "cn": "华为昇腾 (未上市)"
     },
@@ -1192,64 +1408,8 @@
       "cn": "壁仞 (未上市)"
     },
     {
-      "ticker": "688798.SS",
-      "cn": "艾为电子 等"
-    },
-    {
-      "ticker": "688008.SS",
-      "cn": "澜起科技 Montage"
-    },
-    {
-      "ticker": "301308.SZ",
-      "cn": "江波龙 Longsys"
-    },
-    {
-      "ticker": "603986.SS",
-      "cn": "兆易创新 GigaDevice"
-    },
-    {
-      "ticker": "300302.SZ",
-      "cn": "同有科技 Toyou Feiji"
-    },
-    {
-      "ticker": "688981.SS",
-      "cn": "中芯国际 SMIC（A）"
-    },
-    {
-      "ticker": "600584.SS",
-      "cn": "长电科技"
-    },
-    {
-      "ticker": "002156.SZ",
-      "cn": "通富微电"
-    },
-    {
-      "ticker": "002185.SZ",
-      "cn": "华天科技"
-    },
-    {
-      "ticker": "301200.SZ",
-      "cn": "大族数控"
-    },
-    {
-      "ticker": "002463.SZ",
-      "cn": "沪电股份（已在 L4b）"
-    },
-    {
-      "ticker": "002273.SZ",
-      "cn": "水晶光电"
-    },
-    {
       "ticker": "EVG",
       "cn": "EV Group (未上市)"
-    },
-    {
-      "ticker": "002463.SZ",
-      "cn": "沪电股份"
-    },
-    {
-      "ticker": "688008.SS",
-      "cn": "澜起科技"
     },
     {
       "ticker": "Ayar",
@@ -1268,14 +1428,6 @@
       "cn": "Alphawave（已并入 QCOM）"
     },
     {
-      "ticker": "300308.SZ",
-      "cn": "中际旭创 Innolight"
-    },
-    {
-      "ticker": "300502.SZ",
-      "cn": "新易盛 Eoptolink"
-    },
-    {
       "ticker": "INFN",
       "cn": "Infinera（已并入 NOK）"
     },
@@ -1284,64 +1436,8 @@
       "cn": "Ayar Labs（未上市）"
     },
     {
-      "ticker": "601869.SS",
-      "cn": "长飞光纤"
-    },
-    {
-      "ticker": "688498.SS",
-      "cn": "源杰科技"
-    },
-    {
-      "ticker": "688048.SS",
-      "cn": "长光华芯"
-    },
-    {
-      "ticker": "688313.SS",
-      "cn": "仕佳光子"
-    },
-    {
       "ticker": "AWE.L",
       "cn": "Alphawave（已并入 QCOM）"
-    },
-    {
-      "ticker": "300602.SZ",
-      "cn": "飞荣达 (部分)"
-    },
-    {
-      "ticker": "688368.SS",
-      "cn": "晶丰明源 等"
-    },
-    {
-      "ticker": "600406.SS",
-      "cn": "国电南瑞"
-    },
-    {
-      "ticker": "601727.SS",
-      "cn": "上海电气"
-    },
-    {
-      "ticker": "002028.SZ",
-      "cn": "思源电气"
-    },
-    {
-      "ticker": "300750.SZ",
-      "cn": "宁德时代 CATL"
-    },
-    {
-      "ticker": "002460.SZ",
-      "cn": "赣锋锂业"
-    },
-    {
-      "ticker": "002594.SZ",
-      "cn": "比亚迪 BYD"
-    },
-    {
-      "ticker": "002837.SZ",
-      "cn": "英维克"
-    },
-    {
-      "ticker": "603596.SS",
-      "cn": "伯特利"
     },
     {
       "ticker": "GRC",
@@ -1352,24 +1448,8 @@
       "cn": "Submer (未上市)"
     },
     {
-      "ticker": "002747.SZ",
-      "cn": "埃斯顿"
-    },
-    {
       "ticker": "BDC",
       "cn": "Boyd Corp (未上市)"
-    },
-    {
-      "ticker": "600406.SS",
-      "cn": "国电南瑞 等"
-    },
-    {
-      "ticker": "600160.SS",
-      "cn": "巨化股份"
-    },
-    {
-      "ticker": "002407.SZ",
-      "cn": "多氟多"
     },
     {
       "ticker": "CPC",
@@ -1392,56 +1472,12 @@
       "cn": "AKHAN Semi（未上市）"
     },
     {
-      "ticker": "688699.SS",
-      "cn": "上海微电子 SMEE"
-    },
-    {
-      "ticker": "688012.SS",
-      "cn": "中微公司 AMEC"
-    },
-    {
-      "ticker": "688082.SS",
-      "cn": "盛美上海 ACMR"
-    },
-    {
-      "ticker": "688072.SS",
-      "cn": "拓荆科技 Piotech"
-    },
-    {
-      "ticker": "688200.SS",
-      "cn": "华峰测控"
-    },
-    {
-      "ticker": "300604.SZ",
-      "cn": "长川科技 Changchuan"
-    },
-    {
-      "ticker": "688521.SS",
-      "cn": "芯原股份 VeriSilicon"
-    },
-    {
-      "ticker": "688206.SS",
-      "cn": "概伦电子"
-    },
-    {
       "ticker": "SK Siltron",
       "cn": "SK Siltron（未上市）"
     },
     {
-      "ticker": "688126.SS",
-      "cn": "沪硅产业"
-    },
-    {
       "ticker": "4185.T",
       "cn": "JSR 光刻胶（已私有化）"
-    },
-    {
-      "ticker": "688268.SS",
-      "cn": "华特气体"
-    },
-    {
-      "ticker": "688019.SS",
-      "cn": "安集科技 Anji Microelectronics"
     },
     {
       "ticker": "BITF",
@@ -1508,38 +1544,6 @@
       "cn": "智元机器人 (未上市)"
     },
     {
-      "ticker": "002747.SZ",
-      "cn": "埃斯顿"
-    },
-    {
-      "ticker": "300124.SZ",
-      "cn": "汇川技术"
-    },
-    {
-      "ticker": "603728.SS",
-      "cn": "鸣志电器"
-    },
-    {
-      "ticker": "688165.SS",
-      "cn": "埃华路 等"
-    },
-    {
-      "ticker": "603810.SS",
-      "cn": "绿的谐波"
-    },
-    {
-      "ticker": "688046.SS",
-      "cn": "美迪凯 等"
-    },
-    {
-      "ticker": "002527.SZ",
-      "cn": "新时达"
-    },
-    {
-      "ticker": "002472.SZ",
-      "cn": "双环传动"
-    },
-    {
       "ticker": "ATI",
       "cn": "ATI Industrial (未上市)"
     },
@@ -1548,24 +1552,8 @@
       "cn": "博世 (未上市)"
     },
     {
-      "ticker": "300100.SZ",
-      "cn": "双林股份 等"
-    },
-    {
-      "ticker": "688208.SS",
-      "cn": "道通科技"
-    },
-    {
-      "ticker": "300124.SZ",
-      "cn": "汇川"
-    },
-    {
       "ticker": "LAZR",
       "cn": "Luminar（已退市）"
-    },
-    {
-      "ticker": "002465.SZ",
-      "cn": "海格通信 等"
     },
     {
       "ticker": "Physical Intelligence",
@@ -1576,28 +1564,12 @@
       "cn": "Skild AI (未上市)"
     },
     {
-      "ticker": "002527.SZ",
-      "cn": "新时达"
-    },
-    {
-      "ticker": "002584.SZ",
-      "cn": "西陇科学 等"
-    },
-    {
-      "ticker": "002762.SZ",
-      "cn": "金发拉比 (主题股)"
-    },
-    {
-      "ticker": "002747.SZ",
-      "cn": "埃斯顿"
-    },
-    {
       "ticker": "SWARM",
       "cn": "Swarmer（未上市）"
     }
   ],
   "stats": {
-    "total_supported": 286,
-    "total_skipped": 112
+    "total_supported": 342,
+    "total_skipped": 49
   }
 }

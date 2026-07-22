@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   score:
@@ -40,6 +41,12 @@ jobs:
         working-directory: scoring
         run: python extract_tickers.py
 
+      - name: Merge score-request queue (📈 选股搜不到时的用户申请)
+        working-directory: scoring
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python process_score_requests.py merge
+
       - name: Batch score
         working-directory: scoring
         env:
@@ -63,6 +70,12 @@ jobs:
           dist = Counter(v.get('grade') for v in d.values() if v.get('status')=='ok')
           print(f'Total: {len(d)}, OK: {ok}, Distribution: {dict(dist)}')
           "
+
+      - name: Resolve score-request queue (回复+关闭已评分的申请 Issue)
+        working-directory: scoring
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python process_score_requests.py resolve
 
       - name: Build home stats (预聚合首页统计，~1KB)
         working-directory: scoring
