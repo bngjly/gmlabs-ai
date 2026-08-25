@@ -170,12 +170,39 @@ VIDEOS = {
                  "semiconductor", "美股", "科技股", "TPU", "自研芯片",
                  "YoYo AI日报", "软肋系列"],
     },
+    "ep02_skhynix": {
+        "file": "EP02_SKHYNIX_final.mp4",
+        "srt": "EP02_SKHYNIX.srt",
+        "thumbnail": None,
+        "title": "六维模型说：AI产业链评分最高的不是英伟达 | 软肋系列EP02",
+        "utm": "utm_source=youtube&utm_medium=description&utm_campaign=weakspot&utm_content=skhynix_ws_20260825",
+        "chapters": (
+            "0:00 反共识：打分最高的不是它\n"
+            "0:07 30秒共识：GPU依然是核心\n"
+            "0:22 反转本体：HBM从配件变卡脖子技术\n"
+            "0:50 类比：ASML对台积电的议价权\n"
+            "1:13 数据证据：SK海力士S/90.1分 高于 英伟达S/85.3分\n"
+            "1:36 三个判断\n"
+            "2:01 数据背书：护城河23/25接近拉满"
+        ),
+        "intro": (
+            "都在追捧造 GPU 的，但六维模型说：现在打分最高的，不是它。"
+            "HBM 本来只是贴在 GPU 旁边喂数据的内存条，但现在它成了整条产业链的瓶颈——"
+            "内存厂商开始把运算能力嵌进芯片里，从搬运工变成有技术壁垒的协作者。"
+            "SK 海力士六维评分 90.1，S 级，比英伟达的 85.3 还高；三星 85.5，也是 S 级；"
+            "但美光只有 80.1，A 级——不是所有内存厂商都吃到这波溢价。"
+        ),
+        "tags": ["SK海力士", "SK Hynix", "000660", "内存", "HBM", "DRAM", "半导体",
+                 "semiconductor", "护城河", "三星", "Samsung", "美光", "Micron",
+                 "ASML", "台积电", "TSMC", "AI供应链", "AI supply chain",
+                 "AI产业链", "软肋系列", "YoYo AI日报", "六维评分"],
+    },
 }
 
 
 def build_description(v):
     # 链接放最前——YouTube 折叠态只显示前 1-2 行，链接放在 intro 后面等于没曝光
-    return (
+    desc = (
         f"🔗 完整 AI 产业链图谱 + 286 家公司六维评分：{SITE}/?{v['utm']}\n\n"
         f"{v['intro']}\n\n"
         f"📬 每天 60 秒看懂一个 AI 产业链概念，Telegram 订阅：\n{TG}\n\n"
@@ -183,6 +210,11 @@ def build_description(v):
         f"{DISCLAIMER}\n\n"
         + " ".join(f"#{t.replace(' ', '')}" for t in v["tags"][:15])
     )
+    # YouTube API 硬性拒收含 < > 的描述（invalidDescription），别等上传报错才发现
+    bad = [c for c in ("<", ">") if c in desc]
+    if bad:
+        raise ValueError(f"描述含 YouTube 禁用字符 {bad}，改用「高于/低于/大于」等文字表达")
+    return desc
 
 
 def build_pinned_comment(v):
