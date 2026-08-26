@@ -29,6 +29,7 @@ from googleapiclient.http import MediaFileUpload
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import notify_tg
+import notify_tg_private
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -351,10 +352,19 @@ def upload_one(service, key):
         print(f"  [警告] TG 推送失败: {e}", file=sys.stderr)
 
     # X 短视频素材（Hook场景剪辑）——每次上传自动生成，视频+X宣发绑在一起
+    clip_path = None
     try:
-        make_x_clip(key, v)
+        clip_path = make_x_clip(key, v)
     except Exception as e:
         print(f"  [警告] X 素材生成失败: {e}", file=sys.stderr)
+
+    # 私聊推送草稿素材（BTC标签bot，不进公开频道）——视频发了就同步给用户审阅
+    try:
+        notify_tg_private.send_text(f"🎬 <b>{v['title']}</b>\n\n{url}\n\n下面是配套 X 短视频素材：")
+        if clip_path:
+            notify_tg_private.send_video(str(clip_path), f"{key}·X短视频素材（Hook场景）")
+    except Exception as e:
+        print(f"  [警告] 私聊推送失败: {e}", file=sys.stderr)
 
     return url
 
