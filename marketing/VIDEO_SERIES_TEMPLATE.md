@@ -41,6 +41,16 @@
 - **分发**：发布时跑 `python marketing/share_kit.py TICKER` 出四平台文案，YouTube 描述用带 `utm_source=youtube` 的深链，X/小红书/TG 同步（见 [UTM_CONVENTION.md](UTM_CONVENTION.md)）
 - **归因**：每集 = 一个公司深链 + UTM，可在 Vercel Analytics 看该集带来的 landing → tg_click 转化
 
+## ⭐ 视频 + X 宣发绑定发布（每集必做，不再事后补）
+
+**制作新集时，在 `upload_youtube_ai.py` 的 `VIDEOS` 字典给该集加一条 `"hook_end": N.N`**（N=该集 Hook 场景的结束秒数，从对应的 `scenes_*.json` 里查）。
+
+之后 `python upload_youtube_ai.py <key>` 上传时会**自动**：
+1. 传 YouTube（合集/字幕/评论/TG推送，原有流程）
+2. **剪出 Hook 场景当 X 素材**，存到 `marketing/x_clips/{key}_hook_{N}s.mp4`（`make_x_clip()`，失败不阻塞主流程）
+
+我这边还要手动补的（自动化没覆盖）：**发布包 `publish_epXX_*.md`**（标题/推文文案/KOL借势话术），照 [publish_ep02_skhynix_weakspot.md](publish_ep02_skhynix_weakspot.md) 的格式写，跟视频脚本文档一起在发布当天产出——不要留到"以后补"。
+
 ---
 
 ## 四、选题优先级排序表

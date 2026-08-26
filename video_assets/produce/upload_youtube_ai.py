@@ -15,6 +15,7 @@ upload_youtube_ai.py — 上传 AI 产业链科普视频到 YouTube（ai_ecosyst
   python upload_youtube_ai.py --all              # 全部 4 个按顺序
 """
 import json
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -37,6 +38,7 @@ except Exception:
 
 BTC = Path(r"C:\Users\86135\Desktop\WorkSpace\btc")
 OUT = Path(__file__).resolve().parent / "out"
+X_CLIPS = Path(__file__).resolve().parents[2] / "marketing" / "x_clips"
 TOKEN_FILE = BTC / "youtube_token.json"
 PLAYLIST_FILE = BTC / "youtube_playlists.json"
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
@@ -51,6 +53,7 @@ DISCLAIMER = "⚠️ 内容仅供科普学习参考，不构成任何投资建�
 VIDEOS = {
     "chain_map": {
         "file": "AI产业链全景图谱_final.mp4",
+        "hook_end": 5.0,
         "srt": "AI产业链全景图谱.srt",
         "thumbnail": "封面_全景一图流.png",
         "title": "60秒看懂AI产业链全景：12个环节，从一块芯片到机器人与卫星",
@@ -76,6 +79,7 @@ VIDEOS = {
     },
     "cowos": {
         "file": "CoWoS_final.mp4",
+        "hook_end": 6.0,
         "srt": "CoWoS.srt",
         "thumbnail": None,
         "title": "为什么全世界都缺AI芯片？瓶颈其实是“怎么拼起来”| CoWoS封装科普",
@@ -98,6 +102,7 @@ VIDEOS = {
     },
     "osat": {
         "file": "OSAT_final.mp4",
+        "hook_end": 6.0,
         "srt": "OSAT.srt",
         "thumbnail": None,
         "title": "晶圆造好芯片就能用了？还差关键两步 | OSAT封装测试科普",
@@ -122,6 +127,7 @@ VIDEOS = {
     },
     "cpo": {
         "file": "CPO_final.mp4",
+        "hook_end": 6.0,
         "srt": "CPO.srt",
         "thumbnail": None,
         "title": "数据中心里，电信号要走“最贵的冤枉路”| CPO共封装光学科普",
@@ -146,6 +152,7 @@ VIDEOS = {
     },
     "ep01_nvda": {
         "file": "EP01_NVDA_final.mp4",
+        "hook_end": 13.0,
         "srt": "EP01_NVDA.srt",
         "thumbnail": None,
         "title": "全网都在吹英伟达，我讲它唯一的弱点 | 软肋系列EP01",
@@ -172,6 +179,7 @@ VIDEOS = {
     },
     "ep02_skhynix": {
         "file": "EP02_SKHYNIX_final.mp4",
+        "hook_end": 7.3,
         "srt": "EP02_SKHYNIX.srt",
         "thumbnail": None,
         "title": "六维模型说：AI产业链评分最高的不是英伟达 | 软肋系列EP02",
@@ -223,6 +231,32 @@ def build_pinned_comment(v):
         f"{SITE}/?{v['utm']}\n\n"
         f"想每天追更，Telegram 订阅：{TG}"
     )
+
+
+def make_x_clip(key, v):
+    """截 Hook 场景当 X 短视频素材——视频+X宣发绑在一起，不再靠事后手动补。
+    失败不影响主上传流程（X素材缺了可以补录，视频发布不能因为这个卡住）。"""
+    hook_end = v.get("hook_end")
+    if not hook_end:
+        return None
+    video_path = OUT / v["file"]
+    if not video_path.exists():
+        return None
+    X_CLIPS.mkdir(parents=True, exist_ok=True)
+    clip_path = X_CLIPS / f"{key}_hook_{hook_end:g}s.mp4"
+    cmd = [
+        "ffmpeg", "-y", "-v", "quiet", "-i", str(video_path),
+        "-t", str(hook_end),
+        "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+        "-c:a", "aac", "-b:a", "192k",
+        str(clip_path),
+    ]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0 or not clip_path.exists():
+        print(f"  [警告] X 素材剪辑失败: {r.stderr[-300:]}", file=sys.stderr)
+        return None
+    print(f"  已生成 X 素材: {clip_path}", file=sys.stderr)
+    return clip_path
 
 
 def authenticate():
@@ -315,6 +349,12 @@ def upload_one(service, key):
         notify_tg.send(v["title"], url, v["intro"][:80])
     except Exception as e:
         print(f"  [警告] TG 推送失败: {e}", file=sys.stderr)
+
+    # X 短视频素材（Hook场景剪辑）——每次上传自动生成，视频+X宣发绑在一起
+    try:
+        make_x_clip(key, v)
+    except Exception as e:
+        print(f"  [警告] X 素材生成失败: {e}", file=sys.stderr)
 
     return url
 
