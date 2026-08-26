@@ -14,6 +14,17 @@ git push origin main                          # 自动部署，无需手动
 - ❌ **不要用 `vercel --prod`**：开发者在中国区，vercel.com 的 CLI API 经常 TLS socket 断开（`vercel ls` / `vercel git connect` 随机失败）。部署走 GitHub→Vercel 服务端 webhook，绕过本地不稳定通道。
 - 规范域 `www.gmlabs.ai`（apex `gmlabs.ai` 308→www）。
 
+## `git fetch`/`push` 断线（`unexpected disconnect while reading sideband packet`）→ 已根治
+
+**根因**：remote 原来是 SSH 协议（`git@github.com:...`）。SSH 连接**不会走 `HTTP_PROXY`/`HTTPS_PROXY` 环境变量**（那两个只代理 HTTP(S) 流量），所以 git 的大数据量传输是直连裸奔，在中国区容易被中间打断；SSH 握手包小、耗时短，能扛住，看起来像"连得上又传不动"，容易误判成"网络抖动"随缘重试。
+
+**修复**（已在本仓库生效，一次性，不用每次重配）：
+```bash
+git remote set-url origin https://github.com/bngjly/gmlabs-ai.git   # SSH → HTTPS
+git config http.proxy http://127.0.0.1:7890                         # 走本地代理(仓库级配置,不影响其他repo)
+```
+HTTPS 走代理后传输稳定；Windows 凭据管理器已缓存 GitHub 认证，切换后无需重新登录。**遇到同类断线，先诊断是不是 SSH 裸奔的问题**（`ssh -vT git@github.com` 握手能通但 `git fetch` 传不动 = 这个坑），不要直接当成"网络不好"重试了事。
+
 ## `[skip ci]` 会让 Vercel 跳过部署
 
 Vercel 跳过 commit message 含 `[skip ci]` 的提交。
